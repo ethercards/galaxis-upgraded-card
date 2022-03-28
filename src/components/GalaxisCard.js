@@ -5,6 +5,7 @@ import CardBack from './CardBack.jsx';
 import TraitCard from './TraitCard.jsx';
 
 const GalaxisCard = (props) => {
+  const {metadata} = "";
   const [traitsVisible, setTraitsVisible] = useState(false);
   const [selectedTrait, setSelectedTrait] = useState({});
   const [showBackCard, setshowBackCard] = useState(false);
