@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <HashRouter>
-          <GalaxisCard/>
+          <GalaxisCard name="Teszt"/>
       </HashRouter>
     </>
   );
