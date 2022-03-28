@@ -4,8 +4,7 @@ import flip_icon from '../assets/images/flip-icon.svg';
 import CardBack from './CardBack.jsx';
 import TraitCard from './TraitCard.jsx';
 
-const GalaxisCard = (props) => {
-  const { metadata, traitTypes } = props;
+const GalaxisCard = ({metadata,traitTypes}) => {
   const [traitsVisible, setTraitsVisible] = useState(false);
   const [selectedTrait, setSelectedTrait] = useState({});
   const [showBackCard, setshowBackCard] = useState(false);
