@@ -158,6 +158,9 @@ var TraitCard = function TraitCard(_ref) {
 var GalaxisCard = function GalaxisCard(props) {
   var metadata = props.metadata;
 
+  var _useContext = useContext(Data),
+      traitTypes = _useContext.traitTypes;
+
   var _useState = useState(false),
       _useState2 = _slicedToArray(_useState, 2),
       traitsVisible = _useState2[0],
@@ -176,31 +179,37 @@ var GalaxisCard = function GalaxisCard(props) {
   var _useState7 = useState(false),
       _useState8 = _slicedToArray(_useState7, 2),
       showFlipIcon = _useState8[0],
-      setshowFlipIcon = _useState8[1]; // const [randomImages, setrandomImages] = useState([ARTARRAY[0]]);
+      setshowFlipIcon = _useState8[1];
+
+  var _useState9 = useState(traitTypes[0]),
+      _useState10 = _slicedToArray(_useState9, 2),
+      traitType = _useState10[0],
+      setTraitType = _useState10[1]; // const [randomImages, setrandomImages] = useState([ARTARRAY[0]]);
 
 
-  var _useState9 = useState(false),
-      _useState10 = _slicedToArray(_useState9, 2);
-      _useState10[0];
-      _useState10[1];
-
-  var _useState11 = useState(null),
+  var _useState11 = useState(false),
       _useState12 = _slicedToArray(_useState11, 2);
       _useState12[0];
       _useState12[1];
 
-  var _useState13 = useState(false),
-      _useState14 = _slicedToArray(_useState13, 2),
-      mobileView = _useState14[0],
-      setmobileView = _useState14[1];
+  var _useState13 = useState(null),
+      _useState14 = _slicedToArray(_useState13, 2);
+      _useState14[0];
+      _useState14[1];
 
-  var _useState15 = useState(true),
+  var _useState15 = useState(false),
       _useState16 = _slicedToArray(_useState15, 2),
-      loading = _useState16[0],
-      setLoading = _useState16[1];
+      mobileView = _useState16[0],
+      setmobileView = _useState16[1];
+
+  var _useState17 = useState(true),
+      _useState18 = _slicedToArray(_useState17, 2),
+      loading = _useState18[0],
+      setLoading = _useState18[1];
 
   var imageRef = useRef();
   var DEFAULTIMGWIDTH = 400;
+  var GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
 
   var showTraits = function showTraits() {
     setTraitsVisible(true);
@@ -218,13 +227,16 @@ var GalaxisCard = function GalaxisCard(props) {
       setmobileView(true);
     }
 
-    console.log(imageRef);
+    if (metadata.traits) {
+      setSelectedTrait(metadata.traits[0]);
+    }
   }, []);
 
   var calculateSize = function calculateSize(width, height) {
     return DEFAULTIMGWIDTH * (height / width);
   };
 
+  console.log(selectedTrait);
   return /*#__PURE__*/React.createElement(React.Fragment, null, loading && /*#__PURE__*/React.createElement(SpinnerCircular, {
     size: 100,
     color: "rgb(252, 108, 3)",
@@ -284,27 +296,30 @@ var GalaxisCard = function GalaxisCard(props) {
     }
   })), metadata.traits && /*#__PURE__*/React.createElement("div", {
     className: "trait-container ".concat(traitsVisible ? 'hide' : '')
-  }, metadata.traits.map(function (elem, index) {
-    return /*#__PURE__*/React.createElement("div", {
-      className: "trait-holder",
-      key: index,
-      onClick: function onClick() {
-        showTraits();
-        setSelectedTrait(metadata.traits[index]);
-      }
-    }, ' ', /*#__PURE__*/React.createElement("img", {
-      src: elem.icon_white,
-      alt: "undefined"
-    }), ' ');
+  }, metadata.traits.map(function (elem, metadataIndex) {
+    return traitTypes.map(function (traitElem, index) {
+      if (parseInt(elem.type) === traitElem.id) return /*#__PURE__*/React.createElement("div", {
+        className: "trait-holder",
+        key: index,
+        onClick: function onClick() {
+          setSelectedTrait(metadata.traits[metadataIndex]);
+          setTraitType(traitTypes[index]);
+          showTraits();
+        }
+      }, ' ', /*#__PURE__*/React.createElement("img", {
+        src: GALAXIS_BASE_URL + traitElem.icon_white,
+        alt: "undefined"
+      }), ' ');
+    });
   }))), metadata.traits && /*#__PURE__*/React.createElement("span", {
     className: "back ".concat(traitsVisible ? 'active' : '', " "),
     id: "trait-span"
   }, /*#__PURE__*/React.createElement(TraitCard, {
     trait: selectedTrait,
     onClick: hideTraits,
-    image: metadata.front_image
-  })) // !!!
-  , metadata.sides && metadata.sides.length > 1 && /*#__PURE__*/React.createElement("span", {
+    image: metadata.sides && metadata.sides.length > 1 ? metadata.sides[0].image : metadata.image,
+    traitImg: GALAXIS_BASE_URL + traitType.icon_white
+  })), metadata.sides && metadata.sides.length > 1 && /*#__PURE__*/React.createElement("span", {
     className: "back_card ".concat(showBackCard ? 'active' : '', " "),
     id: "back-span"
   }, /*#__PURE__*/React.createElement(CardBack, {
