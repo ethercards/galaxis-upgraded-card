@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import close from '../assets/images/white_close_4x.png';
 
 
-const TraitCard = ({ trait, onClick, image }) => {
+const TraitCard = ({ trait, onClick, image, traitImg }) => {
     return (
         <>
             <img
@@ -12,12 +12,12 @@ const TraitCard = ({ trait, onClick, image }) => {
                 onClick={() => onClick()}
             />
             <div className='trait-card-root'
-                style={{ backgroundImage: `url(${image})` }}
+                style={{ backgroundImage: `url(${image})` ,  }}
             >
                 <div className='trait-card-content' >
                     <div className='trait-card-content-holder' >
                         <div className='trait-card-trait-icon-holder'>
-                            <img src={trait.icon_white} alt=''  />
+                            <img src={traitImg} alt=''  />
                         </div>
                         <div className='trait-card-title-holder' >
                             <p className='trait-card-title'>{trait.name}</p>
@@ -32,5 +32,6 @@ const TraitCard = ({ trait, onClick, image }) => {
         </>
     );
 };
+
 
 export default TraitCard;

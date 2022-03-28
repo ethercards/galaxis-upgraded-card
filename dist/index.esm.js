@@ -122,7 +122,8 @@ var img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAA
 var TraitCard = function TraitCard(_ref) {
   var trait = _ref.trait,
       _onClick = _ref.onClick,
-      image = _ref.image;
+      image = _ref.image,
+      traitImg = _ref.traitImg;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("img", {
     className: "close-button",
     src: img,
@@ -142,7 +143,7 @@ var TraitCard = function TraitCard(_ref) {
   }, /*#__PURE__*/React.createElement("div", {
     className: "trait-card-trait-icon-holder"
   }, /*#__PURE__*/React.createElement("img", {
-    src: trait.icon_white,
+    src: traitImg,
     alt: ""
   })), /*#__PURE__*/React.createElement("div", {
     className: "trait-card-title-holder"
