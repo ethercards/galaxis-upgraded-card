@@ -3,6 +3,7 @@ import { SpinnerCircular } from 'spinners-react';
 import flip_icon from '../assets/images/flip-icon.svg';
 import CardBack from './CardBack.jsx';
 import TraitCard from './TraitCard.jsx';
+import './GalaxisCard.css'
 
 const GalaxisCard = ({metadata,traitTypes}) => {
   const [traitsVisible, setTraitsVisible] = useState(false);
