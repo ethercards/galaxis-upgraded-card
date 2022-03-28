@@ -164,10 +164,8 @@ var TraitCard = function TraitCard(_ref) {
 };
 
 var GalaxisCard = function GalaxisCard(props) {
-  var metadata = props.metadata;
-
-  var _useContext = useContext(Data),
-      traitTypes = _useContext.traitTypes;
+  var metadata = props.metadata,
+      traitTypes = props.traitTypes;
 
   var _useState = React.useState(false),
       _useState2 = _slicedToArray(_useState, 2),
