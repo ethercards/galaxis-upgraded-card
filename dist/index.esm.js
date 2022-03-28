@@ -156,6 +156,8 @@ var TraitCard = function TraitCard(_ref) {
 };
 
 var GalaxisCard = function GalaxisCard(props) {
+  var metadata = props.metadata;
+
   var _useState = useState(false),
       _useState2 = _slicedToArray(_useState, 2),
       traitsVisible = _useState2[0],
