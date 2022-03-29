@@ -5,7 +5,7 @@ import CardBack from './CardBack.jsx';
 import TraitCard from './TraitCard.jsx';
 import './GalaxisCard.css';
 
-const GalaxisCard = ({ metadata, traitTypes }) => {
+const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20 }) => {
   const [traitsVisible, setTraitsVisible] = useState(false);
   const [selectedTrait, setSelectedTrait] = useState({});
   const [showBackCard, setshowBackCard] = useState(false);
@@ -25,7 +25,7 @@ const GalaxisCard = ({ metadata, traitTypes }) => {
       setmobileView(true);
     }
     if (window.innerWidth < 410) {
-      setDefaultScopeWidth(window.innerWidth - 20);
+      setDefaultScopeWidth(window.innerWidth - horizontalPadding);
     }
     if (metadata.traits) {
       setSelectedTrait(metadata.traits[0]);

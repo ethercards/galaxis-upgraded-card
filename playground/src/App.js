@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <HashRouter>
-          {loaded && <GalaxisCard name="Teszt" metadata={metadata} traitTypes={null}/>}
+          {loaded && <GalaxisCard name="Teszt" metadata={metadata} traitTypes={null} horizontalPadding={20}/>}
       </HashRouter>
     </>
   );
