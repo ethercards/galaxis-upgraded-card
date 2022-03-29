@@ -3,9 +3,9 @@ import { SpinnerCircular } from 'spinners-react';
 import flip_icon from '../assets/images/flip-icon.svg';
 import CardBack from './CardBack.jsx';
 import TraitCard from './TraitCard.jsx';
-import './GalaxisCard.css'
+import './GalaxisCard.css';
 
-const GalaxisCard = ({metadata,traitTypes}) => {
+const GalaxisCard = ({ metadata, traitTypes }) => {
   const [traitsVisible, setTraitsVisible] = useState(false);
   const [selectedTrait, setSelectedTrait] = useState({});
   const [showBackCard, setshowBackCard] = useState(false);
@@ -17,7 +17,7 @@ const GalaxisCard = ({metadata,traitTypes}) => {
   const [mobileView, setmobileView] = useState(false);
   const [loading, setLoading] = useState(true);
   const imageRef = useRef();
-  const DEFAULTIMGWIDTH = 400;
+  let DEFAULT_SCOPE_WIDTH = 400;
   const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
   const showTraits = () => {
     setTraitsVisible(true);
@@ -35,15 +35,19 @@ const GalaxisCard = ({metadata,traitTypes}) => {
     if (window.innerWidth < 900) {
       setmobileView(true);
     }
+    if (window.innerWidth < 410) {
+      console.log('kisebbbbbbbbbbbbbb');
+      DEFAULT_SCOPE_WIDTH = 300;
+    }
     if (metadata.traits) {
       setSelectedTrait(metadata.traits[0]);
     }
   }, []);
 
   const calculateSize = (width, height) => {
-    return DEFAULTIMGWIDTH * (height / width);
+    return DEFAULT_SCOPE_WIDTH * (height / width);
   };
-  console.log(selectedTrait);
+
   return (
     <>
       {loading && (
@@ -61,132 +65,133 @@ const GalaxisCard = ({metadata,traitTypes}) => {
           secondaryColor={'white'}
         />
       )}
-      {
-        metadata &&  <div
-        className="card-image-container"
-        style={{ opacity: loading ? '0' : '1' }}
-      >
-        {/* <img src={trait_card} alt="" style={sx.image} /> */}
-        <div className="pyramid_anim_container">
-          <div
-            className={`scope ${traitsVisible ? 'active' : ''}  `}
-            id="scope"
-            onTransitionEnd={() => console.log('hello')}
-            onMouseOver={() => {
-              setshowFlipIcon(true);
-            }}
-            onMouseLeave={() => {
-              setshowFlipIcon(false);
-            }}
-          >
-            <span
-              className={`front ${!traitsVisible ? 'active' : ''} `}
-              id="front-span"
+      {metadata && (
+        <div
+          className="card-image-container"
+          style={{ opacity: loading ? '0' : '1' }}
+        >
+          {/* <img src={trait_card} alt="" style={sx.image} /> */}
+          <div className="pyramid_anim_container">
+            <div
+              className={`scope ${traitsVisible ? 'active' : ''}  `}
+              id="scope"
+              onTransitionEnd={() => console.log('hello')}
+              onMouseOver={() => {
+                setshowFlipIcon(true);
+              }}
+              onMouseLeave={() => {
+                setshowFlipIcon(false);
+              }}
             >
-              <img
-                className="flipped-img"
-                src={
-                  metadata.sides && metadata.sides.length > 1
-                    ? metadata.sides[0].image
-                    : metadata.image
-                }
-                alt="not found"
-                ref={imageRef}
-                onLoad={() => {
-                  document.getElementById(
-                    'scope'
-                  ).style.width = `${DEFAULTIMGWIDTH}px`;
-                  document.getElementById(
-                    'scope'
-                  ).style.height = `${calculateSize(
-                    imageRef.current.naturalWidth,
-                    imageRef.current.naturalHeight
-                  )}px`;
-                  setLoading(false);
-                }}
-              />
-              <div className="card-icons-holder">
-                {/* <img src={fullScreen} alt="" className='fullscreen-icon'
-                      style={{ display: showFlipIcon || mobileView ? 'block' : 'none' }}
-                      onClick={() => { setFullscreenSource(randomImage) }}
-                  /> */}
-                {metadata.sides && metadata.sides.length > 1 && (
-                  <img
-                    src={flip_icon}
-                    className="flip-icon"
-                    alt="not found"
-                    style={{
-                      display: showFlipIcon || mobileView ? 'block' : 'none',
-                    }}
-                    onClick={() => {
-                      showTraits();
-                      setshowBackCard(true);
-                    }}
-                  />
-                )}
-              </div>
-              {metadata.traits && traitTypes && (
-                <div
-                  className={`trait-container ${traitsVisible ? 'hide' : ''}`}
-                >
-                  {metadata.traits.map((elem, metadataIndex) => {
-                    return traitTypes.map((traitElem, index) => {
-                      if (parseInt(elem.type) === traitElem.id)
-                        return (
-                          <div
-                            className="trait-holder"
-                            key={index}
-                            onClick={() => {
-                              setSelectedTrait(metadata.traits[metadataIndex]);
-                              setTraitType(traitTypes[index]);
-                              showTraits();
-                            }}
-                          >
-                            {' '}
-                            <img
-                              src={GALAXIS_BASE_URL + traitElem.icon_white}
-                              alt="undefined"
-                            />{' '}
-                          </div>
-                        );
-                    });
-                  })}
-                </div>
-              )}
-            </span>
-            {metadata.traits && traitTypes &&(
               <span
-                className={`back ${traitsVisible ? 'active' : ''} `}
-                id="trait-span"
+                className={`front ${!traitsVisible ? 'active' : ''} `}
+                id="front-span"
               >
-                <TraitCard
-                  trait={selectedTrait}
-                  onClick={hideTraits}
-                  image={
+                <img
+                  className="flipped-img"
+                  src={
                     metadata.sides && metadata.sides.length > 1
                       ? metadata.sides[0].image
                       : metadata.image
                   }
-                  traitImg={GALAXIS_BASE_URL + traitType.icon_white}
+                  alt="not found"
+                  ref={imageRef}
+                  onLoad={() => {
+                    document.getElementById(
+                      'scope'
+                    ).style.width = `${DEFAULT_SCOPE_WIDTH}px`;
+                    document.getElementById(
+                      'scope'
+                    ).style.height = `${calculateSize(
+                      imageRef.current.naturalWidth,
+                      imageRef.current.naturalHeight
+                    )}px`;
+                    setLoading(false);
+                  }}
                 />
+                <div className="card-icons-holder">
+                  {/* <img src={fullScreen} alt="" className='fullscreen-icon'
+                      style={{ display: showFlipIcon || mobileView ? 'block' : 'none' }}
+                      onClick={() => { setFullscreenSource(randomImage) }}
+                  /> */}
+                  {metadata.sides && metadata.sides.length > 1 && (
+                    <img
+                      src={flip_icon}
+                      className="flip-icon"
+                      alt="not found"
+                      style={{
+                        display: showFlipIcon || mobileView ? 'block' : 'none',
+                      }}
+                      onClick={() => {
+                        showTraits();
+                        setshowBackCard(true);
+                      }}
+                    />
+                  )}
+                </div>
+                {metadata.traits && traitTypes && (
+                  <div
+                    className={`trait-container ${traitsVisible ? 'hide' : ''}`}
+                  >
+                    {metadata.traits.map((elem, metadataIndex) => {
+                      return traitTypes.map((traitElem, index) => {
+                        if (parseInt(elem.type) === traitElem.id)
+                          return (
+                            <div
+                              className="trait-holder"
+                              key={index}
+                              onClick={() => {
+                                setSelectedTrait(
+                                  metadata.traits[metadataIndex]
+                                );
+                                setTraitType(traitTypes[index]);
+                                showTraits();
+                              }}
+                            >
+                              {' '}
+                              <img
+                                src={GALAXIS_BASE_URL + traitElem.icon_white}
+                                alt="undefined"
+                              />{' '}
+                            </div>
+                          );
+                      });
+                    })}
+                  </div>
+                )}
               </span>
-            )}
-            {metadata.sides && metadata.sides.length > 1 && (
-              <span
-                className={`back_card ${showBackCard ? 'active' : ''} `}
-                id="back-span"
-              >
-                <CardBack
-                  onClick={hideTraits}
-                  backImage={metadata.sides[1].image}
-                />
-              </span>
-            )}
+              {metadata.traits && traitTypes && (
+                <span
+                  className={`back ${traitsVisible ? 'active' : ''} `}
+                  id="trait-span"
+                >
+                  <TraitCard
+                    trait={selectedTrait}
+                    onClick={hideTraits}
+                    image={
+                      metadata.sides && metadata.sides.length > 1
+                        ? metadata.sides[0].image
+                        : metadata.image
+                    }
+                    traitImg={GALAXIS_BASE_URL + traitType.icon_white}
+                  />
+                </span>
+              )}
+              {metadata.sides && metadata.sides.length > 1 && (
+                <span
+                  className={`back_card ${showBackCard ? 'active' : ''} `}
+                  id="back-span"
+                >
+                  <CardBack
+                    onClick={hideTraits}
+                    backImage={metadata.sides[1].image}
+                  />
+                </span>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      }
-     
+      )}
     </>
   );
 };

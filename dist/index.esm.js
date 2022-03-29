@@ -202,7 +202,7 @@ const GalaxisCard = _ref => {
   const [mobileView, setmobileView] = useState(false);
   const [loading, setLoading] = useState(true);
   const imageRef = useRef();
-  const DEFAULTIMGWIDTH = 400;
+  let DEFAULT_SCOPE_WIDTH = 400;
   const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
 
   const showTraits = () => {
@@ -221,16 +221,20 @@ const GalaxisCard = _ref => {
       setmobileView(true);
     }
 
+    if (window.innerWidth < 410) {
+      console.log('kisebbbbbbbbbbbbbb');
+      DEFAULT_SCOPE_WIDTH = 300;
+    }
+
     if (metadata.traits) {
       setSelectedTrait(metadata.traits[0]);
     }
   }, []);
 
   const calculateSize = (width, height) => {
-    return DEFAULTIMGWIDTH * (height / width);
+    return DEFAULT_SCOPE_WIDTH * (height / width);
   };
 
-  console.log(selectedTrait);
   return /*#__PURE__*/React.createElement(React.Fragment, null, loading && /*#__PURE__*/React.createElement(SpinnerCircular, {
     size: 100,
     color: "rgb(252, 108, 3)",
@@ -269,7 +273,7 @@ const GalaxisCard = _ref => {
     alt: "not found",
     ref: imageRef,
     onLoad: () => {
-      document.getElementById('scope').style.width = `${DEFAULTIMGWIDTH}px`;
+      document.getElementById('scope').style.width = `${DEFAULT_SCOPE_WIDTH}px`;
       document.getElementById('scope').style.height = `${calculateSize(imageRef.current.naturalWidth, imageRef.current.naturalHeight)}px`;
       setLoading(false);
     }
