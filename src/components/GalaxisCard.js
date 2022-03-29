@@ -125,7 +125,7 @@ const GalaxisCard = ({metadata,traitTypes}) => {
                   />
                 )}
               </div>
-              {metadata.traits && (
+              {metadata.traits && traitTypes && (
                 <div
                   className={`trait-container ${traitsVisible ? 'hide' : ''}`}
                 >
@@ -154,7 +154,7 @@ const GalaxisCard = ({metadata,traitTypes}) => {
                 </div>
               )}
             </span>
-            {metadata.traits && (
+            {metadata.traits && traitTypes &&(
               <span
                 className={`back ${traitsVisible ? 'active' : ''} `}
                 id="trait-span"

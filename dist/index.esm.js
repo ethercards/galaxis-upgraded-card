@@ -221,7 +221,7 @@ const GalaxisCard = _ref => {
       setmobileView(true);
     }
 
-    if (metadata && metadata.traits) {
+    if (metadata.traits) {
       setSelectedTrait(metadata.traits[0]);
     }
   }, []);
@@ -286,7 +286,7 @@ const GalaxisCard = _ref => {
       showTraits();
       setshowBackCard(true);
     }
-  })), metadata.traits && /*#__PURE__*/React.createElement("div", {
+  })), metadata.traits && traitTypes && /*#__PURE__*/React.createElement("div", {
     className: `trait-container ${traitsVisible ? 'hide' : ''}`
   }, metadata.traits.map((elem, metadataIndex) => {
     return traitTypes.map((traitElem, index) => {
@@ -303,7 +303,7 @@ const GalaxisCard = _ref => {
         alt: "undefined"
       }), ' ');
     });
-  }))), metadata.traits && /*#__PURE__*/React.createElement("span", {
+  }))), metadata.traits && traitTypes && /*#__PURE__*/React.createElement("span", {
     className: `back ${traitsVisible ? 'active' : ''} `,
     id: "trait-span"
   }, /*#__PURE__*/React.createElement(TraitCard, {

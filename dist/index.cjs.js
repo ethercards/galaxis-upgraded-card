@@ -294,7 +294,7 @@ const GalaxisCard = _ref => {
       showTraits();
       setshowBackCard(true);
     }
-  })), metadata.traits && /*#__PURE__*/React__default["default"].createElement("div", {
+  })), metadata.traits && traitTypes && /*#__PURE__*/React__default["default"].createElement("div", {
     className: `trait-container ${traitsVisible ? 'hide' : ''}`
   }, metadata.traits.map((elem, metadataIndex) => {
     return traitTypes.map((traitElem, index) => {
@@ -311,7 +311,7 @@ const GalaxisCard = _ref => {
         alt: "undefined"
       }), ' ');
     });
-  }))), metadata.traits && /*#__PURE__*/React__default["default"].createElement("span", {
+  }))), metadata.traits && traitTypes && /*#__PURE__*/React__default["default"].createElement("span", {
     className: `back ${traitsVisible ? 'active' : ''} `,
     id: "trait-span"
   }, /*#__PURE__*/React__default["default"].createElement(TraitCard, {
