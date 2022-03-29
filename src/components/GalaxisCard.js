@@ -10,7 +10,7 @@ const GalaxisCard = ({metadata,traitTypes}) => {
   const [selectedTrait, setSelectedTrait] = useState({});
   const [showBackCard, setshowBackCard] = useState(false);
   const [showFlipIcon, setshowFlipIcon] = useState(false);
-  const [traitType, setTraitType] = useState(traitTypes[0]);
+  const [traitType, setTraitType] = useState(traitTypes ? traitTypes[0] : null);
   // const [randomImages, setrandomImages] = useState([ARTARRAY[0]]);
   const [open, setOpen] = useState(false);
   const [fullscreenSrc, setFullscreenSrc] = useState(null);
@@ -61,7 +61,8 @@ const GalaxisCard = ({metadata,traitTypes}) => {
           secondaryColor={'white'}
         />
       )}
-      <div
+      {
+        metadata &&  <div
         className="card-image-container"
         style={{ opacity: loading ? '0' : '1' }}
       >
@@ -184,6 +185,8 @@ const GalaxisCard = ({metadata,traitTypes}) => {
           </div>
         </div>
       </div>
+      }
+     
     </>
   );
 };
