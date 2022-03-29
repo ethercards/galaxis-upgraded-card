@@ -5,7 +5,7 @@ import CardBack from './CardBack.jsx';
 import TraitCard from './TraitCard.jsx';
 import './GalaxisCard.css';
 
-const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20 }) => {
+const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContainerWidth = null }) => {
   const [traitsVisible, setTraitsVisible] = useState(false);
   const [selectedTrait, setSelectedTrait] = useState({});
   const [showBackCard, setshowBackCard] = useState(false);
@@ -17,7 +17,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20 }) => {
   const [mobileView, setmobileView] = useState(false);
   const [loading, setLoading] = useState(true);
   const imageRef = useRef();
-  const [defaultScopeWidth, setDefaultScopeWidth] = useState(400);
+  const [defaultScopeWidth, setDefaultScopeWidth] = useState(imageContainerWidth ? imageContainerWidth : 400);
   const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
 
   useEffect(() => {
