@@ -17,8 +17,21 @@ const GalaxisCard = ({ metadata, traitTypes }) => {
   const [mobileView, setmobileView] = useState(false);
   const [loading, setLoading] = useState(true);
   const imageRef = useRef();
-  let DEFAULT_SCOPE_WIDTH = 400;
+  const [defaultScopeWidth, setDefaultScopeWidth] = useState(400);
   const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
+
+  useEffect(() => {
+    if (window.innerWidth < 900) {
+      setmobileView(true);
+    }
+    if (window.innerWidth < 410) {
+      setDefaultScopeWidth(window.innerWidth - 20);
+    }
+    if (metadata.traits) {
+      setSelectedTrait(metadata.traits[0]);
+    }
+  }, []);
+
   const showTraits = () => {
     setTraitsVisible(true);
     document.getElementById('scope').style.transform =
@@ -31,21 +44,10 @@ const GalaxisCard = ({ metadata, traitTypes }) => {
       'perspective(1000px) rotateY(0deg)';
   };
 
-  useEffect(() => {
-    if (window.innerWidth < 900) {
-      setmobileView(true);
-    }
-    if (window.innerWidth < 410) {
-      console.log('kisebbbbbbbbbbbbbb');
-      DEFAULT_SCOPE_WIDTH = 300;
-    }
-    if (metadata.traits) {
-      setSelectedTrait(metadata.traits[0]);
-    }
-  }, []);
+  
 
   const calculateSize = (width, height) => {
-    return DEFAULT_SCOPE_WIDTH * (height / width);
+    return defaultScopeWidth * (height / width);
   };
 
   return (
@@ -99,7 +101,7 @@ const GalaxisCard = ({ metadata, traitTypes }) => {
                   onLoad={() => {
                     document.getElementById(
                       'scope'
-                    ).style.width = `${DEFAULT_SCOPE_WIDTH}px`;
+                    ).style.width = `${defaultScopeWidth}px`;
                     document.getElementById(
                       'scope'
                     ).style.height = `${calculateSize(
