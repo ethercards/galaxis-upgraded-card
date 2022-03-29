@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <HashRouter>
-          {loaded && <GalaxisCard name="Teszt" metadata={metadata} traitTypes={null} horizontalPadding={20} imageContainerWidth={500}/>}
+          {loaded && <GalaxisCard name="Teszt" metadata={metadata} traitTypes={null} horizontalPadding={20} imageContainerWidth={400}/>}
       </HashRouter>
     </>
   );

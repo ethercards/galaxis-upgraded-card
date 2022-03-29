@@ -204,7 +204,7 @@ const GalaxisCard = _ref => {
   const [mobileView, setmobileView] = useState(false);
   const [loading, setLoading] = useState(true);
   const imageRef = useRef();
-  const [defaultScopeWidth, setDefaultScopeWidth] = useState(imageContainerWidth ? imageContainerWidth : 400);
+  const [defaultScopeWidth, setDefaultScopeWidth] = useState(imageContainerWidth ? imageContainerWidth - horizontalPadding : 400);
   const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
   useEffect(() => {
     if (window.innerWidth < 900) {
