@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { SpinnerCircular } from 'spinners-react';
 
-var img$1 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3e %3cg id='Group_1817' data-name='Group 1817' transform='translate(-912 -5536)'%3e %3cg id='Group_1814' data-name='Group 1814' transform='translate(912 5535.843)' opacity='0.4'%3e %3crect id='Rectangle_370' data-name='Rectangle 370' width='70' height='70' rx='7' transform='translate(0 0.157)'/%3e %3cg id='physical_redeem' data-name='physical redeem' transform='translate(18.543 14.423)'%3e %3cpath id='Path_211' data-name='Path 211' d='M120.119%2c77c2.377%2c1.414%2c4.765%2c2.828%2c7.142%2c4.243q4.706%2c2.8%2c9.436%2c5.574a1.175%2c1.175%2c0%2c0%2c1%2c.642%2c1.129q-.018%2c9.572%2c0%2c19.133a1.135%2c1.135%2c0%2c0%2c1-.618%2c1.093q-8.093%2c4.759-16.186%2c9.567a1.162%2c1.162%2c0%2c0%2c1-1.331%2c0q-8.075-4.8-16.186-9.567a1.1%2c1.1%2c0%2c0%2c1-.618-1.058q.018-9.626%2c0-19.252a1.033%2c1.033%2c0%2c0%2c1%2c.547-.986q8.325-4.9%2c16.637-9.816a.119.119%2c0%2c0%2c0%2c.048-.059Zm4.813%2c18.408c-.166.1-.285.143-.392.214-1.188.7-2.365%2c1.4-3.553%2c2.092a.631.631%2c0%2c0%2c0-.368.63c.012%2c3.839.012%2c7.689.012%2c11.527v.357c-.012.594-.3.927-.761.927s-.725-.333-.749-.9v-.357c0-3.838%2c0-7.689.012-11.527a.656.656%2c0%2c0%2c0-.38-.654q-6.542-3.85-13.084-7.725c-.642-.38-.82-.761-.57-1.2s.7-.475%2c1.319-.107q6.56%2c3.868%2c13.12%2c7.76a.571.571%2c0%2c0%2c0%2c.677%2c0c1.2-.725%2c2.412-1.426%2c3.613-2.139.107-.059.2-.143.345-.226-.119-.071-.19-.131-.273-.178q-7.309-4.332-14.629-8.651a.446.446%2c0%2c0%2c0-.535%2c0c-1.474.879-2.959%2c1.759-4.445%2c2.626a.615.615%2c0%2c0%2c0-.357.63q.018%2c9.02%2c0%2c18.052a.642.642%2c0%2c0%2c0%2c.357.63q7.2%2c4.243%2c14.391%2c8.5c.119.071.238.143.416.238.012-.2.024-.321.024-.452%2c0-.63-.012-1.26%2c0-1.878.012-.547.3-.844.749-.844s.737.309.749.844c.012.654%2c0%2c1.307.012%2c1.961%2c0%2c.107.024.214.036.368a1.7%2c1.7%2c0%2c0%2c0%2c.226-.119q7.326-4.332%2c14.677-8.663a.48.48%2c0%2c0%2c0%2c.25-.487V89.359c0-.1-.024-.19-.036-.333-1.224.725-2.4%2c1.426-3.589%2c2.115a.536.536%2c0%2c0%2c0-.309.535c.012%2c1.961%2c0%2c3.922.012%2c5.883a.916.916%2c0%2c0%2c1-.487.891c-1.747%2c1.022-3.494%2c2.068-5.241%2c3.09a.769.769%2c0%2c0%2c1-1.236-.665%2c2.889%2c2.889%2c0%2c0%2c1%2c0-.321v-4.6C124.932%2c95.753%2c124.932%2c95.61%2c124.932%2c95.408Zm10.113-7.784a2.963%2c2.963%2c0%2c0%2c0-.285-.19q-7.291-4.314-14.593-8.628a.5.5%2c0%2c0%2c0-.582%2c0c-1.129.677-2.27%2c1.343-3.411%2c2.02-.071.048-.143.1-.238.155.309.178.57.333.832.5l4.884%2c2.888a.772.772%2c0%2c0%2c1%2c.38%2c1.105c-.226.392-.665.463-1.153.2-.083-.048-.166-.1-.238-.143-1.961-1.165-3.922-2.317-5.883-3.482a.553.553%2c0%2c0%2c0-.677.012c-1.022.63-2.056%2c1.224-3.09%2c1.842-.155.1-.3.178-.487.3.107.071.154.107.214.143q7.362%2c4.349%2c14.736%2c8.711a.41.41%2c0%2c0%2c0%2c.5-.012l3.066-1.818c.19-.107.38-.226.606-.368-.178-.107-.3-.19-.428-.261-1.878-1.117-3.767-2.222-5.645-3.339-.606-.357-.784-.749-.535-1.188s.713-.475%2c1.331-.119c2.175%2c1.283%2c4.338%2c2.555%2c6.5%2c3.85a.464.464%2c0%2c0%2c0%2c.57%2c0c1.105-.666%2c2.222-1.319%2c3.339-1.985A1.693%2c1.693%2c0%2c0%2c0%2c135.045%2c87.624Zm-4.67%2c4.552c-1.307.772-2.531%2c1.485-3.755%2c2.234a.545.545%2c0%2c0%2c0-.166.392c-.012%2c1.462-.012%2c2.935%2c0%2c4.4%2c0%2c.1.024.19.036.333.951-.559%2c1.83-1.165%2c2.769-1.616a1.716%2c1.716%2c0%2c0%2c0%2c1.129-1.961C130.291%2c94.731%2c130.375%2c93.495%2c130.375%2c92.176Z' transform='translate(-102.4 -77)'/%3e %3cpath id='Path_212' data-name='Path 212' d='M128.161%2c290.158c0-.475-.012-.963%2c0-1.438a.756.756%2c0%2c1%2c1%2c1.509-.059q.036%2c1.515%2c0%2c3.03a.743.743%2c0%2c0%2c1-.784.737.755.755%2c0%2c0%2c1-.713-.808C128.149%2c291.144%2c128.161%2c290.645%2c128.161%2c290.158Z' transform='translate(-125.095 -262.837)'/%3e %3cpath id='Path_213' data-name='Path 213' d='M153.661%2c302.937c0-.475-.012-.963%2c0-1.438a.75.75%2c0%2c1%2c1%2c1.5-.048q.036%2c1.5%2c0%2c2.995a.758.758%2c0%2c0%2c1-.784.772.767.767%2c0%2c0%2c1-.713-.844Z' transform='translate(-147.564 -274.106)'/%3e %3c/g%3e %3c/g%3e %3cg id='flip_02' data-name='flip 02' transform='translate(845.179 5473.328)'%3e %3cpath id='Path_225' data-name='Path 225' d='M92.524%2c117.689a7.86%2c7.86%2c0%2c0%2c1-1.044-.333%2c3.738%2c3.738%2c0%2c0%2c1-2.408-3.594c-.024-3.7-.012-5.557-.012-9.254v-.551H85.124a4.029%2c4.029%2c0%2c0%2c1-2.443-.769%2c3.692%2c3.692%2c0%2c0%2c1-1.613-3.02c-.024-1.78-.024-3.548%2c0-5.327a3.909%2c3.909%2c0%2c0%2c1%2c3.89-3.766c1.34-.023%2c2.692%2c0%2c4.1%2c0V81.822A3.937%2c3.937%2c0%2c0%2c1%2c93.307%2c77.7H108.8a3.937%2c3.937%2c0%2c0%2c1%2c4.246%2c4.122V96.23h.949a37.19%2c37.19%2c0%2c0%2c1%2c3.76.092%2c3.767%2c3.767%2c0%2c0%2c1%2c3.273%2c3.639c.036%2c1.8.036%2c3.605%2c0%2c5.419a3.908%2c3.908%2c0%2c0%2c1-3.866%2c3.743c-1.2.023-2.4.011-3.593.011h-.522V113.6a3.885%2c3.885%2c0%2c0%2c1-3.344%2c4.041.375.375%2c0%2c0%2c0-.119.057Q101.04%2c117.683%2c92.524%2c117.689ZM91.73%2c98.825V113.6a1.355%2c1.355%2c0%2c0%2c0%2c1.554%2c1.5H108.82c1.044%2c0%2c1.554-.494%2c1.565-1.493V109.56c0-.138-.012-.276-.024-.436h-3.843a1.317%2c1.317%2c0%2c0%2c1-1.459-1.378c0-1.665-.012-3.318%2c0-4.983a1.3%2c1.3%2c0%2c0%2c1%2c1.423-1.366c1.139-.011%2c2.277%2c0%2c3.416%2c0h.486V81.684a1.323%2c1.323%2c0%2c0%2c0-1.471-1.412H93.283a1.355%2c1.355%2c0%2c0%2c0-1.554%2c1.5v9.265H94.4V89.87a1.261%2c1.261%2c0%2c0%2c1%2c.688-1.217%2c1.346%2c1.346%2c0%2c0%2c1%2c1.459.092q3.932%2c2.532%2c7.863%2c5.075a1.254%2c1.254%2c0%2c0%2c1%2c0%2c2.216c-2.621%2c1.711-5.266%2c3.4-7.9%2c5.1a1.317%2c1.317%2c0%2c0%2c1-1.388.092%2c1.268%2c1.268%2c0%2c0%2c1-.723-1.194V98.825Zm4.756-.861s3.392-2.113%2c4.815-3.031c-1.447-.93-4.815-3.111-4.815-3.111l-.024%2c1.791-1.079.034H85.219c-.771%2c0-1.34.356-1.435%2c1.01a11.039%2c11.039%2c0%2c0%2c0-.012%2c1.653c.854-.034%2c1.672-.08%2c2.491-.092%2c3.06-.011%2c9.191%2c0%2c9.191%2c0l1.008-.011Zm11.231%2c8.519c.047.034.059.057.071.057%2c3.107%2c0%2c6.215.011%2c9.322%2c0a1.181%2c1.181%2c0%2c0%2c0%2c1.2-.976%2c11.648%2c11.648%2c0%2c0%2c0%2c.012-1.7c-.759.034-1.494.092-2.23.092-2.633.011-5.266%2c0-7.9%2c0h-.474Zm5.337-5.1c1.388%2c0%2c2.74.023%2c4.092-.011a1.276%2c1.276%2c0%2c0%2c0%2c1.21-1.263%2c1.241%2c1.241%2c0%2c0%2c0-1.139-1.274c-1.388-.046-2.763-.011-4.175-.011C113.054%2c99.675%2c113.054%2c100.5%2c113.054%2c101.385ZM89.038%2c98.814h-3.9a1.306%2c1.306%2c0%2c0%2c0-1.4%2c1.3%2c1.323%2c1.323%2c0%2c0%2c0%2c1.423%2c1.274c1.2.011%2c2.4%2c0%2c3.594%2c0a2.4%2c2.4%2c0%2c0%2c0%2c.285-.034Z' fill='%23fcfcfc'/%3e %3c/g%3e %3c/g%3e%3c/svg%3e";
-
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
@@ -61,6 +59,8 @@ function _arrayLikeToArray(arr, len) {
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
+
+var img$1 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3e %3cg id='Group_1817' data-name='Group 1817' transform='translate(-912 -5536)'%3e %3cg id='Group_1814' data-name='Group 1814' transform='translate(912 5535.843)' opacity='0.4'%3e %3crect id='Rectangle_370' data-name='Rectangle 370' width='70' height='70' rx='7' transform='translate(0 0.157)'/%3e %3cg id='physical_redeem' data-name='physical redeem' transform='translate(18.543 14.423)'%3e %3cpath id='Path_211' data-name='Path 211' d='M120.119%2c77c2.377%2c1.414%2c4.765%2c2.828%2c7.142%2c4.243q4.706%2c2.8%2c9.436%2c5.574a1.175%2c1.175%2c0%2c0%2c1%2c.642%2c1.129q-.018%2c9.572%2c0%2c19.133a1.135%2c1.135%2c0%2c0%2c1-.618%2c1.093q-8.093%2c4.759-16.186%2c9.567a1.162%2c1.162%2c0%2c0%2c1-1.331%2c0q-8.075-4.8-16.186-9.567a1.1%2c1.1%2c0%2c0%2c1-.618-1.058q.018-9.626%2c0-19.252a1.033%2c1.033%2c0%2c0%2c1%2c.547-.986q8.325-4.9%2c16.637-9.816a.119.119%2c0%2c0%2c0%2c.048-.059Zm4.813%2c18.408c-.166.1-.285.143-.392.214-1.188.7-2.365%2c1.4-3.553%2c2.092a.631.631%2c0%2c0%2c0-.368.63c.012%2c3.839.012%2c7.689.012%2c11.527v.357c-.012.594-.3.927-.761.927s-.725-.333-.749-.9v-.357c0-3.838%2c0-7.689.012-11.527a.656.656%2c0%2c0%2c0-.38-.654q-6.542-3.85-13.084-7.725c-.642-.38-.82-.761-.57-1.2s.7-.475%2c1.319-.107q6.56%2c3.868%2c13.12%2c7.76a.571.571%2c0%2c0%2c0%2c.677%2c0c1.2-.725%2c2.412-1.426%2c3.613-2.139.107-.059.2-.143.345-.226-.119-.071-.19-.131-.273-.178q-7.309-4.332-14.629-8.651a.446.446%2c0%2c0%2c0-.535%2c0c-1.474.879-2.959%2c1.759-4.445%2c2.626a.615.615%2c0%2c0%2c0-.357.63q.018%2c9.02%2c0%2c18.052a.642.642%2c0%2c0%2c0%2c.357.63q7.2%2c4.243%2c14.391%2c8.5c.119.071.238.143.416.238.012-.2.024-.321.024-.452%2c0-.63-.012-1.26%2c0-1.878.012-.547.3-.844.749-.844s.737.309.749.844c.012.654%2c0%2c1.307.012%2c1.961%2c0%2c.107.024.214.036.368a1.7%2c1.7%2c0%2c0%2c0%2c.226-.119q7.326-4.332%2c14.677-8.663a.48.48%2c0%2c0%2c0%2c.25-.487V89.359c0-.1-.024-.19-.036-.333-1.224.725-2.4%2c1.426-3.589%2c2.115a.536.536%2c0%2c0%2c0-.309.535c.012%2c1.961%2c0%2c3.922.012%2c5.883a.916.916%2c0%2c0%2c1-.487.891c-1.747%2c1.022-3.494%2c2.068-5.241%2c3.09a.769.769%2c0%2c0%2c1-1.236-.665%2c2.889%2c2.889%2c0%2c0%2c1%2c0-.321v-4.6C124.932%2c95.753%2c124.932%2c95.61%2c124.932%2c95.408Zm10.113-7.784a2.963%2c2.963%2c0%2c0%2c0-.285-.19q-7.291-4.314-14.593-8.628a.5.5%2c0%2c0%2c0-.582%2c0c-1.129.677-2.27%2c1.343-3.411%2c2.02-.071.048-.143.1-.238.155.309.178.57.333.832.5l4.884%2c2.888a.772.772%2c0%2c0%2c1%2c.38%2c1.105c-.226.392-.665.463-1.153.2-.083-.048-.166-.1-.238-.143-1.961-1.165-3.922-2.317-5.883-3.482a.553.553%2c0%2c0%2c0-.677.012c-1.022.63-2.056%2c1.224-3.09%2c1.842-.155.1-.3.178-.487.3.107.071.154.107.214.143q7.362%2c4.349%2c14.736%2c8.711a.41.41%2c0%2c0%2c0%2c.5-.012l3.066-1.818c.19-.107.38-.226.606-.368-.178-.107-.3-.19-.428-.261-1.878-1.117-3.767-2.222-5.645-3.339-.606-.357-.784-.749-.535-1.188s.713-.475%2c1.331-.119c2.175%2c1.283%2c4.338%2c2.555%2c6.5%2c3.85a.464.464%2c0%2c0%2c0%2c.57%2c0c1.105-.666%2c2.222-1.319%2c3.339-1.985A1.693%2c1.693%2c0%2c0%2c0%2c135.045%2c87.624Zm-4.67%2c4.552c-1.307.772-2.531%2c1.485-3.755%2c2.234a.545.545%2c0%2c0%2c0-.166.392c-.012%2c1.462-.012%2c2.935%2c0%2c4.4%2c0%2c.1.024.19.036.333.951-.559%2c1.83-1.165%2c2.769-1.616a1.716%2c1.716%2c0%2c0%2c0%2c1.129-1.961C130.291%2c94.731%2c130.375%2c93.495%2c130.375%2c92.176Z' transform='translate(-102.4 -77)'/%3e %3cpath id='Path_212' data-name='Path 212' d='M128.161%2c290.158c0-.475-.012-.963%2c0-1.438a.756.756%2c0%2c1%2c1%2c1.509-.059q.036%2c1.515%2c0%2c3.03a.743.743%2c0%2c0%2c1-.784.737.755.755%2c0%2c0%2c1-.713-.808C128.149%2c291.144%2c128.161%2c290.645%2c128.161%2c290.158Z' transform='translate(-125.095 -262.837)'/%3e %3cpath id='Path_213' data-name='Path 213' d='M153.661%2c302.937c0-.475-.012-.963%2c0-1.438a.75.75%2c0%2c1%2c1%2c1.5-.048q.036%2c1.5%2c0%2c2.995a.758.758%2c0%2c0%2c1-.784.772.767.767%2c0%2c0%2c1-.713-.844Z' transform='translate(-147.564 -274.106)'/%3e %3c/g%3e %3c/g%3e %3cg id='flip_02' data-name='flip 02' transform='translate(845.179 5473.328)'%3e %3cpath id='Path_225' data-name='Path 225' d='M92.524%2c117.689a7.86%2c7.86%2c0%2c0%2c1-1.044-.333%2c3.738%2c3.738%2c0%2c0%2c1-2.408-3.594c-.024-3.7-.012-5.557-.012-9.254v-.551H85.124a4.029%2c4.029%2c0%2c0%2c1-2.443-.769%2c3.692%2c3.692%2c0%2c0%2c1-1.613-3.02c-.024-1.78-.024-3.548%2c0-5.327a3.909%2c3.909%2c0%2c0%2c1%2c3.89-3.766c1.34-.023%2c2.692%2c0%2c4.1%2c0V81.822A3.937%2c3.937%2c0%2c0%2c1%2c93.307%2c77.7H108.8a3.937%2c3.937%2c0%2c0%2c1%2c4.246%2c4.122V96.23h.949a37.19%2c37.19%2c0%2c0%2c1%2c3.76.092%2c3.767%2c3.767%2c0%2c0%2c1%2c3.273%2c3.639c.036%2c1.8.036%2c3.605%2c0%2c5.419a3.908%2c3.908%2c0%2c0%2c1-3.866%2c3.743c-1.2.023-2.4.011-3.593.011h-.522V113.6a3.885%2c3.885%2c0%2c0%2c1-3.344%2c4.041.375.375%2c0%2c0%2c0-.119.057Q101.04%2c117.683%2c92.524%2c117.689ZM91.73%2c98.825V113.6a1.355%2c1.355%2c0%2c0%2c0%2c1.554%2c1.5H108.82c1.044%2c0%2c1.554-.494%2c1.565-1.493V109.56c0-.138-.012-.276-.024-.436h-3.843a1.317%2c1.317%2c0%2c0%2c1-1.459-1.378c0-1.665-.012-3.318%2c0-4.983a1.3%2c1.3%2c0%2c0%2c1%2c1.423-1.366c1.139-.011%2c2.277%2c0%2c3.416%2c0h.486V81.684a1.323%2c1.323%2c0%2c0%2c0-1.471-1.412H93.283a1.355%2c1.355%2c0%2c0%2c0-1.554%2c1.5v9.265H94.4V89.87a1.261%2c1.261%2c0%2c0%2c1%2c.688-1.217%2c1.346%2c1.346%2c0%2c0%2c1%2c1.459.092q3.932%2c2.532%2c7.863%2c5.075a1.254%2c1.254%2c0%2c0%2c1%2c0%2c2.216c-2.621%2c1.711-5.266%2c3.4-7.9%2c5.1a1.317%2c1.317%2c0%2c0%2c1-1.388.092%2c1.268%2c1.268%2c0%2c0%2c1-.723-1.194V98.825Zm4.756-.861s3.392-2.113%2c4.815-3.031c-1.447-.93-4.815-3.111-4.815-3.111l-.024%2c1.791-1.079.034H85.219c-.771%2c0-1.34.356-1.435%2c1.01a11.039%2c11.039%2c0%2c0%2c0-.012%2c1.653c.854-.034%2c1.672-.08%2c2.491-.092%2c3.06-.011%2c9.191%2c0%2c9.191%2c0l1.008-.011Zm11.231%2c8.519c.047.034.059.057.071.057%2c3.107%2c0%2c6.215.011%2c9.322%2c0a1.181%2c1.181%2c0%2c0%2c0%2c1.2-.976%2c11.648%2c11.648%2c0%2c0%2c0%2c.012-1.7c-.759.034-1.494.092-2.23.092-2.633.011-5.266%2c0-7.9%2c0h-.474Zm5.337-5.1c1.388%2c0%2c2.74.023%2c4.092-.011a1.276%2c1.276%2c0%2c0%2c0%2c1.21-1.263%2c1.241%2c1.241%2c0%2c0%2c0-1.139-1.274c-1.388-.046-2.763-.011-4.175-.011C113.054%2c99.675%2c113.054%2c100.5%2c113.054%2c101.385ZM89.038%2c98.814h-3.9a1.306%2c1.306%2c0%2c0%2c0-1.4%2c1.3%2c1.323%2c1.323%2c0%2c0%2c0%2c1.423%2c1.274c1.2.011%2c2.4%2c0%2c3.594%2c0a2.4%2c2.4%2c0%2c0%2c0%2c.285-.034Z' fill='%23fcfcfc'/%3e %3c/g%3e %3c/g%3e%3c/svg%3e";
 
 var CardBack = function CardBack(_ref) {
   var backImage = _ref.backImage,
@@ -183,30 +183,72 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = ".card-image-container{\r\n  position: relative;\r\n  /* min-height: 500px; */\r\n  margin: auto;\r\n}\r\n\r\n\r\n.pyramid_anim_container {\r\n  z-index: 2;\r\n  box-sizing: border-box;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 10px;\r\n}\r\n\r\n.scope span {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  transform-origin: center;\r\n  transform-style: preserve-3d;\r\n}\r\n.scope span:first-child {\r\n  transform: rotateY(calc(00deg)) translateZ(1px) rotateX(0deg);\r\n}\r\n.scope span:nth-child(2) {\r\n  transform: rotateY(calc(0deg)) translateZ(0px) rotateX(0deg);\r\n}\r\n\r\n.scope {\r\n  position: relative;\r\n  transform-style: preserve-3d;\r\n  animation: slid 5s linear infinite;\r\n  border-radius: 12px;\r\n  transition: 1.5s all;\r\n  padding: 10px;\r\n  /* box-shadow: 0px 55px 88px 0px rgba(0,0,0,0.42); */\r\n}\r\n.scope span {\r\n  overflow: hidden;\r\n  border-radius: 12px;\r\n}\r\n.front.active::after{\r\n  content: \"\";\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  top: 0;\r\n  left: 100%;\r\n  display: block;\r\n  background: linear-gradient(112deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\r\n  background-position-x: 0;\r\n  background-repeat: no-repeat;\r\n  transition: all .35s ease-in-out;\r\n  pointer-events: none;\r\n  z-index: 2;\r\n  animation: shiningEffect1 2s ease-in-out normal ;\r\n}\r\n.back.active::after{\r\n  content: \"\";\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  top: 0;\r\n  right: 100%;\r\n  display: block;\r\n  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\r\n  background-position-x: 0;\r\n  background-repeat: no-repeat;\r\n  transition: all .35s ease-in-out;\r\n  pointer-events: none;\r\n  z-index: 2;\r\n  animation: shiningEffect2 2s ease-in-out normal ;\r\n}\r\n\r\n.badge-img{\r\n  position: absolute;\r\n  width: 75px;\r\n  height: 75px;\r\n  bottom: 15px;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  left: 0;\r\n  right: 0;\r\n  cursor: pointer;\r\n}\r\n.flip-icon {\r\n  /* position: absolute; */\r\n  width: 40px;\r\n  height: 40px;\r\n  /* margin-top: auto;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  margin-bottom: auto;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;*/\r\n  cursor: pointer; \r\n}\r\n.fullscreen-icon{\r\n  /* position: absolute; */\r\n  width: 40px;\r\n  height: 40px;\r\n  margin-right: 10px;\r\n  /* margin-top: auto;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  margin-bottom: auto;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0; */\r\n  cursor: pointer;\r\n}\r\n.back_card{\r\n  animation: hideBack 2s ease-in-out normal;\r\n  transition: all 1s;\r\n  visibility: hidden;\r\n  border-radius: 12px;\r\n}\r\n.back_card.active{\r\n  visibility: visible;\r\n}\r\n.card-back-root {\r\n  height: 100%;\r\n  transform: rotateY(180deg);\r\n  border-radius: 12px;\r\n  background-position: center center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  -webkit-box-pack: end;\r\n  justify-content: flex-end;\r\n  position: relative;\r\n}\r\n.card-icons-holder{\r\n  position: absolute;\r\n  inset: 0px;\r\n  margin: auto;\r\n  width: 100%;\r\n  max-height: 40px;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  justify-content: center;\r\n}\r\n.trait-container {\r\n  position: absolute;\r\n  display: flex;\r\n  -webkit-flex-direction: column;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n  gap: 5px;\r\n  top: 10px;\r\n  right: 10px;\r\n}\r\n.trait-holder{\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 8px;\r\n  background-color: black;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  cursor: pointer;\r\n}\r\n.trait-holder:hover {\r\n  background-color: #fc6405;\r\n}\r\n.trait-holder img{\r\n  width: 30px;\r\n  height: 25px;\r\n}\r\n.trait-card-root{\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 12px;\r\n  transform: rotateY(180deg);\r\n  -webkit-background-position: center;\r\n  background-position: center;\r\n  -webkit-background-size: cover;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n}\r\n.close-button {\r\n  width: 20.5px;\r\n  height: 20.5px;\r\n  cursor: pointer;\r\n  position: absolute;\r\n  top: 30px;\r\n  left: 30px;\r\n  z-index: 5;\r\n}\r\n.trait-card-content {\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 12px;\r\n  background-color: #fc6405b3;\r\n}\r\n.trait-card-content-holder{\r\n  height: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 30px;\r\n  overflow-y: auto;\r\n}\r\n.trait-card-trait-icon-holder {\r\n  width: 55px;\r\n  height: 55px;\r\n  margin-bottom: 20px;\r\n  margin-top: 10px;\r\n}\r\n.trait-card-trait-icon-holder img{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.trait-card-title-holder{\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n.trait-card-title {\r\n  margin: 0px;\r\n  font-weight: 400;\r\n  color: rgb(250, 250, 242);\r\n  font-size: 36px;\r\n  font-family: Poppins-semibold;\r\n  line-height: 42px;\r\n  text-align: center;\r\n  width: fit-content;\r\n  max-width: 250px;\r\n  min-width: 250px;\r\n}\r\n.trait-card-description-holder{\r\n  margin-top: 25px;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  justify-content: center;\r\n}\r\n.trait-card-description{\r\n  margin: 0px;\r\n  font-weight: 400;\r\n  color: rgb(250, 250, 242);\r\n  font-family: Poppins-regular;\r\n  font-size: 18px;\r\n  line-height: 28px;\r\n  text-align: center;\r\n  max-width: 200px;\r\n  min-width: 200px;\r\n}\r\n\r\n@keyframes shiningEffect1 {\r\n  0%{\r\n\r\n    left: -100%;\r\n  }\r\n 100%{\r\n\r\n  left: 100%;\r\n }\r\n}\r\n@keyframes shiningEffect2 {\r\n  0%{\r\n\r\n    right: -100%;\r\n  }\r\n 100%{\r\n  right: 100%;\r\n }\r\n}\r\n\r\n@keyframes hideBack {\r\n from{\r\n  visibility: visible;\r\n  }\r\n to{\r\n    visibility: hidden;\r\n  }\r\n}\r\n.flipped-img {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 10px;\r\n  object-fit: cover;\r\n  transition: 2s;\r\n}\r\n.buttonHolder{\r\n  position: fixed;\r\n  height: 16px;\r\n  width: 16px;\r\n  top: 4%;\r\n  left: 4%;\r\n  font-weight: 600;\r\n  font-size: 1rem;\r\n  line-height: 1rem;\r\n  color: #fff;\r\n  transition: color .3s ease-in-out;\r\n  cursor: pointer;\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  /* .card-image-container {\r\n      min-height: 300px;\r\n  } */\r\n  .scope {\r\n    position: relative;\r\n    height: 440px;\r\n    transform-style: preserve-3d;\r\n    animation: slid 5s linear infinite;\r\n    transition: 2s all;\r\n  }\r\n  .arrow{\r\n    display: none;\r\n  }\r\n}\r\n@media screen and (max-width: 350px) {\r\n  .badge-img{\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    left: 0;\r\n    right: 0;\r\n  }\r\n  .scope {\r\n    position: relative;\r\n    /* width: 250px !important;\r\n    height: 340px; */\r\n    transform-style: preserve-3d;\r\n    animation: slid 5s linear infinite;\r\n    transition-property: position;\r\n    transition: 2s;\r\n  }\r\n}";
+var css_248z = "@font-face {\r\n  font-family: 'poppins';\r\n  src: local('poppins'), url(../assets/fonts/Poppins.ttf) format('truetype');\r\n}\r\n\r\n@font-face {\r\n  font-family: 'poppins-semibold';\r\n  src: local('poppins-semibold'),\r\n    url(../assets/fonts/Poppins-SemiBold.ttf) format('truetype');\r\n}\r\n\r\n@font-face {\r\n  font-family: 'poppins-medium';\r\n  src: local('poppins-medium'),\r\n    url(../assets/fonts/Poppins-Medium.ttf) format('truetype');\r\n}\r\n\r\n.card-image-container{\r\n  position: relative;\r\n  /* min-height: 500px; */\r\n  margin: auto;\r\n}\r\n.pyramid_anim_container {\r\n  z-index: 2;\r\n  box-sizing: border-box;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 10px;\r\n}\r\n\r\n.scope span {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  transform-origin: center;\r\n  transform-style: preserve-3d;\r\n}\r\n.scope span:first-child {\r\n  transform: rotateY(calc(00deg)) translateZ(1px) rotateX(0deg);\r\n}\r\n.scope span:nth-child(2) {\r\n  transform: rotateY(calc(0deg)) translateZ(0px) rotateX(0deg);\r\n}\r\n\r\n.scope {\r\n  position: relative;\r\n  transform-style: preserve-3d;\r\n  animation: slid 5s linear infinite;\r\n  border-radius: 12px;\r\n  transition: 1.5s all;\r\n  padding: 10px;\r\n  /* box-shadow: 0px 55px 88px 0px rgba(0,0,0,0.42); */\r\n}\r\n.scope span {\r\n  overflow: hidden;\r\n  border-radius: 12px;\r\n}\r\n.front.active::after{\r\n  content: \"\";\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  top: 0;\r\n  left: 100%;\r\n  display: block;\r\n  background: linear-gradient(112deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\r\n  background-position-x: 0;\r\n  background-repeat: no-repeat;\r\n  transition: all .35s ease-in-out;\r\n  pointer-events: none;\r\n  z-index: 2;\r\n  animation: shiningEffect1 2s ease-in-out normal ;\r\n}\r\n.back.active::after{\r\n  content: \"\";\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  top: 0;\r\n  right: 100%;\r\n  display: block;\r\n  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\r\n  background-position-x: 0;\r\n  background-repeat: no-repeat;\r\n  transition: all .35s ease-in-out;\r\n  pointer-events: none;\r\n  z-index: 2;\r\n  animation: shiningEffect2 2s ease-in-out normal ;\r\n}\r\n\r\n.badge-img{\r\n  position: absolute;\r\n  width: 75px;\r\n  height: 75px;\r\n  bottom: 15px;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  left: 0;\r\n  right: 0;\r\n  cursor: pointer;\r\n}\r\n.flip-icon {\r\n  /* position: absolute; */\r\n  width: 40px;\r\n  height: 40px;\r\n  /* margin-top: auto;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  margin-bottom: auto;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;*/\r\n  cursor: pointer; \r\n}\r\n.fullscreen-icon{\r\n  /* position: absolute; */\r\n  width: 40px;\r\n  height: 40px;\r\n  margin-right: 10px;\r\n  /* margin-top: auto;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  margin-bottom: auto;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0; */\r\n  cursor: pointer;\r\n}\r\n.back_card{\r\n  animation: hideBack 2s ease-in-out normal;\r\n  transition: all 1s;\r\n  visibility: hidden;\r\n  border-radius: 12px;\r\n}\r\n.back_card.active{\r\n  visibility: visible;\r\n}\r\n.card-back-root {\r\n  height: 100%;\r\n  transform: rotateY(180deg);\r\n  border-radius: 12px;\r\n  background-position: center center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  -webkit-box-pack: end;\r\n  justify-content: flex-end;\r\n  position: relative;\r\n}\r\n.card-icons-holder{\r\n  position: absolute;\r\n  inset: 0px;\r\n  margin: auto;\r\n  width: 100%;\r\n  max-height: 40px;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  justify-content: center;\r\n}\r\n.trait-container {\r\n  position: absolute;\r\n  display: flex;\r\n  -webkit-flex-direction: column;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n  gap: 5px;\r\n  top: 10px;\r\n  right: 10px;\r\n}\r\n.trait-holder{\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 8px;\r\n  background-color: black;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  cursor: pointer;\r\n}\r\n.trait-holder:hover {\r\n  background-color: #fc6405;\r\n}\r\n.trait-holder img{\r\n  width: 30px;\r\n  height: 25px;\r\n}\r\n.trait-card-root{\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 12px;\r\n  transform: rotateY(180deg);\r\n  -webkit-background-position: center;\r\n  background-position: center;\r\n  -webkit-background-size: cover;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n}\r\n.close-button {\r\n  width: 20.5px;\r\n  height: 20.5px;\r\n  cursor: pointer;\r\n  position: absolute;\r\n  top: 30px;\r\n  left: 30px;\r\n  z-index: 5;\r\n}\r\n.trait-card-content {\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 12px;\r\n  background-color: #fc6405b3;\r\n}\r\n.trait-card-content-holder{\r\n  height: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 30px;\r\n  overflow-y: auto;\r\n}\r\n.trait-card-trait-icon-holder {\r\n  width: 55px;\r\n  height: 55px;\r\n  margin-bottom: 20px;\r\n  margin-top: 10px;\r\n}\r\n.trait-card-trait-icon-holder img{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.trait-card-title-holder{\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n.trait-card-title {\r\n  margin: 0px;\r\n  font-weight: 400;\r\n  color: rgb(250, 250, 242);\r\n  font-size: 36px;\r\n  font-family: Poppins-semibold;\r\n  line-height: 42px;\r\n  text-align: center;\r\n  width: fit-content;\r\n  max-width: 250px;\r\n  min-width: 250px;\r\n}\r\n.trait-card-description-holder{\r\n  margin-top: 25px;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  justify-content: center;\r\n}\r\n.trait-card-description{\r\n  margin: 0px;\r\n  font-weight: 400;\r\n  color: rgb(250, 250, 242);\r\n  font-family: Poppins-regular;\r\n  font-size: 18px;\r\n  line-height: 28px;\r\n  text-align: center;\r\n  max-width: 200px;\r\n  min-width: 200px;\r\n}\r\n\r\n@keyframes shiningEffect1 {\r\n  0%{\r\n\r\n    left: -100%;\r\n  }\r\n 100%{\r\n\r\n  left: 100%;\r\n }\r\n}\r\n@keyframes shiningEffect2 {\r\n  0%{\r\n\r\n    right: -100%;\r\n  }\r\n 100%{\r\n  right: 100%;\r\n }\r\n}\r\n\r\n@keyframes hideBack {\r\n from{\r\n  visibility: visible;\r\n  }\r\n to{\r\n    visibility: hidden;\r\n  }\r\n}\r\n.flipped-img {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 10px;\r\n  object-fit: cover;\r\n  transition: 2s;\r\n}\r\n.buttonHolder{\r\n  position: fixed;\r\n  height: 16px;\r\n  width: 16px;\r\n  top: 4%;\r\n  left: 4%;\r\n  font-weight: 600;\r\n  font-size: 1rem;\r\n  line-height: 1rem;\r\n  color: #fff;\r\n  transition: color .3s ease-in-out;\r\n  cursor: pointer;\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  /* .card-image-container {\r\n      min-height: 300px;\r\n  } */\r\n  .scope {\r\n    position: relative;\r\n    height: 440px;\r\n    transform-style: preserve-3d;\r\n    animation: slid 5s linear infinite;\r\n    transition: 2s all;\r\n  }\r\n  .arrow{\r\n    display: none;\r\n  }\r\n}\r\n@media screen and (max-width: 350px) {\r\n  .badge-img{\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    left: 0;\r\n    right: 0;\r\n  }\r\n  .scope {\r\n    position: relative;\r\n    /* width: 250px !important;\r\n    height: 340px; */\r\n    transform-style: preserve-3d;\r\n    animation: slid 5s linear infinite;\r\n    transition-property: position;\r\n    transition: 2s;\r\n  }\r\n}";
 styleInject(css_248z);
 
-const GalaxisCard = _ref => {
-  let {
-    metadata,
-    traitTypes,
-    horizontalPadding = 20,
-    imageContainerWidth = null
-  } = _ref;
-  const [traitsVisible, setTraitsVisible] = useState(false);
-  const [selectedTrait, setSelectedTrait] = useState({});
-  const [showBackCard, setshowBackCard] = useState(false);
-  const [showFlipIcon, setshowFlipIcon] = useState(false);
-  const [traitType, setTraitType] = useState(traitTypes ? traitTypes[0] : null); // const [randomImages, setrandomImages] = useState([ARTARRAY[0]]);
+var GalaxisCard = function GalaxisCard(_ref) {
+  var metadata = _ref.metadata,
+      traitTypes = _ref.traitTypes,
+      _ref$horizontalPaddin = _ref.horizontalPadding,
+      horizontalPadding = _ref$horizontalPaddin === void 0 ? 20 : _ref$horizontalPaddin,
+      _ref$imageContainerWi = _ref.imageContainerWidth,
+      imageContainerWidth = _ref$imageContainerWi === void 0 ? null : _ref$imageContainerWi;
 
-  useState(false);
-  useState(null);
-  const [mobileView, setmobileView] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const imageRef = useRef();
-  const [defaultScopeWidth, setDefaultScopeWidth] = useState(imageContainerWidth ? imageContainerWidth - horizontalPadding : 400);
-  const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
-  useEffect(() => {
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      traitsVisible = _useState2[0],
+      setTraitsVisible = _useState2[1];
+
+  var _useState3 = useState({}),
+      _useState4 = _slicedToArray(_useState3, 2),
+      selectedTrait = _useState4[0],
+      setSelectedTrait = _useState4[1];
+
+  var _useState5 = useState(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      showBackCard = _useState6[0],
+      setshowBackCard = _useState6[1];
+
+  var _useState7 = useState(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      showFlipIcon = _useState8[0],
+      setshowFlipIcon = _useState8[1];
+
+  var _useState9 = useState(traitTypes ? traitTypes[0] : null),
+      _useState10 = _slicedToArray(_useState9, 2),
+      traitType = _useState10[0],
+      setTraitType = _useState10[1]; // const [randomImages, setrandomImages] = useState([ARTARRAY[0]]);
+
+
+  var _useState11 = useState(false),
+      _useState12 = _slicedToArray(_useState11, 2);
+      _useState12[0];
+      _useState12[1];
+
+  var _useState13 = useState(null),
+      _useState14 = _slicedToArray(_useState13, 2);
+      _useState14[0];
+      _useState14[1];
+
+  var _useState15 = useState(false),
+      _useState16 = _slicedToArray(_useState15, 2),
+      mobileView = _useState16[0],
+      setmobileView = _useState16[1];
+
+  var _useState17 = useState(true),
+      _useState18 = _slicedToArray(_useState17, 2),
+      loading = _useState18[0],
+      setLoading = _useState18[1];
+
+  var imageRef = useRef();
+
+  var _useState19 = useState(imageContainerWidth ? imageContainerWidth - horizontalPadding : 400),
+      _useState20 = _slicedToArray(_useState19, 2),
+      defaultScopeWidth = _useState20[0],
+      setDefaultScopeWidth = _useState20[1];
+
+  var GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
+  useEffect(function () {
     if (window.innerWidth < 900) {
       setmobileView(true);
     }
@@ -220,18 +262,18 @@ const GalaxisCard = _ref => {
     }
   }, []);
 
-  const showTraits = () => {
+  var showTraits = function showTraits() {
     setTraitsVisible(true);
     document.getElementById('scope').style.transform = 'perspective(1000px) rotateY(180deg)';
   };
 
-  const hideTraits = () => {
+  var hideTraits = function hideTraits() {
     setTraitsVisible(false);
     setshowBackCard(false);
     document.getElementById('scope').style.transform = 'perspective(1000px) rotateY(0deg)';
   };
 
-  const calculateSize = (width, height) => {
+  var calculateSize = function calculateSize(width, height) {
     return defaultScopeWidth * (height / width);
   };
 
@@ -255,26 +297,28 @@ const GalaxisCard = _ref => {
   }, /*#__PURE__*/React.createElement("div", {
     className: "pyramid_anim_container"
   }, /*#__PURE__*/React.createElement("div", {
-    className: `scope ${traitsVisible ? 'active' : ''}  `,
+    className: "scope ".concat(traitsVisible ? 'active' : '', "  "),
     id: "scope",
-    onTransitionEnd: () => console.log('hello'),
-    onMouseOver: () => {
+    onTransitionEnd: function onTransitionEnd() {
+      return console.log('hello');
+    },
+    onMouseOver: function onMouseOver() {
       setshowFlipIcon(true);
     },
-    onMouseLeave: () => {
+    onMouseLeave: function onMouseLeave() {
       setshowFlipIcon(false);
     }
   }, /*#__PURE__*/React.createElement("span", {
-    className: `front ${!traitsVisible ? 'active' : ''} `,
+    className: "front ".concat(!traitsVisible ? 'active' : '', " "),
     id: "front-span"
   }, /*#__PURE__*/React.createElement("img", {
     className: "flipped-img",
     src: metadata.sides && metadata.sides.length > 1 ? metadata.sides[0].image : metadata.image,
     alt: "not found",
     ref: imageRef,
-    onLoad: () => {
-      document.getElementById('scope').style.width = `${defaultScopeWidth}px`;
-      document.getElementById('scope').style.height = `${calculateSize(imageRef.current.naturalWidth, imageRef.current.naturalHeight)}px`;
+    onLoad: function onLoad() {
+      document.getElementById('scope').style.width = "".concat(defaultScopeWidth, "px");
+      document.getElementById('scope').style.height = "".concat(calculateSize(imageRef.current.naturalWidth, imageRef.current.naturalHeight), "px");
       setLoading(false);
     }
   }), /*#__PURE__*/React.createElement("div", {
@@ -286,18 +330,18 @@ const GalaxisCard = _ref => {
     style: {
       display: showFlipIcon || mobileView ? 'block' : 'none'
     },
-    onClick: () => {
+    onClick: function onClick() {
       showTraits();
       setshowBackCard(true);
     }
   })), metadata.traits && traitTypes && /*#__PURE__*/React.createElement("div", {
-    className: `trait-container ${traitsVisible ? 'hide' : ''}`
-  }, metadata.traits.map((elem, metadataIndex) => {
-    return traitTypes.map((traitElem, index) => {
+    className: "trait-container ".concat(traitsVisible ? 'hide' : '')
+  }, metadata.traits.map(function (elem, metadataIndex) {
+    return traitTypes.map(function (traitElem, index) {
       if (parseInt(elem.type) === traitElem.id) return /*#__PURE__*/React.createElement("div", {
         className: "trait-holder",
         key: index,
-        onClick: () => {
+        onClick: function onClick() {
           setSelectedTrait(metadata.traits[metadataIndex]);
           setTraitType(traitTypes[index]);
           showTraits();
@@ -308,7 +352,7 @@ const GalaxisCard = _ref => {
       }), ' ');
     });
   }))), metadata.traits && traitTypes && /*#__PURE__*/React.createElement("span", {
-    className: `back ${traitsVisible ? 'active' : ''} `,
+    className: "back ".concat(traitsVisible ? 'active' : '', " "),
     id: "trait-span"
   }, /*#__PURE__*/React.createElement(TraitCard, {
     trait: selectedTrait,
@@ -316,7 +360,7 @@ const GalaxisCard = _ref => {
     image: metadata.sides && metadata.sides.length > 1 ? metadata.sides[0].image : metadata.image,
     traitImg: GALAXIS_BASE_URL + traitType.icon_white
   })), metadata.sides && metadata.sides.length > 1 && /*#__PURE__*/React.createElement("span", {
-    className: `back_card ${showBackCard ? 'active' : ''} `,
+    className: "back_card ".concat(showBackCard ? 'active' : '', " "),
     id: "back-span"
   }, /*#__PURE__*/React.createElement(CardBack, {
     onClick: hideTraits,
