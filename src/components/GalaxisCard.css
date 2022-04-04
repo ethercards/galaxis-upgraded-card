@@ -4,7 +4,7 @@
 }
 
 @font-face {
-  font-family: 'poppins-semibold';
+  font-family: 'Poppins-semibold';
   src: local('poppins-semibold'),
     url(../assets/fonts/Poppins-SemiBold.ttf) format('truetype');
 }
@@ -223,8 +223,9 @@
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  overflow-y: auto;
+ 
 }
+
 .trait-card-trait-icon-holder {
   width: 55px;
   height: 55px;
@@ -256,16 +257,26 @@
   display: flex;
   -webkit-box-pack: center;
   justify-content: center;
+  overflow-y: auto;
 }
+ .trait-card-description-holder::-webkit-scrollbar {
+  width: 4px;
+}
+.trait-card-description-holder::-webkit-scrollbar-track {
+  background: #ffffff49;
+} 
+.trait-card-description-holder::-webkit-scrollbar-thumb  {
+  background: #ffffff;
+} 
 .trait-card-description{
   margin: 0px;
   font-weight: 400;
   color: rgb(250, 250, 242);
   font-family: poppins;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   text-align: center;
-  max-width: 80%;
+  max-width: 90%;
   min-width: 200px;
 }
 
