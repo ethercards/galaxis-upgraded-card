@@ -77,7 +77,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
         <div
           className="card-image-container"
           style={{ opacity: loading ? '0' : '1' }}
-          onClick={stopPropagation}
+          onClick={(e)=>stopPropagation(e)}
         >
           {/* <img src={trait_card} alt="" style={sx.image} /> */}
           <div className="pyramid_anim_container">

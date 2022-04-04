@@ -185,7 +185,7 @@ const GalaxisCard = _ref => {
     style: {
       opacity: loading ? '0' : '1'
     },
-    onClick: stopPropagation
+    onClick: e => stopPropagation(e)
   }, /*#__PURE__*/React.createElement("div", {
     className: "pyramid_anim_container"
   }, /*#__PURE__*/React.createElement("div", {
