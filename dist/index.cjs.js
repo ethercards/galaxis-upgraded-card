@@ -188,7 +188,8 @@ const GalaxisCard = _ref => {
     className: "card-image-container",
     style: {
       opacity: loading ? '0' : '1'
-    }
+    },
+    onClick: e => e.stopPropagation()
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "pyramid_anim_container"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
