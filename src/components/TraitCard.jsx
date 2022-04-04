@@ -9,7 +9,7 @@ const TraitCard = ({ trait, onClick, image, traitImg }) => {
                 className='close-button'
                 src={close}
                 alt=''
-                onClick={() => onClick()}
+                onClick={(e) => onClick(e)}
             />
             <div className='trait-card-root'
                 style={{ backgroundImage: `url(${image})` ,  }}

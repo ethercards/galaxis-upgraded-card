@@ -171,7 +171,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                 >
                   <TraitCard
                     trait={selectedTrait}
-                    onClick={(e)=>hideTraits(e)}
+                    onClick={hideTraits}
                     image={
                       metadata.sides && metadata.sides.length > 1
                         ? metadata.sides[0].image
@@ -187,7 +187,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                   id="back-span"
                 >
                   <CardBack
-                    onClick={(e)=>hideTraits(e)}
+                    onClick={hideTraits}
                     backImage={metadata.sides[1].image}
                   />
                 </span>

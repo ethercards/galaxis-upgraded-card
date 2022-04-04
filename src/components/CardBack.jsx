@@ -28,8 +28,8 @@ const CardBack = ({ backImage, onClick }) => {
                 <div className="card-icons-holder">
                     <img src={flip_icon} className='flip-icon' alt="not found"
                         style={{ display: showFlipIcon || mobileView ? 'block' : 'none' }}
-                        onClick={() => {
-                            onClick();
+                        onClick={(e) => {
+                            onClick(e);
 
                         }}
                     />
