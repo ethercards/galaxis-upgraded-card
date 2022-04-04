@@ -46,6 +46,10 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
       'perspective(1000px) rotateY(0deg)';
   };
 
+  const stopPropagation = (e) =>{
+    e.stopPropagation();
+  }
+
   
 
   const calculateSize = (width, height) => {
@@ -73,7 +77,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
         <div
           className="card-image-container"
           style={{ opacity: loading ? '0' : '1' }}
-          onClick={(e)=>e.stopPropagation()}
+          onClick={stopPropagation}
         >
           {/* <img src={trait_card} alt="" style={sx.image} /> */}
           <div className="pyramid_anim_container">

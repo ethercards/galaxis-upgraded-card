@@ -160,6 +160,10 @@ const GalaxisCard = _ref => {
     document.getElementById('scope').style.transform = 'perspective(1000px) rotateY(0deg)';
   };
 
+  const stopPropagation = e => {
+    e.stopPropagation();
+  };
+
   const calculateSize = (width, height) => {
     return defaultScopeWidth * (height / width);
   };
@@ -181,7 +185,7 @@ const GalaxisCard = _ref => {
     style: {
       opacity: loading ? '0' : '1'
     },
-    onClick: e => e.stopPropagation()
+    onClick: stopPropagation
   }, /*#__PURE__*/React.createElement("div", {
     className: "pyramid_anim_container"
   }, /*#__PURE__*/React.createElement("div", {
