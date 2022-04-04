@@ -32,12 +32,14 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
     }
   }, []);
 
-  const showTraits = () => {
+  const showTraits = (e) => {
+    e.stopPropagation();
     setTraitsVisible(true);
     document.getElementById('scope').style.transform =
       'perspective(1000px) rotateY(180deg)';
   };
-  const hideTraits = () => {
+  const hideTraits = (e) => {
+    e.stopPropagation();
     setTraitsVisible(false);
     setshowBackCard(false);
     document.getElementById('scope').style.transform =
@@ -124,8 +126,8 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                       style={{
                         display: showFlipIcon || mobileView ? 'block' : 'none',
                       }}
-                      onClick={() => {
-                        showTraits();
+                      onClick={(e) => {
+                        showTraits(e);
                         setshowBackCard(true);
                       }}
                     />
@@ -142,12 +144,12 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                             <div
                               className="trait-holder"
                               key={index}
-                              onClick={() => {
+                              onClick={(e) => {
                                 setSelectedTrait(
                                   metadata.traits[metadataIndex]
                                 );
                                 setTraitType(traitTypes[index]);
-                                showTraits();
+                                showTraits(e);
                               }}
                             >
                               {' '}
@@ -169,7 +171,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                 >
                   <TraitCard
                     trait={selectedTrait}
-                    onClick={hideTraits}
+                    onClick={(e)=>hideTraits(e)}
                     image={
                       metadata.sides && metadata.sides.length > 1
                         ? metadata.sides[0].image
@@ -185,7 +187,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                   id="back-span"
                 >
                   <CardBack
-                    onClick={hideTraits}
+                    onClick={(e)=>hideTraits(e)}
                     backImage={metadata.sides[1].image}
                   />
                 </span>
