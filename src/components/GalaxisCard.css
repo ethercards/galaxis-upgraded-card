@@ -19,6 +19,8 @@
   position: relative;
   /* min-height: 500px; */
   margin: auto;
+  height: 100%;
+  width: 100%;
 }
 .pyramid_anim_container {
   z-index: 2;
@@ -26,6 +28,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+}
+.resizer-container{
   padding: 10px;
 }
 

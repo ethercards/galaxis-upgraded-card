@@ -4,6 +4,7 @@ import flip_icon from '../assets/images/flip-icon.svg';
 import CardBack from './CardBack.jsx';
 import TraitCard from './TraitCard.jsx';
 import './GalaxisCard.css';
+import useContainerDimensions from './useContainerDimensions';
 
 const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContainerWidth = null }) => {
   const [traitsVisible, setTraitsVisible] = useState(false);
@@ -19,6 +20,12 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
   const imageRef = useRef();
   const [defaultScopeWidth, setDefaultScopeWidth] = useState(imageContainerWidth ? imageContainerWidth - horizontalPadding : 400);
   const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
+
+  const containerRef = useRef()
+  const { width, height } = useContainerDimensions(containerRef);
+  const [imageRatio, setImageRatio] = useState(0);
+
+  const [resizerComponentSize,setResizerComponentSize] = useState({width:0, height:0})
 
   useEffect(() => {
     if (window.innerWidth < 900) {
@@ -50,11 +57,18 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
     e.stopPropagation();
   }
 
-  
-
-  const calculateSize = (width, height) => {
-    return defaultScopeWidth * (height / width);
+  const setTheImageRatio = (width, height) => {
+    setImageRatio(height/width)
   };
+  useEffect(()=>{
+    if(imageRatio!= 0){
+      setResizerComponentSize({width:width<height/imageRatio?100+'%':height/imageRatio, height: width<height/imageRatio? width*imageRatio : "100%"})
+
+    }
+
+      // setResizerComponentSize({width:width<height/1.365?100+'%':height/1.365, height: width<height/1.365? width*1.365 : "100%"})
+  },[imageRatio, width,height])
+  
 
   return (
     <>
@@ -76,13 +90,16 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
       {metadata && (
         <div
           className="card-image-container"
+          ref={containerRef}
           style={{ opacity: loading ? '0' : '1' }}
           onClick={(e)=>stopPropagation(e)}
         >
           {/* <img src={trait_card} alt="" style={sx.image} /> */}
           <div className="pyramid_anim_container">
+            <div className='resizer-container' style={{opacity: resizerComponentSize.width === 0 ? 0 : 1, width:resizerComponentSize.width, height:resizerComponentSize.height}}>
             <div
               className={`scope ${traitsVisible ? 'active' : ''}  `}
+              style={{width:"100%",height:"100%"}}
               id="scope"
               onTransitionEnd={() => console.log('hello')}
               onMouseOver={() => {
@@ -106,15 +123,16 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                   alt="not found"
                   ref={imageRef}
                   onLoad={() => {
-                    document.getElementById(
-                      'scope'
-                    ).style.width = `${defaultScopeWidth}px`;
-                    document.getElementById(
-                      'scope'
-                    ).style.height = `${calculateSize(
-                      imageRef.current.naturalWidth,
-                      imageRef.current.naturalHeight
-                    )}px`;
+                    setTheImageRatio(imageRef.current.naturalWidth,imageRef.current.naturalHeight)
+                    // document.getElementById(
+                    //   'scope'
+                    // ).style.width = `${defaultScopeWidth}px`;
+                    // document.getElementById(
+                    //   'scope'
+                    // ).style.height = `${calculateSize(
+                    //   imageRef.current.naturalWidth,
+                    //   imageRef.current.naturalHeight
+                    // )}px`;
                     setLoading(false);
                   }}
                 />
@@ -197,6 +215,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                   />
                 </span>
               )}
+            </div>
             </div>
           </div>
         </div>
