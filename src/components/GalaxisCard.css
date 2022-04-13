@@ -44,10 +44,10 @@
   transform-style: preserve-3d;
 }
 .scope span:first-child {
-  transform: rotateY(calc(0deg)) translateZ(2px) rotateX(0deg);
+  transform: rotateY(calc(0deg)) translateZ(1px) rotateX(0deg);
 }
 .scope span:nth-child(2) {
-  transform: rotateY(calc(0deg)) translateZ(-1px) rotateX(0deg);
+  transform: rotateY(calc(0deg)) translateZ(0px) rotateX(0deg);
 }
 
 .scope {
@@ -215,6 +215,7 @@
   top: 30px;
   left: 30px;
   z-index: 5;
+  transform: rotateX(0deg);
 }
 .trait-card-content {
   width: 100%;
