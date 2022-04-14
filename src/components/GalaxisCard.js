@@ -26,6 +26,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
   const [imageRatio, setImageRatio] = useState(0);
 
   const [resizerComponentSize,setResizerComponentSize] = useState({width:0, height:0})
+  const [containerSize,setContainerSize] = useState('medium')
 
   useEffect(() => {
     if (window.innerWidth < 900) {
@@ -68,6 +69,25 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
 
       // setResizerComponentSize({width:width<height/1.365?100+'%':height/1.365, height: width<height/1.365? width*1.365 : "100%"})
   },[imageRatio, width,height])
+
+  useEffect(() => {
+    if (width) {
+       let cSize = '';
+       if (width > 500) {
+          cSize = 'c-xlarge';
+       } else if (width > 400) {
+          cSize = 'c-large';
+       } else if (width > 300) {
+          cSize = 'c-medium';
+       } else if (width > 240) {
+          cSize = 'c-small';
+       } else {
+          cSize = 'c-xsmall'
+       }
+       setContainerSize(cSize);
+       // console.log(containerSize)
+    }
+ }, [width])
   
 
   return (
@@ -89,7 +109,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
       )}
       {metadata && (
         <div
-          className="card-image-container"
+          className={`card-image-container ${containerSize}`}
           ref={containerRef}
           style={{ opacity: loading ? '0' : '1' }}
           onClick={(e)=>stopPropagation(e)}

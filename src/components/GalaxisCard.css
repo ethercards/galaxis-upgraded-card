@@ -370,3 +370,21 @@
     transition: 2s;
   }
 }
+
+.c-medium .trait-holder{
+  width: 35px;
+  height: 35px;
+}
+.c-medium .trait-card-trait-icon-holder{
+  margin-bottom: 10px;
+}
+.c-medium .trait-card-title{
+  font-size: 32px;
+}
+.c-medium .trait-card-description{
+  line-height: 23px;
+}
+.c-small .trait-holder{
+  width: 30px;
+  height: 30px;
+}
