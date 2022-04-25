@@ -3,6 +3,7 @@ import { HashRouter, Router } from 'react-router-dom';
 import { GalaxisCard } from 'galaxis-components';
 import { useEffect, useState } from 'react';
 import { getFilteredCards } from './ApiTester';
+import { DustPools } from 'galaxis-components';
 
 // const traitTypes = [
 //   {
@@ -36,7 +37,8 @@ function App() {
   return (
     <>
       <HashRouter>
-        {loaded && (
+        <DustPools/>
+        {/* {loaded && (
           <GalaxisCard
             name="Teszt"
             metadata={metadata}
@@ -44,7 +46,7 @@ function App() {
             horizontalPadding={20}
             imageContainerWidth={400}
           />
-        )}
+        )} */}
       </HashRouter>
     </>
   );
