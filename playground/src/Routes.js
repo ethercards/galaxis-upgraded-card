@@ -14,9 +14,10 @@ const routes = [
 	  exact: true,
 	},
 	{
-	  path: '/pool-test',
+	  path: '/dust-pool',
 	  component: PoolTest,
 	  exact: true,
-	}];
+	},
+];
 
 export default routes;

@@ -1,0 +1,18 @@
+.counter-body{
+    font-size: 1em;
+    line-height: 1em;
+    vertical-align: center;
+    margin-bottom: 10px;
+}
+
+.counter-body .counter-item{
+    display: inline-block;
+    width: 10px;
+    height: 1.3em;
+    margin: 0 2px 0 0;
+    background-color: #ff6b2b3d;
+}
+
+.counter-item.active{
+    background-color: #FF692B;
+}
