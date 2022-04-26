@@ -54,11 +54,6 @@ const CounterBar = (props) => {
                     )
                 })
                 }
-                {currentValue!==null ? 
-                <span className="ml-1">{currentValue} out of {maxValue} left</span>
-                :
-                <span className="ml-1">n/a</span>
-                }
             </div>
         }
     </>

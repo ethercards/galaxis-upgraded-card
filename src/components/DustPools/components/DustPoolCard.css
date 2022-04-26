@@ -1,22 +1,65 @@
-.dust-pool-card{
-    width: 100%;
-    display: flex;
-    -webkit-box-shadow: 0px 7px 15px 2px rgba(0,0,0,0.15); 
-box-shadow: 0px 7px 15px 2px rgba(0,0,0,0.15);
-border-radius: 15px;
-overflow: hidden;
+/* @font-face {
+    font-family: 'poppins';
+    src: local('poppins'), url(../../../assets/fonts/Poppins.ttf) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Poppins-semibold';
+    src: local('poppins-semibold'),
+      url(../../../assets/fonts/Poppins-SemiBold.ttf) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'poppins-medium';
+    src: local('poppins-medium'),
+      url(../../../assets/fonts/Poppins-Medium.ttf) format('truetype');
+  } */
+.dust-pool-card {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  -webkit-box-shadow: 0px 7px 15px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 7px 15px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 0 auto;
 }
-.card-img {
-    width: 50%;
-    background-size: cover;
+.dust-pool-card-img {
+  height: 265px;
+  background-size: cover;
 }
-.text-box{
-    width: 50%;
-    padding: 10px;
+.text-box {
+  width: 50%;
+  padding: 15px;
 }
-.dust-pool-title{
-    font-family: poppins-semibold;
-    font-size: 22px;
-    color: rgb(0, 0, 0);
-    margin-bottom: 25px;
+.dust-pool-title {
+  font-family: poppins-semibold;
+  min-height: 42px;
+  font-weight: 700;
+  font-size: 22px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+  line-height: 21px;
+}
+.dust-pool-card-label {
+  text-transform: uppercase;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.dust-pool-btn {
+  border: 2px solid rgb(255, 105, 43);
+  color: rgb(255, 105, 43);
+  background-color: transparent;
+  font-family: poppins;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+.dust-pool-btn:hover {
+  background-color: rgb(255, 105, 43);
+  color: #fff;
+  cursor: pointer;
+}
+.dust-pool-btn:focus {
+  outline: none;
 }
