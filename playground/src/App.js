@@ -38,7 +38,8 @@ function App() {
     <>
       <HashRouter>
         <DustPools/>
-        {/* {loaded && (
+        
+        {loaded && (
           <GalaxisCard
             name="Teszt"
             metadata={metadata}
@@ -46,7 +47,7 @@ function App() {
             horizontalPadding={20}
             imageContainerWidth={400}
           />
-        )} */}
+        )}
       </HashRouter>
     </>
   );
