@@ -1,9 +1,13 @@
 /* @font-face {
+    font-family: 'bau';
+    src: local('poppins'), url(../../assets/fonts/Poppins.ttf) format('truetype');
+  }
+/* @font-face {
     font-family: 'poppins';
     src: local('poppins'), url(../../assets/fonts/Poppins.ttf) format('truetype');
   }
-  
-  @font-face {
+   */
+  /* @font-face {
     font-family: 'Poppins-semibold';
     src: local('poppins-semibold'),
       url(../../assets/fonts/Poppins-SemiBold.ttf) format('truetype');
@@ -13,10 +17,13 @@
     font-family: 'poppins-medium';
     src: local('poppins-medium'),
       url(../../assets/fonts/Poppins-Medium.ttf) format('truetype');
-  } */
+  } */ 
+  
+
 body{
     background-color: rgb(250, 249, 245);
 }
+
 .dust-pool-root{
     max-width: 1140px;
     margin: 0 auto;

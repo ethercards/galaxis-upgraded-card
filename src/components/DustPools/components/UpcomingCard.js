@@ -5,7 +5,7 @@ const UpcomingCard = (props) =>{
     return <div className='upcoming-dust-pool-card'>
         <img src={props.imgSrc}/>
         <div className='upcoming-dust-pool-card-text'>
-            <div className='upcoming-dust-pool-card-title'>{props.name}</div>
+            <div className='upcoming-dust-pool-card-title'><b>{props.name}</b></div>
             <p>{props.price} D</p>
         </div>
     </div>

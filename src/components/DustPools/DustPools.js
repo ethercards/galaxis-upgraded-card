@@ -7,6 +7,7 @@ import leftTrick from '../../assets/images/dustPools/leftTrick.svg';
 import rightTrick from '../../assets/images/dustPools/rightTrick.svg';
 
 import UpcomingCard from './components/UpcomingCard';
+import ProjectSubpage from './components/ProjectSubpage';
 
 const POOLS = [
   {
@@ -62,6 +63,7 @@ const DustPools = (props) => {
       alert("hello")
   }
   return (
+    <>
     <div className="dust-pool-root">
       <div className="dust-pool-textbox">
         <p className="pool-subtitle">Dust pools</p>
@@ -100,7 +102,7 @@ const DustPools = (props) => {
           <button className="dust-pool-btn" style={{marginTop:"20px"}}>Go to blog</button>
         </div>
         <TopSectionDividers />
-        <div className="dust-pool-textbox">
+        <div className="dust-pool-textbox pb-4">
           <p className="pool-subtitle">Upcoming Dust Pools</p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -118,6 +120,10 @@ const DustPools = (props) => {
           </div>
       </div>
     </div>
+    <div className="dust-pool-root">
+      <ProjectSubpage/>
+    </div>
+    </>
   );
 };
 

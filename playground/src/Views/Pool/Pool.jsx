@@ -1,4 +1,4 @@
-
+import { DustPools } from 'galaxis-components';
 
 const PoolTest = ()=>{
 
@@ -6,7 +6,7 @@ const PoolTest = ()=>{
 
 	return(
 		<>
-			pool
+			<DustPools/>
 		</>
 	);
 }
