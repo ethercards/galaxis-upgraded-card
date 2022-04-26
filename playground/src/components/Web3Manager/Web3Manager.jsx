@@ -2,7 +2,7 @@ import Onboard from "bnc-onboard";
 import { ethers } from "ethers";
 
 import { useEffect, useState } from "react";
-import config from "../../config/config";
+import config from '../../config';
 import Web3Ctx from "./Web3Ctx";
 
 const { DEPLOYED_NTW_NAME, DEPLOYED_CHAIN_ID, RPC_URL, FORTMATIC_KEY } = config;
