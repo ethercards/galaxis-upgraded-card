@@ -29,7 +29,6 @@ const Web3Manager = ({ children }) => {
   const [address, setAddress] = useState(null);
   const [wallet, setWallet] = useState(null);
   const [ethersProvider, setEthersProvider] = useState(null);
-  const [defaultProvider, setDefaultProvider] = useState(null);
   const [chainId, setChainId] = useState(null);
   const [networkName, setNetworkName] = useState(DEPLOYED_NTW_NAME);
   const [initDone, setInitDone] = useState(false);
@@ -44,9 +43,7 @@ const Web3Manager = ({ children }) => {
 
 
   const initApp = async () => {
-    let defProvider = new ethers.providers.JsonRpcProvider(RPC_URL);
-    setDefaultProvider(defProvider);
-
+  
     try {
       console.log("Initiating onboard");
       const ob = Onboard({
@@ -105,7 +102,7 @@ const Web3Manager = ({ children }) => {
                 "any"
               );
               setEthersProvider(provider);
-              window.localStorage.setItem("selectedWallet", obWallet.name);
+              window.sessionStorage.setItem("selectedWallet", obWallet.name);
             } else {
               console.log("wallet not found, setting default provider");
               const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
@@ -123,6 +120,15 @@ const Web3Manager = ({ children }) => {
         },
       });
 
+      const savedWallet = sessionStorage.getItem('selectedWallet');
+      if(savedWallet){
+        await ob.walletSelect(savedWallet);
+        const userReady = await ob.walletCheck();
+       // console.log('user ready(with saved wallet)',userReady);
+      }else{
+        const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+        setEthersProvider(provider);    
+      }
 
       console.log("init onboard done");
 
@@ -133,21 +139,7 @@ const Web3Manager = ({ children }) => {
     }
   };
 
-  const connectPrevSelectedWallet = async ()=>{
 
-   // console.log('CONNNECT PREV WALLET')
-
-    const previouslySelectedWallet =
-      window.localStorage.getItem("selectedWallet");
-      if (previouslySelectedWallet && onboard) {
-        const walletSelected = await onboard.walletSelect(previouslySelectedWallet);
-    /*     if(walletSelected){
-          const walletCheck = await onboard.walletCheck();
-        } */
-      }else{
-        
-      }
-  }
 
   useEffect(()=>{
     console.log('WALLET',wallet);
@@ -212,8 +204,8 @@ const Web3Manager = ({ children }) => {
     if (onboard) {
       console.log("logout wallet");
       onboard.walletReset();
-      if (localStorage) {
-        localStorage.removeItem("selectedWallet");
+      if (window.sessionStorage) {
+        window.sessionStorage.removeItem("selectedWallet");
       }
     }
   };
@@ -246,14 +238,12 @@ const Web3Manager = ({ children }) => {
         wallet,
         address,
         ethersProvider,
-        defaultProvider,
         chainId,
         defaultChainId: config.DEPLOYED_CHAIN_ID,
         handleConnect,
         handleDisconnect,
         isCorrectNetwork,
-        walletCheck,
-        connectPrevSelectedWallet
+        walletCheck
       }}
     >
       {children}

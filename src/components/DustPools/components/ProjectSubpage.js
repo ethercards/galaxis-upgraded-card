@@ -36,10 +36,10 @@ const ShowNextPreviosProject = () =>{
     </div>
 }
 
-const ProjectSubpage = () => {
+const ProjectSubpage = ({handleBack}) => {
   return (
     <div className="pool-ps-root">
-        <button className='pool-ps-btn'><span>&#129168;</span><p>Back</p></button>
+        <button className='pool-ps-btn' onClick={handleBack}><span>&#129168;</span><p>Back</p></button>
       <div className="pool-ps-card-and-descipton">
         <div className="pool-ps-card-and-descipton-inner ps-left">
           <img src={DragonImg} style={{ maxWidth: '100%' }} />

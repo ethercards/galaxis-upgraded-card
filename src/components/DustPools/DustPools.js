@@ -9,15 +9,22 @@ import rightTrick from '../../assets/images/dustPools/rightTrick.svg';
 import UpcomingCard from './components/UpcomingCard';
 import ProjectSubpage from './components/ProjectSubpage';
 
+
 const POOLS = [
   {
     imgSrc: DragonImg,
+    poolId: 0,
+    name: 'Girls, Robots, Dragons'
   },
   {
     imgSrc: DragonImg,
+    poolId: 0,
+    name: 'Girls, Robots, Dragons'
   },
   {
     imgSrc: DragonImg,
+    poolId: 0,
+    name: 'Girls, Robots, Dragons'
   },
 ];
 
@@ -57,13 +64,30 @@ const TopSectionDividers = () => (
   </div>
 );
 
-const DustPools = (props) => {
+const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
 
-  const openProjectSubpage = () =>{
-      alert("hello")
+  const [selectedPoolId, setSelectedPoolId] = useState(null);
+
+  useEffect(()=>{
+    console.log('address???',address);
+
+  },[address]);
+  
+
+
+
+
+  const connectOrExchange = (poolId) =>{
+    if(poolId!==null){
+      setSelectedPoolId(poolId);
+    }else{
+      handleConnect();
+    }
   }
+  
   return (
     <>
+    {selectedPoolId === null ?
     <div className="dust-pool-root">
       <div className="dust-pool-textbox">
         <p className="pool-subtitle">Dust pools</p>
@@ -77,12 +101,12 @@ const DustPools = (props) => {
           <div>Sold out</div>
         </div>
       </div>
-      <div class="container  mt-5">
-        <div class="row" style={{ rowGap: '25px' }}>
-          {POOLS.map((card) => {
+      <div className="container  mt-5">
+        <div className="row" style={{ rowGap: '25px' }}>
+          {POOLS.map((card,idx) => {
             return (
-              <div class="col-12 col-lg-6">
-                <DustPoolCard imgSrc={card.imgSrc} handleClick={openProjectSubpage}/>
+              <div key={idx} className="col-12 col-lg-6">
+                <DustPoolCard card={card} address={address} handleClick={connectOrExchange}/>
               </div>
             );
           })}
@@ -110,8 +134,8 @@ const DustPools = (props) => {
         </div>
         <div className='row' style={{maxHeight:"86px"}}>
             {
-              UPCOMING_POOLS.map((card)=>{
-                return <div class="col-6 col-lg-3">
+              UPCOMING_POOLS.map((card,idx)=>{
+                return <div key={idx} className="col-6 col-lg-3">
                   <UpcomingCard imgSrc={card.imgSrc} name={card.name} price={card.price}/>
                 </div>
 
@@ -120,9 +144,13 @@ const DustPools = (props) => {
           </div>
       </div>
     </div>
+
+    :
+
     <div className="dust-pool-root">
-      <ProjectSubpage/>
+      <ProjectSubpage handleBack = {()=>setSelectedPoolId(null)}/>
     </div>
+    }
     </>
   );
 };
