@@ -4,6 +4,7 @@ import del from 'rollup-plugin-delete';
 import pkg from './package.json';
 import image from '@rollup/plugin-image';
 import postcss from 'rollup-plugin-postcss';
+import json from "@rollup/plugin-json";
 
 export default {
     input: pkg.source,
@@ -21,6 +22,7 @@ export default {
         postcss({
             extensions: [ '.css' ],
         }),
+        json()
     ],
     external: Object.keys(pkg.peerDependencies || {}),
 };

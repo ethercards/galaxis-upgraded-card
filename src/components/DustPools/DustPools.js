@@ -8,6 +8,7 @@ import rightTrick from '../../assets/images/dustPools/rightTrick.svg';
 
 import UpcomingCard from './components/UpcomingCard';
 import ProjectSubpage from './components/ProjectSubpage';
+import { getContract } from './Web3/GetContract';
 
 
 const POOLS = [
@@ -67,15 +68,68 @@ const TopSectionDividers = () => (
 const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
 
   const [selectedPoolId, setSelectedPoolId] = useState(null);
+  const [dustContract,setDustContract] = useState(null);
+  const [dust4PunksContract,setDust4PunksContract] = useState(null);
+  const [zoom2,setZoom2] = useState(null);
 
   useEffect(()=>{
-    console.log('address???',address);
+    if(address!==null){
+      console.log('Wallet connected:',address);
+    }
 
   },[address]);
   
 
 
+  useEffect(()=>{
 
+    const initContract = async ()=>{
+        let c = await getContract('Dust',ethersProvider);
+        if(c){
+            setDustContract(c);
+            console.log('DUST:',c);
+        }else{
+            console.log('contract not found');
+        }
+
+        let Zoom2Contract = await getContract('Zoom2', ethersProvider);
+        if (Zoom2Contract) {
+            setZoom2(Zoom2Contract);
+            console.log('ZOOM:',Zoom2Contract);
+
+        } else {
+            console.log('Could not initialise Zoom2 Contract');
+        }
+
+        let D4P = await getContract('Dust4Punks', ethersProvider);
+        if (D4P) {
+            setDust4PunksContract(D4P);
+            console.log('D4P:',D4P);
+        } else {
+            console.log('Could not initialise D4P Contract');
+        }
+    }
+
+    if(ethersProvider){
+        initContract();
+    }
+},[ethersProvider]);
+
+
+  useEffect(()=>{
+
+
+    if(dust4PunksContract && dustContract && zoom2){
+      getPools();
+    }
+
+  },[dust4PunksContract,dustContract,zoom2])
+
+  const getPools = async()=>{
+    console.log('GETTING POOL DATA....');
+  }
+
+  
 
   const connectOrExchange = (poolId) =>{
     if(poolId!==null){

@@ -32,7 +32,8 @@
     "react-slick": "^0.28.1",
     "react-toast": "^1.0.3",
     "spinners-react": "^1.0.6",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "zoom-next": "https://github.com/mickys/zoom-next.git#d8984ac5a9b48eaf9c6ba723da1d1c2bb0b756af"
   },
   "scripts": {
     "start": "react-scripts start",
