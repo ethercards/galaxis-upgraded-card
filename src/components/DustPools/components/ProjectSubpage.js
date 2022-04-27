@@ -49,7 +49,7 @@ const ProjectSubpage = ({handleBack}) => {
               <p className='dust-pool-card-label'>POOL</p>
             <p className="dust-pool-title ">Girls, Robots, Dragons</p>
             <p className="dust-pool-card-label">Price</p>
-            <p className='mb-1'>
+            <p className='mb-3'>
               <b>10.000 D</b>
             </p>
             <p className="dust-pool-card-label">COUNTER</p>
