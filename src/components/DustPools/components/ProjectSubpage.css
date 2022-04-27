@@ -1,0 +1,123 @@
+
+.pool-ps-root{
+    max-width: 848px;
+    width: 100%;
+    margin: auto auto 60px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+}
+.pool-ps-card-and-descipton{
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+}
+.pool-ps-card-and-descipton-inner{
+    flex-basis: 50%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 50%;
+}
+.ps-left{
+    background-color: rgb(255, 255, 255);
+    padding: 50px;
+    border: 1px solid #000;
+    border-radius: 15px;
+}
+.ps-left img{
+    border-radius: 15px;
+}
+.ps-right{
+    position: relative;
+}
+.ps-text-bottom{
+    position: absolute;
+    bottom: 0;
+}
+.snp-root{
+    margin: 15px auto 30px;
+    max-width: 848px;
+    width: 100%;
+    max-height: 86px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px 0px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.previous-box{
+    display: flex;
+    width: 48%;
+    gap: 16px;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+.snp-divider{
+    width: 4%;
+    min-height: 100%;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.next-box{
+    display: flex;
+    width: 48%;
+    gap: 16px;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+.snp-text{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+.snp-text span{
+    margin: 0px;
+    font-family: poppins;
+    font-size: 14px;
+    color: rgb(112, 112, 112);
+    cursor: pointer;
+}
+.snp-text-p-n{
+    margin: 0px;
+    font-weight: 400;
+    font-family: poppins-semibold;
+    line-height: 20px;
+    font-size: 18px;
+    max-height: 45px;
+    width: 100%;
+    max-width: 180px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pool-ps-btn{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    font-weight: 700;
+}
+.pool-ps-btn span{
+    font-size: 42px;
+    line-height: 16px;
+    padding-right: 2px;
+}
+.pool-ps-btn:hover{
+    cursor: pointer;
+}
+.pool-ps-btn:focus{
+    outline: none;
+}
+.pool-ps-card-and-descipton-inner .dust-pool-title{
+    font-size: 28px;
+    margin-bottom: 0;
+    line-height: 40px;
+}

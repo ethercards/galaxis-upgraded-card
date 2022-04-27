@@ -1,0 +1,71 @@
+/* @font-face {
+    font-family: 'bau';
+    src: local('poppins'), url(../../assets/fonts/Poppins.ttf) format('truetype');
+  }
+/* @font-face {
+    font-family: 'poppins';
+    src: local('poppins'), url(../../assets/fonts/Poppins.ttf) format('truetype');
+  }
+   */
+  /* @font-face {
+    font-family: 'Poppins-semibold';
+    src: local('poppins-semibold'),
+      url(../../assets/fonts/Poppins-SemiBold.ttf) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'poppins-medium';
+    src: local('poppins-medium'),
+      url(../../assets/fonts/Poppins-Medium.ttf) format('truetype');
+  } */ 
+  
+
+body{
+    background-color: rgb(250, 249, 245);
+}
+
+.dust-pool-root{
+    max-width: 1140px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.dust-pool-textbox{
+ text-align: center;
+ max-width: 600px;
+ margin: 0 auto;
+}
+.pool-subtitle{
+    font-size: 30px;
+    font-weight: 600;
+}
+.tab-choose{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+.tab-choose div{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px
+}
+.tab-choose div:hover{
+    cursor: pointer;
+}
+.tab-choose .active{
+    background-color: #000;
+    color: #fff;
+}
+.tab-choose div:first-child{
+    border: 2px solid #000;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.tab-choose div:nth-child(2){
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+.tab-choose div:nth-child(3){
+    border: 2px solid #000;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

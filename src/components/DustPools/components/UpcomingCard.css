@@ -1,0 +1,21 @@
+.upcoming-dust-pool-card {
+    height: 86px;
+    display: flex;
+    margin-bottom: 10px;
+    -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); 
+  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+.upcoming-dust-pool-card img{
+    max-height: 100%;
+}
+.upcoming-dust-pool-card-title{
+     line-height: 16px;
+     min-height: 32px;
+     margin-bottom: 10px;
+    }
+.upcoming-dust-pool-card-text{
+    padding: 10px;
+}
