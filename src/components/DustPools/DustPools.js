@@ -11,7 +11,7 @@ import ProjectSubpage from './components/ProjectSubpage';
 import { getContract } from './Web3/GetContract';
 
 
-const POOLS = [
+let POOLS = [
   {
     imgSrc: DragonImg,
     poolId: 0,
@@ -71,6 +71,25 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
   const [dustContract,setDustContract] = useState(null);
   const [dust4PunksContract,setDust4PunksContract] = useState(null);
   const [zoom2,setZoom2] = useState(null);
+  const [selectedFilter, setSelectedFilter] = useState('ALL');
+
+  const [pools,setPools] = useState([
+    {
+      imgSrc: DragonImg,
+      poolId: 0,
+      name: 'Girls, Robots, Dragons'
+    },
+    {
+      imgSrc: DragonImg,
+      poolId: 0,
+      name: 'Girls, Robots, Dragons'
+    },
+    {
+      imgSrc: DragonImg,
+      poolId: 0,
+      name: 'Girls, Robots, Dragons'
+    },
+  ])
 
   useEffect(()=>{
     if(address!==null){
@@ -131,6 +150,32 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
 
   
 
+  useEffect(()=>{
+    if(selectedFilter === 'SOLD_OUT'){
+      setPools([])
+    }else if(selectedFilter === 'ACTIVE'){
+      setPools([])
+    }else{
+      setPools([
+        {
+          imgSrc: DragonImg,
+          poolId: 0,
+          name: 'Girls, Robots, Dragons'
+        },
+        {
+          imgSrc: DragonImg,
+          poolId: 0,
+          name: 'Girls, Robots, Dragons'
+        },
+        {
+          imgSrc: DragonImg,
+          poolId: 0,
+          name: 'Girls, Robots, Dragons'
+        },
+      ])
+    }
+  },[selectedFilter]);
+  
   const connectOrExchange = (poolId) =>{
     if(poolId!==null){
       setSelectedPoolId(poolId);
@@ -150,14 +195,14 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
           Cryptopunks and other valuable NFTs.
         </p>
         <div className="tab-choose">
-          <div className="active">All</div>
-          <div>Active</div>
-          <div>Sold out</div>
+          <div className={`${selectedFilter === 'ALL' ? "active" : ''}`} onClick={()=> setSelectedFilter('ALL')}>All</div>
+          <div className={`${selectedFilter === 'ACTIVE' ? "active" : ''}`} onClick={()=> setSelectedFilter('ACTIVE')}>Active</div>
+          <div className={`${selectedFilter === 'SOLD_OUT' ? "active" : ''}`} onClick={()=> setSelectedFilter('SOLD_OUT')}>Sold out</div>
         </div>
       </div>
       <div className="container  mt-5">
         <div className="row" style={{ rowGap: '25px' }}>
-          {POOLS.map((card,idx) => {
+          {pools.map((card,idx) => {
             return (
               <div key={idx} className="col-12 col-lg-6">
                 <DustPoolCard card={card} address={address} handleClick={connectOrExchange}/>
