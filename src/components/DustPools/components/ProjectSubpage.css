@@ -116,3 +116,8 @@
 .pool-ps-btn:focus{
     outline: none;
 }
+.pool-ps-card-and-descipton-inner .dust-pool-title{
+    font-size: 28px;
+    margin-bottom: 0;
+    line-height: 40px;
+}
