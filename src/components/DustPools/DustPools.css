@@ -48,6 +48,9 @@ body{
     font-weight: 500;
     padding: 10px 15px
 }
+.tab-choose div:hover{
+    cursor: pointer;
+}
 .tab-choose .active{
     background-color: #000;
     color: #fff;

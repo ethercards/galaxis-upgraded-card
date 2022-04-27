@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import './UpcomingCard.css'
 
 const UpcomingCard = (props) =>{
@@ -6,7 +6,7 @@ const UpcomingCard = (props) =>{
         <img src={props.imgSrc}/>
         <div className='upcoming-dust-pool-card-text'>
             <div className='upcoming-dust-pool-card-title'><b>{props.name}</b></div>
-            <p>{props.price} D</p>
+            <p style={{fontFamily:"poppins"}}>{props.price} D</p>
         </div>
     </div>
 }
