@@ -137,9 +137,9 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
           Cryptopunks and other valuable NFTs.
         </p>
         <div className="tab-choose">
-          <div className={`${selectedFilter === 'ALL' ? "active" : ''}`} onClick={()=> setSelectedFilter('ALL')}>All</div>
-          <div className={`${selectedFilter === 'ACTIVE' ? "active" : ''}`} onClick={()=> setSelectedFilter('ACTIVE')}>Active</div>
-          <div className={`${selectedFilter === 'SOLD_OUT' ? "active" : ''}`} onClick={()=> setSelectedFilter('SOLD_OUT')}>Sold out</div>
+          <div className={`${selectedFilter === 'ALL' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('ALL')}>All</div>
+          <div className={`${selectedFilter === 'ACTIVE' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('ACTIVE')}>Active</div>
+          <div className={`${selectedFilter === 'SOLD_OUT' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('SOLD_OUT')}>Sold out</div>
         </div>
       </div>
       <div className="container  mt-5">
