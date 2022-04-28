@@ -28,14 +28,13 @@
 .dust-pool-card-label {
   text-transform: uppercase;
   margin-bottom: 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 .dust-pool-btn {
   border: 2px solid rgb(255, 105, 43);
   font-family: 'poppins-semibold';
   color: rgb(255, 105, 43);
   background-color: transparent;
-  font-family: poppins;
   font-size: 14px;
   border-radius: 5px;
   padding: 10px 20px;

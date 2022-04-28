@@ -7,10 +7,11 @@
 
 .counter-body .counter-item{
     display: inline-block;
-    width: 10px;
-    height: 1.3em;
+    width: 12px;
+    height: 1.6em;
     margin: 0 2px 0 0;
     background-color: #ff6b2b3d;
+    border-radius: 3px;
 }
 
 .counter-item.active{
