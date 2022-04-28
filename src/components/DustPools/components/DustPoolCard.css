@@ -13,7 +13,7 @@
   background-size: cover;
 }
 .text-box {
-  width: 50%;
+  /* width: 50%; */
   padding: 15px;
 }
 .dust-pool-title {
@@ -48,4 +48,15 @@
 }
 .dust-pool-btn:focus {
   outline: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .dust-pool-card {
+    flex-direction: column;
+  }
+  .dust-pool-card img{
+    height: auto;
+    max-width: 100%;
+  }
 }

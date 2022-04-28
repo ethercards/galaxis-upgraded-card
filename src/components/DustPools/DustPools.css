@@ -100,11 +100,12 @@ body{
 .pb-4{
     padding-bottom: 1.5rem!important;
 }
-.mb-2{
 
-}
 .w-100 {
     width: 100%!important;
+}
+.text-right{
+    text-align: right!important;
 }
 .dust-pool-card p {
     margin-block-start: 0;
@@ -138,3 +139,8 @@ body{
         max-width: 1140px;
     }
 }
+@media only screen and (max-width: 945px) {
+    .dust-pool-root {
+      max-width: 100%;
+    }
+  }
