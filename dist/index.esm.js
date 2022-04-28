@@ -3,42 +3,6 @@ import { SpinnerCircular } from 'spinners-react';
 import { ethers } from 'ethers';
 import { Zoom } from 'zoom-next';
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
@@ -597,7 +561,7 @@ const DustPoolCard = _ref => {
   }, card.name), /*#__PURE__*/React.createElement("p", {
     className: "dust-pool-card-label",
     style: {
-      marginBlockStart: 0
+      marginBlockEnd: 0
     }
   }, "COUNTER"), /*#__PURE__*/React.createElement("p", {
     className: "mb-1"
@@ -607,7 +571,7 @@ const DustPoolCard = _ref => {
   }), /*#__PURE__*/React.createElement("p", {
     className: "dust-pool-card-label",
     style: {
-      marginBlockStart: 0
+      marginBlockEnd: 0
     }
   }, "Price"), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, "10.000 D")), /*#__PURE__*/React.createElement("button", {
     className: "dust-pool-btn",
@@ -2601,7 +2565,7 @@ const getDummy721 = async (address, provider) => {
   return contract;
 };
 
-var POOLS = [{
+let POOLS = [{
   id: 0,
   name: 'Cryptopunk Pool',
   imgSrc: img$3,
@@ -2644,7 +2608,7 @@ var POOLS = [{
   order: 6,
   poolUrl: 'https://opensea.io/0x9dFF1113CF4186deC4feb774632356D22f07eB9e'
 }];
-var UPCOMING_POOLS = [{
+const UPCOMING_POOLS = [{
   imgSrc: img$3,
   name: "Paul Timbuktu",
   price: 10000
@@ -2662,236 +2626,143 @@ var UPCOMING_POOLS = [{
   price: 10000
 }];
 
-var TopSectionDividers = function TopSectionDividers() {
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      margin: '25px 0'
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: img$2,
-    style: {
-      maxHeight: '50px'
-    }
-  }), /*#__PURE__*/React.createElement("img", {
-    src: img$1,
-    style: {
-      maxHeight: '50px'
-    }
-  }));
-};
+const TopSectionDividers = () => /*#__PURE__*/React.createElement("div", {
+  style: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '25px 0'
+  }
+}, /*#__PURE__*/React.createElement("img", {
+  src: img$2,
+  style: {
+    maxHeight: '50px'
+  }
+}), /*#__PURE__*/React.createElement("img", {
+  src: img$1,
+  style: {
+    maxHeight: '50px'
+  }
+}));
 
-var DustPools = function DustPools(_ref) {
-  var address = _ref.address,
-      ethersProvider = _ref.ethersProvider;
-      _ref.deployedChainId;
-      var handleConnect = _ref.handleConnect;
-
-  var _useState = useState(null),
-      _useState2 = _slicedToArray(_useState, 2),
-      selectedPoolId = _useState2[0],
-      setSelectedPoolId = _useState2[1];
-
-  var _useState3 = useState(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      dustContract = _useState4[0],
-      setDustContract = _useState4[1];
-
-  var _useState5 = useState(null),
-      _useState6 = _slicedToArray(_useState5, 2),
-      dust4PunksContract = _useState6[0],
-      setDust4PunksContract = _useState6[1];
-
-  var _useState7 = useState(null),
-      _useState8 = _slicedToArray(_useState7, 2),
-      zoom2 = _useState8[0],
-      setZoom2 = _useState8[1];
-
-  var _useState9 = useState('ALL'),
-      _useState10 = _slicedToArray(_useState9, 2),
-      selectedFilter = _useState10[0],
-      setSelectedFilter = _useState10[1];
-
-  var _useState11 = useState(POOLS),
-      _useState12 = _slicedToArray(_useState11, 2),
-      pools = _useState12[0],
-      setPools = _useState12[1];
-
-  useEffect(function () {
+const DustPools = _ref => {
+  let {
+    address,
+    ethersProvider,
+    deployedChainId,
+    handleConnect
+  } = _ref;
+  const [selectedPoolId, setSelectedPoolId] = useState(null);
+  const [dustContract, setDustContract] = useState(null);
+  const [dust4PunksContract, setDust4PunksContract] = useState(null);
+  const [zoom2, setZoom2] = useState(null);
+  const [selectedFilter, setSelectedFilter] = useState('ALL');
+  const [pools, setPools] = useState(POOLS);
+  useEffect(() => {
     if (address !== null) {
       console.log('Wallet connected:', address); //TODO: get dust balance
     }
   }, [address]);
-  useEffect(function () {
-    var initContract = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var c, Zoom2Contract, D4P;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return getContract('Dust', ethersProvider);
+  useEffect(() => {
+    const initContract = async () => {
+      let c = await getContract('Dust', ethersProvider);
 
-              case 2:
-                c = _context.sent;
+      if (c) {
+        setDustContract(c);
+        console.log('DUST:', c);
+      } else {
+        console.log('contract not found');
+      }
 
-                if (c) {
-                  setDustContract(c);
-                  console.log('DUST:', c);
-                } else {
-                  console.log('contract not found');
-                }
+      let Zoom2Contract = await getContract('Zoom2', ethersProvider);
 
-                _context.next = 6;
-                return getContract('Zoom2', ethersProvider);
+      if (Zoom2Contract) {
+        setZoom2(Zoom2Contract);
+        console.log('ZOOM:', Zoom2Contract);
+      } else {
+        console.log('Could not initialise Zoom2 Contract');
+      }
 
-              case 6:
-                Zoom2Contract = _context.sent;
+      let D4P = await getContract('Dust4Punks', ethersProvider);
 
-                if (Zoom2Contract) {
-                  setZoom2(Zoom2Contract);
-                  console.log('ZOOM:', Zoom2Contract);
-                } else {
-                  console.log('Could not initialise Zoom2 Contract');
-                }
-
-                _context.next = 10;
-                return getContract('Dust4Punks', ethersProvider);
-
-              case 10:
-                D4P = _context.sent;
-
-                if (D4P) {
-                  setDust4PunksContract(D4P);
-                  console.log('D4P:', D4P);
-                } else {
-                  console.log('Could not initialise D4P Contract');
-                }
-
-              case 12:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      return function initContract() {
-        return _ref2.apply(this, arguments);
-      };
-    }();
+      if (D4P) {
+        setDust4PunksContract(D4P);
+        console.log('D4P:', D4P);
+      } else {
+        console.log('Could not initialise D4P Contract');
+      }
+    };
 
     if (ethersProvider) {
       initContract();
     }
   }, [ethersProvider]);
-  useEffect(function () {
+  useEffect(() => {
     if (dust4PunksContract && dustContract && zoom2) {
       getPools();
     }
   }, [dust4PunksContract, dustContract, zoom2]);
 
-  var getPools = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-      var ZoomLibraryInstance, calls, i, vaultAddress, vaultName, vaultPrice, vaultToken, ZoomQueryBinary, combinedResult, ap, poolIdx, _i, va, vn, vp, vt, vd, vToken;
+  const getPools = async () => {
+    console.log('GETTING POOL DATA....'); // if(address){
 
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              console.log('GETTING POOL DATA....'); // if(address){
+    const ZoomLibraryInstance = new Zoom({
+      use_reference_calls: true
+    });
+    let calls = [];
 
-              ZoomLibraryInstance = new Zoom({
-                use_reference_calls: true
-              });
-              calls = [];
+    for (let i = 0; i < POOLS.length; i++) {
+      //Punk vault address
+      const vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ["vaultAddress", [i]], "vaultAddress(uint256) returns (address)");
+      calls.push(vaultAddress); //Pool Name
 
-              for (i = 0; i < POOLS.length; i++) {
-                //Punk vault address
-                vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ["vaultAddress", [i]], "vaultAddress(uint256) returns (address)");
-                calls.push(vaultAddress); //Pool Name
+      const vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ["vaultName", [i]], "vaultName(uint256) returns (string)");
+      calls.push(vaultName); //Vault price
 
-                vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ["vaultName", [i]], "vaultName(uint256) returns (string)");
-                calls.push(vaultName); //Vault price
+      const vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ["vaultPrice", [i]], "vaultPrice(uint256) returns (uint256)");
+      calls.push(vaultPrice); //Vault token addredd
 
-                vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ["vaultPrice", [i]], "vaultPrice(uint256) returns (uint256)");
-                calls.push(vaultPrice); //Vault token addredd
+      const vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ["vaultToken", [i]], "vaultToken(uint256) returns (address)");
+      calls.push(vaultToken);
+    }
 
-                vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ["vaultToken", [i]], "vaultToken(uint256) returns (address)");
-                calls.push(vaultToken);
-              }
+    const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
+    //console.time('zoomCall');
 
-              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
-              //console.time('zoomCall');
+    const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
+    //console.log("======== ZOOM CALL END ==============" );
 
-              _context2.next = 7;
-              return zoom2.combine(ZoomQueryBinary);
+    ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
 
-            case 7:
-              combinedResult = _context2.sent;
-              //console.timeEnd('zoomCall');
-              //console.log("======== ZOOM CALL END ==============" );
-              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
+    let ap = POOLS;
+    let poolIdx = 0;
 
-              ap = POOLS;
-              poolIdx = 0;
-              _i = 0;
+    for (let i = 0; i < POOLS.length * 4; i += 4) {
+      let va = ZoomLibraryInstance.decodeCall(calls[i + 0]).toString();
+      let vn = ZoomLibraryInstance.decodeCall(calls[i + 1]).toString();
+      let vp = ZoomLibraryInstance.decodeCall(calls[i + 2]).toString();
+      let vt = ZoomLibraryInstance.decodeCall(calls[i + 3]).toString();
+      const vd = {
+        vaultAddress: va,
+        vaultName: vn,
+        vaultPrice: vp,
+        vaultToken: vt,
+        available: null,
+        totalSupply: null
+      };
+      let vToken = await getDummy721(vt, ethersProvider);
 
-            case 12:
-              if (!(_i < POOLS.length * 4)) {
-                _context2.next = 27;
-                break;
-              }
+      if (vToken) {
+        vd.tokenContract = vToken;
+      }
 
-              va = ZoomLibraryInstance.decodeCall(calls[_i + 0]).toString();
-              vn = ZoomLibraryInstance.decodeCall(calls[_i + 1]).toString();
-              vp = ZoomLibraryInstance.decodeCall(calls[_i + 2]).toString();
-              vt = ZoomLibraryInstance.decodeCall(calls[_i + 3]).toString();
-              vd = {
-                vaultAddress: va,
-                vaultName: vn,
-                vaultPrice: vp,
-                vaultToken: vt,
-                available: null,
-                totalSupply: null
-              };
-              _context2.next = 20;
-              return getDummy721(vt, ethersProvider);
+      ap[poolIdx].vaultData = vd;
+      poolIdx++;
+    }
 
-            case 20:
-              vToken = _context2.sent;
+    console.log("AP", ap);
+  };
 
-              if (vToken) {
-                vd.tokenContract = vToken;
-              }
-
-              ap[poolIdx].vaultData = vd;
-              poolIdx++;
-
-            case 24:
-              _i += 4;
-              _context2.next = 12;
-              break;
-
-            case 27:
-              console.log("AP", ap);
-
-            case 28:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function getPools() {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-
-  useEffect(function () {
+  useEffect(() => {
     if (selectedFilter === 'SOLD_OUT') {
       setPools([]);
     } else if (selectedFilter === 'ACTIVE') {
@@ -2901,7 +2772,7 @@ var DustPools = function DustPools(_ref) {
     }
   }, [selectedFilter]);
 
-  var connectOrExchange = function connectOrExchange(poolId) {
+  const connectOrExchange = poolId => {
     if (poolId !== null) {
       setSelectedPoolId(poolId);
     } else {
@@ -2921,20 +2792,14 @@ var DustPools = function DustPools(_ref) {
   }, "Dust pools"), /*#__PURE__*/React.createElement("div", {
     className: "tab-choose"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "".concat(selectedFilter === 'ALL' ? "active-tab" : ''),
-    onClick: function onClick() {
-      return setSelectedFilter('ALL');
-    }
+    className: `${selectedFilter === 'ALL' ? "active-tab" : ''}`,
+    onClick: () => setSelectedFilter('ALL')
   }, "All"), /*#__PURE__*/React.createElement("div", {
-    className: "".concat(selectedFilter === 'ACTIVE' ? "active-tab" : ''),
-    onClick: function onClick() {
-      return setSelectedFilter('ACTIVE');
-    }
+    className: `${selectedFilter === 'ACTIVE' ? "active-tab" : ''}`,
+    onClick: () => setSelectedFilter('ACTIVE')
   }, "Active"), /*#__PURE__*/React.createElement("div", {
-    className: "".concat(selectedFilter === 'SOLD_OUT' ? "active-tab" : ''),
-    onClick: function onClick() {
-      return setSelectedFilter('SOLD_OUT');
-    }
+    className: `${selectedFilter === 'SOLD_OUT' ? "active-tab" : ''}`,
+    onClick: () => setSelectedFilter('SOLD_OUT')
   }, "Sold out")), /*#__PURE__*/React.createElement("p", null, "You can exchange your Dust for some awesome items including Cryptopunks and other valuable NFTs.")), /*#__PURE__*/React.createElement("div", {
     className: "container  mt-5"
   }, /*#__PURE__*/React.createElement("div", {
@@ -2942,7 +2807,7 @@ var DustPools = function DustPools(_ref) {
     style: {
       rowGap: '25px'
     }
-  }, pools.map(function (card, idx) {
+  }, pools.map((card, idx) => {
     return /*#__PURE__*/React.createElement("div", {
       key: idx,
       className: "col-12 col-lg-6"
@@ -2969,7 +2834,7 @@ var DustPools = function DustPools(_ref) {
     style: {
       maxHeight: "86px"
     }
-  }, UPCOMING_POOLS.map(function (card, idx) {
+  }, UPCOMING_POOLS.map((card, idx) => {
     return /*#__PURE__*/React.createElement("div", {
       key: idx,
       className: "col-6 col-lg-3"
@@ -2981,9 +2846,7 @@ var DustPools = function DustPools(_ref) {
   })))) : /*#__PURE__*/React.createElement("div", {
     className: "dust-pool-root"
   }, /*#__PURE__*/React.createElement(ProjectSubpage, {
-    handleBack: function handleBack() {
-      return setSelectedPoolId(null);
-    }
+    handleBack: () => setSelectedPoolId(null)
   })));
 };
 
