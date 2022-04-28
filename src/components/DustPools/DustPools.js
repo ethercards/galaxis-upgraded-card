@@ -276,7 +276,7 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
     {selectedPoolId === null ?
     <div className="dust-pool-root">
       <div className="dust-pool-textbox">
-        <p className="pool-subtitle">Dust pools</p>
+        <p className="pool-subtitle" style={{marginBlockEnd: "1em"}}>Dust pools</p>
         <div className="tab-choose">
           <div className={`${selectedFilter === 'ALL' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('ALL')}>All</div>
           <div className={`${selectedFilter === 'ACTIVE' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('ACTIVE')}>Active</div>
