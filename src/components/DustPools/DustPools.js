@@ -8,24 +8,60 @@ import rightTrick from '../../assets/images/dustPools/rightTrick.svg';
 
 import UpcomingCard from './components/UpcomingCard';
 import ProjectSubpage from './components/ProjectSubpage';
+import { getContract, getDummy721 } from './Web3/GetContract';
+import { Zoom } from "zoom-next";
 
 
 let POOLS = [
-  {
-    imgSrc: DragonImg,
-    poolId: 0,
-    name: 'Girls, Robots, Dragons'
+{
+  id: 0,
+  name: 'Cryptopunk Pool',
+  imgSrc: DragonImg,
+  order: 0,
+  poolUrl: 'https://larvalabs.com/cryptopunks/accountInfo?account=0x8fa20dcc712bd224b54bc1cdfd30a37349f8df2a#',
+},
+{
+  id: 1,
+  name: 'Meebit Pool',
+  imgSrc: DragonImg,
+  order: 1,
+  poolUrl: 'https://meebits.larvalabs.com/meebits/account?address=0x1f3911F4F43671d187A882df129773A7261989e8',
   },
-  {
-    imgSrc: DragonImg,
-    poolId: 0,
-    name: 'Girls, Robots, Dragons'
-  },
-  {
-    imgSrc: DragonImg,
-    poolId: 0,
-    name: 'Girls, Robots, Dragons'
-  },
+{
+  id: 2,
+  name: 'Mike Tyson Pool',
+  imgSrc: DragonImg,
+  order: 2,
+  poolUrl: 'https://opensea.io/0xCdA66b3f393cEfc6E476E2183164bD2e9DA78f2e',
+},
+{
+  id: 3,
+  name: 'EC Alpha Pool',
+  imgSrc: DragonImg,
+  order: 3,
+  poolUrl: 'https://opensea.io/0xA375A68CbFf5226E51eEBc2128493D1e30F171B1',
+},
+{
+  id: 4,
+  name: 'EC Founder Pool',
+  imgSrc: DragonImg,
+  order: 4,
+  poolUrl: 'https://opensea.io/0xB27b95e6B138c968ec1BDC56D4a538Ed0F83b3C2',
+},
+{
+  id: 5,
+  name: 'MetaZoo Pool',
+  imgSrc: DragonImg,
+  order: 5,
+  poolUrl: 'https://opensea.io/0xfa87ae4cf49806eEaEa2F7DF1B7411834Ab097d6',
+},
+{
+  id: 6,
+  imgSrc: DragonImg,
+  name: 'Toddlerpillars Pool',
+  order: 6,
+  poolUrl: 'https://opensea.io/0x9dFF1113CF4186deC4feb774632356D22f07eB9e',
+}
 ];
 
 const UPCOMING_POOLS = [
@@ -67,30 +103,153 @@ const TopSectionDividers = () => (
 const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
 
   const [selectedPoolId, setSelectedPoolId] = useState(null);
+  const [dustContract,setDustContract] = useState(null);
+  const [dust4PunksContract,setDust4PunksContract] = useState(null);
+  const [zoom2,setZoom2] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState('ALL');
 
-  const [pools,setPools] = useState([
-    {
-      imgSrc: DragonImg,
-      poolId: 0,
-      name: 'Girls, Robots, Dragons'
-    },
-    {
-      imgSrc: DragonImg,
-      poolId: 0,
-      name: 'Girls, Robots, Dragons'
-    },
-    {
-      imgSrc: DragonImg,
-      poolId: 0,
-      name: 'Girls, Robots, Dragons'
-    },
-  ])
+  const [pools,setPools] = useState(POOLS);
 
   useEffect(()=>{
-    console.log('address???',address);
+    if(address!==null){
+      console.log('Wallet connected:',address);
+      //TODO: get dust balance
+    }
 
   },[address]);
+  
+
+
+  useEffect(()=>{
+
+    const initContract = async ()=>{
+        let c = await getContract('Dust',ethersProvider);
+        if(c){
+            setDustContract(c);
+            console.log('DUST:',c);
+        }else{
+            console.log('contract not found');
+        }
+
+        let Zoom2Contract = await getContract('Zoom2', ethersProvider);
+        if (Zoom2Contract) {
+            setZoom2(Zoom2Contract);
+            console.log('ZOOM:',Zoom2Contract);
+
+        } else {
+            console.log('Could not initialise Zoom2 Contract');
+        }
+
+        let D4P = await getContract('Dust4Punks', ethersProvider);
+        if (D4P) {
+            setDust4PunksContract(D4P);
+            console.log('D4P:',D4P);
+        } else {
+            console.log('Could not initialise D4P Contract');
+        }
+    }
+
+    if(ethersProvider){
+        initContract();
+    }
+},[ethersProvider]);
+
+
+  useEffect(()=>{
+
+
+    if(dust4PunksContract && dustContract && zoom2){
+      getPools();
+    }
+
+  },[dust4PunksContract,dustContract,zoom2])
+
+  const getPools = async()=>{
+    console.log('GETTING POOL DATA....');
+
+           // if(address){
+            const ZoomLibraryInstance = new Zoom({ use_reference_calls: true });
+            let calls = [];
+
+
+            for(let i = 0; i<POOLS.length;i++){
+
+                //Punk vault address
+                const vaultAddress = ZoomLibraryInstance.addCall(
+                    dust4PunksContract,
+                    ["vaultAddress", [i]],
+                    "vaultAddress(uint256) returns (address)"
+                );
+                calls.push(vaultAddress);
+
+                //Pool Name
+                const vaultName = ZoomLibraryInstance.addCall(
+                    dust4PunksContract,
+                    ["vaultName", [i]],
+                    "vaultName(uint256) returns (string)"
+                );
+                calls.push(vaultName);
+
+                //Vault price
+                const vaultPrice = ZoomLibraryInstance.addCall(
+                    dust4PunksContract,
+                    ["vaultPrice", [i]],
+                    "vaultPrice(uint256) returns (uint256)"
+                );
+                calls.push(vaultPrice);
+
+                //Vault token addredd
+                const vaultToken = ZoomLibraryInstance.addCall(
+                    dust4PunksContract,
+                    ["vaultToken", [i]],
+                    "vaultToken(uint256) returns (address)"
+                );
+                calls.push(vaultToken);
+            }
+
+            const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall();
+
+            //console.log("======== ZOOM CALL START ============" );
+            //console.time('zoomCall');
+            const combinedResult = await zoom2.combine( ZoomQueryBinary );
+            //console.timeEnd('zoomCall');
+            //console.log("======== ZOOM CALL END ==============" );
+
+            ZoomLibraryInstance.resultsToCache( combinedResult, ZoomQueryBinary);
+
+            //4 calls per vault
+
+            let ap = POOLS;
+            let poolIdx=0;
+            for(let i=0;i<POOLS.length*4; i+=4){
+                let va = ZoomLibraryInstance.decodeCall(calls[i+0]).toString();
+                let vn = ZoomLibraryInstance.decodeCall(calls[i+1]).toString();
+                let vp = ZoomLibraryInstance.decodeCall(calls[i+2]).toString();
+                let vt = ZoomLibraryInstance.decodeCall(calls[i+3]).toString();
+
+                
+                const vd = {
+                    vaultAddress: va,
+                    vaultName: vn,
+                    vaultPrice: vp,
+                    vaultToken: vt,
+                    available: null,
+                    totalSupply: null
+                };
+
+                let vToken = await getDummy721(vt,ethersProvider);
+                
+                if(vToken){
+                    vd.tokenContract = vToken;
+                }
+
+                ap[poolIdx].vaultData = vd;
+                poolIdx++;
+            }
+
+            console.log("AP",ap);
+    
+  }
 
   useEffect(()=>{
     if(selectedFilter === 'SOLD_OUT'){
@@ -98,26 +257,12 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
     }else if(selectedFilter === 'ACTIVE'){
       setPools([])
     }else{
-      setPools([
-        {
-          imgSrc: DragonImg,
-          poolId: 0,
-          name: 'Girls, Robots, Dragons'
-        },
-        {
-          imgSrc: DragonImg,
-          poolId: 0,
-          name: 'Girls, Robots, Dragons'
-        },
-        {
-          imgSrc: DragonImg,
-          poolId: 0,
-          name: 'Girls, Robots, Dragons'
-        },
-      ])
+      setPools(POOLS);
     }
   },[selectedFilter]);
   
+
+
   const connectOrExchange = (poolId) =>{
     if(poolId!==null){
       setSelectedPoolId(poolId);
