@@ -48,21 +48,27 @@ const ProjectSubpage = ({handleBack}) => {
           <div className="text-box w-100">
               <p className='dust-pool-card-label'>POOL</p>
             <p className="dust-pool-title ">Girls, Robots, Dragons</p>
-            <p className="dust-pool-card-label">Price</p>
-            <p className='mb-3'>
-              <b>10.000 D</b>
-            </p>
             <p className="dust-pool-card-label">COUNTER</p>
             <p className="mb-1">
               <b>60 out of 100 left</b>
             </p>
             <CounterBar value={100} maxValue={200} />
-
-            <div className='ps-text-bottom'>
-            <p className="dust-pool-card-label">Your dust balance</p>
-            <p className="mb-2">
+            <p className="dust-pool-card-label">Your balance</p>
+            <div className='dpc-box'>
+            <p style={{margin:0}}>
               <b>10000 D</b>
             </p>
+            </div>
+            
+            <p className="dust-pool-card-label">Price</p>
+            <div className='dpc-box'>
+            <p style={{margin:0}}>
+              <b>10.000 D</b>
+            </p>
+            </div>
+
+            <div className='ps-text-bottom'>
+
             <button className="dust-pool-btn">Buy Now</button>
             </div>
           </div>

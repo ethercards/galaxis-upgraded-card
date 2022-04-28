@@ -101,6 +101,7 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-transform: capitalize;
 }
 .pool-ps-btn{
     background-color: transparent;
@@ -127,7 +128,45 @@
     outline: none;
 }
 .pool-ps-card-and-descipton-inner .dust-pool-title{
-    font-size: 28px;
     margin-bottom: 0;
     line-height: 40px;
+    font-size: 32px;
+}
+.dpc-box{
+    background-color: #fff;
+    padding: 15px 20px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1); 
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    width: fit-content;
+    border-radius: 5px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+@media only screen and (max-width: 825px) {
+    .pool-ps-card-and-descipton-inner{
+        flex-basis: 60%;
+        max-width: 60%;
+    }
+    .pool-ps-card-and-descipton{
+        justify-content: center;
+    }
+    .ps-text-bottom{
+        margin-top: 20px;
+        position: relative;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .pool-ps-card-and-descipton-inner{
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+    .pool-ps-card-and-descipton{
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .previous-box img, .next-box img{
+        display: none;
+    }
 }

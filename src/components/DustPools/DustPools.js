@@ -405,7 +405,7 @@ const getFiltered = ()=>{
     {selectedPoolId === null ?
     <div className="dust-pool-root">
       <div className="dust-pool-textbox">
-        <p className="pool-subtitle">Dust pools</p>
+        <p className="pool-subtitle" style={{marginBlockEnd: "1em"}}>Dust pools</p>
         <div className="tab-choose">
           <div className={`${selectedFilter === 'ALL' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('ALL')}>All</div>
           <div className={`${selectedFilter === 'ACTIVE' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('ACTIVE')}>Active</div>
@@ -448,10 +448,10 @@ const getFiltered = ()=>{
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
-        <div className='row' style={{maxHeight:"86px"}}>
+        <div className='row'>
             {
               UPCOMING_POOLS.map((card,idx)=>{
-                return <div key={idx} className="col-6 col-lg-3">
+                return <div key={idx} className="col-12 col-lg-3">
                   <UpcomingCard imgSrc={card.imgSrc} name={card.name} price={card.price}/>
                 </div>
 
