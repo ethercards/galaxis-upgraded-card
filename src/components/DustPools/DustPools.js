@@ -277,15 +277,16 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
     <div className="dust-pool-root">
       <div className="dust-pool-textbox">
         <p className="pool-subtitle">Dust pools</p>
-        <p>
-          You can exchange your Dust for some awesome items including
-          Cryptopunks and other valuable NFTs.
-        </p>
         <div className="tab-choose">
           <div className={`${selectedFilter === 'ALL' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('ALL')}>All</div>
           <div className={`${selectedFilter === 'ACTIVE' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('ACTIVE')}>Active</div>
           <div className={`${selectedFilter === 'SOLD_OUT' ? "active-tab" : ''}`} onClick={()=> setSelectedFilter('SOLD_OUT')}>Sold out</div>
         </div>
+        <p>
+          You can exchange your Dust for some awesome items including
+          Cryptopunks and other valuable NFTs.
+        </p>
+        
       </div>
       <div className="container  mt-5">
         <div className="row" style={{ rowGap: '25px' }}>

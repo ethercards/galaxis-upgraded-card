@@ -32,6 +32,7 @@
 }
 .dust-pool-btn {
   border: 2px solid rgb(255, 105, 43);
+  font-family: 'poppins-semibold';
   color: rgb(255, 105, 43);
   background-color: transparent;
   font-family: poppins;

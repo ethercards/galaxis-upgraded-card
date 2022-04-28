@@ -41,7 +41,8 @@ body{
 .tab-choose{
     display: flex;
     justify-content: center;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
 }
 .tab-choose div{
     font-size: 18px;
