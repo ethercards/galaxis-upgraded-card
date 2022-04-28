@@ -50,3 +50,13 @@
 .dust-pool-btn:focus {
   outline: none;
 }
+
+.dust-pool-btn.disabled{
+  opacity:0.5;
+}
+
+.dust-pool-btn:hover.disabled{
+  background-color: transparent;
+  color: rgb(255, 105, 43);
+  cursor:not-allowed;
+}

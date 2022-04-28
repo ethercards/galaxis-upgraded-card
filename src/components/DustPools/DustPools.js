@@ -10,14 +10,16 @@ import UpcomingCard from './components/UpcomingCard';
 import ProjectSubpage from './components/ProjectSubpage';
 import { getContract, getDummy721 } from './Web3/GetContract';
 import { Zoom } from "zoom-next";
+import useInterval from '../../common/useInterval';
 
-
+const UPDATE_INTERVAL = 60000;
 let POOLS = [
 {
   id: 0,
   name: 'Cryptopunk Pool',
   imgSrc: DragonImg,
   order: 0,
+  totalSupply:27,
   poolUrl: 'https://larvalabs.com/cryptopunks/accountInfo?account=0x8fa20dcc712bd224b54bc1cdfd30a37349f8df2a#',
 },
 {
@@ -25,6 +27,7 @@ let POOLS = [
   name: 'Meebit Pool',
   imgSrc: DragonImg,
   order: 1,
+  totalSupply:30,
   poolUrl: 'https://meebits.larvalabs.com/meebits/account?address=0x1f3911F4F43671d187A882df129773A7261989e8',
   },
 {
@@ -32,6 +35,7 @@ let POOLS = [
   name: 'Mike Tyson Pool',
   imgSrc: DragonImg,
   order: 2,
+  totalSupply:25,
   poolUrl: 'https://opensea.io/0xCdA66b3f393cEfc6E476E2183164bD2e9DA78f2e',
 },
 {
@@ -39,6 +43,7 @@ let POOLS = [
   name: 'EC Alpha Pool',
   imgSrc: DragonImg,
   order: 3,
+  totalSupply:50,
   poolUrl: 'https://opensea.io/0xA375A68CbFf5226E51eEBc2128493D1e30F171B1',
 },
 {
@@ -46,6 +51,7 @@ let POOLS = [
   name: 'EC Founder Pool',
   imgSrc: DragonImg,
   order: 4,
+  totalSupply:200,
   poolUrl: 'https://opensea.io/0xB27b95e6B138c968ec1BDC56D4a538Ed0F83b3C2',
 },
 {
@@ -53,6 +59,7 @@ let POOLS = [
   name: 'MetaZoo Pool',
   imgSrc: DragonImg,
   order: 5,
+  totalSupply:50,
   poolUrl: 'https://opensea.io/0xfa87ae4cf49806eEaEa2F7DF1B7411834Ab097d6',
 },
 {
@@ -60,6 +67,7 @@ let POOLS = [
   imgSrc: DragonImg,
   name: 'Toddlerpillars Pool',
   order: 6,
+  totalSupply:100,
   poolUrl: 'https://opensea.io/0x9dFF1113CF4186deC4feb774632356D22f07eB9e',
 }
 ];
@@ -108,7 +116,11 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
   const [zoom2,setZoom2] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState('ALL');
 
-  const [pools,setPools] = useState(POOLS);
+
+  const [initDone, setInitDone] = useState(false);
+
+  const [allPools,setAllPools] = useState([]);
+  const [pools,setPools] = useState([]);
 
   useEffect(()=>{
     if(address!==null){
@@ -156,23 +168,33 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
 
 
   useEffect(()=>{
-
-
-    if(dust4PunksContract && dustContract && zoom2){
+    if(dust4PunksContract && dustContract && zoom2/*  && !initDone */){
       getPools();
     }
 
-  },[dust4PunksContract,dustContract,zoom2])
+  },[dust4PunksContract]); //,dustContract,zoom2
 
   const getPools = async()=>{
     console.log('GETTING POOL DATA....');
+
+           let res = await dust4PunksContract.next_redeemable().catch(e=>console.log);
+
+           let numberOfPools = 0;
+
+           if(res){
+            numberOfPools=Number(res);
+           }
+           
+
+           console.log('#OF POOLS',numberOfPools);
+           
+
 
            // if(address){
             const ZoomLibraryInstance = new Zoom({ use_reference_calls: true });
             let calls = [];
 
-
-            for(let i = 0; i<POOLS.length;i++){
+            for(let i = 0; i<numberOfPools;i++){
 
                 //Punk vault address
                 const vaultAddress = ZoomLibraryInstance.addCall(
@@ -218,10 +240,9 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
             ZoomLibraryInstance.resultsToCache( combinedResult, ZoomQueryBinary);
 
             //4 calls per vault
-
-            let ap = POOLS;
+            let tempPool = [];
             let poolIdx=0;
-            for(let i=0;i<POOLS.length*4; i+=4){
+            for(let i=0;i<numberOfPools*4; i+=4){
                 let va = ZoomLibraryInstance.decodeCall(calls[i+0]).toString();
                 let vn = ZoomLibraryInstance.decodeCall(calls[i+1]).toString();
                 let vp = ZoomLibraryInstance.decodeCall(calls[i+2]).toString();
@@ -233,8 +254,7 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
                     vaultName: vn,
                     vaultPrice: vp,
                     vaultToken: vt,
-                    available: null,
-                    totalSupply: null
+                    available: null
                 };
 
                 let vToken = await getDummy721(vt,ethersProvider);
@@ -243,22 +263,131 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
                     vd.tokenContract = vToken;
                 }
 
-                ap[poolIdx].vaultData = vd;
+                tempPool.push({...POOLS[poolIdx], vaultData: vd});
                 poolIdx++;
             }
 
-            console.log("AP",ap);
-    
+            console.log("AP",tempPool);
+            setAllPools(tempPool);
+            setPools(tempPool);
+            setSelectedFilter('ALL');
   }
 
   useEffect(()=>{
-    if(selectedFilter === 'SOLD_OUT'){
-      setPools([])
-    }else if(selectedFilter === 'ACTIVE'){
-      setPools([])
-    }else{
-      setPools(POOLS);
+    console.log('allPools changed...',allPools.length);
+    if(allPools.length>0){
+
+      updateVaultBalances();
     }
+  },[allPools]);
+
+
+  useInterval(()=>{
+    updateVaultBalances();
+},UPDATE_INTERVAL);
+
+
+const updateVaultBalances = async ()=>{
+    if(allPools[0].vaultData && allPools[0].vaultData.tokenContract){
+        //console.log('vaultdata',vaultData);
+
+        const ZoomLibraryInstance = new Zoom();
+        let calls = [];
+
+
+        let hasContract = [];
+
+       // console.log('UPD',pools,allPools);
+
+        for(let i=0;i<allPools.length;i++){
+            if(allPools[i].vaultData.tokenContract.address!=="0x0000000000000000000000000000000000000000"){
+
+            /*     console.log(allPools[i].vaultData.tokenContract,i)
+
+                const totalSupply = ZoomLibraryInstance.addCall(
+                    allPools[i].vaultData.tokenContract,
+                    ["totalSupply",[]],
+                    "totalSupply() returns (uint256)"
+                );
+                calls.push(totalSupply); */
+    
+                const vaultBalance = ZoomLibraryInstance.addCall(
+                    allPools[i].vaultData.tokenContract,
+                    ["balanceOf",[ allPools[i].vaultData.vaultAddress]],
+                    "balanceOf(address) returns (uint256)"
+                );
+                calls.push(vaultBalance);
+                hasContract.push(allPools[i].id);
+            }
+        }
+
+
+        console.log('STUFF',calls,hasContract);
+
+        if(calls.length>0){
+
+
+            const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall();
+
+           // console.log('zqb',ZoomQueryBinary);
+
+            //console.log("======== ZOOM CALL START ============" );
+            //console.time('zoomCall');
+            const combinedResult = await zoom2.combine( ZoomQueryBinary );
+            //console.timeEnd('zoomCall');
+            //console.log("======== ZOOM CALL END ==============" );
+
+            ZoomLibraryInstance.resultsToCache( combinedResult, ZoomQueryBinary );
+
+
+            let ap = allPools;
+            let hasContractIdx = 0;
+            for(let i=0;i<calls.length;i++){
+              //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
+                let ab = ZoomLibraryInstance.decodeCall(calls[i]).toString();
+                let poolIdx = hasContract[hasContractIdx];
+                ap[poolIdx].vaultData = {...ap[poolIdx].vaultData, /* totalSupply:ts, */ available:Number(ab)}
+                if(Number.parseInt(ab)===0){
+                    ap[poolIdx].order+=100;
+                }
+                hasContractIdx++;
+            }
+/* 
+            let op = [...ap];
+
+            op.sort((a,b)=>{
+                if(a.order>b.order){
+                    return 1
+                }else{
+                    return -1;
+                }
+            });
+ */
+            setPools(getFiltered());
+            setInitDone(true);
+            console.log("AP upd", ap);
+        }
+    }
+}
+
+const getFiltered = ()=>{
+  let result = [];
+
+  if(selectedFilter === 'SOLD_OUT'){
+      result = allPools.filter(pool => pool.vaultData.available === 0);
+    }else if(selectedFilter === 'ACTIVE'){
+      result = allPools.filter(pool => pool.vaultData.available > 0);
+    }else{
+      result = [...allPools];
+    }
+    return result;
+}
+
+
+
+
+  useEffect(()=>{
+    setPools(getFiltered());
   },[selectedFilter]);
   
 

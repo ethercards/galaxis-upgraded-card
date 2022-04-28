@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import {ethers} from 'ethers';
 import './DustPoolCard.css'
 import CounterBar from './CounterBar.jsx';
 const DustPoolCard = ({card,handleClick,address})=>{
@@ -25,11 +26,11 @@ const DustPoolCard = ({card,handleClick,address})=>{
         <div className='text-box'>
             <p className='dust-pool-title'>{card.name}</p>
             <p className='dust-pool-card-label'>COUNTER</p>
-            <p className='mb-1'><b>60 out of 100 left</b></p>
-            <CounterBar value={100} maxValue={200} />
+            <p className='mb-1'><b>{card.vaultData.available} out of {card.totalSupply} left</b></p>
+            <CounterBar value={card.vaultData.available} maxValue={card.totalSupply} />
             <p className='dust-pool-card-label'>Price</p>
-            <p><b>10.000 D</b></p>
-            <button className='dust-pool-btn'  onClick={onClickHandler}>{address?'Exchange':'Connect'}</button>
+            <p><b>{card.vaultData.vaultPrice>0?Number(ethers.utils.formatEther(card.vaultData.vaultPrice)).toLocaleString()+' D':'TBA'}</b></p>
+            <button className={`dust-pool-btn ${(card.vaultData.available===null||Number(card.vaultData.available)===0)?'disabled':''}`} disabled={(card.vaultData.available===null||Number(card.vaultData.available)===0)} onClick={onClickHandler}>{address?'Exchange':'Connect'}</button>
         </div>
         </div>
     </>)
