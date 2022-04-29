@@ -431,15 +431,8 @@ const getFiltered = ()=>{
         <div className="dust-pool-textbox">
           <p className="pool-subtitle">Dust utility token</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <button className="dust-pool-btn" style={{marginTop:"20px"}}>Go to blog</button>
+          $DUST tokens are used throughout the Galaxis ecosystem to reserve and pay for upcoming mints, return value to NFT holders, and exchange for NFTs via the Galaxis Vaults.          </p>
+          <button className="dust-pool-btn" style={{marginTop:"20px"}} onClick={()=>window.open('https://blog.ether.cards/dust-utility-token-model-distribution/')}>More</button>
         </div>
         <TopSectionDividers />
         <div className="dust-pool-textbox pb-4">
