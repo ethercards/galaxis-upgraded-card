@@ -1,0 +1,70 @@
+.terms-root{
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255,0.3);
+	z-index: 1100;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.restricted-box {
+	width:40%;
+	height: auto;
+	min-width: 400px;
+	max-height: 600px;
+	background:white;
+	border-radius: 15px;
+	padding: 15px;
+	-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); 
+  	box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);
+}
+
+.scrollable-content{
+	width:100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.scrollable-content h2{
+	text-align: center;
+	padding-bottom: 15px;
+	position: sticky;
+	top:0;
+	background:white;
+	background: -moz-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);
+	background: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);
+	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+}
+
+.restricted-button-container{
+	margin-top:25px;
+	text-align: center;
+}
+.tc-button-container button{
+	margin: 10px 5px;
+}
+
+.restricted-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.restricted-container .country{
+	width:25%;
+	text-align: center;
+	line-height: 1.8rem;
+}
+
+@media only screen and (max-width: 600px) {
+	.restricted-container .country{
+		width:50%;
+	}
+  }

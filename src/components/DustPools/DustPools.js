@@ -108,7 +108,7 @@ const TopSectionDividers = () => (
   </div>
 );
 
-const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
+const DustPools = ({address,ethersProvider,chainId,handleConnect}) => {
 
   const [selectedPoolId, setSelectedPoolId] = useState(null);
   const [dustContract,setDustContract] = useState(null);
@@ -122,14 +122,6 @@ const DustPools = ({address,ethersProvider,deployedChainId,handleConnect}) => {
   const [allPools,setAllPools] = useState([]);
   const [pools,setPools] = useState([]);
 
-  useEffect(()=>{
-    if(address!==null){
-      console.log('Wallet connected:',address);
-      //TODO: get dust balance
-    }
-
-  },[address]);
-  
 
 
   useEffect(()=>{
@@ -395,8 +387,6 @@ const getFiltered = ()=>{
   const connectOrExchange = (poolId) =>{
     if(poolId!==null){
       setSelectedPoolId(poolId);
-    }else{
-      handleConnect();
     }
   }
   
@@ -422,7 +412,7 @@ const getFiltered = ()=>{
           {pools.map((card,idx) => {
             return (
               <div key={idx} className="col-12 col-lg-6">
-                <DustPoolCard card={card} address={address} handleClick={connectOrExchange}/>
+                <DustPoolCard card={card} handleClick={connectOrExchange}/>
               </div>
             );
           })}
@@ -464,7 +454,15 @@ const getFiltered = ()=>{
     :
 
     <div className="dust-pool-root">
-      <ProjectSubpage handleBack = {()=>setSelectedPoolId(null)}/>
+      <ProjectSubpage 
+        pool={allPools[selectedPoolId]} 
+        address={address} 
+        dust={dustContract} 
+        d4p={dust4PunksContract} 
+        ethersProvider={ethersProvider}
+        chainId={chainId}
+        handleConnect = {handleConnect}
+        handleBack = {()=>setSelectedPoolId(null)}/>
     </div>
     }
     </>

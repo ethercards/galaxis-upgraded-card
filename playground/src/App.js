@@ -9,6 +9,7 @@ import theme from './theme';
 import { ThemeProvider } from '@mui/material';
 import { Box } from '@mui/system';
 import Web3Manager from './components/Web3Manager/Web3Manager.jsx'
+import { ToastContainer } from 'react-toast';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           </Web3Manager>
         </HashRouter>
       </Box>
+      <ToastContainer delay={4000}  position="bottom-right"/>
     </ThemeProvider>
   );
 }
