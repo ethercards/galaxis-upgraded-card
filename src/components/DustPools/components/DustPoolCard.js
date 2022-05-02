@@ -26,7 +26,7 @@ const DustPoolCard = ({card,handleClick})=>{
             <CounterBar value={card.vaultData.available} maxValue={card.totalSupply} />
             <p className='dust-pool-card-label' style={{marginBlockEnd: 0}}>Price</p>
             <p><b>{card.vaultData.vaultPrice>0?Number(ethers.utils.formatEther(card.vaultData.vaultPrice)).toLocaleString()+' D':'TBA'}</b></p>
-            <button className={`dust-pool-btn ${(card.vaultData.available===null||Number(card.vaultData.available)===0)?'disabled':''}`} disabled={(card.vaultData.available===null||Number(card.vaultData.available)===0)} onClick={onClickHandler}>Details</button>
+            <button style={{position:"absolute", bottom:"15px"}} className={`dust-pool-btn ${(card.vaultData.available===null||Number(card.vaultData.available)===0)?'disabled':''}`} disabled={(card.vaultData.available===null||Number(card.vaultData.available)===0)} onClick={onClickHandler}>Details</button>
         </div>
         </div>
     </>)
