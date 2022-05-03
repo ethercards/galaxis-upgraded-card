@@ -8,8 +8,6 @@ import rightTrick from '../../assets/images/dustPools/rightTrick.svg';
 
 import UpcomingCard from './components/UpcomingCard';
 import ProjectSubpage from './components/ProjectSubpage';
-import CardRevealPage from './components/CardRevealPage.jsx';
-import WaitingForVRF from './components/WaitingForVRF.jsx';
 import { getContract, getDummy721 } from './Web3/GetContract';
 import { Zoom } from 'zoom-next';
 import useInterval from '../../common/useInterval';
@@ -474,12 +472,6 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
               handleBack={() => setSelectedPoolId(null)}
             />
           </div>
-
-          {/* card reveal screen */}
-          {/* <CardRevealPage handleBack={() => setSelectedPoolId(null)} /> */}
-
-          {/* waiting for VRF screen */}
-          {/* <WaitingForVRF handleBack={() => setSelectedPoolId(null)} /> */}
         </>
       )}
     </>

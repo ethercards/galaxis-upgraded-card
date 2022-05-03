@@ -1,4 +1,5 @@
 import './ProjectSubpage.css';
+import './Counter.css';
 import React, { useEffect, useRef, useState } from 'react';
 import {BigNumber, ethers} from 'ethers';
 import axios from 'axios';
@@ -9,7 +10,7 @@ import CounterBar from './CounterBar.jsx';
 import divider from '../../../assets/images/dustPools/divider.png'
 import TermsBox from './TermsBox';
 import RestrictedAreaBox from './RestrictedAreaBox';
-
+import DustImg from '../../../assets/images/dustPools/dust-card.jpg';
 
 const ShowNextPreviosProject = () =>{
     return <div className='snp-root'>
@@ -55,7 +56,7 @@ const ProjectSubpage = ({pool, address, dust, d4p, ethersProvider, chainId, hand
   
   const [tokenMeta,setTokenMeta] = useState(null);
   const [videoVisible, setVideoVisible] = useState(false);
-  const [nftVisible, setNftVisible] = useState(false);
+  const [cardRevealed, setCardRevealed] = useState(false);
 
   const videoRef = useRef(null);
 
@@ -74,7 +75,7 @@ const ProjectSubpage = ({pool, address, dust, d4p, ethersProvider, chainId, hand
     
     fetchUserCountry();
 
-    getUserHashes();
+   // getUserHashes();
 
 
 },[]);
@@ -108,17 +109,181 @@ useEffect(()=>{
     getUserHashes();
   }
 
-
-
-
 },[address, d4p]);
 
-const getUserHashes = async () => {
+/* const getUserHashes = async () => {
+
+} */
+
+useEffect(()=>{
+  const waitForTx = async ()=>{
+      setTxInProgress(true);
+      let tr = await ethersProvider.waitForTransaction(txHash,1,30000).catch(e=>{console.log(e);});
+      if(tr){
+          if(tr.status>0){
+              toast.success('Transaction sent.');
+
+              //console.log('wait for punks');
+          }
+      }
+      
+      localStorage.removeItem('tx_hash'+pool.id);;
+      setTxInProgress(false);
+
+      let b = await dust.balanceOf(address).catch(e=>{console.log(e)});
+      if(b){
+          setDustBalance(b);
+      }
+
+      let numOfHashes = await d4p.numberOfHashes(address).catch(e=>{console.log(e)})
+      
+      
+      if(numOfHashes ){
+          let lastUserHash = await d4p.userhashes(address,Number(numOfHashes)-1).catch(e=>{console.log(e)})
+          
+          console.log('Last hash:',lastUserHash);
+          
+          if(lastUserHash){
+              setTxHash(null);
+              setUserHash(lastUserHash);
+              localStorage.setItem('user_hash'+pool.id,lastUserHash);
+          }
+
+          /* const userHashes={
+              0: [0x1],
+              1: [],
+              2: [0x22],
+              3: [0x333],
+              4: []
+          } */
+      
+      }
+      setTxHash(null);
+  }
+
+  if(txHash){
+      waitForTx();
+  }
+},[txHash]);
+
+useEffect(()=>{
+  if(userHash){
+      let intervalId = setInterval(async()=>{
 
 
+      let id = await d4p.redeemedTokenId(userHash).catch(e=>{console.log(e)});
+          console.log('redeemed id',id);
+      if(Number.parseInt(id._hex, 16)){
+          if(pool.vaultData.tokenContract){
+
+              let tUri = await pool.vaultData.tokenContract.tokenURI(id).catch(e=>{console.log(e)});
+
+            //  console.log('uri',tUri);
+              let meta = await getTokenURI(tUri);
+
+              if(meta){
+                  setTokenMeta(meta);
+              }else{
+                  //meebit cors hack :/
+
+                  if(pool.id===1){
+                      //if meebit...
+                     let id = tUri.split('/').pop();
+                     let image = "https://meebits.larvalabs.com/meebitimages/characterimage?index=****&type=full&imageType=jpg".replace('****',id);
+                     setTokenMeta({id,image});
+                  }
 
 
+              }
+
+
+            console.log(meta);
+          }
+          clearInterval(intervalId);
+          console.log('redeemed id!!!',id);
+      }
+
+
+      },10000);
+
+      
+      return () => {
+          if (intervalId) {
+              clearInterval(intervalId);
+          }
+      };
+  }
+
+
+},[userHash]);
+
+
+useEffect(()=>{
+  if(tokenMeta){
+      try{
+          const img = new Image();
+          img.src=getRemoteImageUrl(tokenMeta.image);
+      }catch (e){
+          console.log('errror',e);
+      }
+
+      videoRef.current.play();
+      setVideoVisible(true);
+      //!
+      setTimeout(()=>{videoFinished()},5000);
+  }
+},[tokenMeta]);
+
+const videoFinished = ()=>{
+  setUserHash(null);
+  localStorage.removeItem('user_hash'+pool.id);
+  setCardRevealed(true);
+  setVideoVisible(false);
 }
+
+const getTokenURI = (uri)=>{
+  return fetch(uri)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        //console.log('result',result);
+        return result;
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      (error) => {
+
+        console.log('***Error(fetch):', error);
+
+        return null;
+      }
+    );
+}
+
+const getRemoteImageUrl=(src)=>{
+  if(src.indexOf('http') !== 0){
+    if(src.indexOf('data:image')<0){
+          if(src.indexOf('/static') === 0){
+              // local file
+              return src;
+          }else{
+              // ipfs
+              let url = src.replace('ipfs://','/ipfs/');
+              if(url.indexOf('/ipfs') !== 0){
+                  url = '/ipfs/'+src;
+              }
+              return 'https://ether-cards.mypinata.cloud'+url;
+          }
+    }else{
+        // embedded
+        return src;
+    }
+  }
+  return src;
+}
+
+
 
 useEffect(() => {
   if (userCountryCode) {
@@ -129,37 +294,31 @@ useEffect(() => {
 }, [userCountryCode]);
 
 
+useEffect(()=>{
+  
+
+  if(dust && address){
+    getDustBalance();
+  }
+},[address]);
 
 
-
-
-
-
-  useEffect(()=>{
-    
-
-    if(dust && address){
-      getDustBalance();
-    }
-  },[address]);
-
-
-  const getDustBalance = async ()=>{
-    let balance = await dust.balanceOf(address).catch(e=>console.log);
-    console.log('balance',dustBalance);
-    if(balance){
-      setDustBalance(balance);
-    }
-
+const getDustBalance = async ()=>{
+  let balance = await dust.balanceOf(address).catch(e=>console.log);
+  console.log('balance',dustBalance);
+  if(balance){
+    setDustBalance(balance);
   }
 
-  const connectOrExhange = ()=>{
-    if(address){
-      doTheExchange();
-    }else{
-      handleConnect();
-    }
+}
+
+const connectOrExhange = ()=>{
+  if(address){
+    doTheExchange();
+  }else{
+    handleConnect();
   }
+}
 
   const doTheExchange = async () => {
     if(countryBlocked){
@@ -206,50 +365,139 @@ useEffect(() => {
 
   return (
     <div className="pool-ps-root">
+      
+      {(!txHash && !userHash && !cardRevealed)&&<>
         <button className='pool-ps-btn' onClick={handleBack}><span>&#9666;</span><p>Back</p></button>
-      <div className="pool-ps-card-and-descipton">
-        <div className="pool-ps-card-and-descipton-inner ps-left">
-          <img src={DragonImg} style={{ maxWidth: '100%' }} />
-        </div>
-        <div className="pool-ps-card-and-descipton-inner ps-right">
-          <div className="text-box w-100">
-              <p className='dust-pool-card-label'>POOL</p>
-            <p className="dust-pool-title ">{pool.name}</p>
-            <p className="dust-pool-card-label">COUNTER</p>
-            <p className="mb-1">
-              <b>{pool.vaultData.available} out of {pool.totalSupply} left</b>
-            </p>
-            <CounterBar value={pool.vaultData.available} maxValue={pool.totalSupply} />
-            <p className="dust-pool-card-label">Your balance</p>
-            <div className='dpc-box'>
-            <p style={{margin:0}}>
-              <b>{dustBalance?Number(ethers.utils.formatEther(dustBalance)).toLocaleString()+' D':'Connect your wallet to see your dust balance'}</b>
-            </p>
-            </div>
-            
-            <p className="dust-pool-card-label">Price</p>
-            <div className='dpc-box'>
-            <p style={{margin:0}}>
-              <b>{Number(ethers.utils.formatEther(pool.vaultData.vaultPrice)).toLocaleString()+' D'}</b>
-            </p>
-            </div>
+        <div className="pool-ps-card-and-descipton">
+          <div className="pool-ps-card-and-descipton-inner ps-left">
+            <img src={DragonImg} style={{ maxWidth: '100%' }} />
+          </div>
+          <div className="pool-ps-card-and-descipton-inner ps-right">
+            <div className="text-box w-100">
+                <p className='dust-pool-card-label'>POOL</p>
+              <p className="dust-pool-title ">{pool.name}</p>
+              <p className="dust-pool-card-label">COUNTER</p>
+              <p className="mb-1">
+                <b>{pool.vaultData.available} out of {pool.totalSupply} left</b>
+              </p>
+              <CounterBar value={pool.vaultData.available} maxValue={pool.totalSupply} />
+              <p className="dust-pool-card-label">Your balance</p>
+              <div className='dpc-box'>
+              <p style={{margin:0}}>
+                <b>{dustBalance?Number(ethers.utils.formatEther(dustBalance)).toLocaleString()+' D':'Connect your wallet to see your dust balance'}</b>
+              </p>
+              </div>
+              
+              <p className="dust-pool-card-label">Price</p>
+              <div className='dpc-box'>
+              <p style={{margin:0}}>
+                <b>{Number(ethers.utils.formatEther(pool.vaultData.vaultPrice)).toLocaleString()+' D'}</b>
+              </p>
+              </div>
 
-            <div className='ps-text-bottom'>
+              <div className='ps-text-bottom'>
 
-            <button className="dust-pool-btn" onClick={connectOrExhange}>{address?'Exchange':'Connect'}</button>
+              <button className="dust-pool-btn" onClick={connectOrExhange}>{address?'Exchange':'Connect'}</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <p className="dust-pool-card-label mt-2" style={{fontFamily:"poppins-semibold", textTransform:"capitalize", fontSize:"18px"}}><b>Description</b></p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-      <ShowNextPreviosProject/>
+        <p className="dust-pool-card-label mt-2" style={{fontFamily:"poppins-semibold", textTransform:"capitalize", fontSize:"18px"}}><b>Description</b></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        <ShowNextPreviosProject/>
+      </>}
+
+      {(txHash || userHash)&&
+        <>
+        <button className='pool-ps-btn' onClick={handleBack}><span>&#9666;</span><p>Back to pools</p></button>
+        <div className="pool-ps-card-and-descipton">
+          <div className="pool-ps-card-and-descipton-inner ps-left">
+            <img src={DustImg} style={{ maxWidth: '100%' }} />
+          </div>
+          <div className="pool-ps-card-and-descipton-inner ps-right">
+            <div className="text-box w-100">
+              
+              {txHash&&
+              <>
+                <p className="dust-pool-title" style={{lineHeight:"35px", marginBottom:"20px"}}>Waiting for transaction</p>
+                <p className="dust-pool-card-label" style={{textTransform:"none"}}>Please wait until the transaction is complete.<br/>You can check the status on  <a className="es-link" href={chainId===1?'https://etherscan.io':'https://rinkeby.etherscan.io' + '/tx/'+txHash} target="_blank" rel="noreferrer">Etherscan.</a></p>
+                
+              </>
+              }
+              
+              {userHash&&
+              <>
+                <p className="dust-pool-title" style={{lineHeight:"35px", marginBottom:"20px"}}>VRF Initialised!<br/>Transition was successful!</p>
+                <p className="dust-pool-card-label" style={{textTransform:"none"}}>Transition was successful. Chainlink's VRF now picks a random NFT from the vault. Please be patient as this process may take several minutes.</p>
+              </>
+              }
+
+              <div className="counter-circle" style={{margin:"25px 0"}}>
+                <div className="counter-rotary-holder" id='txRotator'>
+                  <div className="counter-rotary-item" />
+                </div>
+                <div className="counter-shadow">
+                  <div className="counter-content-holder">
+                    <div className="counter-text">LOADING</div>
+                  </div>
+                </div>
+              </div>
+              
+            
+            </div>
+          </div>
+        </div>
+
+        <div className={`video-box  ${videoVisible&&'visible'}`}>
+            <video
+                    ref={videoRef}
+                    onEnded={videoFinished}
+                    playsInline
+                    style={{width:'100%'}}
+                    src='https://ether-cards.mypinata.cloud/ipfs/QmPHZNPA8oqwdiMZ2m3YApyEpFUpRKj6XfxiKiLi5Gr1Qk' 
+            /> 
+        </div>
+
+        </>
+      }
+
+      {cardRevealed&&
+      <>
+        <button className='pool-ps-btn' onClick={handleBack}><span>&#9666;</span><p>Back to pools</p></button>
+          <div className="pool-ps-card-and-descipton">
+            <div className="pool-ps-card-and-descipton-inner ps-left">
+              <img src={tokenMeta.image} style={{ maxWidth: '100%' }} />
+            </div>
+            <div className="pool-ps-card-and-descipton-inner ps-right">
+              <div className="text-box w-100">
+                <p className="dust-pool-title" style={{lineHeight:"35px", marginBottom:"20px"}}>Congratulations!<br/>You Got It!</p>
+                <p className="dust-pool-card-label" style={{textTransform:"none"}}>Your brand new NFT can be viewed right now in your wallet, or go back to dust pools to buy some more!</p>
+                <div className='ps-text-bottom' style={{display:"flex", flexDirection:"column", rowGap:"10px", maxWidth:"170px", marginLeft:"auto", marginRight:"auto"}}>
+                <button className="dust-pool-btn" onClick={()=>{setCardRevealed(false);setUserHash(false);setTxHash(false)}}>Buy more</button>
+                <a className="dust-pool-btn" target="_blank" rel="noreferrer" href={chainId===1?'https://explorer.ether.cards/#/wallet':'https://explorer.burneth.com/#/wallet'}>Go to wallet</a>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </>
+      
+      }
+      
+      
+      
+      
+      
+      
+      
       <TermsBox termsVisible={showTerms} handleClose={()=>setShowTerms(false)} handleAccept={onTermsAccepted} />
       <RestrictedAreaBox restrictedBoxVisible={showRestricted} handleClose={()=>setShowRestricted(false)} />
       {waitingForApproval&&
        <div className="approval-mask"/>
       }
     </div>
+
+
+
   );
 };
 

@@ -1,12 +1,12 @@
-import './ProjectSubpage.css';
+//import './ProjectSubpage.css';
 import React from 'react';
-import DragonImg from '../../../assets/images/dustPools/royalty.jpg';
-
+/* import DragonImg from '../../../assets/images/dustPools/royalty.jpg';
+ */
 const CardRevealPage = ({ handleBack}) => {
 
   return (
-    <div className="pool-ps-root">
-        <button className='pool-ps-btn' onClick={handleBack}><span>&#9666;</span><p>Back to pools</p></button>
+    <div className="pool-ps-root">sdfsdfds
+      {/*   <button className='pool-ps-btn' onClick={handleBack}><span>&#9666;</span><p>Back to pools</p></button>
       <div className="pool-ps-card-and-descipton">
         <div className="pool-ps-card-and-descipton-inner ps-left">
           <img src={DragonImg} style={{ maxWidth: '100%' }} />
@@ -21,9 +21,10 @@ const CardRevealPage = ({ handleBack}) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
 
 export default CardRevealPage;
+

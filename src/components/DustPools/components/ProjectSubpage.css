@@ -157,6 +157,35 @@
     justify-content: center;
 }
 
+
+
+.video-box{
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-pack:center!important;
+    justify-content:center!important;
+  }
+
+  .video-box.visible{
+      opacity: 1;
+  }
+
+  a.dust-pool-btn{
+      text-decoration: none;
+  }
+
+
+
 @media only screen and (max-width: 825px) {
     .pool-ps-card-and-descipton-inner{
         flex-basis: 60%;
