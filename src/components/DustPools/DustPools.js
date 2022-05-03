@@ -13,6 +13,41 @@ import WaitingForVRF from './components/WaitingForVRF.jsx';
 import { getContract, getDummy721 } from './Web3/GetContract';
 import { Zoom } from 'zoom-next';
 import useInterval from '../../common/useInterval';
+import UpcomingPoolsCarousel from './components/UpcomingPoolsCarousel.jsx';
+
+const POOLSS = [
+  {
+  image_src: "/banners/small_banners/dragon.png",
+  title: "Test4",
+  url: "",
+  },
+  {
+    image_src: "/banners/small_banners/dragon.png",
+    title: "Test4",
+    url: "",
+    },
+    {
+      image_src: "/banners/small_banners/dragon.png",
+      title: "Test4",
+      url: "",
+      },
+      {
+        image_src: "/banners/small_banners/dragon.png",
+        title: "Test4",
+        url: "",
+        },
+        {
+          image_src: "/banners/small_banners/dragon.png",
+          title: "Test4",
+          url: "",
+          },{
+            image_src: "/banners/small_banners/dragon.png",
+            title: "Test4",
+            url: "",
+            },
+]
+
+const upcomingImgUrl = "https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media"
 
 const UPDATE_INTERVAL = 60000;
 let POOLS = [
@@ -445,7 +480,8 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
               <p className="pool-subtitle">Upcoming Dust Pools</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-            <div className="row">
+                <UpcomingPoolsCarousel imgUrl={upcomingImgUrl} poolsData={POOLSS}/>
+            {/* <div className="row">
               {UPCOMING_POOLS.map((card, idx) => {
                 return (
                   <div key={idx} className="col-12 col-lg-3">
@@ -457,7 +493,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
           </div>
         </div>
       ) : (
