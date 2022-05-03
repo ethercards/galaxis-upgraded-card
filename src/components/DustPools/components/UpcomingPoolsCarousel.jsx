@@ -1,0 +1,160 @@
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Button } from '@mui/material';
+import ItemsCarousel from 'react-items-carousel';
+import carouselPagination from '../../../assets/images/dustPools/carouselPagination.svg';
+import carouselPginationOrange from '../../../assets/images/dustPools/carouselPaginationOrange.svg';
+
+const sx = {
+  content: {
+    maxWidth: '294px',
+    margin: 'auto',
+  },
+  dotList: {
+    maxWidth: '800px',
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '10px',
+    zIndex: '3',
+    position: 'absolute',
+    justifyContent: 'center',
+  },
+  contentLeft: {
+    display: 'flex',
+    gap: '17px',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: '12px 12px',
+  },
+  titleText: {
+    fontFamily: 'poppins-semibold',
+    fontSize: '18px',
+    lineHeight: '20px',
+  },
+  description: {
+    fontFamily: 'poppins',
+    fontSize: '14px',
+    mt: '5px',
+  },
+  imageHolder: {
+    width: '84px',
+  },
+};
+const autoPlayDelay = 4000;
+const DustPools = ({ imgUrl, poolsData }) => {
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const [noOfCards, setNoOfCards] = useState(4);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (window.innerWidth < 1140) {
+      setNoOfCards(3);
+    }
+    if (window.innerWidth < 780) {
+      setNoOfCards(2);
+    }
+    if (window.innerWidth < 600) {
+      setNoOfCards(1);
+    }
+  }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      tick();
+    }, autoPlayDelay);
+    return () => clearInterval(interval);
+  }, [activeItemIndex]);
+  const tick = () => {
+    if (poolsData.length > 4) {
+      let active = activeItemIndex + noOfCards;
+      setActiveItemIndex(active);
+    }
+    if (activeItemIndex == poolsData.length - 1) {
+      setActiveItemIndex(0);
+    }
+  };
+  const onChange = (id) => {
+    let active = id * noOfCards;
+    setActiveItemIndex(active);
+  };
+
+  return (
+    <>
+      <Box
+        sx={sx.root}
+        style={{
+          marginTop: '-1px'
+        }}
+      >
+        <ItemsCarousel
+          requestToChangeActive={setActiveItemIndex}
+          activeItemIndex={activeItemIndex}
+          activePosition="left"
+          numberOfCards={noOfCards}
+          gutter={16}
+        >
+          {poolsData.map((pool) => (
+            <Box sx={sx.content} style={{boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)", margin:"20px auto", borderRadius:"12px", overflow:"hidden"}}>
+              <Box sx={sx.contentLeft} className="previousBox">
+                <Box sx={sx.imageHolder}>
+                  <img
+                    src={imgUrl + pool.image_src}
+                    alt=""
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      // borderRadius: '12px 0px 0px 12px',
+                      display:"block"
+                    }}
+                  />{' '}
+                </Box>
+                <Box sx={sx.itemHolder}>
+                  <Typography
+                    variant="minuscule"
+                    sx={sx.titleText}
+                    className="prevtitleText"
+                  >
+                    {pool.title}
+                  </Typography>
+                  <Typography sx={sx.description}>10 000 D</Typography>
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </ItemsCarousel>
+        {poolsData.length > 4 ? (
+          <Box
+            style={{
+              position: 'relative',
+              display: 'flex',
+              maxWidth: '1140px',
+              justifyContent: 'center',
+            }}
+          >
+            <Box sx={sx.dotList}>
+              {Array.apply(null, {
+                length: Math.ceil(poolsData.length / noOfCards),
+              }).map((pool, i) => (
+                <Box
+                  className="yours-custom-class"
+                  onClick={() => onChange(i)}
+                  sx={sx.image}
+                >
+                  <img
+                    src={
+                      activeItemIndex / noOfCards === i
+                        ? carouselPginationOrange
+                        : carouselPagination
+                    }
+                    style={{ cursor: 'pointer', marginTop:"20px" }}
+                  />
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        ) : (
+          <Box />
+        )}
+      </Box>
+    </>
+  );
+};
+
+export default DustPools;
