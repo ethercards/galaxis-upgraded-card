@@ -11,11 +11,19 @@ const CardTest = ()=>{
 
 	useEffect(() => {
 		(async () => {
-		getFilteredCards({})
+			const urlParam = window.location.hash.slice(window.location.hash.indexOf('?')+1);
+
+			console.log(window.location);
+
+
+
+			console.log('URL PARAM',urlParam);
+
+		getFilteredCards(urlParam,{})
 			.then((response) => {
 			console.log('res',response);
 			if (response) {
-				setMetadata(response[0]);
+				setMetadata(response);
 				setLoaded(true);
 			}
 			})

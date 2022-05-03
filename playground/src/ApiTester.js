@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-const urlParam = window.location.hash.slice(2);
-const BASE_URL = `https://${urlParam}`;
 
-export const getFilteredCards = async (filters) => {
+
+
+export const getFilteredCards = async (urlParam,filters) => {
+  const BASE_URL = `https://${urlParam}`;
   return new Promise((resolve, reject) => {
     axios
-      .post(`${BASE_URL}/metadata/filter`, filters)
+      //.get(`${BASE_URL}/metadata/filter`, filters)
+      .get(`${BASE_URL}`, filters)
       .then((response) => {
         resolve(response.data);
       })
