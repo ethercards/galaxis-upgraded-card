@@ -35,8 +35,9 @@ const CardTest = ()=>{
 
 	return (
 		<>
-		card
+		<div style={{width:"100%", height:"100%", overflow:"hidden"}}>
 		{loaded && (
+			
 			<GalaxisCard
 				name="Teszt"
 				metadata={metadata}
@@ -44,8 +45,10 @@ const CardTest = ()=>{
 				horizontalPadding={20}
 				imageContainerWidth={400}
 			/>
+			
 			)
 		}
+		</div>
 		</>
 	);
 }

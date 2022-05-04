@@ -27,7 +27,7 @@ function App() {
   
   return (
     <ThemeProvider theme={theme}>
-      <Box>
+      <Box sx={{height:"100%"}}>
         <HashRouter>
           <Web3Manager>
             <Switch>
