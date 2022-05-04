@@ -12,7 +12,13 @@ import { getContract, getDummy721 } from './Web3/GetContract';
 import { Zoom } from 'zoom-next';
 import useInterval from '../../common/useInterval';
 import UpcomingPoolsCarousel from './components/UpcomingPoolsCarousel.jsx';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import UpcomingProjectSubpage from './components/UpcomingProjectSubpage';
 
+
+
+/* 
 const POOLSS = [
   {
   image_src: "/banners/small_banners/dragon.png",
@@ -44,11 +50,10 @@ const POOLSS = [
             url: "",
             },
 ]
-
-const upcomingImgUrl = "https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media"
+ */
 
 const UPDATE_INTERVAL = 60000;
-let POOLS = [
+/* let POOLS = [
   {
     id: 0,
     name: 'Cryptopunk Pool',
@@ -107,30 +112,7 @@ let POOLS = [
     totalSupply: 100,
     poolUrl: 'https://opensea.io/0x9dFF1113CF4186deC4feb774632356D22f07eB9e',
   },
-];
-
-const UPCOMING_POOLS = [
-  {
-    imgSrc: DragonImg,
-    name: 'Paul Timbuktu',
-    price: 10000,
-  },
-  {
-    imgSrc: DragonImg,
-    name: 'Paul Timbuktu two row',
-    price: 10000,
-  },
-  {
-    imgSrc: DragonImg,
-    name: 'Paul Timbuktu',
-    price: 10000,
-  },
-  {
-    imgSrc: DragonImg,
-    name: 'Paul Timbuktu',
-    price: 10000,
-  },
-];
+]; */
 
 const TopSectionDividers = () => (
   <div
@@ -146,7 +128,7 @@ const TopSectionDividers = () => (
 );
 
 const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
-  const [selectedPoolId, setSelectedPoolId] = useState(null);
+  const [selectedPoolIdx, setSelectedPoolIdx] = useState(null);
   const [dustContract, setDustContract] = useState(null);
   const [dust4PunksContract, setDust4PunksContract] = useState(null);
   const [zoom2, setZoom2] = useState(null);
@@ -154,10 +136,50 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
   const [initDone, setInitDone] = useState(false);
 
+  const [poolsFromBackend, setPoolsFromBackend] = useState([]);
   const [allPools, setAllPools] = useState([]);
   const [pools, setPools] = useState([]);
+  const [upcomingPools, setUpcomingPools] = useState([]);
+  const [upcomingPool, setUpcomingPool] = useState(null);
+
+  const loc = useLocation();
+
+  const url = chainId===1?'https://galaxis-web-backend.herokuapp.com':'https://galaxis-web-backend-staging.herokuapp.com';
+  const upcomingImgUrl = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+
+
+  useEffect(()=>{
+    const getPoolData = async ()=>{
+      console.log('location',loc);
+
+      const res = await axios.get(url+'/pools').catch(e=>console.log);
+      console.log('poools from BE',res);
+      if(res.status === 200){
+        setPoolsFromBackend(res.data);
+      }
+
+      const upcoming = await axios.get(url+'/upcoming-pools').catch(e=>console.log);
+      console.log('poools from BE',upcoming);
+      if(upcoming.status === 200){
+        setUpcomingPools(upcoming.data);
+      }
+    }
+
+
+
+
+
+    getPoolData();
+  },[]);
+
+
+
 
   useEffect(() => {
+
+   
+
+
     const initContract = async () => {
       let c = await getContract('Dust', ethersProvider);
       if (c) {
@@ -190,10 +212,10 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
   }, [ethersProvider]);
 
   useEffect(() => {
-    if (dust4PunksContract && dustContract && zoom2 /*  && !initDone */) {
+    if (dust4PunksContract && dustContract && poolsFromBackend.length>0 && zoom2 /*  && !initDone */) {
       getPools();
     }
-  }, [dust4PunksContract]); //,dustContract,zoom2
+  }, [dust4PunksContract,poolsFromBackend]); //,dustContract,zoom2
 
   const getPools = async () => {
     console.log('GETTING POOL DATA....');
@@ -281,8 +303,12 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         vd.tokenContract = vToken;
       }
 
-      tempPool.push({ ...POOLS[poolIdx], vaultData: vd });
-      poolIdx++;
+      if(poolIdx<poolsFromBackend.length){
+        tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
+        poolIdx++;
+      }else{
+        console.log('overflow :/', poolIdx,poolsFromBackend.length);
+      }
     }
 
     console.log('AP', tempPool);
@@ -311,7 +337,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
       let hasContract = [];
 
-      // console.log('UPD',pools,allPools);
+       console.log('UPD',pools,allPools);
 
       for (let i = 0; i < allPools.length; i++) {
         if (
@@ -333,7 +359,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             'balanceOf(address) returns (uint256)'
           );
           calls.push(vaultBalance);
-          hasContract.push(allPools[i].id);
+          hasContract.push(allPools[i].pool_id);
         }
       }
 
@@ -402,15 +428,20 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
     setPools(getFiltered());
   }, [selectedFilter]);
 
-  const connectOrExchange = (poolId) => {
-    if (poolId !== null) {
-      setSelectedPoolId(poolId);
+  const showDetails = (idx) => {
+    console.log('poolId,idx',idx);
+    if (idx !== null) {
+      setSelectedPoolIdx(idx);
     }
   };
 
+
+
+
+
   return (
     <>
-      {selectedPoolId === null ? (
+      {(selectedPoolIdx === null && upcomingPool === null) ? (
         <div className="dust-pool-root">
           <div className="dust-pool-textbox">
             <p className="pool-subtitle" style={{ marginBlockEnd: '1em' }}>
@@ -448,7 +479,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
               {pools.map((card, idx) => {
                 return (
                   <div key={idx} className="col-12 col-lg-6">
-                    <DustPoolCard card={card} handleClick={connectOrExchange} />
+                    <DustPoolCard card={card} idx={idx} chainId={chainId} handleClick={showDetails} />
                   </div>
                 );
               })}
@@ -478,7 +509,11 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
               <p className="pool-subtitle">Upcoming Dust Pools</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-                <UpcomingPoolsCarousel imgUrl={upcomingImgUrl} poolsData={POOLSS}/>
+                
+            {upcomingPools.length>0 && 
+              <UpcomingPoolsCarousel imgUrl={upcomingImgUrl} poolsData={upcomingPools} handleSelect={setUpcomingPool}/>
+            }
+            
             {/* <div className="row">
               {UPCOMING_POOLS.map((card, idx) => {
                 return (
@@ -496,19 +531,35 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         </div>
       ) : (
         <>
-          <div className="dust-pool-root">
-            <ProjectSubpage
-              pool={allPools[selectedPoolId]}
-              address={address}
-              dust={dustContract}
-              d4p={dust4PunksContract}
-              ethersProvider={ethersProvider}
-              chainId={chainId}
-              handleConnect={handleConnect}
-              handleBack={() => setSelectedPoolId(null)}
-            />
-          </div>
+          {selectedPoolIdx!== null? 
+            <>
+              <div className="dust-pool-root">
+                <ProjectSubpage
+                  pools = {pools}
+                  currentIndex = {selectedPoolIdx}
+                  address={address}
+                  dust={dustContract}
+                  d4p={dust4PunksContract}
+                  ethersProvider={ethersProvider}
+                  chainId={chainId}
+                  handleConnect={handleConnect}
+                  handleBack={() => setSelectedPoolIdx(null)}
+                  handleChangePool={showDetails}
+                />
+              </div>
+            </>
+            :
+            <>
+              <div className="dust-pool-root">
+                <UpcomingProjectSubpage
+                  pool = {upcomingPool}
+                  chainId={chainId}
+                  handleBack={() => setUpcomingPool(null)}
+                />
+              </div>
+            </>}
         </>
+
       )}
     </>
   );

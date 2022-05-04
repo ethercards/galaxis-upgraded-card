@@ -103,6 +103,10 @@
     text-overflow: ellipsis;
     text-transform: capitalize;
 }
+
+.previous-box.disabled, .next-box.disabled{
+    cursor: not-allowed;
+}
 .pool-ps-btn{
     background-color: transparent;
     border: none;

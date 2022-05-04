@@ -24,6 +24,7 @@ const sx = {
     alignItems: 'center',
     backgroundColor: '#fff',
     borderRadius: '12px 12px',
+    cursor:'pointer'
   },
   titleText: {
     fontFamily: 'poppins-semibold',
@@ -40,7 +41,7 @@ const sx = {
   },
 };
 const autoPlayDelay = 4000;
-const DustPools = ({ imgUrl, poolsData }) => {
+const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [noOfCards, setNoOfCards] = useState(4);
   useEffect(() => {
@@ -74,6 +75,11 @@ const DustPools = ({ imgUrl, poolsData }) => {
     let active = id * noOfCards;
     setActiveItemIndex(active);
   };
+  
+
+  const handleItemSelect = (idx)=>{
+    handleSelect(poolsData[idx]);
+  }
 
   return (
     <>
@@ -90,9 +96,9 @@ const DustPools = ({ imgUrl, poolsData }) => {
           numberOfCards={noOfCards}
           gutter={16}
         >
-          {poolsData.map((pool) => (
+          {poolsData.map((pool,idx) => (
             <Box sx={sx.content} style={{boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)", margin:"20px auto", borderRadius:"12px", overflow:"hidden"}}>
-              <Box sx={sx.contentLeft} className="previousBox">
+              <Box sx={sx.contentLeft} className="previousBox" onClick={()=>handleItemSelect(idx)} >
                 <Box sx={sx.imageHolder}>
                   <img
                     src={imgUrl + pool.image_src}
@@ -157,4 +163,4 @@ const DustPools = ({ imgUrl, poolsData }) => {
   );
 };
 
-export default DustPools;
+export default UpcomingPoolsCarousel;
