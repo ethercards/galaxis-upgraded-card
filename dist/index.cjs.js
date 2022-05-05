@@ -18,12 +18,101 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 var ItemsCarousel__default = /*#__PURE__*/_interopDefaultLegacy(ItemsCarousel);
 
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+
+  return target;
+}
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
 
 function _iterableToArrayLimit(arr, i) {
@@ -71,6 +160,10 @@ function _arrayLikeToArray(arr, len) {
   for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
 
   return arr2;
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 function _nonIterableRest() {
@@ -4003,7 +4096,7 @@ const POOLSS = [
 ]
  */
 
-const UPDATE_INTERVAL = 60000;
+var UPDATE_INTERVAL = 60000;
 /* let POOLS = [
   {
     id: 0,
@@ -4065,112 +4158,217 @@ const UPDATE_INTERVAL = 60000;
   },
 ]; */
 
-const TopSectionDividers = () => /*#__PURE__*/React__default["default"].createElement("div", {
-  style: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '25px 0'
-  }
-}, /*#__PURE__*/React__default["default"].createElement("img", {
-  src: img$5,
-  style: {
-    maxHeight: '50px'
-  }
-}), /*#__PURE__*/React__default["default"].createElement("img", {
-  src: img$4,
-  style: {
-    maxHeight: '50px'
-  }
-}));
+var TopSectionDividers = function TopSectionDividers() {
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      margin: '25px 0'
+    }
+  }, /*#__PURE__*/React__default["default"].createElement("img", {
+    src: img$5,
+    style: {
+      maxHeight: '50px'
+    }
+  }), /*#__PURE__*/React__default["default"].createElement("img", {
+    src: img$4,
+    style: {
+      maxHeight: '50px'
+    }
+  }));
+};
 
-const DustPools = _ref => {
-  let {
-    address,
-    ethersProvider,
-    chainId,
-    handleConnect
-  } = _ref;
-  const [selectedPoolIdx, setSelectedPoolIdx] = React.useState(null);
-  const [dustContract, setDustContract] = React.useState(null);
-  const [dust4PunksContract, setDust4PunksContract] = React.useState(null);
-  const [zoom2, setZoom2] = React.useState(null);
-  const [selectedFilter, setSelectedFilter] = React.useState('ALL');
-  const [initDone, setInitDone] = React.useState(false);
-  const [poolsFromBackend, setPoolsFromBackend] = React.useState([]);
-  const [allPools, setAllPools] = React.useState([]);
-  const [pools, setPools] = React.useState([]);
-  const [upcomingPools, setUpcomingPools] = React.useState([]);
-  const [upcomingPool, setUpcomingPool] = React.useState(null);
-  const loc = reactRouterDom.useLocation();
-  const url = chainId === 1 ? 'https://galaxis-web-backend.herokuapp.com' : 'https://galaxis-web-backend-staging.herokuapp.com';
-  const upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
-  React.useEffect(() => {
-    const getPoolData = async () => {
-      const res = await axios__default["default"].get(url + '/vaults').catch(e => console.log);
+var DustPools = function DustPools(_ref) {
+  var address = _ref.address,
+      ethersProvider = _ref.ethersProvider,
+      chainId = _ref.chainId,
+      handleConnect = _ref.handleConnect;
 
-      if (res.status === 200) {
-        setPoolsFromBackend(res.data);
-      }
+  var _useState = React.useState(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      selectedPoolIdx = _useState2[0],
+      setSelectedPoolIdx = _useState2[1];
 
-      const upcoming = await axios__default["default"].get(url + '/upcoming-vaults').catch(e => console.log);
+  var _useState3 = React.useState(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      dustContract = _useState4[0],
+      setDustContract = _useState4[1];
 
-      if (upcoming.status === 200) {
-        setUpcomingPools(upcoming.data);
+  var _useState5 = React.useState(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      dust4PunksContract = _useState6[0],
+      setDust4PunksContract = _useState6[1];
 
-        if (loc.search && loc.search.indexOf('upcoming=') > 0) {
-          let params = loc.search.slice(1).split('&'); //console.log(params);
+  var _useState7 = React.useState(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      zoom2 = _useState8[0],
+      setZoom2 = _useState8[1];
 
-          if (params.length > 0) {
-            let parsedParams = {};
+  var _useState9 = React.useState('ALL'),
+      _useState10 = _slicedToArray(_useState9, 2),
+      selectedFilter = _useState10[0],
+      setSelectedFilter = _useState10[1];
 
-            for (let i = 0; i < params.length; i++) {
-              let item = params[i].split('=');
-              parsedParams[item[0]] = item[1];
-            }
+  var _useState11 = React.useState(false),
+      _useState12 = _slicedToArray(_useState11, 2);
+      _useState12[0];
+      var setInitDone = _useState12[1];
 
-            if (parsedParams.upcoming) {
-              // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
-              setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+  var _useState13 = React.useState([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      poolsFromBackend = _useState14[0],
+      setPoolsFromBackend = _useState14[1];
+
+  var _useState15 = React.useState([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      allPools = _useState16[0],
+      setAllPools = _useState16[1];
+
+  var _useState17 = React.useState([]),
+      _useState18 = _slicedToArray(_useState17, 2),
+      pools = _useState18[0],
+      setPools = _useState18[1];
+
+  var _useState19 = React.useState([]),
+      _useState20 = _slicedToArray(_useState19, 2),
+      upcomingPools = _useState20[0],
+      setUpcomingPools = _useState20[1];
+
+  var _useState21 = React.useState(null),
+      _useState22 = _slicedToArray(_useState21, 2),
+      upcomingPool = _useState22[0],
+      setUpcomingPool = _useState22[1];
+
+  var loc = reactRouterDom.useLocation();
+  var url = chainId === 1 ? 'https://galaxis-web-backend.herokuapp.com' : 'https://galaxis-web-backend-staging.herokuapp.com';
+  var upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+  React.useEffect(function () {
+    var getPoolData = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var res, upcoming, params, parsedParams, i, item;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios__default["default"].get(url + '/vaults').catch(function (e) {
+                  return console.log;
+                });
+
+              case 2:
+                res = _context.sent;
+
+                if (res.status === 200) {
+                  setPoolsFromBackend(res.data);
+                }
+
+                _context.next = 6;
+                return axios__default["default"].get(url + '/upcoming-vaults').catch(function (e) {
+                  return console.log;
+                });
+
+              case 6:
+                upcoming = _context.sent;
+
+                if (upcoming.status === 200) {
+                  setUpcomingPools(upcoming.data);
+
+                  if (loc.search && loc.search.indexOf('upcoming=') > 0) {
+                    params = loc.search.slice(1).split('&'); //console.log(params);
+
+                    if (params.length > 0) {
+                      parsedParams = {};
+
+                      for (i = 0; i < params.length; i++) {
+                        item = params[i].split('=');
+                        parsedParams[item[0]] = item[1];
+                      }
+
+                      if (parsedParams.upcoming) {
+                        // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
+                        setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+                      }
+                    }
+                  }
+                }
+
+              case 8:
+              case "end":
+                return _context.stop();
             }
           }
-        }
-      }
-    };
+        }, _callee);
+      }));
+
+      return function getPoolData() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
 
     getPoolData();
   }, []);
-  React.useEffect(() => {
-    const initContract = async () => {
-      let c = await getContract('Dust', ethersProvider);
+  React.useEffect(function () {
+    var initContract = /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+        var c, Zoom2Contract, D4P;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return getContract('Dust', ethersProvider);
 
-      if (c) {
-        setDustContract(c); //console.log('DUST:', c);
-      } else {
-        console.log('contract not found');
-      }
+              case 2:
+                c = _context2.sent;
 
-      let Zoom2Contract = await getContract('Zoom2', ethersProvider);
+                if (c) {
+                  setDustContract(c); //console.log('DUST:', c);
+                } else {
+                  console.log('contract not found');
+                }
 
-      if (Zoom2Contract) {
-        setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
-      } else {
-        console.log('Could not initialise Zoom2 Contract');
-      }
+                _context2.next = 6;
+                return getContract('Zoom2', ethersProvider);
 
-      let D4P = await getContract('Dust4Punks', ethersProvider);
+              case 6:
+                Zoom2Contract = _context2.sent;
 
-      if (D4P) {
-        setDust4PunksContract(D4P); // console.log('D4P:', D4P);
-      } else {
-        console.log('Could not initialise D4P Contract');
-      }
-    };
+                if (Zoom2Contract) {
+                  setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
+                } else {
+                  console.log('Could not initialise Zoom2 Contract');
+                }
+
+                _context2.next = 10;
+                return getContract('Dust4Punks', ethersProvider);
+
+              case 10:
+                D4P = _context2.sent;
+
+                if (D4P) {
+                  setDust4PunksContract(D4P); // console.log('D4P:', D4P);
+                } else {
+                  console.log('Could not initialise D4P Contract');
+                }
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function initContract() {
+        return _ref3.apply(this, arguments);
+      };
+    }();
 
     if (ethersProvider) {
       initContract();
     }
   }, [ethersProvider]);
-  React.useEffect(() => {
+  React.useEffect(function () {
     if (dust4PunksContract && dustContract && poolsFromBackend.length > 0 && zoom2
     /*  && !initDone */
     ) {
@@ -4178,180 +4376,255 @@ const DustPools = _ref => {
     }
   }, [dust4PunksContract, poolsFromBackend]); //,dustContract,zoom2
 
-  const getPools = async () => {
-    // console.log('GETTING POOL DATA....');
-    let res = await dust4PunksContract.next_redeemable().catch(e => console.log);
-    let numberOfPools = 0;
+  var getPools = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+      var res, numberOfPools, ZoomLibraryInstance, calls, i, vaultAddress, vaultName, vaultPrice, vaultToken, ZoomQueryBinary, combinedResult, tempPool, poolIdx, _i, va, vn, vp, vt, vd, vToken;
 
-    if (res) {
-      numberOfPools = Number(res);
-    } //console.log('#OF POOLS', numberOfPools);
-    // if(address){
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return dust4PunksContract.next_redeemable().catch(function (e) {
+                return console.log;
+              });
 
+            case 2:
+              res = _context3.sent;
+              numberOfPools = 0;
 
-    const ZoomLibraryInstance = new zoomNext.Zoom({
-      use_reference_calls: true
-    });
-    let calls = [];
-
-    for (let i = 0; i < numberOfPools; i++) {
-      //Punk vault address
-      const vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
-      calls.push(vaultAddress); //Pool Name
-
-      const vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
-      calls.push(vaultName); //Vault price
-
-      const vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
-      calls.push(vaultPrice); //Vault token addredd
-
-      const vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
-      calls.push(vaultToken);
-    }
-
-    const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
-    //console.time('zoomCall');
-
-    const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
-    //console.log("======== ZOOM CALL END ==============" );
-
-    ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
-
-    let tempPool = [];
-    let poolIdx = 0;
-
-    for (let i = 0; i < numberOfPools * 4; i += 4) {
-      let va = ZoomLibraryInstance.decodeCall(calls[i + 0]).toString();
-      let vn = ZoomLibraryInstance.decodeCall(calls[i + 1]).toString();
-      let vp = ZoomLibraryInstance.decodeCall(calls[i + 2]).toString();
-      let vt = ZoomLibraryInstance.decodeCall(calls[i + 3]).toString();
-      const vd = {
-        vaultAddress: va,
-        vaultName: vn,
-        vaultPrice: vp,
-        vaultToken: vt,
-        available: null
-      };
-      let vToken = await getDummy721(vt, ethersProvider);
-
-      if (vToken) {
-        vd.tokenContract = vToken;
-      }
-
-      if (poolIdx < poolsFromBackend.length) {
-        tempPool.push({ ...poolsFromBackend[poolIdx],
-          vaultData: vd
-        });
-        poolIdx++;
-      } else {
-        console.log('overflow :/', poolIdx, poolsFromBackend.length);
-      }
-    } //console.log('AP', tempPool);
+              if (res) {
+                numberOfPools = Number(res);
+              } //console.log('#OF POOLS', numberOfPools);
+              // if(address){
 
 
-    setAllPools(tempPool);
-    setPools(tempPool);
-    setSelectedFilter('ALL');
-  };
+              ZoomLibraryInstance = new zoomNext.Zoom({
+                use_reference_calls: true
+              });
+              calls = [];
 
-  React.useEffect(() => {
+              for (i = 0; i < numberOfPools; i++) {
+                //Punk vault address
+                vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
+                calls.push(vaultAddress); //Pool Name
+
+                vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
+                calls.push(vaultName); //Vault price
+
+                vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
+                calls.push(vaultPrice); //Vault token addredd
+
+                vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
+                calls.push(vaultToken);
+              }
+
+              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
+              //console.time('zoomCall');
+
+              _context3.next = 11;
+              return zoom2.combine(ZoomQueryBinary);
+
+            case 11:
+              combinedResult = _context3.sent;
+              //console.timeEnd('zoomCall');
+              //console.log("======== ZOOM CALL END ==============" );
+              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
+
+              tempPool = [];
+              poolIdx = 0;
+              _i = 0;
+
+            case 16:
+              if (!(_i < numberOfPools * 4)) {
+                _context3.next = 30;
+                break;
+              }
+
+              va = ZoomLibraryInstance.decodeCall(calls[_i + 0]).toString();
+              vn = ZoomLibraryInstance.decodeCall(calls[_i + 1]).toString();
+              vp = ZoomLibraryInstance.decodeCall(calls[_i + 2]).toString();
+              vt = ZoomLibraryInstance.decodeCall(calls[_i + 3]).toString();
+              vd = {
+                vaultAddress: va,
+                vaultName: vn,
+                vaultPrice: vp,
+                vaultToken: vt,
+                available: null
+              };
+              _context3.next = 24;
+              return getDummy721(vt, ethersProvider);
+
+            case 24:
+              vToken = _context3.sent;
+
+              if (vToken) {
+                vd.tokenContract = vToken;
+              }
+
+              if (poolIdx < poolsFromBackend.length) {
+                tempPool.push(_objectSpread2(_objectSpread2({}, poolsFromBackend[poolIdx]), {}, {
+                  vaultData: vd
+                }));
+                poolIdx++;
+              } else {
+                console.log('overflow :/', poolIdx, poolsFromBackend.length);
+              }
+
+            case 27:
+              _i += 4;
+              _context3.next = 16;
+              break;
+
+            case 30:
+              //console.log('AP', tempPool);
+              setAllPools(tempPool);
+              setPools(tempPool);
+              setSelectedFilter('ALL');
+
+            case 33:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function getPools() {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+  React.useEffect(function () {
     // console.log('allPools changed...', allPools.length);
     if (allPools.length > 0) {
       updateVaultBalances();
     }
   }, [allPools]);
-  useInterval(() => {
+  useInterval(function () {
     updateVaultBalances();
   }, UPDATE_INTERVAL);
 
-  const updateVaultBalances = async () => {
-    if (allPools[0].vaultData && allPools[0].vaultData.tokenContract) {
-      //console.log('vaultdata',vaultData);
-      const ZoomLibraryInstance = new zoomNext.Zoom();
-      let calls = [];
-      let hasContract = []; //console.log('UPD',pools,allPools);
+  var updateVaultBalances = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+      var ZoomLibraryInstance, calls, hasContract, i, vaultBalance, ZoomQueryBinary, combinedResult, ap, hasContractIdx, _i2, ab, poolIdx;
 
-      for (let i = 0; i < allPools.length; i++) {
-        if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
-          /*     console.log(allPools[i].vaultData.tokenContract,i)
-                 const totalSupply = ZoomLibraryInstance.addCall(
-                    allPools[i].vaultData.tokenContract,
-                    ["totalSupply",[]],
-                    "totalSupply() returns (uint256)"
-                );
-                calls.push(totalSupply); */
-          const vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
-          calls.push(vaultBalance);
-          hasContract.push(allPools[i].vault_id);
-        }
-      } // console.log('STUFF', calls, hasContract);
+      return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              if (!(allPools[0].vaultData && allPools[0].vaultData.tokenContract)) {
+                _context4.next = 16;
+                break;
+              }
 
+              //console.log('vaultdata',vaultData);
+              ZoomLibraryInstance = new zoomNext.Zoom();
+              calls = [];
+              hasContract = []; //console.log('UPD',pools,allPools);
 
-      if (calls.length > 0) {
-        const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
-        //console.log("======== ZOOM CALL START ============" );
-        //console.time('zoomCall');
-
-        const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
-        //console.log("======== ZOOM CALL END ==============" );
-
-        ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
-        let ap = allPools;
-        let hasContractIdx = 0;
-
-        for (let i = 0; i < calls.length; i++) {
-          //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-          let ab = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-          let poolIdx = hasContract[hasContractIdx];
-          ap[poolIdx].vaultData = { ...ap[poolIdx].vaultData,
-
-            /* totalSupply:ts, */
-            available: Number(ab)
-          };
-
-          if (Number.parseInt(ab) === 0) {
-            ap[poolIdx].order += 100;
-          }
-
-          hasContractIdx++;
-        }
-        /* 
-            let op = [...ap];
-             op.sort((a,b)=>{
-                if(a.order>b.order){
-                    return 1
-                }else{
-                    return -1;
+              for (i = 0; i < allPools.length; i++) {
+                if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
+                  /*     console.log(allPools[i].vaultData.tokenContract,i)
+                         const totalSupply = ZoomLibraryInstance.addCall(
+                            allPools[i].vaultData.tokenContract,
+                            ["totalSupply",[]],
+                            "totalSupply() returns (uint256)"
+                        );
+                        calls.push(totalSupply); */
+                  vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
+                  calls.push(vaultBalance);
+                  hasContract.push(allPools[i].vault_id);
                 }
-            });
-        */
+              } // console.log('STUFF', calls, hasContract);
 
 
-        setPools(getFiltered());
-        setInitDone(true); //console.log('AP upd', ap);
-      }
-    }
-  };
+              if (!(calls.length > 0)) {
+                _context4.next = 16;
+                break;
+              }
 
-  const getFiltered = () => {
-    let result = [];
+              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
+              //console.log("======== ZOOM CALL START ============" );
+              //console.time('zoomCall');
+
+              _context4.next = 9;
+              return zoom2.combine(ZoomQueryBinary);
+
+            case 9:
+              combinedResult = _context4.sent;
+              //console.timeEnd('zoomCall');
+              //console.log("======== ZOOM CALL END ==============" );
+              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
+              ap = allPools;
+              hasContractIdx = 0;
+
+              for (_i2 = 0; _i2 < calls.length; _i2++) {
+                //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
+                ab = ZoomLibraryInstance.decodeCall(calls[_i2]).toString();
+                poolIdx = hasContract[hasContractIdx];
+                ap[poolIdx].vaultData = _objectSpread2(_objectSpread2({}, ap[poolIdx].vaultData), {}, {
+                  /* totalSupply:ts, */
+                  available: Number(ab)
+                });
+
+                if (Number.parseInt(ab) === 0) {
+                  ap[poolIdx].order += 100;
+                }
+
+                hasContractIdx++;
+              }
+              /* 
+                  let op = [...ap];
+                   op.sort((a,b)=>{
+                      if(a.order>b.order){
+                          return 1
+                      }else{
+                          return -1;
+                      }
+                  });
+              */
+
+
+              setPools(getFiltered());
+              setInitDone(true); //console.log('AP upd', ap);
+
+            case 16:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function updateVaultBalances() {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
+  var getFiltered = function getFiltered() {
+    var result = [];
 
     if (selectedFilter === 'SOLD_OUT') {
-      result = allPools.filter(pool => pool.vaultData.available === 0);
+      result = allPools.filter(function (pool) {
+        return pool.vaultData.available === 0;
+      });
     } else if (selectedFilter === 'ACTIVE') {
-      result = allPools.filter(pool => pool.vaultData.available > 0);
+      result = allPools.filter(function (pool) {
+        return pool.vaultData.available > 0;
+      });
     } else {
-      result = [...allPools];
+      result = _toConsumableArray(allPools);
     }
 
     return result;
   };
 
-  React.useEffect(() => {
+  React.useEffect(function () {
     setPools(getFiltered());
   }, [selectedFilter]);
 
-  const showDetails = idx => {
+  var showDetails = function showDetails(idx) {
     //console.log('poolId,idx',idx);
     if (idx !== null) {
       setSelectedPoolIdx(idx);
@@ -4370,14 +4643,20 @@ const DustPools = _ref => {
   }, "NFT Vaults"), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "tab-choose"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: `${selectedFilter === 'ALL' ? 'active-tab' : ''}`,
-    onClick: () => setSelectedFilter('ALL')
+    className: "".concat(selectedFilter === 'ALL' ? 'active-tab' : ''),
+    onClick: function onClick() {
+      return setSelectedFilter('ALL');
+    }
   }, "All"), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: `${selectedFilter === 'ACTIVE' ? 'active-tab' : ''}`,
-    onClick: () => setSelectedFilter('ACTIVE')
+    className: "".concat(selectedFilter === 'ACTIVE' ? 'active-tab' : ''),
+    onClick: function onClick() {
+      return setSelectedFilter('ACTIVE');
+    }
   }, "Active"), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: `${selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''}`,
-    onClick: () => setSelectedFilter('SOLD_OUT')
+    className: "".concat(selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''),
+    onClick: function onClick() {
+      return setSelectedFilter('SOLD_OUT');
+    }
   }, "Sold out")), /*#__PURE__*/React__default["default"].createElement("p", null, "You can exchange your Dust for some awesome items including Cryptopunks and other valuable NFTs.")), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "container  mt-5"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
@@ -4385,7 +4664,7 @@ const DustPools = _ref => {
     style: {
       rowGap: '25px'
     }
-  }, pools.map((card, idx) => {
+  }, pools.map(function (card, idx) {
     return /*#__PURE__*/React__default["default"].createElement("div", {
       key: idx,
       className: "col-12 col-lg-6"
@@ -4404,7 +4683,9 @@ const DustPools = _ref => {
     style: {
       marginTop: '20px'
     },
-    onClick: () => window.open('https://blog.ether.cards/dust-utility-token-model-distribution/')
+    onClick: function onClick() {
+      return window.open('https://blog.ether.cards/dust-utility-token-model-distribution/');
+    }
   }, "More")), /*#__PURE__*/React__default["default"].createElement(TopSectionDividers, null), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dust-pool-textbox pb-4"
   }, /*#__PURE__*/React__default["default"].createElement("p", {
@@ -4424,14 +4705,18 @@ const DustPools = _ref => {
     ethersProvider: ethersProvider,
     chainId: chainId,
     handleConnect: handleConnect,
-    handleBack: () => setSelectedPoolIdx(null),
+    handleBack: function handleBack() {
+      return setSelectedPoolIdx(null);
+    },
     handleChangePool: showDetails
   }))) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dust-pool-root"
   }, /*#__PURE__*/React__default["default"].createElement(UpcomingProjectSubpage, {
     pool: upcomingPool,
     chainId: chainId,
-    handleBack: () => setUpcomingPool(null)
+    handleBack: function handleBack() {
+      return setUpcomingPool(null);
+    }
   })))));
 };
 
