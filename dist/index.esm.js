@@ -3979,7 +3979,7 @@ const UpcomingPoolsCarousel = _ref => {
     className: "prevtitleText"
   }, pool.title), /*#__PURE__*/React.createElement(Typography, {
     sx: sx.description
-  }, "Price: TBA")))))), poolsData.length > 4 ? /*#__PURE__*/React.createElement(Box, {
+  }, "Price: ", pool.price ? pool.price.toLocaleString() + ' D' : 'TBA')))))), poolsData.length > 4 ? /*#__PURE__*/React.createElement(Box, {
     style: {
       position: 'relative',
       display: 'flex',
@@ -4042,7 +4042,7 @@ const UpcomingProjectSubpage = _ref => {
     style: {
       margin: 0
     }
-  }, /*#__PURE__*/React.createElement("b", null, "TBA")))))), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement("b", null, pool.price ? pool.price.toLocaleString() + ' D' : 'TBA')))))), /*#__PURE__*/React.createElement("p", {
     className: "dust-pool-card-label mt-2",
     style: {
       fontFamily: "poppins-semibold",
@@ -4262,6 +4262,7 @@ var DustPools = function DustPools(_ref) {
 
                 if (upcoming.status === 200) {
                   setUpcomingPools(upcoming.data);
+                  console.log('UPCOM', upcoming.data);
 
                   if (loc.search && loc.search.indexOf('upcoming=') > 0) {
                     params = loc.search.slice(1).split('&'); //console.log(params);
