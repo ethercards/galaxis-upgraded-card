@@ -162,6 +162,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       if(upcoming.status === 200){
         setUpcomingPools(upcoming.data);
 
+        console.log('UPCOM',upcoming.data)
         
 
         if(loc.search && loc.search.indexOf('upcoming=')>0){
