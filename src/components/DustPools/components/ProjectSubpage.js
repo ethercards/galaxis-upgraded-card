@@ -12,34 +12,46 @@ import TermsBox from './TermsBox';
 import RestrictedAreaBox from './RestrictedAreaBox';
 import DustImg from '../../../assets/images/dustPools/dust-card.jpg';
 
-const ShowNextPreviosProject = () =>{
+const ShowNextPreviosProject = ({prev,next,idx,mediaUrl,handler}) =>{
+
     return <div className='snp-root'>
-        <div className='previous-box snp-box'>
-            <div><img src={DragonImg} style={{maxHeight:"100%"}}/></div>
+        <div className={`previous-box snp-box ${prev===null?'disabled':''}`} onClick={()=>{if(prev){handler(idx-1)}}}>
+          {prev&&<>
+            <div><img src={mediaUrl+prev.images[0].src} style={{maxHeight:"100%"}}/></div>
             <div className='snp-text'>
                 <span>previous</span>
                 <div className='snp-text-p-n'>
-                    Mutant ape yacht club
+                    {prev.name}
                 </div>
             </div>
+          </>}
         </div>
+
         <div className='snp-divider'>
             <img src={divider}/>
         </div>
-        <div className='next-box snp-box'>
-            
-            <div className='snp-text text-right'>
-                <span>next</span>
-                <div className='snp-text-p-n'>
-                    Mutant ape yacht club
-                </div>
-            </div>
-            <div><img src={DragonImg} style={{maxHeight:"100%"}}/></div>
+
+        <div className={`next-box snp-box ${next===null?'disabled':''}`} onClick={()=>{if(next){handler(idx+1)}}}>
+            {next&&<>
+              <div className='snp-text text-right'>
+                  <span>next</span>
+                  <div className='snp-text-p-n'>
+                      {next.name}
+                  </div>
+              </div>
+              <div><img src={mediaUrl+next.images[0].src} style={{maxHeight:"100%"}}/></div>
+            </>}
         </div>
     </div>
 }
 
-const ProjectSubpage = ({pool, address, dust, d4p, ethersProvider, chainId, handleConnect, handleBack}) => {
+const ProjectSubpage = ({pools, currentIndex ,address, dust, d4p, ethersProvider, chainId, handleConnect, handleBack, handleChangePool}) => {
+
+  const [pool,setPool] = useState(null);
+  const [prevPool,setPrevPool] = useState(null);
+  const [nextPool,setNextPool] = useState(null);
+
+
 
   const [dustBalance,setDustBalance] = useState(null);
   const [waitingForApproval, setWaitingForApproval]=useState(false);
@@ -60,7 +72,25 @@ const ProjectSubpage = ({pool, address, dust, d4p, ethersProvider, chainId, hand
 
   const videoRef = useRef(null);
 
+  const MEDIA_BASE_URL = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+    
+
   useEffect(()=>{
+    setPool(pools[currentIndex]);
+    let p = null;
+    let n = null;
+
+    if(currentIndex>0){
+      p=pools[currentIndex-1];
+    }
+
+    if(currentIndex<pools.length-1){
+      n=pools[currentIndex+1];
+    }
+
+    setPrevPool(p);
+    setNextPool(n);
+
     console.log('sub page mounted',chainId);
     const fetchUserCountry = async () => {
         const res = await axios.get(`${chainId===1?'https://heroku.ether.cards':'https://heroku-staging.ether.cards'}/api/location`).catch(e => console.log(e));
@@ -78,7 +108,7 @@ const ProjectSubpage = ({pool, address, dust, d4p, ethersProvider, chainId, hand
    // getUserHashes();
 
 
-},[]);
+},[currentIndex]);
 
 useEffect(()=>{
   const getUserHashes = async () => {
@@ -86,7 +116,7 @@ useEffect(()=>{
 
     if(res && Number(res)>0){
       console.log('number of hashes',Number(res));
-      let storedHash = localStorage.getItem('user_hash'+pool.id);
+      let storedHash = localStorage.getItem('user_hash'+pool.vault_id);
 
       if(storedHash){
           setUserHash(storedHash);
@@ -96,7 +126,7 @@ useEffect(()=>{
       }
     }
 
-    let tx = localStorage.getItem('tx_hash'+pool.id);
+    let tx = localStorage.getItem('tx_hash'+pool.vault_id);
     if(tx){
         setTxHash(tx);
     }else{
@@ -104,12 +134,12 @@ useEffect(()=>{
     }
   }
   
-  if(address && d4p){
+  if(address && d4p && pool){
     console.log('get user hashes');
     getUserHashes();
   }
 
-},[address, d4p]);
+},[address, d4p, pool]);
 
 /* const getUserHashes = async () => {
 
@@ -127,7 +157,7 @@ useEffect(()=>{
           }
       }
       
-      localStorage.removeItem('tx_hash'+pool.id);;
+      localStorage.removeItem('tx_hash'+pool.vault_id);;
       setTxInProgress(false);
 
       let b = await dust.balanceOf(address).catch(e=>{console.log(e)});
@@ -146,7 +176,7 @@ useEffect(()=>{
           if(lastUserHash){
               setTxHash(null);
               setUserHash(lastUserHash);
-              localStorage.setItem('user_hash'+pool.id,lastUserHash);
+              localStorage.setItem('user_hash'+pool.vault_id,lastUserHash);
           }
 
           /* const userHashes={
@@ -186,7 +216,7 @@ useEffect(()=>{
               }else{
                   //meebit cors hack :/
 
-                  if(pool.id===1){
+                  if(pool.vault_id===1){
                       //if meebit...
                      let id = tUri.split('/').pop();
                      let image = "https://meebits.larvalabs.com/meebitimages/characterimage?index=****&type=full&imageType=jpg".replace('****',id);
@@ -236,7 +266,7 @@ useEffect(()=>{
 
 const videoFinished = ()=>{
   setUserHash(null);
-  localStorage.removeItem('user_hash'+pool.id);
+  localStorage.removeItem('user_hash'+pool.vault_id);
   setCardRevealed(true);
   setVideoVisible(false);
 }
@@ -341,7 +371,7 @@ const connectOrExhange = ()=>{
   const onTermsAccepted = async () => {
     setShowTerms(false);
     //const data="0x0000000000000000000000000000000000000000000000000000000000000000";
-    const data=ethers.utils.hexZeroPad(pool.id,32);
+    const data=ethers.utils.hexZeroPad(pool.vault_id,32);
 
 
     let dc = dust.connect(ethersProvider.getSigner());
@@ -354,7 +384,7 @@ const connectOrExhange = ()=>{
     setWaitingForApproval(false);
     setTxInProgress(true);
     if(tx){
-        localStorage.setItem('tx_hash'+pool.id,tx.hash);
+        localStorage.setItem('tx_hash'+pool.vault_id,tx.hash);
         setTxHash(tx.hash);
         
     }else{
@@ -363,24 +393,24 @@ const connectOrExhange = ()=>{
   }
 
 
-  return (
-    <div className="pool-ps-root">
+  return (<>
+    {pool!==null&&<div className="pool-ps-root">
       
       {(!txHash && !userHash && !cardRevealed)&&<>
         <button className='pool-ps-btn' onClick={handleBack}><span>&#9666;</span><p>Back</p></button>
         <div className="pool-ps-card-and-descipton">
           <div className="pool-ps-card-and-descipton-inner ps-left">
-            <img src={DragonImg} style={{ maxWidth: '100%' }} />
+            <img src={MEDIA_BASE_URL+pool.images[0].src} style={{ maxWidth: '100%', width:'450px' }} />
           </div>
           <div className="pool-ps-card-and-descipton-inner ps-right">
             <div className="text-box w-100">
-                <p className='dust-pool-card-label'>POOL</p>
+                <p className='dust-pool-card-label'>VAULT</p>
               <p className="dust-pool-title ">{pool.name}</p>
               <p className="dust-pool-card-label">COUNTER</p>
               <p className="mb-1">
-                <b>{pool.vaultData.available} out of {pool.totalSupply} left</b>
+                <b>{pool.vaultData.available} out of {pool.total_supply} left</b>
               </p>
-              <CounterBar value={pool.vaultData.available} maxValue={pool.totalSupply} />
+              <CounterBar value={pool.vaultData.available} maxValue={pool.total_supply} />
               <p className="dust-pool-card-label">Your balance</p>
               <div className='dpc-box'>
               <p style={{margin:0}}>
@@ -404,7 +434,10 @@ const connectOrExhange = ()=>{
         </div>
         <p className="dust-pool-card-label mt-2" style={{fontFamily:"poppins-semibold", textTransform:"capitalize", fontSize:"18px"}}><b>Description</b></p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-        <ShowNextPreviosProject/>
+        
+
+        <ShowNextPreviosProject prev={prevPool} next={nextPool} idx={currentIndex} mediaUrl={MEDIA_BASE_URL} handler={handleChangePool}/>
+
       </>}
 
       {(txHash || userHash)&&
@@ -494,10 +527,8 @@ const connectOrExhange = ()=>{
       {waitingForApproval&&
        <div className="approval-mask"/>
       }
-    </div>
-
-
-
+    </div>}
+    </>
   );
 };
 

@@ -11,11 +11,19 @@ const CardTest = ()=>{
 
 	useEffect(() => {
 		(async () => {
-		getFilteredCards({})
+			const urlParam = window.location.hash.slice(window.location.hash.indexOf('?')+1);
+
+			console.log(window.location);
+
+
+
+			console.log('URL PARAM',urlParam);
+
+		getFilteredCards(urlParam,{})
 			.then((response) => {
 			console.log('res',response);
 			if (response) {
-				setMetadata(response[0]);
+				setMetadata(response);
 				setLoaded(true);
 			}
 			})
@@ -27,8 +35,9 @@ const CardTest = ()=>{
 
 	return (
 		<>
-		card
+		<div style={{width:"100%", height:"100%", overflow:"hidden"}}>
 		{loaded && (
+			
 			<GalaxisCard
 				name="Teszt"
 				metadata={metadata}
@@ -36,8 +45,10 @@ const CardTest = ()=>{
 				horizontalPadding={20}
 				imageContainerWidth={400}
 			/>
+			
 			)
 		}
+		</div>
 		</>
 	);
 }

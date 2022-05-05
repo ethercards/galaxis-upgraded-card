@@ -8,9 +8,21 @@
   overflow: hidden;
   margin: 0 auto;
 }
+
+.dust-pool-card-image-container{
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+  min-height: 265px;
+}
+
 .dust-pool-card-img {
-  height: 265px;
-  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover;
 }
 .text-box {
   /* width: 50%; */

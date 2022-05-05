@@ -12,7 +12,13 @@ import { getContract, getDummy721 } from './Web3/GetContract';
 import { Zoom } from 'zoom-next';
 import useInterval from '../../common/useInterval';
 import UpcomingPoolsCarousel from './components/UpcomingPoolsCarousel.jsx';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import UpcomingProjectSubpage from './components/UpcomingProjectSubpage';
 
+
+
+/* 
 const POOLSS = [
   {
   image_src: "/banners/small_banners/dragon.png",
@@ -44,11 +50,10 @@ const POOLSS = [
             url: "",
             },
 ]
-
-const upcomingImgUrl = "https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media"
+ */
 
 const UPDATE_INTERVAL = 60000;
-let POOLS = [
+/* let POOLS = [
   {
     id: 0,
     name: 'Cryptopunk Pool',
@@ -107,30 +112,7 @@ let POOLS = [
     totalSupply: 100,
     poolUrl: 'https://opensea.io/0x9dFF1113CF4186deC4feb774632356D22f07eB9e',
   },
-];
-
-const UPCOMING_POOLS = [
-  {
-    imgSrc: DragonImg,
-    name: 'Paul Timbuktu',
-    price: 10000,
-  },
-  {
-    imgSrc: DragonImg,
-    name: 'Paul Timbuktu two row',
-    price: 10000,
-  },
-  {
-    imgSrc: DragonImg,
-    name: 'Paul Timbuktu',
-    price: 10000,
-  },
-  {
-    imgSrc: DragonImg,
-    name: 'Paul Timbuktu',
-    price: 10000,
-  },
-];
+]; */
 
 const TopSectionDividers = () => (
   <div
@@ -146,7 +128,7 @@ const TopSectionDividers = () => (
 );
 
 const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
-  const [selectedPoolId, setSelectedPoolId] = useState(null);
+  const [selectedPoolIdx, setSelectedPoolIdx] = useState(null);
   const [dustContract, setDustContract] = useState(null);
   const [dust4PunksContract, setDust4PunksContract] = useState(null);
   const [zoom2, setZoom2] = useState(null);
@@ -154,15 +136,75 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
   const [initDone, setInitDone] = useState(false);
 
+  const [poolsFromBackend, setPoolsFromBackend] = useState([]);
   const [allPools, setAllPools] = useState([]);
   const [pools, setPools] = useState([]);
+  const [upcomingPools, setUpcomingPools] = useState([]);
+  const [upcomingPool, setUpcomingPool] = useState(null);
+
+  const loc = useLocation();
+
+  const url = chainId===1?'https://galaxis-web-backend.herokuapp.com':'https://galaxis-web-backend-staging.herokuapp.com';
+  const upcomingImgUrl = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+
+
+  useEffect(()=>{
+    const getPoolData = async ()=>{
+
+      const res = await axios.get(url+'/vaults').catch(e=>console.log);
+      
+      if(res.status === 200){
+        setPoolsFromBackend(res.data);
+      }
+
+      const upcoming = await axios.get(url+'/upcoming-vaults').catch(e=>console.log);
+     
+      if(upcoming.status === 200){
+        setUpcomingPools(upcoming.data);
+
+        
+
+        if(loc.search && loc.search.indexOf('upcoming=')>0){
+          let params=loc.search.slice(1).split('&');
+          //console.log(params);
+          if(params.length>0){
+            let parsedParams = {};
+            for(let i=0;i<params.length;i++){
+              let item = params[i].split('=');
+              parsedParams[item[0]]=item[1];
+            }
+            if(parsedParams.upcoming){
+             // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
+              setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+            }
+
+          }
+        }
+
+
+      }
+    }
+
+
+
+
+
+    getPoolData();
+  },[]);
+
+
+
 
   useEffect(() => {
+
+   
+
+
     const initContract = async () => {
       let c = await getContract('Dust', ethersProvider);
       if (c) {
         setDustContract(c);
-        console.log('DUST:', c);
+        //console.log('DUST:', c);
       } else {
         console.log('contract not found');
       }
@@ -170,7 +212,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let Zoom2Contract = await getContract('Zoom2', ethersProvider);
       if (Zoom2Contract) {
         setZoom2(Zoom2Contract);
-        console.log('ZOOM:', Zoom2Contract);
+        //console.log('ZOOM:', Zoom2Contract);
       } else {
         console.log('Could not initialise Zoom2 Contract');
       }
@@ -178,7 +220,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let D4P = await getContract('Dust4Punks', ethersProvider);
       if (D4P) {
         setDust4PunksContract(D4P);
-        console.log('D4P:', D4P);
+       // console.log('D4P:', D4P);
       } else {
         console.log('Could not initialise D4P Contract');
       }
@@ -190,13 +232,13 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
   }, [ethersProvider]);
 
   useEffect(() => {
-    if (dust4PunksContract && dustContract && zoom2 /*  && !initDone */) {
+    if (dust4PunksContract && dustContract && poolsFromBackend.length>0 && zoom2 /*  && !initDone */) {
       getPools();
     }
-  }, [dust4PunksContract]); //,dustContract,zoom2
+  }, [dust4PunksContract,poolsFromBackend]); //,dustContract,zoom2
 
   const getPools = async () => {
-    console.log('GETTING POOL DATA....');
+   // console.log('GETTING POOL DATA....');
 
     let res = await dust4PunksContract
       .next_redeemable()
@@ -208,7 +250,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       numberOfPools = Number(res);
     }
 
-    console.log('#OF POOLS', numberOfPools);
+    //console.log('#OF POOLS', numberOfPools);
 
     // if(address){
     const ZoomLibraryInstance = new Zoom({ use_reference_calls: true });
@@ -281,18 +323,22 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         vd.tokenContract = vToken;
       }
 
-      tempPool.push({ ...POOLS[poolIdx], vaultData: vd });
-      poolIdx++;
+      if(poolIdx<poolsFromBackend.length){
+        tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
+        poolIdx++;
+      }else{
+        console.log('overflow :/', poolIdx,poolsFromBackend.length);
+      }
     }
 
-    console.log('AP', tempPool);
+    //console.log('AP', tempPool);
     setAllPools(tempPool);
     setPools(tempPool);
     setSelectedFilter('ALL');
   };
 
   useEffect(() => {
-    console.log('allPools changed...', allPools.length);
+   // console.log('allPools changed...', allPools.length);
     if (allPools.length > 0) {
       updateVaultBalances();
     }
@@ -311,7 +357,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
       let hasContract = [];
 
-      // console.log('UPD',pools,allPools);
+       //console.log('UPD',pools,allPools);
 
       for (let i = 0; i < allPools.length; i++) {
         if (
@@ -333,11 +379,11 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             'balanceOf(address) returns (uint256)'
           );
           calls.push(vaultBalance);
-          hasContract.push(allPools[i].id);
+          hasContract.push(allPools[i].vault_id);
         }
       }
 
-      console.log('STUFF', calls, hasContract);
+     // console.log('STUFF', calls, hasContract);
 
       if (calls.length > 0) {
         const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall();
@@ -380,7 +426,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
  */
         setPools(getFiltered());
         setInitDone(true);
-        console.log('AP upd', ap);
+        //console.log('AP upd', ap);
       }
     }
   };
@@ -402,19 +448,24 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
     setPools(getFiltered());
   }, [selectedFilter]);
 
-  const connectOrExchange = (poolId) => {
-    if (poolId !== null) {
-      setSelectedPoolId(poolId);
+  const showDetails = (idx) => {
+    //console.log('poolId,idx',idx);
+    if (idx !== null) {
+      setSelectedPoolIdx(idx);
     }
   };
 
+
+
+
+
   return (
     <>
-      {selectedPoolId === null ? (
+      {(selectedPoolIdx === null && upcomingPool === null) ? (
         <div className="dust-pool-root">
           <div className="dust-pool-textbox">
             <p className="pool-subtitle" style={{ marginBlockEnd: '1em' }}>
-              Dust pools
+              NFT Vaults
             </p>
             <div className="tab-choose">
               <div
@@ -448,7 +499,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
               {pools.map((card, idx) => {
                 return (
                   <div key={idx} className="col-12 col-lg-6">
-                    <DustPoolCard card={card} handleClick={connectOrExchange} />
+                    <DustPoolCard card={card} idx={idx} chainId={chainId} handleClick={showDetails} />
                   </div>
                 );
               })}
@@ -475,10 +526,14 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             </div>
             <TopSectionDividers />
             <div className="dust-pool-textbox pb-4">
-              <p className="pool-subtitle">Upcoming Dust Pools</p>
+              <p className="pool-subtitle">Upcoming NFT Vaults</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-                <UpcomingPoolsCarousel imgUrl={upcomingImgUrl} poolsData={POOLSS}/>
+                
+            {upcomingPools.length>0 && 
+              <UpcomingPoolsCarousel imgUrl={upcomingImgUrl} poolsData={upcomingPools} handleSelect={setUpcomingPool}/>
+            }
+            
             {/* <div className="row">
               {UPCOMING_POOLS.map((card, idx) => {
                 return (
@@ -496,19 +551,35 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         </div>
       ) : (
         <>
-          <div className="dust-pool-root">
-            <ProjectSubpage
-              pool={allPools[selectedPoolId]}
-              address={address}
-              dust={dustContract}
-              d4p={dust4PunksContract}
-              ethersProvider={ethersProvider}
-              chainId={chainId}
-              handleConnect={handleConnect}
-              handleBack={() => setSelectedPoolId(null)}
-            />
-          </div>
+          {selectedPoolIdx!== null? 
+            <>
+              <div className="dust-pool-root">
+                <ProjectSubpage
+                  pools = {pools}
+                  currentIndex = {selectedPoolIdx}
+                  address={address}
+                  dust={dustContract}
+                  d4p={dust4PunksContract}
+                  ethersProvider={ethersProvider}
+                  chainId={chainId}
+                  handleConnect={handleConnect}
+                  handleBack={() => setSelectedPoolIdx(null)}
+                  handleChangePool={showDetails}
+                />
+              </div>
+            </>
+            :
+            <>
+              <div className="dust-pool-root">
+                <UpcomingProjectSubpage
+                  pool = {upcomingPool}
+                  chainId={chainId}
+                  handleBack={() => setUpcomingPool(null)}
+                />
+              </div>
+            </>}
         </>
+
       )}
     </>
   );

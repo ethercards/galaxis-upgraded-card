@@ -24,6 +24,7 @@ const sx = {
     alignItems: 'center',
     backgroundColor: '#fff',
     borderRadius: '12px 12px',
+    cursor:'pointer'
   },
   titleText: {
     fontFamily: 'poppins-semibold',
@@ -40,7 +41,7 @@ const sx = {
   },
 };
 const autoPlayDelay = 4000;
-const DustPools = ({ imgUrl, poolsData }) => {
+const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [noOfCards, setNoOfCards] = useState(4);
   useEffect(() => {
@@ -74,6 +75,11 @@ const DustPools = ({ imgUrl, poolsData }) => {
     let active = id * noOfCards;
     setActiveItemIndex(active);
   };
+  
+
+  const handleItemSelect = (idx)=>{
+    handleSelect(poolsData[idx]);
+  }
 
   return (
     <>
@@ -90,9 +96,9 @@ const DustPools = ({ imgUrl, poolsData }) => {
           numberOfCards={noOfCards}
           gutter={16}
         >
-          {poolsData.map((pool) => (
-            <Box sx={sx.content} style={{boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)", margin:"20px auto", borderRadius:"12px", overflow:"hidden"}}>
-              <Box sx={sx.contentLeft} className="previousBox">
+          {poolsData.map((pool,idx) => (
+            <Box key={idx} sx={sx.content} style={{boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)", margin:"20px auto", borderRadius:"12px", overflow:"hidden"}}>
+              <Box sx={sx.contentLeft} className="previousBox" onClick={()=>handleItemSelect(idx)} >
                 <Box sx={sx.imageHolder}>
                   <img
                     src={imgUrl + pool.image_src}
@@ -113,7 +119,7 @@ const DustPools = ({ imgUrl, poolsData }) => {
                   >
                     {pool.title}
                   </Typography>
-                  <Typography sx={sx.description}>10 000 D</Typography>
+                  <Typography sx={sx.description}>Price: TBA</Typography>
                 </Box>
               </Box>
             </Box>
@@ -133,6 +139,7 @@ const DustPools = ({ imgUrl, poolsData }) => {
                 length: Math.ceil(poolsData.length / noOfCards),
               }).map((pool, i) => (
                 <Box
+                  key={i}
                   className="yours-custom-class"
                   onClick={() => onChange(i)}
                   sx={sx.image}
@@ -157,4 +164,4 @@ const DustPools = ({ imgUrl, poolsData }) => {
   );
 };
 
-export default DustPools;
+export default UpcomingPoolsCarousel;
