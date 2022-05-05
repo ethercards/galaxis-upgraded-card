@@ -150,18 +150,38 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
   useEffect(()=>{
     const getPoolData = async ()=>{
-      console.log('location',loc);
 
       const res = await axios.get(url+'/pools').catch(e=>console.log);
-      console.log('poools from BE',res);
+      
       if(res.status === 200){
         setPoolsFromBackend(res.data);
       }
 
       const upcoming = await axios.get(url+'/upcoming-pools').catch(e=>console.log);
-      console.log('poools from BE',upcoming);
+     
       if(upcoming.status === 200){
         setUpcomingPools(upcoming.data);
+
+        
+
+        if(loc.search && loc.search.indexOf('upcoming=')>0){
+          let params=loc.search.slice(1).split('&');
+          //console.log(params);
+          if(params.length>0){
+            let parsedParams = {};
+            for(let i=0;i<params.length;i++){
+              let item = params[i].split('=');
+              parsedParams[item[0]]=item[1];
+            }
+            if(parsedParams.upcoming){
+             // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
+              setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+            }
+
+          }
+        }
+
+
       }
     }
 
@@ -184,7 +204,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let c = await getContract('Dust', ethersProvider);
       if (c) {
         setDustContract(c);
-        console.log('DUST:', c);
+        //console.log('DUST:', c);
       } else {
         console.log('contract not found');
       }
@@ -192,7 +212,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let Zoom2Contract = await getContract('Zoom2', ethersProvider);
       if (Zoom2Contract) {
         setZoom2(Zoom2Contract);
-        console.log('ZOOM:', Zoom2Contract);
+        //console.log('ZOOM:', Zoom2Contract);
       } else {
         console.log('Could not initialise Zoom2 Contract');
       }
@@ -200,7 +220,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let D4P = await getContract('Dust4Punks', ethersProvider);
       if (D4P) {
         setDust4PunksContract(D4P);
-        console.log('D4P:', D4P);
+       // console.log('D4P:', D4P);
       } else {
         console.log('Could not initialise D4P Contract');
       }
@@ -218,7 +238,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
   }, [dust4PunksContract,poolsFromBackend]); //,dustContract,zoom2
 
   const getPools = async () => {
-    console.log('GETTING POOL DATA....');
+   // console.log('GETTING POOL DATA....');
 
     let res = await dust4PunksContract
       .next_redeemable()
@@ -230,7 +250,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       numberOfPools = Number(res);
     }
 
-    console.log('#OF POOLS', numberOfPools);
+    //console.log('#OF POOLS', numberOfPools);
 
     // if(address){
     const ZoomLibraryInstance = new Zoom({ use_reference_calls: true });
@@ -311,14 +331,14 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       }
     }
 
-    console.log('AP', tempPool);
+    //console.log('AP', tempPool);
     setAllPools(tempPool);
     setPools(tempPool);
     setSelectedFilter('ALL');
   };
 
   useEffect(() => {
-    console.log('allPools changed...', allPools.length);
+   // console.log('allPools changed...', allPools.length);
     if (allPools.length > 0) {
       updateVaultBalances();
     }
@@ -337,7 +357,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
       let hasContract = [];
 
-       console.log('UPD',pools,allPools);
+       //console.log('UPD',pools,allPools);
 
       for (let i = 0; i < allPools.length; i++) {
         if (
@@ -363,7 +383,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         }
       }
 
-      console.log('STUFF', calls, hasContract);
+     // console.log('STUFF', calls, hasContract);
 
       if (calls.length > 0) {
         const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall();
@@ -406,7 +426,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
  */
         setPools(getFiltered());
         setInitDone(true);
-        console.log('AP upd', ap);
+        //console.log('AP upd', ap);
       }
     }
   };
@@ -429,7 +449,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
   }, [selectedFilter]);
 
   const showDetails = (idx) => {
-    console.log('poolId,idx',idx);
+    //console.log('poolId,idx',idx);
     if (idx !== null) {
       setSelectedPoolIdx(idx);
     }
@@ -445,7 +465,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         <div className="dust-pool-root">
           <div className="dust-pool-textbox">
             <p className="pool-subtitle" style={{ marginBlockEnd: '1em' }}>
-              Dust pools
+              NFT Vaults
             </p>
             <div className="tab-choose">
               <div
@@ -506,7 +526,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             </div>
             <TopSectionDividers />
             <div className="dust-pool-textbox pb-4">
-              <p className="pool-subtitle">Upcoming Dust Pools</p>
+              <p className="pool-subtitle">Upcoming NFT Vaults</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
                 

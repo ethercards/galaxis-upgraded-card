@@ -97,7 +97,7 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
           gutter={16}
         >
           {poolsData.map((pool,idx) => (
-            <Box sx={sx.content} style={{boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)", margin:"20px auto", borderRadius:"12px", overflow:"hidden"}}>
+            <Box key={idx} sx={sx.content} style={{boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)", margin:"20px auto", borderRadius:"12px", overflow:"hidden"}}>
               <Box sx={sx.contentLeft} className="previousBox" onClick={()=>handleItemSelect(idx)} >
                 <Box sx={sx.imageHolder}>
                   <img
@@ -119,7 +119,7 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
                   >
                     {pool.title}
                   </Typography>
-                  <Typography sx={sx.description}>10 000 D</Typography>
+                  <Typography sx={sx.description}>Price: TBA</Typography>
                 </Box>
               </Box>
             </Box>
@@ -139,6 +139,7 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
                 length: Math.ceil(poolsData.length / noOfCards),
               }).map((pool, i) => (
                 <Box
+                  key={i}
                   className="yours-custom-class"
                   onClick={() => onChange(i)}
                   sx={sx.image}

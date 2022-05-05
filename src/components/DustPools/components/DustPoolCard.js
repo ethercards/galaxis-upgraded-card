@@ -5,12 +5,10 @@ import CounterBar from './CounterBar.jsx';
 const DustPoolCard = ({card,idx,chainId,handleClick})=>{
 
     const MEDIA_BASE_URL = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
-    useEffect(()=>{
-        console.log('card',card);
-    },[]);
+
 
     const onClickHandler = ()=>{
-        console.log('card id on click',card.id);
+        //console.log('card id on click',card.id);
         handleClick(idx);
     }
 

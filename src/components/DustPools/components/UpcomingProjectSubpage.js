@@ -26,7 +26,7 @@ const UpcomingProjectSubpage = ({pool, chainId, handleBack}) => {
           </div>
           <div className="pool-ps-card-and-descipton-inner ps-right">
             <div className="text-box w-100">
-                <p className='dust-pool-card-label'>POOL</p>
+                <p className='dust-pool-card-label'>VAULT</p>
               <p className="dust-pool-title ">{pool.title}</p>
               
               
