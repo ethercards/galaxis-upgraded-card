@@ -151,13 +151,13 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
   useEffect(()=>{
     const getPoolData = async ()=>{
 
-      const res = await axios.get(url+'/pools').catch(e=>console.log);
+      const res = await axios.get(url+'/vaults').catch(e=>console.log);
       
       if(res.status === 200){
         setPoolsFromBackend(res.data);
       }
 
-      const upcoming = await axios.get(url+'/upcoming-pools').catch(e=>console.log);
+      const upcoming = await axios.get(url+'/upcoming-vaults').catch(e=>console.log);
      
       if(upcoming.status === 200){
         setUpcomingPools(upcoming.data);
@@ -379,7 +379,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             'balanceOf(address) returns (uint256)'
           );
           calls.push(vaultBalance);
-          hasContract.push(allPools[i].pool_id);
+          hasContract.push(allPools[i].vault_id);
         }
       }
 

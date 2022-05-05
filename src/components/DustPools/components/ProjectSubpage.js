@@ -116,7 +116,7 @@ useEffect(()=>{
 
     if(res && Number(res)>0){
       console.log('number of hashes',Number(res));
-      let storedHash = localStorage.getItem('user_hash'+pool.pool_id);
+      let storedHash = localStorage.getItem('user_hash'+pool.vault_id);
 
       if(storedHash){
           setUserHash(storedHash);
@@ -126,7 +126,7 @@ useEffect(()=>{
       }
     }
 
-    let tx = localStorage.getItem('tx_hash'+pool.pool_id);
+    let tx = localStorage.getItem('tx_hash'+pool.vault_id);
     if(tx){
         setTxHash(tx);
     }else{
@@ -157,7 +157,7 @@ useEffect(()=>{
           }
       }
       
-      localStorage.removeItem('tx_hash'+pool.pool_id);;
+      localStorage.removeItem('tx_hash'+pool.vault_id);;
       setTxInProgress(false);
 
       let b = await dust.balanceOf(address).catch(e=>{console.log(e)});
@@ -176,7 +176,7 @@ useEffect(()=>{
           if(lastUserHash){
               setTxHash(null);
               setUserHash(lastUserHash);
-              localStorage.setItem('user_hash'+pool.pool_id,lastUserHash);
+              localStorage.setItem('user_hash'+pool.vault_id,lastUserHash);
           }
 
           /* const userHashes={
@@ -216,7 +216,7 @@ useEffect(()=>{
               }else{
                   //meebit cors hack :/
 
-                  if(pool.pool_id===1){
+                  if(pool.vault_id===1){
                       //if meebit...
                      let id = tUri.split('/').pop();
                      let image = "https://meebits.larvalabs.com/meebitimages/characterimage?index=****&type=full&imageType=jpg".replace('****',id);
@@ -266,7 +266,7 @@ useEffect(()=>{
 
 const videoFinished = ()=>{
   setUserHash(null);
-  localStorage.removeItem('user_hash'+pool.pool_id);
+  localStorage.removeItem('user_hash'+pool.vault_id);
   setCardRevealed(true);
   setVideoVisible(false);
 }
@@ -371,7 +371,7 @@ const connectOrExhange = ()=>{
   const onTermsAccepted = async () => {
     setShowTerms(false);
     //const data="0x0000000000000000000000000000000000000000000000000000000000000000";
-    const data=ethers.utils.hexZeroPad(pool.pool_id,32);
+    const data=ethers.utils.hexZeroPad(pool.vault_id,32);
 
 
     let dc = dust.connect(ethersProvider.getSigner());
@@ -384,7 +384,7 @@ const connectOrExhange = ()=>{
     setWaitingForApproval(false);
     setTxInProgress(true);
     if(tx){
-        localStorage.setItem('tx_hash'+pool.pool_id,tx.hash);
+        localStorage.setItem('tx_hash'+pool.vault_id,tx.hash);
         setTxHash(tx.hash);
         
     }else{
