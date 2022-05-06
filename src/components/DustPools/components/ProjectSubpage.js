@@ -432,8 +432,10 @@ const connectOrExhange = ()=>{
             </div>
           </div>
         </div>
-        <p className="dust-pool-card-label mt-2" style={{fontFamily:"poppins-semibold", textTransform:"capitalize", fontSize:"18px"}}><b>Description</b></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        <div style={{display:'block'}}>
+          <p className="dust-pool-card-label mt-2" style={{fontFamily:"poppins-semibold", textTransform:"capitalize", fontSize:"18px"}}><b>Description</b></p>
+          <div dangerouslySetInnerHTML={{__html: pool.description}}/>
+        </div>
         
 
         <ShowNextPreviosProject prev={prevPool} next={nextPool} idx={currentIndex} mediaUrl={MEDIA_BASE_URL} handler={handleChangePool}/>
