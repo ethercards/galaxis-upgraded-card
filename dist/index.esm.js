@@ -6,7 +6,7 @@ import { toast } from 'react-toast';
 import { Zoom } from 'zoom-next';
 import { Box, Typography } from '@mui/material';
 import ItemsCarousel from 'react-items-carousel';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
@@ -1731,14 +1731,22 @@ const ProjectSubpage = _ref2 => {
   }, /*#__PURE__*/React.createElement("button", {
     className: "dust-pool-btn",
     onClick: connectOrExhange
-  }, address ? 'Exchange' : 'Connect'))))), /*#__PURE__*/React.createElement("p", {
+  }, address ? 'Exchange' : 'Connect'))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'block'
+    }
+  }, /*#__PURE__*/React.createElement("p", {
     className: "dust-pool-card-label mt-2",
     style: {
       fontFamily: "poppins-semibold",
       textTransform: "capitalize",
       fontSize: "18px"
     }
-  }, /*#__PURE__*/React.createElement("b", null, "Description")), /*#__PURE__*/React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"), /*#__PURE__*/React.createElement(ShowNextPreviosProject, {
+  }, /*#__PURE__*/React.createElement("b", null, "Description")), /*#__PURE__*/React.createElement("div", {
+    dangerouslySetInnerHTML: {
+      __html: pool.description
+    }
+  })), /*#__PURE__*/React.createElement(ShowNextPreviosProject, {
     prev: prevPool,
     next: nextPool,
     idx: currentIndex,
@@ -3918,11 +3926,24 @@ const UpcomingProjectSubpage = _ref => {
     handleBack
   } = _ref;
   const MEDIA_BASE_URL = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+  const hist = useHistory();
+
+  const onClickBackButton = () => {
+    console.log(hist);
+
+    if (hist.location.search === "") {
+      handleBack();
+    } else {
+      //  hist.push('/');
+      hist.goBack();
+    }
+  };
+
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "pool-ps-root"
   }, /*#__PURE__*/React.createElement("button", {
     className: "pool-ps-btn",
-    onClick: handleBack
+    onClick: onClickBackButton
   }, /*#__PURE__*/React.createElement("span", null, "\u25C2"), /*#__PURE__*/React.createElement("p", null, "Back")), /*#__PURE__*/React.createElement("div", {
     className: "pool-ps-card-and-descipton"
   }, /*#__PURE__*/React.createElement("div", {
@@ -3931,7 +3952,7 @@ const UpcomingProjectSubpage = _ref => {
     src: MEDIA_BASE_URL + pool.image_src,
     style: {
       maxWidth: '100%',
-      width: '450px'
+      width: '580px'
     }
   })), /*#__PURE__*/React.createElement("div", {
     className: "pool-ps-card-and-descipton-inner ps-right"
@@ -3949,14 +3970,22 @@ const UpcomingProjectSubpage = _ref => {
     style: {
       margin: 0
     }
-  }, /*#__PURE__*/React.createElement("b", null, pool.price ? pool.price.toLocaleString() + ' D' : 'TBA')))))), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement("b", null, pool.price ? pool.price.toLocaleString() + ' D' : 'TBA')))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'block'
+    }
+  }, /*#__PURE__*/React.createElement("p", {
     className: "dust-pool-card-label mt-2",
     style: {
       fontFamily: "poppins-semibold",
       textTransform: "capitalize",
       fontSize: "18px"
     }
-  }, /*#__PURE__*/React.createElement("b", null, "Description")), /*#__PURE__*/React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum")));
+  }, /*#__PURE__*/React.createElement("b", null, "Description")), /*#__PURE__*/React.createElement("div", {
+    dangerouslySetInnerHTML: {
+      __html: pool.description
+    }
+  }))));
 };
 
 /* 
@@ -4097,6 +4126,7 @@ const DustPools = _ref => {
   useEffect(() => {
     const getPoolData = async () => {
       const res = await axios.get(url + '/vaults').catch(e => console.log);
+      console.log('vaults', res);
 
       if (res.status === 200) {
         setPoolsFromBackend(res.data);

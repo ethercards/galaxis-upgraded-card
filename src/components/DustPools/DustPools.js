@@ -152,7 +152,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
     const getPoolData = async ()=>{
 
       const res = await axios.get(url+'/vaults').catch(e=>console.log);
-      
+      console.log('vaults',res);
       if(res.status === 200){
         setPoolsFromBackend(res.data);
       }
