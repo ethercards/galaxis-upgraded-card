@@ -1,6 +1,6 @@
 {
   "name": "galaxis-components",
-  "version": "0.1.67",
+  "version": "0.1.69",
   "private": true,
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",

@@ -19,7 +19,8 @@ const CounterBar = (props) => {
     },[]);
 
     useEffect(()=>{
-        if(props.value && props.value!== currentValue){
+        console.log('COUNTER',props.value,props.maxValue);
+        if(props.value!== null && props.value!== undefined && props.value!== currentValue){
             setCurrentValue(props.value);
         }
 

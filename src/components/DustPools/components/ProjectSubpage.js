@@ -17,7 +17,7 @@ const ShowNextPreviosProject = ({prev,next,idx,mediaUrl,handler}) =>{
     return <div className='snp-root'>
         <div className={`previous-box snp-box ${prev===null?'disabled':''}`} onClick={()=>{if(prev){handler(idx-1)}}}>
           {prev&&<>
-            <div><img src={mediaUrl+prev.images[0].src} style={{maxHeight:"100%"}}/></div>
+            <div><img src={mediaUrl+prev.images[0].src} style={{maxHeight:"86px"}}/></div>
             <div className='snp-text'>
                 <span>previous</span>
                 <div className='snp-text-p-n'>
@@ -39,7 +39,7 @@ const ShowNextPreviosProject = ({prev,next,idx,mediaUrl,handler}) =>{
                       {next.name}
                   </div>
               </div>
-              <div><img src={mediaUrl+next.images[0].src} style={{maxHeight:"100%"}}/></div>
+              <div><img src={mediaUrl+next.images[0].src} style={{maxHeight:"86px"}}/></div>
             </>}
         </div>
     </div>
@@ -426,8 +426,9 @@ const connectOrExhange = ()=>{
               </div>
 
               <div className='ps-text-bottom'>
-
-              <button className="dust-pool-btn" onClick={connectOrExhange}>{address?'Exchange':'Connect'}</button>
+              {pool.vaultData.available>0 &&
+                <button className="dust-pool-btn" onClick={connectOrExhange}>{address?'Exchange':'Connect'}</button>
+              }
               </div>
             </div>
           </div>
