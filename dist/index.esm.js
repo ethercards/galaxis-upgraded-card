@@ -4113,97 +4113,6 @@ const UpcomingProjectSubpage = _ref => {
 var css_248z = ".mt-4 {\n\tmargin-top: 2rem;\n}\n\n\n.form-group {\n    margin-bottom: 1rem;\n}\n\n.form-control {\n    display: block;\n    width: 100%;\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;\n}\n";
 styleInject(css_248z);
 
-const VaultInterface = _ref => {
-  let {
-    address,
-    hc,
-    d4p,
-    ethersProvider
-  } = _ref;
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [remaining, setRemaining] = useState('');
-  const [vaultAddress, setVaultAddress] = useState('');
-  const [tokenAddress, setTokenAddress] = useState('');
-  const [destinasi, setDestinasi] = useState('0x0000000000000000000000000000000000000000');
-  useEffect(() => {
-    if (address === null) {
-      hc();
-    }
-  }, [address]);
-
-  const addVault = async () => {
-    if (name && price && remaining && vaultAddress && tokenAddress && destinasi) {
-      console.log('address', address);
-      let priceInWei = ethers.utils.parseEther(price);
-      let remainingInWei = ethers.utils.parseEther(price);
-      let contract = d4p.connect(ethersProvider.getSigner());
-      console.log(contract);
-      let res = await contract.add_721_vault(name, priceInWei, remainingInWei, vaultAddress, tokenAddress, destinasi).catch(e => console.log);
-      console.log('res', res);
-    }
-  };
-
-  return /*#__PURE__*/React.createElement("div", {
-    className: "container mt-4"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: name,
-    onChange: e => setName(e.target.value),
-    placeholder: "Vault name (string)"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: price,
-    onChange: e => setPrice(e.target.value),
-    placeholder: "Price in dust (uint256)"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: remaining,
-    onChange: e => setRemaining(e.target.value),
-    placeholder: "Remaining (int)"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: vaultAddress,
-    onChange: e => setVaultAddress(e.target.value),
-    placeholder: "Vault (address)"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: tokenAddress,
-    onChange: e => setTokenAddress(e.target.value),
-    placeholder: "Token (address)"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: destinasi,
-    onChange: e => setDestinasi(e.target.value),
-    placeholder: "Destinasi (address)"
-  })), /*#__PURE__*/React.createElement("button", {
-    type: "submit",
-    className: "dust-pool-btn",
-    style: {
-      marginTop: '20px'
-    },
-    onClick: addVault
-  }, "Add vault"));
-};
-
 /* 
 const POOLSS = [
   {
@@ -4837,12 +4746,7 @@ var DustPools = function DustPools(_ref) {
     onClick: function onClick() {
       return window.open('https://blog.ether.cards/dust-utility-token-model-distribution/');
     }
-  }, "More")), /*#__PURE__*/React.createElement(VaultInterface, {
-    address: address,
-    hc: handleConnect,
-    d4p: dust4PunksContract,
-    ethersProvider: ethersProvider
-  }), /*#__PURE__*/React.createElement(TopSectionDividers, null), /*#__PURE__*/React.createElement("div", {
+  }, "More")), /*#__PURE__*/React.createElement(TopSectionDividers, null), /*#__PURE__*/React.createElement("div", {
     className: "dust-pool-textbox pb-4"
   }, /*#__PURE__*/React.createElement("p", {
     className: "pool-subtitle"

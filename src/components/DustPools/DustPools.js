@@ -533,8 +533,8 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
               </button>
             </div>
 
-            <VaultInterface address={address} hc={handleConnect} d4p={dust4PunksContract} ethersProvider={ethersProvider} />
-
+         {/*    <VaultInterface address={address} hc={handleConnect} d4p={dust4PunksContract} ethersProvider={ethersProvider} />
+ */}
 
             <TopSectionDividers />
             <div className="dust-pool-textbox pb-4">
