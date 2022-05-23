@@ -69,6 +69,7 @@ const ProjectSubpage = ({pools, currentIndex ,address, dust, d4p, ethersProvider
   const [tokenMeta,setTokenMeta] = useState(null);
   const [videoVisible, setVideoVisible] = useState(false);
   const [cardRevealed, setCardRevealed] = useState(false);
+  const [revealedImage, setRevealedImage] = useState(null);
 
   const videoRef = useRef(null);
 
@@ -200,6 +201,13 @@ useEffect(()=>{
   if(userHash){
       let intervalId = setInterval(async()=>{
 
+   /*    console.log('stored hash',userHash);
+
+      let lastUserHash = await d4p.userhashes(address,0).catch(e=>{console.log(e)})
+      console.log('Last hash:',lastUserHash);
+
+
+ */
 
       let id = await d4p.redeemedTokenId(userHash).catch(e=>{console.log(e)});
           console.log('redeemed id',id);
@@ -209,6 +217,16 @@ useEffect(()=>{
               let tUri = await pool.vaultData.tokenContract.tokenURI(id).catch(e=>{console.log(e)});
 
             //  console.log('uri',tUri);
+
+            if(tUri.indexOf('ipfs://')===0 ){
+              let url = tUri.replace('ipfs://','/ipfs/');
+              if(url.indexOf('/ipfs') !== 0){
+                  url = '/ipfs/'+tUri;
+              }
+  
+               tUri='https://ether-cards.mypinata.cloud'+url;
+            }
+            
               let meta = await getTokenURI(tUri);
 
               if(meta){
@@ -256,6 +274,7 @@ useEffect(()=>{
       }catch (e){
           console.log('errror',e);
       }
+      setRevealedImage(getRemoteImageUrl(tokenMeta.image));
 
       videoRef.current.play();
       setVideoVisible(true);
@@ -502,7 +521,7 @@ const connectOrExhange = ()=>{
         <button className='pool-ps-btn' onClick={handleBack}><span>&#9666;</span><p>Back to pools</p></button>
           <div className="pool-ps-card-and-descipton">
             <div className="pool-ps-card-and-descipton-inner ps-left">
-              <img src={tokenMeta.image} style={{ maxWidth: '100%' }} />
+              <img src={revealedImage} style={{ maxWidth: '100%' }} />
             </div>
             <div className="pool-ps-card-and-descipton-inner ps-right">
               <div className="text-box w-100">
