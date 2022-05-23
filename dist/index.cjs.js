@@ -18,101 +18,12 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 var ItemsCarousel__default = /*#__PURE__*/_interopDefaultLegacy(ItemsCarousel);
 
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
-  }
-
-  return target;
-}
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
 
 function _iterableToArrayLimit(arr, i) {
@@ -162,27 +73,37 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 var img$7 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3e %3cg id='Group_1817' data-name='Group 1817' transform='translate(-912 -5536)'%3e %3cg id='Group_1814' data-name='Group 1814' transform='translate(912 5535.843)' opacity='0.4'%3e %3crect id='Rectangle_370' data-name='Rectangle 370' width='70' height='70' rx='7' transform='translate(0 0.157)'/%3e %3cg id='physical_redeem' data-name='physical redeem' transform='translate(18.543 14.423)'%3e %3cpath id='Path_211' data-name='Path 211' d='M120.119%2c77c2.377%2c1.414%2c4.765%2c2.828%2c7.142%2c4.243q4.706%2c2.8%2c9.436%2c5.574a1.175%2c1.175%2c0%2c0%2c1%2c.642%2c1.129q-.018%2c9.572%2c0%2c19.133a1.135%2c1.135%2c0%2c0%2c1-.618%2c1.093q-8.093%2c4.759-16.186%2c9.567a1.162%2c1.162%2c0%2c0%2c1-1.331%2c0q-8.075-4.8-16.186-9.567a1.1%2c1.1%2c0%2c0%2c1-.618-1.058q.018-9.626%2c0-19.252a1.033%2c1.033%2c0%2c0%2c1%2c.547-.986q8.325-4.9%2c16.637-9.816a.119.119%2c0%2c0%2c0%2c.048-.059Zm4.813%2c18.408c-.166.1-.285.143-.392.214-1.188.7-2.365%2c1.4-3.553%2c2.092a.631.631%2c0%2c0%2c0-.368.63c.012%2c3.839.012%2c7.689.012%2c11.527v.357c-.012.594-.3.927-.761.927s-.725-.333-.749-.9v-.357c0-3.838%2c0-7.689.012-11.527a.656.656%2c0%2c0%2c0-.38-.654q-6.542-3.85-13.084-7.725c-.642-.38-.82-.761-.57-1.2s.7-.475%2c1.319-.107q6.56%2c3.868%2c13.12%2c7.76a.571.571%2c0%2c0%2c0%2c.677%2c0c1.2-.725%2c2.412-1.426%2c3.613-2.139.107-.059.2-.143.345-.226-.119-.071-.19-.131-.273-.178q-7.309-4.332-14.629-8.651a.446.446%2c0%2c0%2c0-.535%2c0c-1.474.879-2.959%2c1.759-4.445%2c2.626a.615.615%2c0%2c0%2c0-.357.63q.018%2c9.02%2c0%2c18.052a.642.642%2c0%2c0%2c0%2c.357.63q7.2%2c4.243%2c14.391%2c8.5c.119.071.238.143.416.238.012-.2.024-.321.024-.452%2c0-.63-.012-1.26%2c0-1.878.012-.547.3-.844.749-.844s.737.309.749.844c.012.654%2c0%2c1.307.012%2c1.961%2c0%2c.107.024.214.036.368a1.7%2c1.7%2c0%2c0%2c0%2c.226-.119q7.326-4.332%2c14.677-8.663a.48.48%2c0%2c0%2c0%2c.25-.487V89.359c0-.1-.024-.19-.036-.333-1.224.725-2.4%2c1.426-3.589%2c2.115a.536.536%2c0%2c0%2c0-.309.535c.012%2c1.961%2c0%2c3.922.012%2c5.883a.916.916%2c0%2c0%2c1-.487.891c-1.747%2c1.022-3.494%2c2.068-5.241%2c3.09a.769.769%2c0%2c0%2c1-1.236-.665%2c2.889%2c2.889%2c0%2c0%2c1%2c0-.321v-4.6C124.932%2c95.753%2c124.932%2c95.61%2c124.932%2c95.408Zm10.113-7.784a2.963%2c2.963%2c0%2c0%2c0-.285-.19q-7.291-4.314-14.593-8.628a.5.5%2c0%2c0%2c0-.582%2c0c-1.129.677-2.27%2c1.343-3.411%2c2.02-.071.048-.143.1-.238.155.309.178.57.333.832.5l4.884%2c2.888a.772.772%2c0%2c0%2c1%2c.38%2c1.105c-.226.392-.665.463-1.153.2-.083-.048-.166-.1-.238-.143-1.961-1.165-3.922-2.317-5.883-3.482a.553.553%2c0%2c0%2c0-.677.012c-1.022.63-2.056%2c1.224-3.09%2c1.842-.155.1-.3.178-.487.3.107.071.154.107.214.143q7.362%2c4.349%2c14.736%2c8.711a.41.41%2c0%2c0%2c0%2c.5-.012l3.066-1.818c.19-.107.38-.226.606-.368-.178-.107-.3-.19-.428-.261-1.878-1.117-3.767-2.222-5.645-3.339-.606-.357-.784-.749-.535-1.188s.713-.475%2c1.331-.119c2.175%2c1.283%2c4.338%2c2.555%2c6.5%2c3.85a.464.464%2c0%2c0%2c0%2c.57%2c0c1.105-.666%2c2.222-1.319%2c3.339-1.985A1.693%2c1.693%2c0%2c0%2c0%2c135.045%2c87.624Zm-4.67%2c4.552c-1.307.772-2.531%2c1.485-3.755%2c2.234a.545.545%2c0%2c0%2c0-.166.392c-.012%2c1.462-.012%2c2.935%2c0%2c4.4%2c0%2c.1.024.19.036.333.951-.559%2c1.83-1.165%2c2.769-1.616a1.716%2c1.716%2c0%2c0%2c0%2c1.129-1.961C130.291%2c94.731%2c130.375%2c93.495%2c130.375%2c92.176Z' transform='translate(-102.4 -77)'/%3e %3cpath id='Path_212' data-name='Path 212' d='M128.161%2c290.158c0-.475-.012-.963%2c0-1.438a.756.756%2c0%2c1%2c1%2c1.509-.059q.036%2c1.515%2c0%2c3.03a.743.743%2c0%2c0%2c1-.784.737.755.755%2c0%2c0%2c1-.713-.808C128.149%2c291.144%2c128.161%2c290.645%2c128.161%2c290.158Z' transform='translate(-125.095 -262.837)'/%3e %3cpath id='Path_213' data-name='Path 213' d='M153.661%2c302.937c0-.475-.012-.963%2c0-1.438a.75.75%2c0%2c1%2c1%2c1.5-.048q.036%2c1.5%2c0%2c2.995a.758.758%2c0%2c0%2c1-.784.772.767.767%2c0%2c0%2c1-.713-.844Z' transform='translate(-147.564 -274.106)'/%3e %3c/g%3e %3c/g%3e %3cg id='flip_02' data-name='flip 02' transform='translate(845.179 5473.328)'%3e %3cpath id='Path_225' data-name='Path 225' d='M92.524%2c117.689a7.86%2c7.86%2c0%2c0%2c1-1.044-.333%2c3.738%2c3.738%2c0%2c0%2c1-2.408-3.594c-.024-3.7-.012-5.557-.012-9.254v-.551H85.124a4.029%2c4.029%2c0%2c0%2c1-2.443-.769%2c3.692%2c3.692%2c0%2c0%2c1-1.613-3.02c-.024-1.78-.024-3.548%2c0-5.327a3.909%2c3.909%2c0%2c0%2c1%2c3.89-3.766c1.34-.023%2c2.692%2c0%2c4.1%2c0V81.822A3.937%2c3.937%2c0%2c0%2c1%2c93.307%2c77.7H108.8a3.937%2c3.937%2c0%2c0%2c1%2c4.246%2c4.122V96.23h.949a37.19%2c37.19%2c0%2c0%2c1%2c3.76.092%2c3.767%2c3.767%2c0%2c0%2c1%2c3.273%2c3.639c.036%2c1.8.036%2c3.605%2c0%2c5.419a3.908%2c3.908%2c0%2c0%2c1-3.866%2c3.743c-1.2.023-2.4.011-3.593.011h-.522V113.6a3.885%2c3.885%2c0%2c0%2c1-3.344%2c4.041.375.375%2c0%2c0%2c0-.119.057Q101.04%2c117.683%2c92.524%2c117.689ZM91.73%2c98.825V113.6a1.355%2c1.355%2c0%2c0%2c0%2c1.554%2c1.5H108.82c1.044%2c0%2c1.554-.494%2c1.565-1.493V109.56c0-.138-.012-.276-.024-.436h-3.843a1.317%2c1.317%2c0%2c0%2c1-1.459-1.378c0-1.665-.012-3.318%2c0-4.983a1.3%2c1.3%2c0%2c0%2c1%2c1.423-1.366c1.139-.011%2c2.277%2c0%2c3.416%2c0h.486V81.684a1.323%2c1.323%2c0%2c0%2c0-1.471-1.412H93.283a1.355%2c1.355%2c0%2c0%2c0-1.554%2c1.5v9.265H94.4V89.87a1.261%2c1.261%2c0%2c0%2c1%2c.688-1.217%2c1.346%2c1.346%2c0%2c0%2c1%2c1.459.092q3.932%2c2.532%2c7.863%2c5.075a1.254%2c1.254%2c0%2c0%2c1%2c0%2c2.216c-2.621%2c1.711-5.266%2c3.4-7.9%2c5.1a1.317%2c1.317%2c0%2c0%2c1-1.388.092%2c1.268%2c1.268%2c0%2c0%2c1-.723-1.194V98.825Zm4.756-.861s3.392-2.113%2c4.815-3.031c-1.447-.93-4.815-3.111-4.815-3.111l-.024%2c1.791-1.079.034H85.219c-.771%2c0-1.34.356-1.435%2c1.01a11.039%2c11.039%2c0%2c0%2c0-.012%2c1.653c.854-.034%2c1.672-.08%2c2.491-.092%2c3.06-.011%2c9.191%2c0%2c9.191%2c0l1.008-.011Zm11.231%2c8.519c.047.034.059.057.071.057%2c3.107%2c0%2c6.215.011%2c9.322%2c0a1.181%2c1.181%2c0%2c0%2c0%2c1.2-.976%2c11.648%2c11.648%2c0%2c0%2c0%2c.012-1.7c-.759.034-1.494.092-2.23.092-2.633.011-5.266%2c0-7.9%2c0h-.474Zm5.337-5.1c1.388%2c0%2c2.74.023%2c4.092-.011a1.276%2c1.276%2c0%2c0%2c0%2c1.21-1.263%2c1.241%2c1.241%2c0%2c0%2c0-1.139-1.274c-1.388-.046-2.763-.011-4.175-.011C113.054%2c99.675%2c113.054%2c100.5%2c113.054%2c101.385ZM89.038%2c98.814h-3.9a1.306%2c1.306%2c0%2c0%2c0-1.4%2c1.3%2c1.323%2c1.323%2c0%2c0%2c0%2c1.423%2c1.274c1.2.011%2c2.4%2c0%2c3.594%2c0a2.4%2c2.4%2c0%2c0%2c0%2c.285-.034Z' fill='%23fcfcfc'/%3e %3c/g%3e %3c/g%3e%3c/svg%3e";
 
-const CardBack = _ref => {
-  let {
-    backImage,
-    onClick
-  } = _ref;
-  const [showFlipIcon, setshowFlipIcon] = React.useState(false);
-  React.useState(false);
-  React.useState(null);
-  const [mobileView, setmobileView] = React.useState(false);
+var CardBack = function CardBack(_ref) {
+  var backImage = _ref.backImage,
+      _onClick = _ref.onClick;
 
-  React.useEffect(() => {
+  var _useState = React.useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showFlipIcon = _useState2[0],
+      setshowFlipIcon = _useState2[1];
+
+  var _useState3 = React.useState(false),
+      _useState4 = _slicedToArray(_useState3, 2);
+      _useState4[0];
+      _useState4[1];
+
+  var _useState5 = React.useState(null),
+      _useState6 = _slicedToArray(_useState5, 2);
+      _useState6[0];
+      _useState6[1];
+
+  var _useState7 = React.useState(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      mobileView = _useState8[0],
+      setmobileView = _useState8[1];
+
+  React.useEffect(function () {
     if (window.innerWidth < 900) {
       setmobileView(true);
     }
@@ -190,12 +111,12 @@ const CardBack = _ref => {
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "card-back-root",
     style: {
-      backgroundImage: `url(${backImage})`
+      backgroundImage: "url(".concat(backImage, ")")
     },
-    onMouseOver: () => {
+    onMouseOver: function onMouseOver() {
       setshowFlipIcon(true);
     },
-    onMouseLeave: () => {
+    onMouseLeave: function onMouseLeave() {
       setshowFlipIcon(false);
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
@@ -207,30 +128,30 @@ const CardBack = _ref => {
     style: {
       display: showFlipIcon || mobileView ? 'block' : 'none'
     },
-    onClick: e => {
-      onClick(e);
+    onClick: function onClick(e) {
+      _onClick(e);
     }
   }))));
 };
 
 var img$6 = "data:image/png;base64,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";
 
-const TraitCard = _ref => {
-  let {
-    trait,
-    onClick,
-    image,
-    traitImg
-  } = _ref;
+var TraitCard = function TraitCard(_ref) {
+  var trait = _ref.trait,
+      _onClick = _ref.onClick,
+      image = _ref.image,
+      traitImg = _ref.traitImg;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("img", {
     className: "close-button",
     src: img$6,
     alt: "",
-    onClick: e => onClick(e)
+    onClick: function onClick(e) {
+      return _onClick(e);
+    }
   }), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "trait-card-root",
     style: {
-      backgroundImage: `url(${image})`
+      backgroundImage: "url(".concat(image, ")")
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "trait-card-content"
@@ -279,8 +200,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$8 = ".card-image-container{\n  position: relative;\n  /* min-height: 500px; */\n  margin: auto;\n  height: 100%;\n  width: 100%;\n}\n.pyramid_anim_container {\n  z-index: 2;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n.resizer-container{\n  padding: 10px;\n}\n\n.scope span {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transform-origin: center;\n  transform-style: preserve-3d;\n}\n.scope span:first-child {\n  transform: rotateY(calc(0deg)) translateZ(1px) rotateX(0deg);\n}\n.scope span:nth-child(2) {\n  transform: rotateY(calc(0deg)) translateZ(0px) rotateX(0deg);\n}\n\n.scope {\n  position: relative;\n  transform-style: preserve-3d;\n  animation: slid 5s linear infinite;\n  border-radius: 12px;\n  transition: 1.5s all;\n  padding: 10px;\n  /* box-shadow: 0px 55px 88px 0px rgba(0,0,0,0.42); */\n}\n.scope span {\n  overflow: hidden;\n  border-radius: 12px;\n}\n.front.active::after{\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 100%;\n  display: block;\n  background: linear-gradient(112deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\n  background-position-x: 0;\n  background-repeat: no-repeat;\n  transition: all .35s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n  animation: shiningEffect1 2s ease-in-out normal ;\n}\n.back.active::after{\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  right: 100%;\n  display: block;\n  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\n  background-position-x: 0;\n  background-repeat: no-repeat;\n  transition: all .35s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n  animation: shiningEffect2 2s ease-in-out normal ;\n}\n\n.badge-img{\n  position: absolute;\n  width: 75px;\n  height: 75px;\n  bottom: 15px;\n  margin-left: auto;\n  margin-right: auto;\n  left: 0;\n  right: 0;\n  cursor: pointer;\n}\n.flip-icon {\n  /* position: absolute; */\n  width: 40px;\n  height: 40px;\n  /* margin-top: auto;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: auto;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;*/\n  cursor: pointer; \n}\n.fullscreen-icon{\n  /* position: absolute; */\n  width: 40px;\n  height: 40px;\n  margin-right: 10px;\n  /* margin-top: auto;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: auto;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; */\n  cursor: pointer;\n}\n.back_card{\n  animation: hideBack 2s ease-in-out normal;\n  transition: all 1s;\n  visibility: hidden;\n  border-radius: 12px;\n}\n.back_card.active{\n  visibility: visible;\n}\n.card-back-root {\n  height: 100%;\n  transform: rotateY(180deg);\n  border-radius: 12px;\n  background-position: center center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  -webkit-box-pack: end;\n  justify-content: flex-end;\n  position: relative;\n}\n.card-icons-holder{\n  position: absolute;\n  inset: 0px;\n  margin: auto;\n  width: 100%;\n  max-height: 40px;\n  display: flex;\n  -webkit-box-pack: center;\n  justify-content: center;\n}\n.trait-container {\n  position: absolute;\n  display: flex;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  gap: 5px;\n  top: 10px;\n  right: 10px;\n}\n.trait-holder{\n  width: 40px;\n  height: 40px;\n  border-radius: 8px;\n  background-color: black;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n}\n.trait-holder:hover {\n  background-color: #fc6405;\n}\n.trait-holder img{\n  width: 30px;\n  height: 25px;\n}\n.trait-card-root{\n  width: 100%;\n  height: 100%;\n  border-radius: 12px;\n  transform: rotateY(180deg);\n  -webkit-background-position: center;\n  background-position: center;\n  -webkit-background-size: cover;\n  background-size: cover;\n  background-repeat: no-repeat;\n}\n.close-button {\n  width: 20.5px;\n  height: 20.5px;\n  cursor: pointer;\n  position: absolute;\n  top: 30px;\n  left: 30px;\n  z-index: 5;\n  transform: rotateX(0deg);\n}\n.trait-card-content {\n  width: 100%;\n  height: 100%;\n  border-radius: 12px;\n  background-color: #fc6405b3;\n}\n.trait-card-content-holder{\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n \n}\n\n.trait-card-trait-icon-holder {\n  width: 55px;\n  height: 55px;\n  margin-bottom: 20px;\n  margin-top: 10px;\n}\n.trait-card-trait-icon-holder img{\n  width: 100%;\n  height: 100%;\n}\n.trait-card-title-holder{\n    display: flex;\n    justify-content: center;\n}\n.trait-card-title {\n  margin: 0px;\n  font-weight: 400;\n  color: rgb(250, 250, 242);\n  font-size: 36px;\n  font-family: Poppins-semibold;\n  line-height: 42px;\n  text-align: center;\n  width: fit-content;\n  max-width: 250px;\n  min-width: 250px;\n}\n.trait-card-description-holder{\n  margin-top: 25px;\n  display: flex;\n  -webkit-box-pack: center;\n  justify-content: center;\n  overflow-y: auto;\n}\n .trait-card-description-holder::-webkit-scrollbar {\n  width: 4px;\n}\n.trait-card-description-holder::-webkit-scrollbar-track {\n  background: #ffffff49;\n} \n.trait-card-description-holder::-webkit-scrollbar-thumb  {\n  background: #ffffff;\n} \n.trait-card-description{\n  margin: 0px;\n  font-weight: 400;\n  color: rgb(250, 250, 242);\n  font-family: poppins;\n  font-size: 16px;\n  line-height: 28px;\n  text-align: center;\n  max-width: 90%;\n  min-width: 200px;\n}\n\n@keyframes shiningEffect1 {\n  0%{\n\n    left: -100%;\n  }\n 100%{\n\n  left: 100%;\n }\n}\n@keyframes shiningEffect2 {\n  0%{\n\n    right: -100%;\n  }\n 100%{\n  right: 100%;\n }\n}\n\n@keyframes hideBack {\n from{\n  visibility: visible;\n  }\n to{\n    visibility: hidden;\n  }\n}\n.flipped-img {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  border-radius: 10px;\n  object-fit: cover;\n  transition: 2s;\n}\n.buttonHolder{\n  position: fixed;\n  height: 16px;\n  width: 16px;\n  top: 4%;\n  left: 4%;\n  font-weight: 600;\n  font-size: 1rem;\n  line-height: 1rem;\n  color: #fff;\n  transition: color .3s ease-in-out;\n  cursor: pointer;\n}\n\n@media screen and (max-width: 450px) {\n  /* .card-image-container {\n      min-height: 300px;\n  } */\n  .scope {\n    position: relative;\n    height: 440px;\n    transform-style: preserve-3d;\n    animation: slid 5s linear infinite;\n    transition: 2s all;\n  }\n  .arrow{\n    display: none;\n  }\n}\n@media screen and (max-width: 350px) {\n  .badge-img{\n    margin-left: auto;\n    margin-right: auto;\n    left: 0;\n    right: 0;\n  }\n  .scope {\n    position: relative;\n    /* width: 250px !important;\n    height: 340px; */\n    transform-style: preserve-3d;\n    animation: slid 5s linear infinite;\n    transition-property: position;\n    transition: 2s;\n  }\n}\n\n.c-medium .trait-holder{\n  width: 35px;\n  height: 35px;\n}\n.c-medium .trait-card-trait-icon-holder{\n  margin-bottom: 10px;\n}\n.c-medium .trait-card-title{\n  font-size: 32px;\n}\n.c-medium .trait-card-description{\n  line-height: 23px;\n}\n.c-small .trait-holder{\n  width: 30px;\n  height: 30px;\n}";
-styleInject(css_248z$8);
+var css_248z$9 = ".card-image-container{\n  position: relative;\n  /* min-height: 500px; */\n  margin: auto;\n  height: 100%;\n  width: 100%;\n}\n.pyramid_anim_container {\n  z-index: 2;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n.resizer-container{\n  padding: 10px;\n}\n\n.scope span {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transform-origin: center;\n  transform-style: preserve-3d;\n}\n.scope span:first-child {\n  transform: rotateY(calc(0deg)) translateZ(1px) rotateX(0deg);\n}\n.scope span:nth-child(2) {\n  transform: rotateY(calc(0deg)) translateZ(0px) rotateX(0deg);\n}\n\n.scope {\n  position: relative;\n  transform-style: preserve-3d;\n  animation: slid 5s linear infinite;\n  border-radius: 12px;\n  transition: 1.5s all;\n  padding: 10px;\n  /* box-shadow: 0px 55px 88px 0px rgba(0,0,0,0.42); */\n}\n.scope span {\n  overflow: hidden;\n  border-radius: 12px;\n}\n.front.active::after{\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 100%;\n  display: block;\n  background: linear-gradient(112deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\n  background-position-x: 0;\n  background-repeat: no-repeat;\n  transition: all .35s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n  animation: shiningEffect1 2s ease-in-out normal ;\n}\n.back.active::after{\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  right: 100%;\n  display: block;\n  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\n  background-position-x: 0;\n  background-repeat: no-repeat;\n  transition: all .35s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n  animation: shiningEffect2 2s ease-in-out normal ;\n}\n\n.badge-img{\n  position: absolute;\n  width: 75px;\n  height: 75px;\n  bottom: 15px;\n  margin-left: auto;\n  margin-right: auto;\n  left: 0;\n  right: 0;\n  cursor: pointer;\n}\n.flip-icon {\n  /* position: absolute; */\n  width: 40px;\n  height: 40px;\n  /* margin-top: auto;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: auto;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;*/\n  cursor: pointer; \n}\n.fullscreen-icon{\n  /* position: absolute; */\n  width: 40px;\n  height: 40px;\n  margin-right: 10px;\n  /* margin-top: auto;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: auto;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; */\n  cursor: pointer;\n}\n.back_card{\n  animation: hideBack 2s ease-in-out normal;\n  transition: all 1s;\n  visibility: hidden;\n  border-radius: 12px;\n}\n.back_card.active{\n  visibility: visible;\n}\n.card-back-root {\n  height: 100%;\n  transform: rotateY(180deg);\n  border-radius: 12px;\n  background-position: center center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  -webkit-box-pack: end;\n  justify-content: flex-end;\n  position: relative;\n}\n.card-icons-holder{\n  position: absolute;\n  inset: 0px;\n  margin: auto;\n  width: 100%;\n  max-height: 40px;\n  display: flex;\n  -webkit-box-pack: center;\n  justify-content: center;\n}\n.trait-container {\n  position: absolute;\n  display: flex;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  gap: 5px;\n  top: 10px;\n  right: 10px;\n}\n.trait-holder{\n  width: 40px;\n  height: 40px;\n  border-radius: 8px;\n  background-color: black;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n}\n.trait-holder:hover {\n  background-color: #fc6405;\n}\n.trait-holder img{\n  width: 30px;\n  height: 25px;\n}\n.trait-card-root{\n  width: 100%;\n  height: 100%;\n  border-radius: 12px;\n  transform: rotateY(180deg);\n  -webkit-background-position: center;\n  background-position: center;\n  -webkit-background-size: cover;\n  background-size: cover;\n  background-repeat: no-repeat;\n}\n.close-button {\n  width: 20.5px;\n  height: 20.5px;\n  cursor: pointer;\n  position: absolute;\n  top: 30px;\n  left: 30px;\n  z-index: 5;\n  transform: rotateX(0deg);\n}\n.trait-card-content {\n  width: 100%;\n  height: 100%;\n  border-radius: 12px;\n  background-color: #fc6405b3;\n}\n.trait-card-content-holder{\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n \n}\n\n.trait-card-trait-icon-holder {\n  width: 55px;\n  height: 55px;\n  margin-bottom: 20px;\n  margin-top: 10px;\n}\n.trait-card-trait-icon-holder img{\n  width: 100%;\n  height: 100%;\n}\n.trait-card-title-holder{\n    display: flex;\n    justify-content: center;\n}\n.trait-card-title {\n  margin: 0px;\n  font-weight: 400;\n  color: rgb(250, 250, 242);\n  font-size: 36px;\n  font-family: Poppins-semibold;\n  line-height: 42px;\n  text-align: center;\n  width: fit-content;\n  max-width: 250px;\n  min-width: 250px;\n}\n.trait-card-description-holder{\n  margin-top: 25px;\n  display: flex;\n  -webkit-box-pack: center;\n  justify-content: center;\n  overflow-y: auto;\n}\n .trait-card-description-holder::-webkit-scrollbar {\n  width: 4px;\n}\n.trait-card-description-holder::-webkit-scrollbar-track {\n  background: #ffffff49;\n} \n.trait-card-description-holder::-webkit-scrollbar-thumb  {\n  background: #ffffff;\n} \n.trait-card-description{\n  margin: 0px;\n  font-weight: 400;\n  color: rgb(250, 250, 242);\n  font-family: poppins;\n  font-size: 16px;\n  line-height: 28px;\n  text-align: center;\n  max-width: 90%;\n  min-width: 200px;\n}\n\n@keyframes shiningEffect1 {\n  0%{\n\n    left: -100%;\n  }\n 100%{\n\n  left: 100%;\n }\n}\n@keyframes shiningEffect2 {\n  0%{\n\n    right: -100%;\n  }\n 100%{\n  right: 100%;\n }\n}\n\n@keyframes hideBack {\n from{\n  visibility: visible;\n  }\n to{\n    visibility: hidden;\n  }\n}\n.flipped-img {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  border-radius: 10px;\n  object-fit: cover;\n  transition: 2s;\n}\n.buttonHolder{\n  position: fixed;\n  height: 16px;\n  width: 16px;\n  top: 4%;\n  left: 4%;\n  font-weight: 600;\n  font-size: 1rem;\n  line-height: 1rem;\n  color: #fff;\n  transition: color .3s ease-in-out;\n  cursor: pointer;\n}\n\n@media screen and (max-width: 450px) {\n  /* .card-image-container {\n      min-height: 300px;\n  } */\n  .scope {\n    position: relative;\n    height: 440px;\n    transform-style: preserve-3d;\n    animation: slid 5s linear infinite;\n    transition: 2s all;\n  }\n  .arrow{\n    display: none;\n  }\n}\n@media screen and (max-width: 350px) {\n  .badge-img{\n    margin-left: auto;\n    margin-right: auto;\n    left: 0;\n    right: 0;\n  }\n  .scope {\n    position: relative;\n    /* width: 250px !important;\n    height: 340px; */\n    transform-style: preserve-3d;\n    animation: slid 5s linear infinite;\n    transition-property: position;\n    transition: 2s;\n  }\n}\n\n.c-medium .trait-holder{\n  width: 35px;\n  height: 35px;\n}\n.c-medium .trait-card-trait-icon-holder{\n  margin-bottom: 10px;\n}\n.c-medium .trait-card-title{\n  font-size: 32px;\n}\n.c-medium .trait-card-description{\n  line-height: 23px;\n}\n.c-small .trait-holder{\n  width: 30px;\n  height: 30px;\n}";
+styleInject(css_248z$9);
 
 const useContainerDimensions = myRef => {
   const getDimensions = () => ({
@@ -572,11 +493,11 @@ var GalaxisCard = function GalaxisCard(_ref) {
   })))))));
 };
 
-var css_248z$7 = ".dust-pool-card {\n  width: 100%;\n  max-width: 540px;\n  display: flex;\n  -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n  border-radius: 15px;\n  overflow: hidden;\n  margin: 0 auto;\n}\n\n.dust-pool-card-image-container{\n  width: 50%;\n  position: relative;\n  overflow: hidden;\n  min-height: 265px;\n}\n\n.dust-pool-card-img {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  object-fit: cover;\n}\n.text-box {\n  /* width: 50%; */\n  padding: 15px;\n}\n.dust-pool-title {\n  font-family: poppins-semibold;\n  font-weight: 600;\n  font-size: 22px;\n  color: rgb(0, 0, 0);\n  margin-bottom: 10px;\n  line-height: 21px;\n}\n.dust-pool-card-label {\n  text-transform: uppercase;\n  margin-bottom: 0;\n  font-size: 14px;\n}\n.dust-pool-btn {\n  border: 2px solid rgb(255, 105, 43);\n  font-family: 'poppins-semibold';\n  color: rgb(255, 105, 43);\n  background-color: transparent;\n  font-size: 14px;\n  border-radius: 5px;\n  padding: 10px 20px;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n.dust-pool-btn:hover {\n  background-color: rgb(255, 105, 43);\n  color: #fff;\n  cursor: pointer;\n}\n.dust-pool-btn:focus {\n  outline: none;\n}\n\n.dust-pool-btn.disabled{\n  opacity:0.5;\n}\n\n.dust-pool-btn:hover.disabled{\n  background-color: transparent;\n  color: rgb(255, 105, 43);\n  cursor:not-allowed;\n}\n\n@media only screen and (max-width: 600px) {\n  .dust-pool-card {\n    flex-direction: column;\n  }\n  .dust-pool-card img{\n    height: auto;\n    max-width: 100%;\n  }\n}\n";
-styleInject(css_248z$7);
+var css_248z$8 = ".dust-pool-card {\n  width: 100%;\n  max-width: 540px;\n  display: flex;\n  -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n  border-radius: 15px;\n  overflow: hidden;\n  margin: 0 auto;\n}\n\n.dust-pool-card-image-container{\n  width: 50%;\n  position: relative;\n  overflow: hidden;\n  min-height: 265px;\n}\n\n.dust-pool-card-img {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  object-fit: cover;\n}\n.text-box {\n  /* width: 50%; */\n  padding: 15px;\n}\n.dust-pool-title {\n  font-family: poppins-semibold;\n  font-weight: 600;\n  font-size: 22px;\n  color: rgb(0, 0, 0);\n  margin-bottom: 10px;\n  line-height: 21px;\n}\n.dust-pool-card-label {\n  text-transform: uppercase;\n  margin-bottom: 0;\n  font-size: 14px;\n}\n.dust-pool-btn {\n  border: 2px solid rgb(255, 105, 43);\n  font-family: 'poppins-semibold';\n  color: rgb(255, 105, 43);\n  background-color: transparent;\n  font-size: 14px;\n  border-radius: 5px;\n  padding: 10px 20px;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n.dust-pool-btn:hover {\n  background-color: rgb(255, 105, 43);\n  color: #fff;\n  cursor: pointer;\n}\n.dust-pool-btn:focus {\n  outline: none;\n}\n\n.dust-pool-btn.disabled{\n  opacity:0.5;\n}\n\n.dust-pool-btn:hover.disabled{\n  background-color: transparent;\n  color: rgb(255, 105, 43);\n  cursor:not-allowed;\n}\n\n@media only screen and (max-width: 600px) {\n  .dust-pool-card {\n    flex-direction: column;\n  }\n  .dust-pool-card img{\n    height: auto;\n    max-width: 100%;\n  }\n}\n";
+styleInject(css_248z$8);
 
-var css_248z$6 = ".counter-body{\n    font-size: 1em;\n    line-height: 1em;\n    vertical-align: center;\n    margin-bottom: 10px;\n}\n\n.counter-body .counter-item{\n    display: inline-block;\n    width: 12px;\n    height: 1.6em;\n    margin: 0 2px 0 0;\n    background-color: #ff6b2b3d;\n    border-radius: 3px;\n}\n\n.counter-item.active{\n    background-color: #FF692B;\n}";
-styleInject(css_248z$6);
+var css_248z$7 = ".counter-body{\n    font-size: 1em;\n    line-height: 1em;\n    vertical-align: center;\n    margin-bottom: 10px;\n}\n\n.counter-body .counter-item{\n    display: inline-block;\n    width: 12px;\n    height: 1.6em;\n    margin: 0 2px 0 0;\n    background-color: #ff6b2b3d;\n    border-radius: 3px;\n}\n\n.counter-item.active{\n    background-color: #FF692B;\n}";
+styleInject(css_248z$7);
 
 const CounterBar = props => {
   const ITEM_COUNT = 10;
@@ -675,21 +596,21 @@ const DustPoolCard = _ref => {
   }, "Details"))));
 };
 
-var css_248z$5 = "body{\n    background-color: rgb(250, 249, 245);\n}\n\n.dust-pool-root{\n    max-width: 1140px;\n    margin: 0 auto;\n    margin-top: 30px;\n}\n.dust-pool-textbox{\n text-align: center;\n max-width: 600px;\n margin: 0 auto;\n}\n.pool-subtitle{\n    font-size: 30px;\n    font-weight: 600;\n}\n.tab-choose{\n    display: flex;\n    justify-content: center;\n    margin-bottom: 30px;\n    text-transform: uppercase;\n}\n.tab-choose div{\n    font-size: 14px;\n    font-weight: 500;\n    padding: 12px 15px\n}\n.tab-choose div:hover{\n    cursor: pointer;\n}\n.tab-choose .active-tab{\n    background-color: #000;\n    color: #fff;\n}\n.tab-choose div:first-child{\n    border: 2px solid #000;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.tab-choose div:nth-child(2){\n    border-top: 2px solid #000;\n    border-bottom: 2px solid #000;\n}\n.tab-choose div:nth-child(3){\n    border: 2px solid #000;\n    border-top-right-radius: 10px;\n    border-bottom-right-radius: 10px;\n}\n\n\n/*classes from bootstrap*/\n*{\n    box-sizing: border-box;\n}\n.container {\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n    margin-right: auto;\n    margin-left: auto;\n}\n.mt-5, .my-5 {\n    margin-top: 3rem!important;\n}\n.row {\n    display: flex;\n    flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n}\n.col-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.col-12, .col-lg-6, .col-lg-3, .col-md-6{\n    position: relative;\n    width: 100%;\n    min-height: 1px;\n    padding-right: 15px;\n    padding-left: 15px;\n}\n\n.col-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.mb-1{\n    margin-bottom: 0.25rem!important;\n}\n.mb-2{\n    margin-bottom: 0.5rem!important;\n}\n.mb-3{\n    margin-bottom: 0.75rem!important;\n}\n.mt-2{\n    margin-top: 0.5rem!important;\n}\n.pb-4{\n    padding-bottom: 1.5rem!important;\n}\n\n.w-100 {\n    width: 100%!important;\n}\n.text-right{\n    text-align: right!important;\n}\n.dust-pool-card p {\n    margin-block-start: 0;\n}\n\n@media (min-width: 576px){\n.container {\n    max-width: 540px;\n}\n}\n@media (max-width: 600px){\n    .dust-pool-card .dust-pool-btn{\n        position: unset!important;\n    }\n    }\n@media (min-width: 768px){\n    .container {\n        max-width: 720px;\n    }}\n    .col-md-6{\n        flex: 0 0 50%;\n        max-width: 50%; \n    }\n@media (min-width: 992px){\n    .container {\n        max-width: 960px;\n    }\n    .col-lg-6 {\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n    .col-lg-3 {\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n}\n\n@media (min-width: 1200px){\n    .container {\n        max-width: 1140px;\n    }\n}\n@media only screen and (max-width: 945px) {\n    .dust-pool-root {\n      max-width: 100%;\n    }\n  }";
-styleInject(css_248z$5);
+var css_248z$6 = "body{\n    background-color: rgb(250, 249, 245);\n}\n\n.dust-pool-root{\n    max-width: 1140px;\n    margin: 0 auto;\n    margin-top: 30px;\n}\n.dust-pool-textbox{\n text-align: center;\n max-width: 600px;\n margin: 0 auto;\n}\n.pool-subtitle{\n    font-size: 30px;\n    font-weight: 600;\n}\n.tab-choose{\n    display: flex;\n    justify-content: center;\n    margin-bottom: 30px;\n    text-transform: uppercase;\n}\n.tab-choose div{\n    font-size: 14px;\n    font-weight: 500;\n    padding: 12px 15px\n}\n.tab-choose div:hover{\n    cursor: pointer;\n}\n.tab-choose .active-tab{\n    background-color: #000;\n    color: #fff;\n}\n.tab-choose div:first-child{\n    border: 2px solid #000;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.tab-choose div:nth-child(2){\n    border-top: 2px solid #000;\n    border-bottom: 2px solid #000;\n}\n.tab-choose div:nth-child(3){\n    border: 2px solid #000;\n    border-top-right-radius: 10px;\n    border-bottom-right-radius: 10px;\n}\n\n\n/*classes from bootstrap*/\n*{\n    box-sizing: border-box;\n}\n.container {\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n    margin-right: auto;\n    margin-left: auto;\n}\n.mt-5, .my-5 {\n    margin-top: 3rem!important;\n}\n.row {\n    display: flex;\n    flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n}\n.col-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.col-12, .col-lg-6, .col-lg-3, .col-md-6{\n    position: relative;\n    width: 100%;\n    min-height: 1px;\n    padding-right: 15px;\n    padding-left: 15px;\n}\n\n.col-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.mb-1{\n    margin-bottom: 0.25rem!important;\n}\n.mb-2{\n    margin-bottom: 0.5rem!important;\n}\n.mb-3{\n    margin-bottom: 0.75rem!important;\n}\n.mt-2{\n    margin-top: 0.5rem!important;\n}\n.pb-4{\n    padding-bottom: 1.5rem!important;\n}\n\n.w-100 {\n    width: 100%!important;\n}\n.text-right{\n    text-align: right!important;\n}\n.dust-pool-card p {\n    margin-block-start: 0;\n}\n\n@media (min-width: 576px){\n.container {\n    max-width: 540px;\n}\n}\n@media (max-width: 600px){\n    .dust-pool-card .dust-pool-btn{\n        position: unset!important;\n    }\n    }\n@media (min-width: 768px){\n    .container {\n        max-width: 720px;\n    }}\n    .col-md-6{\n        flex: 0 0 50%;\n        max-width: 50%; \n    }\n@media (min-width: 992px){\n    .container {\n        max-width: 960px;\n    }\n    .col-lg-6 {\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n    .col-lg-3 {\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n}\n\n@media (min-width: 1200px){\n    .container {\n        max-width: 1140px;\n    }\n}\n@media only screen and (max-width: 945px) {\n    .dust-pool-root {\n      max-width: 100%;\n    }\n  }";
+styleInject(css_248z$6);
 
 var img$5 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='25.53' height='48.317' viewBox='0 0 25.53 48.317'%3e %3cg id='kozepso_white' data-name='kozepso white' transform='translate(-132.737 -28.1)'%3e %3crect id='Rectangle_356' data-name='Rectangle 356' width='2.722' height='48.317' transform='translate(132.744 28.1)' fill='%23ff692b'/%3e %3crect id='Rectangle_357' data-name='Rectangle 357' width='2.711' height='25.53' transform='translate(132.738 53.615) rotate(-90)' fill='%23ff692b'/%3e %3c/g%3e%3c/svg%3e";
 
 var img$4 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='25.53' height='48.316' viewBox='0 0 25.53 48.316'%3e %3cg id='kozepso_white' data-name='kozepso white' transform='translate(0 0)'%3e %3crect id='Rectangle_356' data-name='Rectangle 356' width='2.722' height='48.316' transform='translate(22.801 0)' fill='%23ff692b'/%3e %3crect id='Rectangle_357' data-name='Rectangle 357' width='2.711' height='25.53' transform='translate(0 25.515) rotate(-90)' fill='%23ff692b'/%3e %3c/g%3e%3c/svg%3e";
 
-var css_248z$4 = ".upcoming-dust-pool-card {\n    height: 86px;\n    display: flex;\n    margin-bottom: 10px;\n    -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n    border-radius: 10px;\n    overflow: hidden;\n    margin-bottom: 50px;\n}\n.upcoming-dust-pool-card img{\n    max-height: 100%;\n}\n.upcoming-dust-pool-card-title{\n     line-height: 16px;\n     height: 32px;\n     margin-bottom: 10px;\n    }\n.upcoming-dust-pool-card-text{\n    padding: 10px;\n}";
+var css_248z$5 = ".upcoming-dust-pool-card {\n    height: 86px;\n    display: flex;\n    margin-bottom: 10px;\n    -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n    border-radius: 10px;\n    overflow: hidden;\n    margin-bottom: 50px;\n}\n.upcoming-dust-pool-card img{\n    max-height: 100%;\n}\n.upcoming-dust-pool-card-title{\n     line-height: 16px;\n     height: 32px;\n     margin-bottom: 10px;\n    }\n.upcoming-dust-pool-card-text{\n    padding: 10px;\n}";
+styleInject(css_248z$5);
+
+var css_248z$4 = "\n.pool-ps-root{\n    max-width: 848px;\n    width: 100%;\n    margin: auto auto 60px;\n    display: flex;\n    flex-flow: row wrap;\n    gap: 10px;\n}\n.pool-ps-card-and-descipton{\n    box-sizing: border-box;\n    display: flex;\n    flex-flow: row wrap;\n}\n.pool-ps-card-and-descipton-inner{\n    flex-basis: 50%;\n    -webkit-box-flex: 0;\n    flex-grow: 0;\n    max-width: 50%;\n}\n.pool-ps-card-and-descipton-inner p{\n    margin-top: 0;\n}\n.ps-left{\n    background-color: rgb(255, 255, 255);\n    padding: 50px;\n    border: 1px solid #000;\n    border-radius: 15px;\n}\n.ps-left img{\n    border-radius: 15px;\n}\n.ps-right{\n    position: relative;\n}\n.ps-text-bottom{\n    position: absolute;\n    bottom: 0;\n}\n.snp-root{\n    margin: 15px auto 30px;\n    max-width: 848px;\n    width: 100%;\n    max-height: 86px;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    background-color: rgb(255, 255, 255);\n    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px 0px;\n    border-radius: 10px;\n    overflow: hidden;\n}\n.previous-box{\n    display: flex;\n    width: 48%;\n    gap: 16px;\n    -webkit-box-pack: start;\n    justify-content: flex-start;\n    cursor: pointer;\n}\n.snp-divider{\n    width: 4%;\n    min-height: 100%;\n    display: flex;\n    -webkit-box-pack: center;\n    justify-content: center;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.next-box{\n    display: flex;\n    width: 48%;\n    gap: 16px;\n    -webkit-box-pack: end;\n    justify-content: flex-end;\n    cursor: pointer;\n}\n.snp-text{\n    padding-top: 8px;\n    padding-bottom: 8px;\n    text-transform: uppercase;\n}\n.snp-text span{\n    margin: 0px;\n    font-family: poppins;\n    font-size: 14px;\n    color: rgb(112, 112, 112);\n    cursor: pointer;\n}\n.snp-text-p-n{\n    margin: 0px;\n    font-weight: 400;\n    font-family: poppins-semibold;\n    line-height: 20px;\n    font-size: 18px;\n    max-height: 45px;\n    width: 100%;\n    max-width: 180px;\n    display: -webkit-box;\n    -webkit-box-orient: vertical;\n    -webkit-line-clamp: 2;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-transform: capitalize;\n}\n\n.previous-box.disabled, .next-box.disabled{\n    cursor: not-allowed;\n}\n.pool-ps-btn{\n    background-color: transparent;\n    border: none;\n    display: flex;\n    font-weight: 700;\n}\n.pool-ps-btn p{\n    margin-block-start: 0;\n    margin-block-end: 0;\n    margin-top: 0;\n    margin-bottom: 1rem;\n    font-size: 18px;\n}\n.pool-ps-btn span{\n    font-size: 42px;\n    line-height: 16px;\n    padding-right: 2px;\n}\n.pool-ps-btn:hover{\n    cursor: pointer;\n}\n.pool-ps-btn:focus{\n    outline: none;\n}\n.pool-ps-card-and-descipton-inner .dust-pool-title{\n    margin-bottom: 10px;\n    line-height: 40px;\n    font-size: 32px;\n}\n.dpc-box{\n    background-color: #fff;\n    padding: 15px 20px;\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1); \n    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);\n    width: fit-content;\n    border-radius: 5px;\n    margin-top: 12px;\n    margin-bottom: 12px;\n}\n\n.approval-mask{\n    box-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(0,0,0,0.75);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n\n\n.video-box{\n    background-color: #000;\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    z-index: 2000;\n    opacity: 0;\n    transition: opacity 0.3s ease-in-out;\n    pointer-events: none;\n    display: flex;\n    flex-direction: column;\n    -ms-flex-pack:center!important;\n    justify-content:center!important;\n  }\n\n  .video-box.visible{\n      opacity: 1;\n  }\n\n  a.dust-pool-btn{\n      text-decoration: none;\n  }\n\n  .es-link{\n    text-decoration: none;\n    color: rgb(255, 105, 43);\n    font-weight: 700;\n  }\n\n\n@media only screen and (max-width: 825px) {\n    .pool-ps-card-and-descipton-inner{\n        flex-basis: 60%;\n        max-width: 60%;\n    }\n    .pool-ps-card-and-descipton{\n        justify-content: center;\n    }\n    .ps-text-bottom{\n        margin-top: 20px;\n        position: relative;\n    }\n}\n@media only screen and (max-width: 600px) {\n    .pool-ps-card-and-descipton-inner{\n        flex-basis: 100%;\n        max-width: 100%;\n    }\n    .pool-ps-card-and-descipton{\n        justify-content: center;\n    }\n}\n@media only screen and (max-width: 400px) {\n    .previous-box img, .next-box img{\n        display: none;\n    }\n}";
 styleInject(css_248z$4);
 
-var css_248z$3 = "\n.pool-ps-root{\n    max-width: 848px;\n    width: 100%;\n    margin: auto auto 60px;\n    display: flex;\n    flex-flow: row wrap;\n    gap: 10px;\n}\n.pool-ps-card-and-descipton{\n    box-sizing: border-box;\n    display: flex;\n    flex-flow: row wrap;\n}\n.pool-ps-card-and-descipton-inner{\n    flex-basis: 50%;\n    -webkit-box-flex: 0;\n    flex-grow: 0;\n    max-width: 50%;\n}\n.pool-ps-card-and-descipton-inner p{\n    margin-top: 0;\n}\n.ps-left{\n    background-color: rgb(255, 255, 255);\n    padding: 50px;\n    border: 1px solid #000;\n    border-radius: 15px;\n}\n.ps-left img{\n    border-radius: 15px;\n}\n.ps-right{\n    position: relative;\n}\n.ps-text-bottom{\n    position: absolute;\n    bottom: 0;\n}\n.snp-root{\n    margin: 15px auto 30px;\n    max-width: 848px;\n    width: 100%;\n    max-height: 86px;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    background-color: rgb(255, 255, 255);\n    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px 0px;\n    border-radius: 10px;\n    overflow: hidden;\n}\n.previous-box{\n    display: flex;\n    width: 48%;\n    gap: 16px;\n    -webkit-box-pack: start;\n    justify-content: flex-start;\n    cursor: pointer;\n}\n.snp-divider{\n    width: 4%;\n    min-height: 100%;\n    display: flex;\n    -webkit-box-pack: center;\n    justify-content: center;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.next-box{\n    display: flex;\n    width: 48%;\n    gap: 16px;\n    -webkit-box-pack: end;\n    justify-content: flex-end;\n    cursor: pointer;\n}\n.snp-text{\n    padding-top: 8px;\n    padding-bottom: 8px;\n    text-transform: uppercase;\n}\n.snp-text span{\n    margin: 0px;\n    font-family: poppins;\n    font-size: 14px;\n    color: rgb(112, 112, 112);\n    cursor: pointer;\n}\n.snp-text-p-n{\n    margin: 0px;\n    font-weight: 400;\n    font-family: poppins-semibold;\n    line-height: 20px;\n    font-size: 18px;\n    max-height: 45px;\n    width: 100%;\n    max-width: 180px;\n    display: -webkit-box;\n    -webkit-box-orient: vertical;\n    -webkit-line-clamp: 2;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-transform: capitalize;\n}\n\n.previous-box.disabled, .next-box.disabled{\n    cursor: not-allowed;\n}\n.pool-ps-btn{\n    background-color: transparent;\n    border: none;\n    display: flex;\n    font-weight: 700;\n}\n.pool-ps-btn p{\n    margin-block-start: 0;\n    margin-block-end: 0;\n    margin-top: 0;\n    margin-bottom: 1rem;\n    font-size: 18px;\n}\n.pool-ps-btn span{\n    font-size: 42px;\n    line-height: 16px;\n    padding-right: 2px;\n}\n.pool-ps-btn:hover{\n    cursor: pointer;\n}\n.pool-ps-btn:focus{\n    outline: none;\n}\n.pool-ps-card-and-descipton-inner .dust-pool-title{\n    margin-bottom: 10px;\n    line-height: 40px;\n    font-size: 32px;\n}\n.dpc-box{\n    background-color: #fff;\n    padding: 15px 20px;\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1); \n    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);\n    width: fit-content;\n    border-radius: 5px;\n    margin-top: 12px;\n    margin-bottom: 12px;\n}\n\n.approval-mask{\n    box-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(0,0,0,0.75);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n\n\n.video-box{\n    background-color: #000;\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    z-index: 2000;\n    opacity: 0;\n    transition: opacity 0.3s ease-in-out;\n    pointer-events: none;\n    display: flex;\n    flex-direction: column;\n    -ms-flex-pack:center!important;\n    justify-content:center!important;\n  }\n\n  .video-box.visible{\n      opacity: 1;\n  }\n\n  a.dust-pool-btn{\n      text-decoration: none;\n  }\n\n  .es-link{\n    text-decoration: none;\n    color: rgb(255, 105, 43);\n    font-weight: 700;\n  }\n\n\n@media only screen and (max-width: 825px) {\n    .pool-ps-card-and-descipton-inner{\n        flex-basis: 60%;\n        max-width: 60%;\n    }\n    .pool-ps-card-and-descipton{\n        justify-content: center;\n    }\n    .ps-text-bottom{\n        margin-top: 20px;\n        position: relative;\n    }\n}\n@media only screen and (max-width: 600px) {\n    .pool-ps-card-and-descipton-inner{\n        flex-basis: 100%;\n        max-width: 100%;\n    }\n    .pool-ps-card-and-descipton{\n        justify-content: center;\n    }\n}\n@media only screen and (max-width: 400px) {\n    .previous-box img, .next-box img{\n        display: none;\n    }\n}";
+var css_248z$3 = ":root{\n  --primary-color: #FF692B;\n}\n\n.counter-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  flex-wrap: wrap;\n  gap: 15px 15px;\n  margin-bottom: 30px;\n  margin-top: 30px;\n}\n@media (max-width: 454px) {\n  .counter-container {\n    padding: 0 80px;\n  }\n}\n@media (max-width: 400px) {\n  .counter-container {\n    padding: 0 30px;\n  }\n}\n@media (max-width: 302px) {\n  .counter-container {\n    padding: 0;\n  }\n}\n.counter-rotary-holder {\n  width: 95%;\n  height: 95%;\n  position: absolute;\n  transform: rotate(45deg);\n  z-index: 5;\n  -webkit-transition: all 0.3s ease-in-out;\n  -moz-transition: all 0.3s ease-in-out;\n  -o-transition: all 0.3s ease-in-out;\n  transition: all 0.3s ease-in-out;\n}\n\n.counter-content-holder {\n  background-color: white;\n  width: 75px;\n  height: 75px;\n  border-radius: 60%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.counter-rotary-item {\n  width: 15px;\n  height: 15px;\n  border: 2px solid var(--primary-color);\n  border-radius: 50%;\n  position: absolute;\n  background-color: white;\n}\n.counter-circle {\n  width: 88px;\n  height: 88px;\n  border: 2px solid var(--primary-color);\n  border-radius: 50%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  background-color: #ecebe8;\n  position: relative;\n}\n\n\n.counter-text {\n  font-family: \"poppins\";\n  font-size: 12px;\n  line-height: 18px;\n  color: #030300;\n  z-index: 1;\n}\n\n.counter-text-value {\n  font-family: \"poppins\";\n  font-size: 27px;\n  color: #020000;\n  letter-spacing: -2px;\n  line-height: 32px;\n}\n\n.disabled .counter-rotary-item, .disabled .counter-circle{\n  border-color:black;\n}\n\n#txRotator {\n  animation-name: playRotating;\n  animation-duration: 3s;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n}\n@keyframes playRotating {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}";
 styleInject(css_248z$3);
-
-var css_248z$2 = ":root{\n  --primary-color: #FF692B;\n}\n\n.counter-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  flex-wrap: wrap;\n  gap: 15px 15px;\n  margin-bottom: 30px;\n  margin-top: 30px;\n}\n@media (max-width: 454px) {\n  .counter-container {\n    padding: 0 80px;\n  }\n}\n@media (max-width: 400px) {\n  .counter-container {\n    padding: 0 30px;\n  }\n}\n@media (max-width: 302px) {\n  .counter-container {\n    padding: 0;\n  }\n}\n.counter-rotary-holder {\n  width: 95%;\n  height: 95%;\n  position: absolute;\n  transform: rotate(45deg);\n  z-index: 5;\n  -webkit-transition: all 0.3s ease-in-out;\n  -moz-transition: all 0.3s ease-in-out;\n  -o-transition: all 0.3s ease-in-out;\n  transition: all 0.3s ease-in-out;\n}\n\n.counter-content-holder {\n  background-color: white;\n  width: 75px;\n  height: 75px;\n  border-radius: 60%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.counter-rotary-item {\n  width: 15px;\n  height: 15px;\n  border: 2px solid var(--primary-color);\n  border-radius: 50%;\n  position: absolute;\n  background-color: white;\n}\n.counter-circle {\n  width: 88px;\n  height: 88px;\n  border: 2px solid var(--primary-color);\n  border-radius: 50%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  background-color: #ecebe8;\n  position: relative;\n}\n\n\n.counter-text {\n  font-family: \"poppins\";\n  font-size: 12px;\n  line-height: 18px;\n  color: #030300;\n  z-index: 1;\n}\n\n.counter-text-value {\n  font-family: \"poppins\";\n  font-size: 27px;\n  color: #020000;\n  letter-spacing: -2px;\n  line-height: 32px;\n}\n\n.disabled .counter-rotary-item, .disabled .counter-circle{\n  border-color:black;\n}\n\n#txRotator {\n  animation-name: playRotating;\n  animation-duration: 3s;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n}\n@keyframes playRotating {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}";
-styleInject(css_248z$2);
 
 const blockedCountries = {
   "AL": "Albania",
@@ -724,8 +645,8 @@ const blockedCountries = {
 
 var img$3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAABICAYAAADcdSQuAAAABHNCSVQICAgIfAhkiAAAACJJREFUKFNjZGBgsAPi/4xQBgOIAQZUYIyajByYo6GBOzQAZxUMIQH+P1cAAAAASUVORK5CYII=";
 
-var css_248z$1 = ".terms-root{\n\tbox-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(255,255,255,0.3);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.terms-box {\n\t/* width:40%; */\n\theight: 100%;\n\tmin-width: 400px;\n\tmin-height: 500px;\n\tbackground:rgb(250, 249, 245);;\n\tpadding: 15px;\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n}\n\n.scrollable-content{\n\twidth:100%;\n\theight: 100%;\n\toverflow-x: hidden;\n\toverflow-y: auto;\n}\n\n.terms-box  .scrollable-content h2{\n\ttext-align: center;\n\tpadding-bottom: 40px;\n\tposition: sticky;\n\ttop:0;\n\tbackground:#faf9f5;\n\tbackground: -moz-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n\tbackground: -webkit-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n\tbackground: linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n}\n\n.tc-button-container{\n\ttext-align: center;\n}\n.tc-button-container button{\n\tmargin: 10px 5px;\n}";
-styleInject(css_248z$1);
+var css_248z$2 = ".terms-root{\n\tbox-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(255,255,255,0.3);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.terms-box {\n\t/* width:40%; */\n\theight: 100%;\n\tmin-width: 400px;\n\tmin-height: 500px;\n\tbackground:rgb(250, 249, 245);;\n\tpadding: 15px;\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n}\n\n.scrollable-content{\n\twidth:100%;\n\theight: 100%;\n\toverflow-x: hidden;\n\toverflow-y: auto;\n}\n\n.terms-box  .scrollable-content h2{\n\ttext-align: center;\n\tpadding-bottom: 40px;\n\tposition: sticky;\n\ttop:0;\n\tbackground:#faf9f5;\n\tbackground: -moz-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n\tbackground: -webkit-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n\tbackground: linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n}\n\n.tc-button-container{\n\ttext-align: center;\n}\n.tc-button-container button{\n\tmargin: 10px 5px;\n}";
+styleInject(css_248z$2);
 
 const terms = `<p><strong>NFT EXCHANGE TERMS AND CONDITIONS (THESE “TERMS”)</strong></p>
 <p><em>Unless otherwise stated or if the context otherwise requires, all capitalised terms herein shall have the respective meanings as indicated in Annex 1 of these Terms. Headings in these Terms are included for convenience only and shall not be taken into account in construing these Terms. References to a “<strong>Paragraph</strong>” and “<strong>Annex</strong>” are to be construed as references to the paragraphs of and the annexes to these Terms.</em></p>
@@ -1372,8 +1293,8 @@ const TermsBox = _ref => {
   }, "Accept"))))) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null));
 };
 
-var css_248z = ".terms-root{\n\tbox-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(255,255,255,0.3);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.restricted-box {\n\twidth:40%;\n\theight: auto;\n\tmin-width: 400px;\n\tmax-height: 600px;\n\tbackground:white;\n\tborder-radius: 15px;\n\tpadding: 15px;\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n}\n\n.scrollable-content{\n\twidth:100%;\n\theight: 100%;\n\toverflow-x: hidden;\n\toverflow-y: auto;\n}\n\n.scrollable-content h2{\n\ttext-align: center;\n\tpadding-bottom: 15px;\n\tposition: sticky;\n\ttop:0;\n\tbackground:white;\n\tbackground: -moz-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\n\tbackground: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\n\tbackground: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\n\tfilter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}\n\n.restricted-button-container{\n\tmargin-top:25px;\n\ttext-align: center;\n}\n.tc-button-container button{\n\tmargin: 10px 5px;\n}\n\n.restricted-container {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n}\n\n.restricted-container .country{\n\twidth:25%;\n\ttext-align: center;\n\tline-height: 1.8rem;\n}\n\n@media only screen and (max-width: 600px) {\n\t.restricted-container .country{\n\t\twidth:50%;\n\t}\n  }";
-styleInject(css_248z);
+var css_248z$1 = ".terms-root{\n\tbox-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(255,255,255,0.3);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.restricted-box {\n\twidth:40%;\n\theight: auto;\n\tmin-width: 400px;\n\tmax-height: 600px;\n\tbackground:white;\n\tborder-radius: 15px;\n\tpadding: 15px;\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n}\n\n.scrollable-content{\n\twidth:100%;\n\theight: 100%;\n\toverflow-x: hidden;\n\toverflow-y: auto;\n}\n\n.scrollable-content h2{\n\ttext-align: center;\n\tpadding-bottom: 15px;\n\tposition: sticky;\n\ttop:0;\n\tbackground:white;\n\tbackground: -moz-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\n\tbackground: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\n\tbackground: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\n\tfilter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}\n\n.restricted-button-container{\n\tmargin-top:25px;\n\ttext-align: center;\n}\n.tc-button-container button{\n\tmargin: 10px 5px;\n}\n\n.restricted-container {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n}\n\n.restricted-container .country{\n\twidth:25%;\n\ttext-align: center;\n\tline-height: 1.8rem;\n}\n\n@media only screen and (max-width: 600px) {\n\t.restricted-container .country{\n\t\twidth:50%;\n\t}\n  }";
+styleInject(css_248z$1);
 
 const RestrictedAreaBox = _ref => {
   let {
@@ -1480,6 +1401,7 @@ const ProjectSubpage = _ref2 => {
   const [tokenMeta, setTokenMeta] = React.useState(null);
   const [videoVisible, setVideoVisible] = React.useState(false);
   const [cardRevealed, setCardRevealed] = React.useState(false);
+  const [revealedImage, setRevealedImage] = React.useState(null);
   const videoRef = React.useRef(null);
   const MEDIA_BASE_URL = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
   React.useEffect(() => {
@@ -1605,6 +1527,10 @@ const ProjectSubpage = _ref2 => {
   React.useEffect(() => {
     if (userHash) {
       let intervalId = setInterval(async () => {
+        /*    console.log('stored hash',userHash);
+            let lastUserHash = await d4p.userhashes(address,0).catch(e=>{console.log(e)})
+           console.log('Last hash:',lastUserHash);
+        */
         let id = await d4p.redeemedTokenId(userHash).catch(e => {
           console.log(e);
         });
@@ -1615,6 +1541,16 @@ const ProjectSubpage = _ref2 => {
             let tUri = await pool.vaultData.tokenContract.tokenURI(id).catch(e => {
               console.log(e);
             }); //  console.log('uri',tUri);
+
+            if (tUri.indexOf('ipfs://') === 0) {
+              let url = tUri.replace('ipfs://', '/ipfs/');
+
+              if (url.indexOf('/ipfs') !== 0) {
+                url = '/ipfs/' + tUri;
+              }
+
+              tUri = 'https://ether-cards.mypinata.cloud' + url;
+            }
 
             let meta = await getTokenURI(tUri);
 
@@ -1656,6 +1592,7 @@ const ProjectSubpage = _ref2 => {
         console.log('errror', e);
       }
 
+      setRevealedImage(getRemoteImageUrl(tokenMeta.image));
       videoRef.current.play();
       setVideoVisible(true); //!
 
@@ -1933,7 +1870,7 @@ const ProjectSubpage = _ref2 => {
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "pool-ps-card-and-descipton-inner ps-left"
   }, /*#__PURE__*/React__default["default"].createElement("img", {
-    src: tokenMeta.image,
+    src: revealedImage,
     style: {
       maxWidth: '100%'
     }
@@ -1996,7 +1933,7 @@ var AddressesMain = {
 };
 
 var Dust$1 = "0x30189f1D90e1410176619020C4D6438A40A8626d";
-var Dust4Punks$1 = "0xAB91877E206596DB88d57325A015834A94A3ba70";
+var Dust4Punks$1 = "0x3B4E9526C0909D3B4BA5cEF82F3B104Bd5d0E82D";
 var Zoom2$1 = "0x491592F30D9a3d1887F486eA2A3c72ad82fAcF4D";
 var AddressesRinkeby = {
 	Dust: Dust$1,
@@ -2713,20 +2650,17 @@ var Dust = {
 
 var abi$2 = [
 	{
+		anonymous: false,
 		inputs: [
 			{
-				internalType: "contract IRNG",
-				name: "_rng",
-				type: "address"
-			},
-			{
-				internalType: "address",
-				name: "dust",
-				type: "address"
+				indexed: false,
+				internalType: "uint8",
+				name: "version",
+				type: "uint8"
 			}
 		],
-		stateMutability: "nonpayable",
-		type: "constructor"
+		name: "Initialized",
+		type: "event"
 	},
 	{
 		anonymous: false,
@@ -2752,27 +2686,13 @@ var abi$2 = [
 		inputs: [
 			{
 				indexed: false,
-				internalType: "bytes32",
+				internalType: "uint256",
 				name: "hash",
-				type: "bytes32"
+				type: "uint256"
 			}
 		],
 		name: "RedemptionRequest",
 		type: "event"
-	},
-	{
-		inputs: [
-		],
-		name: "DUST_TOKEN",
-		outputs: [
-			{
-				internalType: "address",
-				name: "",
-				type: "address"
-			}
-		],
-		stateMutability: "view",
-		type: "function"
 	},
 	{
 		inputs: [
@@ -2787,6 +2707,11 @@ var abi$2 = [
 				type: "uint256"
 			},
 			{
+				internalType: "uint256",
+				name: "remaining",
+				type: "uint256"
+			},
+			{
 				internalType: "address",
 				name: "vault",
 				type: "address"
@@ -2794,6 +2719,11 @@ var abi$2 = [
 			{
 				internalType: "address",
 				name: "token",
+				type: "address"
+			},
+			{
+				internalType: "address",
+				name: "destinasi",
 				type: "address"
 			}
 		],
@@ -2816,6 +2746,11 @@ var abi$2 = [
 				type: "uint256"
 			},
 			{
+				internalType: "uint256",
+				name: "remaining",
+				type: "uint256"
+			},
+			{
 				internalType: "address",
 				name: "vault",
 				type: "address"
@@ -2828,6 +2763,11 @@ var abi$2 = [
 			{
 				internalType: "address",
 				name: "handler",
+				type: "address"
+			},
+			{
+				internalType: "address",
+				name: "destinasi",
 				type: "address"
 			}
 		],
@@ -2901,10 +2841,19 @@ var abi$2 = [
 	},
 	{
 		inputs: [
+		],
+		name: "initialize",
+		outputs: [
+		],
+		stateMutability: "nonpayable",
+		type: "function"
+	},
+	{
+		inputs: [
 			{
-				internalType: "bytes32",
+				internalType: "uint256",
 				name: "hash",
-				type: "bytes32"
+				type: "uint256"
 			}
 		],
 		name: "isTokenRedeemed",
@@ -2973,9 +2922,9 @@ var abi$2 = [
 				type: "uint256"
 			},
 			{
-				internalType: "bytes32",
+				internalType: "uint256",
 				name: "requestId",
-				type: "bytes32"
+				type: "uint256"
 			}
 		],
 		name: "process",
@@ -3067,9 +3016,9 @@ var abi$2 = [
 	{
 		inputs: [
 			{
-				internalType: "bytes32",
+				internalType: "uint256",
 				name: "hash",
-				type: "bytes32"
+				type: "uint256"
 			}
 		],
 		name: "redeemedTokenId",
@@ -3086,24 +3035,24 @@ var abi$2 = [
 	{
 		inputs: [
 		],
-		name: "renounceOwnership",
-		outputs: [
-		],
-		stateMutability: "nonpayable",
-		type: "function"
-	},
-	{
-		inputs: [
-		],
-		name: "rng",
+		name: "reg",
 		outputs: [
 			{
-				internalType: "contract IRNG",
+				internalType: "contract RegistryConsumer",
 				name: "",
 				type: "address"
 			}
 		],
 		stateMutability: "view",
+		type: "function"
+	},
+	{
+		inputs: [
+		],
+		name: "renounceOwnership",
+		outputs: [
+		],
+		stateMutability: "nonpayable",
 		type: "function"
 	},
 	{
@@ -3175,9 +3124,9 @@ var abi$2 = [
 		name: "userhashes",
 		outputs: [
 			{
-				internalType: "bytes32",
+				internalType: "uint256",
 				name: "",
-				type: "bytes32"
+				type: "uint256"
 			}
 		],
 		stateMutability: "view",
@@ -4092,6 +4041,100 @@ const UpcomingProjectSubpage = _ref => {
   }))));
 };
 
+var css_248z = ".mt-4 {\n\tmargin-top: 2rem;\n}\n\n\n.form-group {\n    margin-bottom: 1rem;\n}\n\n.form-control {\n    display: block;\n    width: 100%;\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;\n}\n";
+styleInject(css_248z);
+
+const VaultInterface = _ref => {
+  let {
+    address,
+    hc,
+    d4p,
+    ethersProvider
+  } = _ref;
+  const [name, setName] = React.useState('');
+  const [price, setPrice] = React.useState('');
+  const [remaining, setRemaining] = React.useState('');
+  const [vaultAddress, setVaultAddress] = React.useState('');
+  const [tokenAddress, setTokenAddress] = React.useState('');
+  const [destinasi, setDestinasi] = React.useState('0x0000000000000000000000000000000000000000');
+  React.useEffect(() => {
+    if (address === null) {
+      hc();
+    }
+  }, [address]);
+
+  const addVault = async () => {
+    if (name && price && remaining && vaultAddress && tokenAddress && destinasi) {
+      console.log('address', address);
+      let priceInWei = ethers.ethers.utils.parseEther(price);
+      let remainingInWei = ethers.ethers.utils.parseEther(price);
+      let contract = d4p.connect(ethersProvider.getSigner());
+      console.log(contract);
+      let res = await contract.add_721_vault(name, priceInWei, remainingInWei, vaultAddress, tokenAddress, destinasi).catch(e => console.log);
+      console.log('res', res);
+    }
+  };
+
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "container mt-4"
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React__default["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    value: name,
+    onChange: e => setName(e.target.value),
+    placeholder: "Vault name (string)"
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React__default["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    value: price,
+    onChange: e => setPrice(e.target.value),
+    placeholder: "Price in dust (uint256)"
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React__default["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    value: remaining,
+    onChange: e => setRemaining(e.target.value),
+    placeholder: "Remaining (int)"
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React__default["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    value: vaultAddress,
+    onChange: e => setVaultAddress(e.target.value),
+    placeholder: "Vault (address)"
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React__default["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    value: tokenAddress,
+    onChange: e => setTokenAddress(e.target.value),
+    placeholder: "Token (address)"
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React__default["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    value: destinasi,
+    onChange: e => setDestinasi(e.target.value),
+    placeholder: "Destinasi (address)"
+  })), /*#__PURE__*/React__default["default"].createElement("button", {
+    type: "submit",
+    className: "dust-pool-btn",
+    style: {
+      marginTop: '20px'
+    },
+    onClick: addVault
+  }, "Add vault"));
+};
+
 /* 
 const POOLSS = [
   {
@@ -4126,7 +4169,7 @@ const POOLSS = [
 ]
  */
 
-var UPDATE_INTERVAL = 60000;
+const UPDATE_INTERVAL = 60000;
 /* let POOLS = [
   {
     id: 0,
@@ -4188,219 +4231,115 @@ var UPDATE_INTERVAL = 60000;
   },
 ]; */
 
-var TopSectionDividers = function TopSectionDividers() {
-  return /*#__PURE__*/React__default["default"].createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      margin: '25px 0'
-    }
-  }, /*#__PURE__*/React__default["default"].createElement("img", {
-    src: img$5,
-    style: {
-      maxHeight: '50px'
-    }
-  }), /*#__PURE__*/React__default["default"].createElement("img", {
-    src: img$4,
-    style: {
-      maxHeight: '50px'
-    }
-  }));
-};
+const TopSectionDividers = () => /*#__PURE__*/React__default["default"].createElement("div", {
+  style: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '25px 0'
+  }
+}, /*#__PURE__*/React__default["default"].createElement("img", {
+  src: img$5,
+  style: {
+    maxHeight: '50px'
+  }
+}), /*#__PURE__*/React__default["default"].createElement("img", {
+  src: img$4,
+  style: {
+    maxHeight: '50px'
+  }
+}));
 
-var DustPools = function DustPools(_ref) {
-  var address = _ref.address,
-      ethersProvider = _ref.ethersProvider,
-      chainId = _ref.chainId,
-      handleConnect = _ref.handleConnect;
+const DustPools = _ref => {
+  let {
+    address,
+    ethersProvider,
+    chainId,
+    handleConnect
+  } = _ref;
+  const [selectedPoolIdx, setSelectedPoolIdx] = React.useState(null);
+  const [dustContract, setDustContract] = React.useState(null);
+  const [dust4PunksContract, setDust4PunksContract] = React.useState(null);
+  const [zoom2, setZoom2] = React.useState(null);
+  const [selectedFilter, setSelectedFilter] = React.useState('ALL');
+  const [initDone, setInitDone] = React.useState(false);
+  const [poolsFromBackend, setPoolsFromBackend] = React.useState([]);
+  const [allPools, setAllPools] = React.useState([]);
+  const [pools, setPools] = React.useState([]);
+  const [upcomingPools, setUpcomingPools] = React.useState([]);
+  const [upcomingPool, setUpcomingPool] = React.useState(null);
+  const loc = reactRouterDom.useLocation();
+  const url = chainId === 1 ? 'https://galaxis-web-backend.herokuapp.com' : 'https://galaxis-web-backend-staging.herokuapp.com';
+  const upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+  React.useEffect(() => {
+    const getPoolData = async () => {
+      const res = await axios__default["default"].get(url + '/vaults').catch(e => console.log);
+      console.log('vaults', res);
 
-  var _useState = React.useState(null),
-      _useState2 = _slicedToArray(_useState, 2),
-      selectedPoolIdx = _useState2[0],
-      setSelectedPoolIdx = _useState2[1];
+      if (res.status === 200) {
+        setPoolsFromBackend(res.data);
+      }
 
-  var _useState3 = React.useState(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      dustContract = _useState4[0],
-      setDustContract = _useState4[1];
+      const upcoming = await axios__default["default"].get(url + '/upcoming-vaults').catch(e => console.log);
 
-  var _useState5 = React.useState(null),
-      _useState6 = _slicedToArray(_useState5, 2),
-      dust4PunksContract = _useState6[0],
-      setDust4PunksContract = _useState6[1];
+      if (upcoming.status === 200) {
+        setUpcomingPools(upcoming.data);
+        console.log('UPCOM', upcoming.data);
 
-  var _useState7 = React.useState(null),
-      _useState8 = _slicedToArray(_useState7, 2),
-      zoom2 = _useState8[0],
-      setZoom2 = _useState8[1];
+        if (loc.search && loc.search.indexOf('upcoming=') > 0) {
+          let params = loc.search.slice(1).split('&'); //console.log(params);
 
-  var _useState9 = React.useState('ALL'),
-      _useState10 = _slicedToArray(_useState9, 2),
-      selectedFilter = _useState10[0],
-      setSelectedFilter = _useState10[1];
+          if (params.length > 0) {
+            let parsedParams = {};
 
-  var _useState11 = React.useState(false),
-      _useState12 = _slicedToArray(_useState11, 2);
-      _useState12[0];
-      var setInitDone = _useState12[1];
+            for (let i = 0; i < params.length; i++) {
+              let item = params[i].split('=');
+              parsedParams[item[0]] = item[1];
+            }
 
-  var _useState13 = React.useState([]),
-      _useState14 = _slicedToArray(_useState13, 2),
-      poolsFromBackend = _useState14[0],
-      setPoolsFromBackend = _useState14[1];
-
-  var _useState15 = React.useState([]),
-      _useState16 = _slicedToArray(_useState15, 2),
-      allPools = _useState16[0],
-      setAllPools = _useState16[1];
-
-  var _useState17 = React.useState([]),
-      _useState18 = _slicedToArray(_useState17, 2),
-      pools = _useState18[0],
-      setPools = _useState18[1];
-
-  var _useState19 = React.useState([]),
-      _useState20 = _slicedToArray(_useState19, 2),
-      upcomingPools = _useState20[0],
-      setUpcomingPools = _useState20[1];
-
-  var _useState21 = React.useState(null),
-      _useState22 = _slicedToArray(_useState21, 2),
-      upcomingPool = _useState22[0],
-      setUpcomingPool = _useState22[1];
-
-  var loc = reactRouterDom.useLocation();
-  var url = chainId === 1 ? 'https://galaxis-web-backend.herokuapp.com' : 'https://galaxis-web-backend-staging.herokuapp.com';
-  var upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
-  React.useEffect(function () {
-    var getPoolData = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var res, upcoming, params, parsedParams, i, item;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios__default["default"].get(url + '/vaults').catch(function (e) {
-                  return console.log;
-                });
-
-              case 2:
-                res = _context.sent;
-                console.log('vaults', res);
-
-                if (res.status === 200) {
-                  setPoolsFromBackend(res.data);
-                }
-
-                _context.next = 7;
-                return axios__default["default"].get(url + '/upcoming-vaults').catch(function (e) {
-                  return console.log;
-                });
-
-              case 7:
-                upcoming = _context.sent;
-
-                if (upcoming.status === 200) {
-                  setUpcomingPools(upcoming.data);
-                  console.log('UPCOM', upcoming.data);
-
-                  if (loc.search && loc.search.indexOf('upcoming=') > 0) {
-                    params = loc.search.slice(1).split('&'); //console.log(params);
-
-                    if (params.length > 0) {
-                      parsedParams = {};
-
-                      for (i = 0; i < params.length; i++) {
-                        item = params[i].split('=');
-                        parsedParams[item[0]] = item[1];
-                      }
-
-                      if (parsedParams.upcoming) {
-                        // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
-                        setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
-                      }
-                    }
-                  }
-                }
-
-              case 9:
-              case "end":
-                return _context.stop();
+            if (parsedParams.upcoming) {
+              // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
+              setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
             }
           }
-        }, _callee);
-      }));
-
-      return function getPoolData() {
-        return _ref2.apply(this, arguments);
-      };
-    }();
+        }
+      }
+    };
 
     getPoolData();
   }, []);
-  React.useEffect(function () {
-    var initContract = /*#__PURE__*/function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-        var c, Zoom2Contract, D4P;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return getContract('Dust', ethersProvider);
+  React.useEffect(() => {
+    const initContract = async () => {
+      let c = await getContract('Dust', ethersProvider);
 
-              case 2:
-                c = _context2.sent;
+      if (c) {
+        setDustContract(c); //console.log('DUST:', c);
+      } else {
+        console.log('contract not found');
+      }
 
-                if (c) {
-                  setDustContract(c); //console.log('DUST:', c);
-                } else {
-                  console.log('contract not found');
-                }
+      let Zoom2Contract = await getContract('Zoom2', ethersProvider);
 
-                _context2.next = 6;
-                return getContract('Zoom2', ethersProvider);
+      if (Zoom2Contract) {
+        setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
+      } else {
+        console.log('Could not initialise Zoom2 Contract');
+      }
 
-              case 6:
-                Zoom2Contract = _context2.sent;
+      let D4P = await getContract('Dust4Punks', ethersProvider);
 
-                if (Zoom2Contract) {
-                  setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
-                } else {
-                  console.log('Could not initialise Zoom2 Contract');
-                }
-
-                _context2.next = 10;
-                return getContract('Dust4Punks', ethersProvider);
-
-              case 10:
-                D4P = _context2.sent;
-
-                if (D4P) {
-                  setDust4PunksContract(D4P); // console.log('D4P:', D4P);
-                } else {
-                  console.log('Could not initialise D4P Contract');
-                }
-
-              case 12:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      return function initContract() {
-        return _ref3.apply(this, arguments);
-      };
-    }();
+      if (D4P) {
+        setDust4PunksContract(D4P);
+        console.log('D4P:', D4P);
+      } else {
+        console.log('Could not initialise D4P Contract');
+      }
+    };
 
     if (ethersProvider) {
       initContract();
     }
   }, [ethersProvider]);
-  React.useEffect(function () {
+  React.useEffect(() => {
     if (dust4PunksContract && dustContract && poolsFromBackend.length > 0 && zoom2
     /*  && !initDone */
     ) {
@@ -4408,255 +4347,186 @@ var DustPools = function DustPools(_ref) {
     }
   }, [dust4PunksContract, poolsFromBackend]); //,dustContract,zoom2
 
-  var getPools = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-      var res, numberOfPools, ZoomLibraryInstance, calls, i, vaultAddress, vaultName, vaultPrice, vaultToken, ZoomQueryBinary, combinedResult, tempPool, poolIdx, _i, va, vn, vp, vt, vd, vToken;
+  const getPools = async () => {
+    // console.log('GETTING POOL DATA....');
+    let res = await dust4PunksContract.next_redeemable().catch(e => console.log);
+    let numberOfPools = 0;
 
-      return regeneratorRuntime.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return dust4PunksContract.next_redeemable().catch(function (e) {
-                return console.log;
-              });
+    if (res) {
+      numberOfPools = Number(res);
+    }
 
-            case 2:
-              res = _context3.sent;
-              numberOfPools = 0;
+    console.log('#OF POOLS', numberOfPools); // if(address){
 
-              if (res) {
-                numberOfPools = Number(res);
-              } //console.log('#OF POOLS', numberOfPools);
-              // if(address){
+    const ZoomLibraryInstance = new zoomNext.Zoom({
+      use_reference_calls: true
+    });
+    let calls = [];
+
+    for (let i = 0; i < numberOfPools; i++) {
+      //Punk vault address
+      const vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
+      calls.push(vaultAddress); //Pool Name
+
+      const vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
+      calls.push(vaultName); //Vault price
+
+      const vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
+      calls.push(vaultPrice); //Vault token addredd
+
+      const vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
+      calls.push(vaultToken);
+    }
+
+    const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
+    //console.time('zoomCall');
+
+    const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
+    //console.log("======== ZOOM CALL END ==============" );
+
+    ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
+
+    let tempPool = [];
+    let poolIdx = 0;
+
+    for (let i = 0; i < numberOfPools * 4; i += 4) {
+      let va = ZoomLibraryInstance.decodeCall(calls[i + 0]).toString();
+      let vn = ZoomLibraryInstance.decodeCall(calls[i + 1]).toString();
+      let vp = ZoomLibraryInstance.decodeCall(calls[i + 2]).toString();
+      let vt = ZoomLibraryInstance.decodeCall(calls[i + 3]).toString();
+      const vd = {
+        vaultAddress: va,
+        vaultName: vn,
+        vaultPrice: vp,
+        vaultToken: vt,
+        available: null
+      };
+      let vToken = await getDummy721(vt, ethersProvider);
+
+      if (vToken) {
+        vd.tokenContract = vToken;
+      }
+
+      if (poolIdx < poolsFromBackend.length) {
+        let poolByVaultId = poolsFromBackend.find(i => {
+          return i.vault_id === poolIdx;
+        }); // tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
+
+        tempPool.push({ ...poolByVaultId,
+          vaultData: vd
+        });
+        poolIdx++;
+      } else {
+        console.log('overflow :/', poolIdx, poolsFromBackend.length);
+      }
+    } //console.log('AP', tempPool);
 
 
-              ZoomLibraryInstance = new zoomNext.Zoom({
-                use_reference_calls: true
-              });
-              calls = [];
+    setAllPools(tempPool);
+    setPools(tempPool);
+    setSelectedFilter('ALL');
+  };
 
-              for (i = 0; i < numberOfPools; i++) {
-                //Punk vault address
-                vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
-                calls.push(vaultAddress); //Pool Name
-
-                vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
-                calls.push(vaultName); //Vault price
-
-                vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
-                calls.push(vaultPrice); //Vault token addredd
-
-                vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
-                calls.push(vaultToken);
-              }
-
-              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
-              //console.time('zoomCall');
-
-              _context3.next = 11;
-              return zoom2.combine(ZoomQueryBinary);
-
-            case 11:
-              combinedResult = _context3.sent;
-              //console.timeEnd('zoomCall');
-              //console.log("======== ZOOM CALL END ==============" );
-              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
-
-              tempPool = [];
-              poolIdx = 0;
-              _i = 0;
-
-            case 16:
-              if (!(_i < numberOfPools * 4)) {
-                _context3.next = 30;
-                break;
-              }
-
-              va = ZoomLibraryInstance.decodeCall(calls[_i + 0]).toString();
-              vn = ZoomLibraryInstance.decodeCall(calls[_i + 1]).toString();
-              vp = ZoomLibraryInstance.decodeCall(calls[_i + 2]).toString();
-              vt = ZoomLibraryInstance.decodeCall(calls[_i + 3]).toString();
-              vd = {
-                vaultAddress: va,
-                vaultName: vn,
-                vaultPrice: vp,
-                vaultToken: vt,
-                available: null
-              };
-              _context3.next = 24;
-              return getDummy721(vt, ethersProvider);
-
-            case 24:
-              vToken = _context3.sent;
-
-              if (vToken) {
-                vd.tokenContract = vToken;
-              }
-
-              if (poolIdx < poolsFromBackend.length) {
-                tempPool.push(_objectSpread2(_objectSpread2({}, poolsFromBackend[poolIdx]), {}, {
-                  vaultData: vd
-                }));
-                poolIdx++;
-              } else {
-                console.log('overflow :/', poolIdx, poolsFromBackend.length);
-              }
-
-            case 27:
-              _i += 4;
-              _context3.next = 16;
-              break;
-
-            case 30:
-              //console.log('AP', tempPool);
-              setAllPools(tempPool);
-              setPools(tempPool);
-              setSelectedFilter('ALL');
-
-            case 33:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function getPools() {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-
-  React.useEffect(function () {
+  React.useEffect(() => {
     // console.log('allPools changed...', allPools.length);
     if (allPools.length > 0) {
       updateVaultBalances();
     }
   }, [allPools]);
-  useInterval(function () {
+  useInterval(() => {
     updateVaultBalances();
   }, UPDATE_INTERVAL);
 
-  var updateVaultBalances = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-      var ZoomLibraryInstance, calls, hasContract, i, vaultBalance, ZoomQueryBinary, combinedResult, ap, hasContractIdx, _i2, ab, poolIdx;
+  const updateVaultBalances = async () => {
+    if (allPools[0].vaultData && allPools[0].vaultData.tokenContract) {
+      //console.log('vaultdata',vaultData);
+      const ZoomLibraryInstance = new zoomNext.Zoom();
+      let calls = [];
+      let hasContract = []; //console.log('UPD',pools,allPools);
 
-      return regeneratorRuntime.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              if (!(allPools[0].vaultData && allPools[0].vaultData.tokenContract)) {
-                _context4.next = 16;
-                break;
-              }
-
-              //console.log('vaultdata',vaultData);
-              ZoomLibraryInstance = new zoomNext.Zoom();
-              calls = [];
-              hasContract = []; //console.log('UPD',pools,allPools);
-
-              for (i = 0; i < allPools.length; i++) {
-                if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
-                  /*     console.log(allPools[i].vaultData.tokenContract,i)
-                         const totalSupply = ZoomLibraryInstance.addCall(
-                            allPools[i].vaultData.tokenContract,
-                            ["totalSupply",[]],
-                            "totalSupply() returns (uint256)"
-                        );
-                        calls.push(totalSupply); */
-                  vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
-                  calls.push(vaultBalance);
-                  hasContract.push(allPools[i].vault_id);
-                }
-              } // console.log('STUFF', calls, hasContract);
-
-
-              if (!(calls.length > 0)) {
-                _context4.next = 16;
-                break;
-              }
-
-              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
-              //console.log("======== ZOOM CALL START ============" );
-              //console.time('zoomCall');
-
-              _context4.next = 9;
-              return zoom2.combine(ZoomQueryBinary);
-
-            case 9:
-              combinedResult = _context4.sent;
-              //console.timeEnd('zoomCall');
-              //console.log("======== ZOOM CALL END ==============" );
-              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
-              ap = allPools;
-              hasContractIdx = 0;
-
-              for (_i2 = 0; _i2 < calls.length; _i2++) {
-                //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-                ab = ZoomLibraryInstance.decodeCall(calls[_i2]).toString();
-                poolIdx = hasContract[hasContractIdx];
-                ap[poolIdx].vaultData = _objectSpread2(_objectSpread2({}, ap[poolIdx].vaultData), {}, {
-                  /* totalSupply:ts, */
-                  available: Number(ab)
-                });
-
-                if (Number.parseInt(ab) === 0) {
-                  ap[poolIdx].order += 100;
-                }
-
-                hasContractIdx++;
-              }
-              /* 
-                  let op = [...ap];
-                   op.sort((a,b)=>{
-                      if(a.order>b.order){
-                          return 1
-                      }else{
-                          return -1;
-                      }
-                  });
-              */
-
-
-              setPools(getFiltered());
-              setInitDone(true); //console.log('AP upd', ap);
-
-            case 16:
-            case "end":
-              return _context4.stop();
-          }
+      for (let i = 0; i < allPools.length; i++) {
+        if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
+          /*     console.log(allPools[i].vaultData.tokenContract,i)
+                 const totalSupply = ZoomLibraryInstance.addCall(
+                    allPools[i].vaultData.tokenContract,
+                    ["totalSupply",[]],
+                    "totalSupply() returns (uint256)"
+                );
+                calls.push(totalSupply); */
+          const vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
+          calls.push(vaultBalance);
+          hasContract.push(allPools[i].vault_id);
         }
-      }, _callee4);
-    }));
+      } // console.log('STUFF', calls, hasContract);
 
-    return function updateVaultBalances() {
-      return _ref5.apply(this, arguments);
-    };
-  }();
 
-  var getFiltered = function getFiltered() {
-    var result = [];
+      if (calls.length > 0) {
+        const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
+        //console.log("======== ZOOM CALL START ============" );
+        //console.time('zoomCall');
+
+        const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
+        //console.log("======== ZOOM CALL END ==============" );
+
+        ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
+        let ap = allPools;
+        let hasContractIdx = 0;
+
+        for (let i = 0; i < calls.length; i++) {
+          //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
+          let ab = ZoomLibraryInstance.decodeCall(calls[i]).toString();
+          console.log('idx, balance', i, ab);
+          let poolIdx = hasContract[hasContractIdx];
+          console.log('pool index, allpools', poolIdx, ap);
+          ap[poolIdx].vaultData = { ...ap[poolIdx].vaultData,
+
+            /* totalSupply:ts, */
+            available: Number(ab)
+          };
+
+          if (Number.parseInt(ab) === 0) {
+            ap[poolIdx].order += 100;
+          }
+
+          hasContractIdx++;
+        }
+        /* 
+            let op = [...ap];
+             op.sort((a,b)=>{
+                if(a.order>b.order){
+                    return 1
+                }else{
+                    return -1;
+                }
+            });
+        */
+
+
+        setPools(getFiltered());
+        setInitDone(true); //console.log('AP upd', ap);
+      }
+    }
+  };
+
+  const getFiltered = () => {
+    let result = [];
 
     if (selectedFilter === 'SOLD_OUT') {
-      result = allPools.filter(function (pool) {
-        return pool.vaultData.available === 0;
-      });
+      result = allPools.filter(pool => pool.vaultData.available === 0);
     } else if (selectedFilter === 'ACTIVE') {
-      result = allPools.filter(function (pool) {
-        return pool.vaultData.available > 0;
-      });
+      result = allPools.filter(pool => pool.vaultData.available > 0);
     } else {
-      result = _toConsumableArray(allPools);
+      result = [...allPools];
     }
 
     return result;
   };
 
-  React.useEffect(function () {
+  React.useEffect(() => {
     setPools(getFiltered());
   }, [selectedFilter]);
 
-  var showDetails = function showDetails(idx) {
+  const showDetails = idx => {
     //console.log('poolId,idx',idx);
     if (idx !== null) {
       setSelectedPoolIdx(idx);
@@ -4675,20 +4545,14 @@ var DustPools = function DustPools(_ref) {
   }, "NFT Vaults"), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "tab-choose"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "".concat(selectedFilter === 'ALL' ? 'active-tab' : ''),
-    onClick: function onClick() {
-      return setSelectedFilter('ALL');
-    }
+    className: `${selectedFilter === 'ALL' ? 'active-tab' : ''}`,
+    onClick: () => setSelectedFilter('ALL')
   }, "All"), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "".concat(selectedFilter === 'ACTIVE' ? 'active-tab' : ''),
-    onClick: function onClick() {
-      return setSelectedFilter('ACTIVE');
-    }
+    className: `${selectedFilter === 'ACTIVE' ? 'active-tab' : ''}`,
+    onClick: () => setSelectedFilter('ACTIVE')
   }, "Active"), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "".concat(selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''),
-    onClick: function onClick() {
-      return setSelectedFilter('SOLD_OUT');
-    }
+    className: `${selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''}`,
+    onClick: () => setSelectedFilter('SOLD_OUT')
   }, "Sold out")), /*#__PURE__*/React__default["default"].createElement("p", null, "You can exchange your Dust for some awesome items including Cryptopunks and other valuable NFTs.")), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "container  mt-5"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
@@ -4696,7 +4560,7 @@ var DustPools = function DustPools(_ref) {
     style: {
       rowGap: '25px'
     }
-  }, pools.map(function (card, idx) {
+  }, pools.map((card, idx) => {
     return /*#__PURE__*/React__default["default"].createElement("div", {
       key: idx,
       className: "col-12 col-lg-6"
@@ -4715,10 +4579,13 @@ var DustPools = function DustPools(_ref) {
     style: {
       marginTop: '20px'
     },
-    onClick: function onClick() {
-      return window.open('https://blog.ether.cards/dust-utility-token-model-distribution/');
-    }
-  }, "More")), /*#__PURE__*/React__default["default"].createElement(TopSectionDividers, null), /*#__PURE__*/React__default["default"].createElement("div", {
+    onClick: () => window.open('https://blog.ether.cards/dust-utility-token-model-distribution/')
+  }, "More")), /*#__PURE__*/React__default["default"].createElement(VaultInterface, {
+    address: address,
+    hc: handleConnect,
+    d4p: dust4PunksContract,
+    ethersProvider: ethersProvider
+  }), /*#__PURE__*/React__default["default"].createElement(TopSectionDividers, null), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dust-pool-textbox pb-4"
   }, /*#__PURE__*/React__default["default"].createElement("p", {
     className: "pool-subtitle"
@@ -4737,18 +4604,14 @@ var DustPools = function DustPools(_ref) {
     ethersProvider: ethersProvider,
     chainId: chainId,
     handleConnect: handleConnect,
-    handleBack: function handleBack() {
-      return setSelectedPoolIdx(null);
-    },
+    handleBack: () => setSelectedPoolIdx(null),
     handleChangePool: showDetails
   }))) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dust-pool-root"
   }, /*#__PURE__*/React__default["default"].createElement(UpcomingProjectSubpage, {
     pool: upcomingPool,
     chainId: chainId,
-    handleBack: function handleBack() {
-      return setUpcomingPool(null);
-    }
+    handleBack: () => setUpcomingPool(null)
   })))));
 };
 

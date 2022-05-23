@@ -15,6 +15,7 @@ import UpcomingPoolsCarousel from './components/UpcomingPoolsCarousel.jsx';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import UpcomingProjectSubpage from './components/UpcomingProjectSubpage';
+import VaultInterface from './components/VaultInterface';
 
 
 
@@ -221,7 +222,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let D4P = await getContract('Dust4Punks', ethersProvider);
       if (D4P) {
         setDust4PunksContract(D4P);
-       // console.log('D4P:', D4P);
+        console.log('D4P:', D4P);
       } else {
         console.log('Could not initialise D4P Contract');
       }
@@ -251,7 +252,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       numberOfPools = Number(res);
     }
 
-    //console.log('#OF POOLS', numberOfPools);
+    console.log('#OF POOLS', numberOfPools);
 
     // if(address){
     const ZoomLibraryInstance = new Zoom({ use_reference_calls: true });
@@ -325,7 +326,11 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       }
 
       if(poolIdx<poolsFromBackend.length){
-        tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
+      
+        let poolByVaultId = poolsFromBackend.find((i)=>{return i.vault_id===poolIdx});
+
+       // tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
+        tempPool.push({ ...poolByVaultId, vaultData: vd });
         poolIdx++;
       }else{
         console.log('overflow :/', poolIdx,poolsFromBackend.length);
@@ -404,7 +409,9 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         for (let i = 0; i < calls.length; i++) {
           //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
           let ab = ZoomLibraryInstance.decodeCall(calls[i]).toString();
+          console.log('idx, balance', i, ab);
           let poolIdx = hasContract[hasContractIdx];
+          console.log('pool index, allpools', poolIdx,ap);
           ap[poolIdx].vaultData = {
             ...ap[poolIdx].vaultData,
             /* totalSupply:ts, */ available: Number(ab),
@@ -525,6 +532,10 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
                 More
               </button>
             </div>
+
+            <VaultInterface address={address} hc={handleConnect} d4p={dust4PunksContract} ethersProvider={ethersProvider} />
+
+
             <TopSectionDividers />
             <div className="dust-pool-textbox pb-4">
               <p className="pool-subtitle">Upcoming NFT Vaults</p>
@@ -582,6 +593,11 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         </>
 
       )}
+
+
+
+      
+
     </>
   );
 };
