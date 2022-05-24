@@ -454,7 +454,7 @@ const connectOrExhange = ()=>{
         </div>
         <div style={{display:'block'}}>
           <p className="dust-pool-card-label mt-2" style={{fontFamily:"poppins-semibold", textTransform:"capitalize", fontSize:"18px"}}><b>Description</b></p>
-          <div dangerouslySetInnerHTML={{__html: pool.description}}/>
+          <div dangerouslySetInnerHTML={{__html: pool.description.replace('*****',Number(ethers.utils.formatEther(pool.vaultData.vaultPrice)).toLocaleString())}}/>
         </div>
         
 
@@ -487,7 +487,7 @@ const connectOrExhange = ()=>{
               </>
               }
 
-              <div className="counter-circle" style={{margin:"25px 0"}}>
+              <div className="counter-circle" style={{margin:"45px auto"}}>
                 <div className="counter-rotary-holder" id='txRotator'>
                   <div className="counter-rotary-item" />
                 </div>

@@ -8,7 +8,7 @@ const TermsBox = ({termsVisible,handleClose,handleAccept})=>{
 	return (
 	<>
 		{termsVisible?
-		<div className="terms-root">
+		<div className="terms-root black">
 			
 			<div className="terms-box">
 				<div className="scrollable-content">
