@@ -1828,7 +1828,7 @@ const ProjectSubpage = _ref2 => {
     style: {
       margin: 0
     }
-  }, /*#__PURE__*/React.createElement("b", null, dustBalance ? Number(ethers.utils.formatEther(dustBalance)).toLocaleString() + ' D' : 'Connect your wallet to see your dust balance'))), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement("b", null, dustBalance ? Number(ethers.utils.formatEther(dustBalance)).toLocaleString() + ' D' : 'N/A D'))), /*#__PURE__*/React.createElement("p", {
     className: "dust-pool-card-label"
   }, "Price"), /*#__PURE__*/React.createElement("div", {
     className: "dpc-box"
@@ -3910,7 +3910,12 @@ const sx = {
   titleText: {
     fontFamily: 'poppins-semibold',
     fontSize: '18px',
-    lineHeight: '20px'
+    lineHeight: '20px',
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    "-webkit-line-clamp": '2',
+    "-webkit-box-orient": "vertical"
   },
   description: {
     fontFamily: 'poppins',
@@ -3919,9 +3924,12 @@ const sx = {
   },
   imageHolder: {
     width: '84px'
+  },
+  itemHolder: {
+    maxWidth: '60%'
   }
 };
-const autoPlayDelay = 4000;
+const autoPlayDelay = 40000000; //4000
 
 const UpcomingPoolsCarousel = _ref => {
   let {

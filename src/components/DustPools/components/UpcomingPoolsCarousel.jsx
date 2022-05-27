@@ -30,6 +30,13 @@ const sx = {
     fontFamily: 'poppins-semibold',
     fontSize: '18px',
     lineHeight: '20px',
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    "-webkit-line-clamp": '2',
+    "-webkit-box-orient": "vertical"
+  
+
   },
   description: {
     fontFamily: 'poppins',
@@ -39,8 +46,11 @@ const sx = {
   imageHolder: {
     width: '84px',
   },
+  itemHolder: {
+    maxWidth: '60%',
+  },
 };
-const autoPlayDelay = 4000;
+const autoPlayDelay = 40000000; //4000
 const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [noOfCards, setNoOfCards] = useState(4);
