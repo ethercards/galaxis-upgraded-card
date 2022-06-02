@@ -130,6 +130,7 @@ const TopSectionDividers = () => (
 
 const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
   const [selectedPoolIdx, setSelectedPoolIdx] = useState(null);
+  const [selectedUpcomingPoolIdx, setselectedUpcomingPoolIdx] = useState(null)
   const [dustContract, setDustContract] = useState(null);
   const [dust4PunksContract, setDust4PunksContract] = useState(null);
   const [zoom2, setZoom2] = useState(null);
@@ -178,6 +179,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             if(parsedParams.upcoming){
              // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
               setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+              
             }
 
           }
@@ -463,7 +465,11 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
     }
   };
 
-
+  const showUpcomingDetails = (idx) => {
+    if (idx !== null) {
+      setselectedUpcomingPoolIdx(idx);
+    }
+  }
 
 
 
@@ -543,7 +549,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             </div>
                 
             {upcomingPools.length>0 && 
-              <UpcomingPoolsCarousel imgUrl={upcomingImgUrl} poolsData={upcomingPools} handleSelect={setUpcomingPool}/>
+              <UpcomingPoolsCarousel imgUrl={upcomingImgUrl} poolsData={upcomingPools} handleSelect={setUpcomingPool} handleSelectedIndex={showUpcomingDetails}/>
             }
             
             {/* <div className="row">
@@ -584,9 +590,11 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             <>
               <div className="dust-pool-root">
                 <UpcomingProjectSubpage
-                  pool = {upcomingPool}
+                  pools = {upcomingPools}
+                  currentIndex = {selectedUpcomingPoolIdx}
                   chainId={chainId}
                   handleBack={() => setUpcomingPool(null)}
+                  handleChangePool={showUpcomingDetails}
                 />
               </div>
             </>}
