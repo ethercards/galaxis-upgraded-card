@@ -433,7 +433,7 @@ const connectOrExhange = ()=>{
               <p className="dust-pool-card-label">Your balance</p>
               <div className='dpc-box'>
               <p style={{margin:0}}>
-                <b>{dustBalance?Number(ethers.utils.formatEther(dustBalance)).toLocaleString()+' D':'N/A D'}</b>
+                <b>{dustBalance?Number(ethers.utils.formatEther(dustBalance)).toLocaleString()+' D':'N/A'}</b>
               </p>
               </div>
               
