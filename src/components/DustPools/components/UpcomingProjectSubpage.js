@@ -96,7 +96,7 @@ const UpcomingProjectSubpage = ({pools, chainId, handleBack, currentIndex, handl
               <p className="dust-pool-card-label">Price</p>
               <div className='dpc-box'>
               <p style={{margin:0}}>
-                <b>{pool.price?pool.price.toLocaleString()+' D':'TBA'}</b>
+                <b>{(pool.price && parseInt(pool.price)>0)?pool.price.toLocaleString()+' D':'TBA'}</b>
               </p>
               </div>    
             </div>

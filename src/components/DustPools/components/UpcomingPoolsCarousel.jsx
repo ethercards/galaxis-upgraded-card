@@ -132,7 +132,7 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect, handleSelected
                   >
                     {pool.title}
                   </Typography>
-                  <Typography sx={sx.description}>Price: {pool.price?pool.price.toLocaleString()+' D':'TBA'}</Typography>
+                  <Typography sx={sx.description}>Price: {(pool.price && parseInt(pool.price)>0)?pool.price.toLocaleString()+' D':'TBA'}</Typography>
                 </Box>
               </Box>
             </Box>

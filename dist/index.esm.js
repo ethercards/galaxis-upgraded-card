@@ -3885,7 +3885,7 @@ var img$1 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width=
 
 var img = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e %3crect id='Rectangle_2130' data-name='Rectangle 2130' width='16' height='16' rx='2' fill='%23fc6c02'/%3e%3c/svg%3e";
 
-var sx = {
+const sx = {
   content: {
     maxWidth: '294px',
     margin: 'auto'
@@ -3930,25 +3930,18 @@ var sx = {
   },
   image: {}
 };
-var autoPlayDelay = 40000000; //4000
+const autoPlayDelay = 40000000; //4000
 
-var UpcomingPoolsCarousel = function UpcomingPoolsCarousel(_ref) {
-  var imgUrl = _ref.imgUrl,
-      poolsData = _ref.poolsData,
-      handleSelect = _ref.handleSelect,
-      handleSelectedIndex = _ref.handleSelectedIndex;
-
-  var _useState = useState(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      activeItemIndex = _useState2[0],
-      setActiveItemIndex = _useState2[1];
-
-  var _useState3 = useState(4),
-      _useState4 = _slicedToArray(_useState3, 2),
-      noOfCards = _useState4[0],
-      setNoOfCards = _useState4[1];
-
-  useEffect(function () {
+const UpcomingPoolsCarousel = _ref => {
+  let {
+    imgUrl,
+    poolsData,
+    handleSelect,
+    handleSelectedIndex
+  } = _ref;
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const [noOfCards, setNoOfCards] = useState(4);
+  useEffect(() => {
     window.scrollTo(0, 0);
 
     if (window.innerWidth < 1140) {
@@ -3963,18 +3956,16 @@ var UpcomingPoolsCarousel = function UpcomingPoolsCarousel(_ref) {
       setNoOfCards(1);
     }
   }, []);
-  useEffect(function () {
-    var interval = setInterval(function () {
+  useEffect(() => {
+    const interval = setInterval(() => {
       tick();
     }, autoPlayDelay);
-    return function () {
-      return clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [activeItemIndex]);
 
-  var tick = function tick() {
+  const tick = () => {
     if (poolsData.length > 4) {
-      var active = activeItemIndex + noOfCards;
+      let active = activeItemIndex + noOfCards;
       setActiveItemIndex(active);
     }
 
@@ -3983,12 +3974,12 @@ var UpcomingPoolsCarousel = function UpcomingPoolsCarousel(_ref) {
     }
   };
 
-  var onChange = function onChange(id) {
-    var active = id * noOfCards;
+  const onChange = id => {
+    let active = id * noOfCards;
     setActiveItemIndex(active);
   };
 
-  var handleItemSelect = function handleItemSelect(idx) {
+  const handleItemSelect = idx => {
     handleSelect(poolsData[idx]);
   };
 
@@ -4003,44 +3994,42 @@ var UpcomingPoolsCarousel = function UpcomingPoolsCarousel(_ref) {
     activePosition: "left",
     numberOfCards: noOfCards,
     gutter: 16
-  }, poolsData.map(function (pool, idx) {
-    return /*#__PURE__*/React.createElement(Box, {
-      key: idx,
-      sx: sx.content,
-      style: {
-        boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)",
-        margin: "20px auto",
-        borderRadius: "12px",
-        overflow: "hidden"
-      }
-    }, /*#__PURE__*/React.createElement(Box, {
-      sx: sx.contentLeft,
-      className: "previousBox",
-      onClick: function onClick() {
-        handleItemSelect(idx);
-        handleSelectedIndex(idx);
-      }
-    }, /*#__PURE__*/React.createElement(Box, {
-      sx: sx.imageHolder
-    }, /*#__PURE__*/React.createElement("img", {
-      src: imgUrl + pool.image_src,
-      alt: "",
-      style: {
-        height: '100%',
-        width: '100%',
-        // borderRadius: '12px 0px 0px 12px',
-        display: "block"
-      }
-    }), ' '), /*#__PURE__*/React.createElement(Box, {
-      sx: sx.itemHolder
-    }, /*#__PURE__*/React.createElement(Typography, {
-      variant: "minuscule",
-      sx: sx.titleText,
-      className: "prevtitleText"
-    }, pool.title), /*#__PURE__*/React.createElement(Typography, {
-      sx: sx.description
-    }, "Price: ", pool.price ? pool.price.toLocaleString() + ' D' : 'TBA'))));
-  })), poolsData.length > 4 ? /*#__PURE__*/React.createElement(Box, {
+  }, poolsData.map((pool, idx) => /*#__PURE__*/React.createElement(Box, {
+    key: idx,
+    sx: sx.content,
+    style: {
+      boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)",
+      margin: "20px auto",
+      borderRadius: "12px",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement(Box, {
+    sx: sx.contentLeft,
+    className: "previousBox",
+    onClick: () => {
+      handleItemSelect(idx);
+      handleSelectedIndex(idx);
+    }
+  }, /*#__PURE__*/React.createElement(Box, {
+    sx: sx.imageHolder
+  }, /*#__PURE__*/React.createElement("img", {
+    src: imgUrl + pool.image_src,
+    alt: "",
+    style: {
+      height: '100%',
+      width: '100%',
+      // borderRadius: '12px 0px 0px 12px',
+      display: "block"
+    }
+  }), ' '), /*#__PURE__*/React.createElement(Box, {
+    sx: sx.itemHolder
+  }, /*#__PURE__*/React.createElement(Typography, {
+    variant: "minuscule",
+    sx: sx.titleText,
+    className: "prevtitleText"
+  }, pool.title), /*#__PURE__*/React.createElement(Typography, {
+    sx: sx.description
+  }, "Price: ", pool.price && parseInt(pool.price) > 0 ? pool.price.toLocaleString() + ' D' : 'TBA')))))), poolsData.length > 4 ? /*#__PURE__*/React.createElement(Box, {
     style: {
       position: 'relative',
       display: 'flex',
@@ -4051,23 +4040,19 @@ var UpcomingPoolsCarousel = function UpcomingPoolsCarousel(_ref) {
     sx: sx.dotList
   }, Array.apply(null, {
     length: Math.ceil(poolsData.length / noOfCards)
-  }).map(function (pool, i) {
-    return /*#__PURE__*/React.createElement(Box, {
-      key: i,
-      className: "yours-custom-class",
-      onClick: function onClick() {
-        return onChange(i);
-      },
-      sx: sx.image
-    }, /*#__PURE__*/React.createElement("img", {
-      src: activeItemIndex / noOfCards === i ? img : img$1,
-      style: {
-        cursor: 'pointer',
-        marginTop: "20px",
-        boxShadow: '-1px 5px 9px 0px rgb(0 0 0 / 11%)'
-      }
-    }));
-  }))) : /*#__PURE__*/React.createElement(Box, null)));
+  }).map((pool, i) => /*#__PURE__*/React.createElement(Box, {
+    key: i,
+    className: "yours-custom-class",
+    onClick: () => onChange(i),
+    sx: sx.image
+  }, /*#__PURE__*/React.createElement("img", {
+    src: activeItemIndex / noOfCards === i ? img : img$1,
+    style: {
+      cursor: 'pointer',
+      marginTop: "20px",
+      boxShadow: '-1px 5px 9px 0px rgb(0 0 0 / 11%)'
+    }
+  }))))) : /*#__PURE__*/React.createElement(Box, null)));
 };
 
 const ShowNextPreviosProject = _ref => {
@@ -4200,7 +4185,7 @@ const UpcomingProjectSubpage = _ref2 => {
     style: {
       margin: 0
     }
-  }, /*#__PURE__*/React.createElement("b", null, pool.price ? pool.price.toLocaleString() + ' D' : 'TBA')))))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("b", null, pool.price && parseInt(pool.price) > 0 ? pool.price.toLocaleString() + ' D' : 'TBA')))))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'block'
     }
