@@ -115,6 +115,7 @@
     display: flex;
     font-weight: 700;
     padding:0;
+    color:black;
 }
 .pool-ps-btn p{
     margin-block-start: 0;
@@ -213,6 +214,10 @@
     .ps-right{
         padding-left: 0;
     }
+
+    .pool-ps-card-and-descipton-inner.ps-right .text-box{
+        padding-left: 0; 
+    } 
 }
 @media only screen and (max-width: 600px) {
     .pool-ps-card-and-descipton-inner{
@@ -222,6 +227,8 @@
     .pool-ps-card-and-descipton{
         justify-content: center;
     }
+
+    
 }
 @media only screen and (max-width: 400px) {
     .previous-box img, .next-box img{

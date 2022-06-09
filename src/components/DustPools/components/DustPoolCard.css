@@ -72,6 +72,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .dust-pool-card-image-container{
+    width:100%;
+  }
+
   .dust-pool-card {
     flex-direction: column;
   }
