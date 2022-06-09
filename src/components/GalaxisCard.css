@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  transform: translate3d(0, 0, 0);
 }
 .resizer-container{
   padding: 10px;
@@ -78,7 +79,22 @@
   z-index: 2;
   animation: shiningEffect2 2s ease-in-out normal ;
 }
-
+.back_card.active::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 100%;
+  display: block;
+  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);
+  background-position-x: 0;
+  background-repeat: no-repeat;
+  transition: all .35s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+  animation: shiningEffect2 2s ease-in-out normal ;
+}
 .badge-img{
   position: absolute;
   width: 75px;

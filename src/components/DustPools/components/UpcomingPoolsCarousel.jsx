@@ -49,9 +49,12 @@ const sx = {
   itemHolder: {
     maxWidth: '60%',
   },
+  image: {
+
+  }
 };
 const autoPlayDelay = 40000000; //4000
-const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
+const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect, handleSelectedIndex }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [noOfCards, setNoOfCards] = useState(4);
   useEffect(() => {
@@ -108,7 +111,7 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
         >
           {poolsData.map((pool,idx) => (
             <Box key={idx} sx={sx.content} style={{boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)", margin:"20px auto", borderRadius:"12px", overflow:"hidden"}}>
-              <Box sx={sx.contentLeft} className="previousBox" onClick={()=>handleItemSelect(idx)} >
+              <Box sx={sx.contentLeft} className="previousBox" onClick={()=>{handleItemSelect(idx); handleSelectedIndex(idx) }}>
                 <Box sx={sx.imageHolder}>
                   <img
                     src={imgUrl + pool.image_src}
@@ -160,7 +163,8 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
                         ? carouselPginationOrange
                         : carouselPagination
                     }
-                    style={{ cursor: 'pointer', marginTop:"20px" }}
+                    style={{ cursor: 'pointer', marginTop:"20px", boxShadow: '-1px 5px 9px 0px rgb(0 0 0 / 11%)'
+                  }}
                   />
                 </Box>
               ))}
