@@ -548,7 +548,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             <TopSectionDividers />
             <div className="dust-pool-textbox pb-4">
               <p className="pool-subtitle">Upcoming NFT Vaults</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>Checkout all the upcoming Galaxis Vaults - where $DUST Utility Tokens may be exchanged for high quality NFTs!</p>
             </div>
                 
             {upcomingPools.length>0 && 
