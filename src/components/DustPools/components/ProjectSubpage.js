@@ -529,7 +529,7 @@ const connectOrExhange = ()=>{
                 <p className="dust-pool-card-label" style={{textTransform:"none"}}>Your brand new NFT can be viewed right now in your wallet, or go back to dust pools to buy some more!</p>
                 <div className='ps-text-bottom' style={{display:"flex", flexDirection:"column", rowGap:"10px", maxWidth:"170px", marginLeft:"auto", marginRight:"auto"}}>
                 <button className="dust-pool-btn" onClick={()=>{setCardRevealed(false);setUserHash(false);setTxHash(false)}}>Buy more</button>
-                <a className="dust-pool-btn" target="_blank" rel="noreferrer" href={chainId===1?'https://explorer.ether.cards/#/wallet':'https://explorer.burneth.com/#/wallet'}>Go to wallet</a>
+                {/* <a className="dust-pool-btn" target="_blank" rel="noreferrer" href={chainId===1?'https://explorer.ether.cards/#/wallet':'https://explorer.burneth.com/#/wallet'}>Go to wallet</a> */}
                 </div>
               </div>
             </div> 

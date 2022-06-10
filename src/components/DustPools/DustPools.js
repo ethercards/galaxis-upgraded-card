@@ -146,6 +146,8 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
   const loc = useLocation();
 
+
+
   const url = chainId===1?'https://cms.galaxis.xyz':'https://galaxis-web-backend-staging.herokuapp.com';
   const upcomingImgUrl = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
 
@@ -153,6 +155,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
   useEffect(()=>{
     const getPoolData = async ()=>{
 
+      console.log('00000000000000000')
       const res = await axios.get(url+'/vaults').catch(e=>console.log);
       console.log('vaults',res);
       if(res.status === 200){
@@ -192,18 +195,15 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
 
 
-
-    getPoolData();
-  },[]);
+    if(chainId!==null){
+      getPoolData();
+    }
+  },[chainId]);
 
 
 
 
   useEffect(() => {
-
-   
-
-
     const initContract = async () => {
       let c = await getContract('Dust', ethersProvider);
       if (c) {
@@ -313,7 +313,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let vp = ZoomLibraryInstance.decodeCall(calls[i + 2]).toString();
       let vt = ZoomLibraryInstance.decodeCall(calls[i + 3]).toString();
 
-      console.log('va,vn,vp,vt',va,vn,vp,vt);
+     // console.log('va,vn,vp,vt',va,vn,vp,vt);
 
 
       const vd = {
@@ -414,9 +414,9 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         for (let i = 0; i < calls.length; i++) {
           //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
           let ab = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-          console.log('idx, balance', i, ab);
+         // console.log('idx, balance', i, ab);
           let poolIdx = hasContract[hasContractIdx];
-          console.log('pool index, allpools', poolIdx,ap);
+          //console.log('pool index, allpools', poolIdx,ap);
           ap[poolIdx].vaultData = {
             ...ap[poolIdx].vaultData,
             /* totalSupply:ts, */ available: Number(ab),
