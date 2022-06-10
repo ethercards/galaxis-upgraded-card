@@ -33,7 +33,7 @@ const prod = {
   ETHERSCAN_URL: 'https://etherscan.io/',
   OPENSEA_URL: 'https://opensea.io/',
 
-  API_URL: 'https://galaxis-backend.herokuapp.com',
+  API_URL: 'https://cms.galaxis.xyz',
   PREVIEW_URL: 'https://launchpad-backend.herokuapp.com/api/project-session',
   AWS_URL: 'https://galaxis-web.s3.amazonaws.com/media',
 
@@ -55,7 +55,7 @@ const common = {
 
 // if use npm/yarn start,  NODE_ENV = "development"
 // if use npm/yarn build,  NODE_ENV = "production"
-let envConfig = dev; // process.env.NODE_ENV === "development" ? dev : prod
+let envConfig = prod; // process.env.NODE_ENV === "development" ? dev : prod
 let config = { ...envConfig, ...common };
 
 export default config;

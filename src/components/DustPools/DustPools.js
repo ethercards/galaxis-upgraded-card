@@ -146,7 +146,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
   const loc = useLocation();
 
-  const url = chainId===1?'https://galaxis-web-backend.herokuapp.com':'https://galaxis-web-backend-staging.herokuapp.com';
+  const url = chainId===1?'https://cms.galaxis.xyz':'https://galaxis-web-backend-staging.herokuapp.com';
   const upcomingImgUrl = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
 
 
@@ -261,7 +261,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
     let calls = [];
 
     for (let i = 0; i < numberOfPools; i++) {
-      //Punk vault address
+      // vault address
       const vaultAddress = ZoomLibraryInstance.addCall(
         dust4PunksContract,
         ['vaultAddress', [i]],
@@ -312,6 +312,9 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let vn = ZoomLibraryInstance.decodeCall(calls[i + 1]).toString();
       let vp = ZoomLibraryInstance.decodeCall(calls[i + 2]).toString();
       let vt = ZoomLibraryInstance.decodeCall(calls[i + 3]).toString();
+
+      console.log('va,vn,vp,vt',va,vn,vp,vt);
+
 
       const vd = {
         vaultAddress: va,

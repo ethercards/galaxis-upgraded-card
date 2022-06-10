@@ -2003,7 +2003,7 @@ const ProjectSubpage = _ref2 => {
 };
 
 var Dust$2 = "0xe2E109f1b4eaA8915655fE8fDEfC112a34ACc5F0";
-var Dust4Punks$2 = "0xAD5304562D6e816938f44a457a0aA055da565ac1";
+var Dust4Punks$2 = "0xc8725085541967993253C6EA460DD96dafFABee5";
 var Zoom2$2 = "0x7cdF091AF6a9ED75E3192500d3e5BB0f63e22Dea";
 var AddressesMain = {
 	Dust: Dust$2,
@@ -4405,7 +4405,7 @@ var DustPools = function DustPools(_ref) {
       setUpcomingPool = _useState24[1];
 
   var loc = reactRouterDom.useLocation();
-  var url = chainId === 1 ? 'https://galaxis-web-backend.herokuapp.com' : 'https://galaxis-web-backend-staging.herokuapp.com';
+  var url = chainId === 1 ? 'https://cms.galaxis.xyz' : 'https://galaxis-web-backend-staging.herokuapp.com';
   var upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
   React.useEffect(function () {
     var getPoolData = /*#__PURE__*/function () {
@@ -4573,7 +4573,7 @@ var DustPools = function DustPools(_ref) {
               calls = [];
 
               for (i = 0; i < numberOfPools; i++) {
-                //Punk vault address
+                // vault address
                 vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
                 calls.push(vaultAddress); //Pool Name
 
@@ -4605,7 +4605,7 @@ var DustPools = function DustPools(_ref) {
 
             case 17:
               if (!(_i < numberOfPools * 4)) {
-                _context3.next = 31;
+                _context3.next = 32;
                 break;
               }
 
@@ -4613,6 +4613,7 @@ var DustPools = function DustPools(_ref) {
               vn = ZoomLibraryInstance.decodeCall(calls[_i + 1]).toString();
               vp = ZoomLibraryInstance.decodeCall(calls[_i + 2]).toString();
               vt = ZoomLibraryInstance.decodeCall(calls[_i + 3]).toString();
+              console.log('va,vn,vp,vt', va, vn, vp, vt);
               vd = {
                 vaultAddress: va,
                 vaultName: vn,
@@ -4620,10 +4621,10 @@ var DustPools = function DustPools(_ref) {
                 vaultToken: vt,
                 available: null
               };
-              _context3.next = 25;
+              _context3.next = 26;
               return getDummy721(vt, ethersProvider);
 
-            case 25:
+            case 26:
               vToken = _context3.sent;
 
               if (vToken) {
@@ -4643,18 +4644,18 @@ var DustPools = function DustPools(_ref) {
                 console.log('overflow :/', poolIdx, poolsFromBackend.length);
               }
 
-            case 28:
+            case 29:
               _i += 4;
               _context3.next = 17;
               break;
 
-            case 31:
+            case 32:
               //console.log('AP', tempPool);
               setAllPools(tempPool);
               setPools(tempPool);
               setSelectedFilter('ALL');
 
-            case 34:
+            case 35:
             case "end":
               return _context3.stop();
           }
