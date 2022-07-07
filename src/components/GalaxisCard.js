@@ -77,7 +77,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
           cSize = 'c-xlarge';
        } else if (width > 400) {
           cSize = 'c-large';
-       } else if (width > 300) {
+       } else if (width > 330) {
           cSize = 'c-medium';
        } else if (width > 240) {
           cSize = 'c-small';
