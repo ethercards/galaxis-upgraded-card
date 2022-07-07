@@ -283,6 +283,7 @@
   text-align: center;
   max-width: 90%;
   min-width: 200px;
+  word-break: break-word
 }
 
 @keyframes shiningEffect1 {
@@ -386,4 +387,13 @@
 .c-small .trait-holder{
   width: 30px;
   height: 30px;
+}
+.c-small .trait-card-content-holder{
+  padding: 40px 30px 30px 30px;
+}
+.c-small .trait-card-trait-icon-holder, .c-xsmall .trait-card-trait-icon-holder{
+  display: none;
+}
+.c-small .trait-card-title{
+  font-size: 27px
 }
