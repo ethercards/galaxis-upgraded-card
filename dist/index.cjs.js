@@ -215,22 +215,22 @@ const CardBack = _ref => {
 
 var img$6 = "data:image/png;base64,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";
 
-var TraitCard = function TraitCard(_ref) {
-  var trait = _ref.trait,
-      _onClick = _ref.onClick,
-      image = _ref.image,
-      traitImg = _ref.traitImg;
+const TraitCard = _ref => {
+  let {
+    trait,
+    onClick,
+    image,
+    traitImg
+  } = _ref;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("img", {
     className: "close-button",
     src: img$6,
     alt: "",
-    onClick: function onClick(e) {
-      return _onClick(e);
-    }
+    onClick: e => onClick(e)
   }), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "trait-card-root",
     style: {
-      backgroundImage: "url(".concat(image, ")")
+      backgroundImage: `url(${image})`
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "trait-card-content"
@@ -279,7 +279,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$9 = ".card-image-container{\r\n  position: relative;\r\n  /* min-height: 500px; */\r\n  margin: auto;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n.pyramid_anim_container {\r\n  z-index: 2;\r\n  box-sizing: border-box;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100%;\r\n}\r\n.resizer-container{\r\n  padding: 10px;\r\n}\r\n\r\n.scope span {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  transform-origin: center;\r\n  transform-style: preserve-3d;\r\n}\r\n.scope span:first-child {\r\n  transform: rotateY(calc(0deg)) translateZ(1px) rotateX(0deg);\r\n}\r\n.scope span:nth-child(2) {\r\n  transform: rotateY(calc(0deg)) translateZ(0px) rotateX(0deg);\r\n}\r\n\r\n.scope {\r\n  position: relative;\r\n  transform-style: preserve-3d;\r\n  animation: slid 5s linear infinite;\r\n  border-radius: 12px;\r\n  transition: 1.5s all;\r\n  padding: 10px;\r\n  /* box-shadow: 0px 55px 88px 0px rgba(0,0,0,0.42); */\r\n}\r\n.scope span {\r\n  overflow: hidden;\r\n  border-radius: 12px;\r\n}\r\n.front.active::after{\r\n  content: \"\";\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  top: 0;\r\n  left: 100%;\r\n  display: block;\r\n  background: linear-gradient(112deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\r\n  background-position-x: 0;\r\n  background-repeat: no-repeat;\r\n  transition: all .35s ease-in-out;\r\n  pointer-events: none;\r\n  z-index: 2;\r\n  animation: shiningEffect1 2s ease-in-out normal ;\r\n}\r\n.back.active::after{\r\n  content: \"\";\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  top: 0;\r\n  right: 100%;\r\n  display: block;\r\n  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\r\n  background-position-x: 0;\r\n  background-repeat: no-repeat;\r\n  transition: all .35s ease-in-out;\r\n  pointer-events: none;\r\n  z-index: 2;\r\n  animation: shiningEffect2 2s ease-in-out normal ;\r\n}\r\n\r\n.badge-img{\r\n  position: absolute;\r\n  width: 75px;\r\n  height: 75px;\r\n  bottom: 15px;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  left: 0;\r\n  right: 0;\r\n  cursor: pointer;\r\n}\r\n.flip-icon {\r\n  /* position: absolute; */\r\n  width: 40px;\r\n  height: 40px;\r\n  /* margin-top: auto;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  margin-bottom: auto;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;*/\r\n  cursor: pointer; \r\n}\r\n.fullscreen-icon{\r\n  /* position: absolute; */\r\n  width: 40px;\r\n  height: 40px;\r\n  margin-right: 10px;\r\n  /* margin-top: auto;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  margin-bottom: auto;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0; */\r\n  cursor: pointer;\r\n}\r\n.back_card{\r\n  animation: hideBack 2s ease-in-out normal;\r\n  transition: all 1s;\r\n  visibility: hidden;\r\n  border-radius: 12px;\r\n}\r\n.back_card.active{\r\n  visibility: visible;\r\n}\r\n.card-back-root {\r\n  height: 100%;\r\n  transform: rotateY(180deg);\r\n  border-radius: 12px;\r\n  background-position: center center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  -webkit-box-pack: end;\r\n  justify-content: flex-end;\r\n  position: relative;\r\n}\r\n.card-icons-holder{\r\n  position: absolute;\r\n  inset: 0px;\r\n  margin: auto;\r\n  width: 100%;\r\n  max-height: 40px;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  justify-content: center;\r\n}\r\n.trait-container {\r\n  position: absolute;\r\n  display: flex;\r\n  -webkit-flex-direction: column;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n  gap: 5px;\r\n  top: 10px;\r\n  right: 10px;\r\n}\r\n.trait-holder{\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 8px;\r\n  background-color: black;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  cursor: pointer;\r\n}\r\n.trait-holder:hover {\r\n  background-color: #fc6405;\r\n}\r\n.trait-holder img{\r\n  width: 30px;\r\n  height: 25px;\r\n}\r\n.trait-card-root{\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 12px;\r\n  transform: rotateY(180deg);\r\n  -webkit-background-position: center;\r\n  background-position: center;\r\n  -webkit-background-size: cover;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n}\r\n.close-button {\r\n  width: 20.5px;\r\n  height: 20.5px;\r\n  cursor: pointer;\r\n  position: absolute;\r\n  top: 30px;\r\n  left: 30px;\r\n  z-index: 5;\r\n  transform: rotateX(0deg);\r\n}\r\n.trait-card-content {\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 12px;\r\n  background-color: #fc6405b3;\r\n}\r\n.trait-card-content-holder{\r\n  height: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 30px;\r\n \r\n}\r\n\r\n.trait-card-trait-icon-holder {\r\n  width: 55px;\r\n  height: 55px;\r\n  margin-bottom: 20px;\r\n  margin-top: 10px;\r\n}\r\n.trait-card-trait-icon-holder img{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.trait-card-title-holder{\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n.trait-card-title {\r\n  margin: 0px;\r\n  font-weight: 400;\r\n  color: rgb(250, 250, 242);\r\n  font-size: 36px;\r\n  font-family: Poppins-semibold;\r\n  line-height: 42px;\r\n  text-align: center;\r\n  width: fit-content;\r\n  /* max-width: 250px; */\r\n  min-width: 250px;\r\n}\r\n.trait-card-description-holder{\r\n  margin-top: 25px;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  justify-content: center;\r\n  overflow-y: auto;\r\n}\r\n .trait-card-description-holder::-webkit-scrollbar {\r\n  width: 4px;\r\n}\r\n.trait-card-description-holder::-webkit-scrollbar-track {\r\n  background: #ffffff49;\r\n} \r\n.trait-card-description-holder::-webkit-scrollbar-thumb  {\r\n  background: #ffffff;\r\n} \r\n.trait-card-description{\r\n  margin: 0px;\r\n  font-weight: 400;\r\n  color: rgb(250, 250, 242);\r\n  font-family: poppins;\r\n  font-size: 16px;\r\n  line-height: 28px;\r\n  text-align: center;\r\n  max-width: 90%;\r\n  min-width: 200px;\r\n}\r\n\r\n@keyframes shiningEffect1 {\r\n  0%{\r\n\r\n    left: -100%;\r\n  }\r\n 100%{\r\n\r\n  left: 100%;\r\n }\r\n}\r\n@keyframes shiningEffect2 {\r\n  0%{\r\n\r\n    right: -100%;\r\n  }\r\n 100%{\r\n  right: 100%;\r\n }\r\n}\r\n\r\n@keyframes hideBack {\r\n from{\r\n  visibility: visible;\r\n  }\r\n to{\r\n    visibility: hidden;\r\n  }\r\n}\r\n.flipped-img {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 10px;\r\n  object-fit: cover;\r\n  transition: 2s;\r\n}\r\n.buttonHolder{\r\n  position: fixed;\r\n  height: 16px;\r\n  width: 16px;\r\n  top: 4%;\r\n  left: 4%;\r\n  font-weight: 600;\r\n  font-size: 1rem;\r\n  line-height: 1rem;\r\n  color: #fff;\r\n  transition: color .3s ease-in-out;\r\n  cursor: pointer;\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  /* .card-image-container {\r\n      min-height: 300px;\r\n  } */\r\n  .scope {\r\n    position: relative;\r\n    height: 440px;\r\n    transform-style: preserve-3d;\r\n    animation: slid 5s linear infinite;\r\n    transition: 2s all;\r\n  }\r\n  .arrow{\r\n    display: none;\r\n  }\r\n}\r\n@media screen and (max-width: 350px) {\r\n  .badge-img{\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    left: 0;\r\n    right: 0;\r\n  }\r\n  .scope {\r\n    position: relative;\r\n    /* width: 250px !important;\r\n    height: 340px; */\r\n    transform-style: preserve-3d;\r\n    animation: slid 5s linear infinite;\r\n    transition-property: position;\r\n    transition: 2s;\r\n  }\r\n}\r\n\r\n.c-medium .trait-holder{\r\n  width: 35px;\r\n  height: 35px;\r\n}\r\n.c-medium .trait-card-trait-icon-holder{\r\n  margin-bottom: 10px;\r\n}\r\n.c-medium .trait-card-title{\r\n  font-size: 32px;\r\n}\r\n.c-medium .trait-card-description{\r\n  line-height: 23px;\r\n}\r\n.c-small .trait-holder{\r\n  width: 30px;\r\n  height: 30px;\r\n}";
+var css_248z$9 = ".card-image-container{\n  position: relative;\n  /* min-height: 500px; */\n  margin: auto;\n  height: 100%;\n  width: 100%;\n}\n.pyramid_anim_container {\n  z-index: 2;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n  transform: translate3d(0, 0, 0);\n}\n.resizer-container{\n  padding: 10px;\n}\n\n.scope span {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transform-origin: center;\n  transform-style: preserve-3d;\n}\n.scope span:first-child {\n  transform: rotateY(calc(0deg)) translateZ(1px) rotateX(0deg);\n}\n.scope span:nth-child(2) {\n  transform: rotateY(calc(0deg)) translateZ(0px) rotateX(0deg);\n}\n\n.scope {\n  position: relative;\n  transform-style: preserve-3d;\n  animation: slid 5s linear infinite;\n  border-radius: 12px;\n  transition: 1.5s all;\n  padding: 10px;\n  /* box-shadow: 0px 55px 88px 0px rgba(0,0,0,0.42); */\n}\n.scope span {\n  overflow: hidden;\n  border-radius: 12px;\n}\n.front.active::after{\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 100%;\n  display: block;\n  background: linear-gradient(112deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\n  background-position-x: 0;\n  background-repeat: no-repeat;\n  transition: all .35s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n  animation: shiningEffect1 2s ease-in-out normal ;\n}\n.back.active::after{\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  right: 100%;\n  display: block;\n  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\n  background-position-x: 0;\n  background-repeat: no-repeat;\n  transition: all .35s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n  animation: shiningEffect2 2s ease-in-out normal ;\n}\n.back_card.active::after{\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  right: 100%;\n  display: block;\n  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\n  background-position-x: 0;\n  background-repeat: no-repeat;\n  transition: all .35s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n  animation: shiningEffect2 2s ease-in-out normal ;\n}\n.badge-img{\n  position: absolute;\n  width: 75px;\n  height: 75px;\n  bottom: 15px;\n  margin-left: auto;\n  margin-right: auto;\n  left: 0;\n  right: 0;\n  cursor: pointer;\n}\n.flip-icon {\n  /* position: absolute; */\n  width: 40px;\n  height: 40px;\n  /* margin-top: auto;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: auto;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;*/\n  cursor: pointer; \n}\n.fullscreen-icon{\n  /* position: absolute; */\n  width: 40px;\n  height: 40px;\n  margin-right: 10px;\n  /* margin-top: auto;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: auto;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; */\n  cursor: pointer;\n}\n.back_card{\n  animation: hideBack 2s ease-in-out normal;\n  transition: all 1s;\n  visibility: hidden;\n  border-radius: 12px;\n}\n.back_card.active{\n  visibility: visible;\n}\n.card-back-root {\n  height: 100%;\n  transform: rotateY(180deg);\n  border-radius: 12px;\n  background-position: center center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  -webkit-box-pack: end;\n  justify-content: flex-end;\n  position: relative;\n}\n.card-icons-holder{\n  position: absolute;\n  inset: 0px;\n  margin: auto;\n  width: 100%;\n  max-height: 40px;\n  display: flex;\n  -webkit-box-pack: center;\n  justify-content: center;\n}\n.trait-container {\n  position: absolute;\n  display: flex;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  gap: 5px;\n  top: 10px;\n  right: 10px;\n}\n.trait-holder{\n  width: 40px;\n  height: 40px;\n  border-radius: 8px;\n  background-color: black;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n}\n.trait-holder:hover {\n  background-color: #fc6405;\n}\n.trait-holder img{\n  width: 30px;\n  height: 25px;\n}\n.trait-card-root{\n  width: 100%;\n  height: 100%;\n  border-radius: 12px;\n  transform: rotateY(180deg);\n  -webkit-background-position: center;\n  background-position: center;\n  -webkit-background-size: cover;\n  background-size: cover;\n  background-repeat: no-repeat;\n}\n.close-button {\n  width: 20.5px;\n  height: 20.5px;\n  cursor: pointer;\n  position: absolute;\n  top: 30px;\n  left: 30px;\n  z-index: 5;\n  transform: rotateX(0deg);\n}\n.trait-card-content {\n  width: 100%;\n  height: 100%;\n  border-radius: 12px;\n  background-color: #fc6405b3;\n}\n.trait-card-content-holder{\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n \n}\n\n.trait-card-trait-icon-holder {\n  width: 55px;\n  height: 55px;\n  margin-bottom: 20px;\n  margin-top: 10px;\n}\n.trait-card-trait-icon-holder img{\n  width: 100%;\n  height: 100%;\n}\n.trait-card-title-holder{\n    display: flex;\n    justify-content: center;\n}\n.trait-card-title {\n  margin: 0px;\n  font-weight: 400;\n  color: rgb(250, 250, 242);\n  font-size: 36px;\n  font-family: Poppins-semibold;\n  line-height: 42px;\n  text-align: center;\n  width: fit-content;\n  max-width: 250px;\n  min-width: 250px;\n}\n.trait-card-description-holder{\n  margin-top: 25px;\n  display: flex;\n  -webkit-box-pack: center;\n  justify-content: center;\n  overflow-y: auto;\n}\n .trait-card-description-holder::-webkit-scrollbar {\n  width: 4px;\n}\n.trait-card-description-holder::-webkit-scrollbar-track {\n  background: #ffffff49;\n} \n.trait-card-description-holder::-webkit-scrollbar-thumb  {\n  background: #ffffff;\n} \n.trait-card-description{\n  margin: 0px;\n  font-weight: 400;\n  color: rgb(250, 250, 242);\n  font-family: poppins;\n  font-size: 16px;\n  line-height: 28px;\n  text-align: center;\n  max-width: 90%;\n  min-width: 200px;\n}\n\n@keyframes shiningEffect1 {\n  0%{\n\n    left: -100%;\n  }\n 100%{\n\n  left: 100%;\n }\n}\n@keyframes shiningEffect2 {\n  0%{\n\n    right: -100%;\n  }\n 100%{\n  right: 100%;\n }\n}\n\n@keyframes hideBack {\n from{\n  visibility: visible;\n  }\n to{\n    visibility: hidden;\n  }\n}\n.flipped-img {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  border-radius: 10px;\n  object-fit: cover;\n  transition: 2s;\n}\n.buttonHolder{\n  position: fixed;\n  height: 16px;\n  width: 16px;\n  top: 4%;\n  left: 4%;\n  font-weight: 600;\n  font-size: 1rem;\n  line-height: 1rem;\n  color: #fff;\n  transition: color .3s ease-in-out;\n  cursor: pointer;\n}\n\n@media screen and (max-width: 450px) {\n  /* .card-image-container {\n      min-height: 300px;\n  } */\n  .scope {\n    position: relative;\n    height: 440px;\n    transform-style: preserve-3d;\n    animation: slid 5s linear infinite;\n    transition: 2s all;\n  }\n  .arrow{\n    display: none;\n  }\n}\n@media screen and (max-width: 350px) {\n  .badge-img{\n    margin-left: auto;\n    margin-right: auto;\n    left: 0;\n    right: 0;\n  }\n  .scope {\n    position: relative;\n    /* width: 250px !important;\n    height: 340px; */\n    transform-style: preserve-3d;\n    animation: slid 5s linear infinite;\n    transition-property: position;\n    transition: 2s;\n  }\n}\n\n.c-medium .trait-holder{\n  width: 35px;\n  height: 35px;\n}\n.c-medium .trait-card-trait-icon-holder{\n  margin-bottom: 10px;\n}\n.c-medium .trait-card-title{\n  font-size: 32px;\n}\n.c-medium .trait-card-description{\n  line-height: 23px;\n}\n.c-small .trait-holder{\n  width: 30px;\n  height: 30px;\n}";
 styleInject(css_248z$9);
 
 const useContainerDimensions = myRef => {
@@ -572,7 +572,7 @@ var GalaxisCard = function GalaxisCard(_ref) {
   })))))));
 };
 
-var css_248z$8 = ".dust-pool-card {\r\n  width: 100%;\r\n  max-width: 540px;\r\n  display: flex;\r\n  -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \r\n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\r\n  border-radius: 15px;\r\n  overflow: hidden;\r\n  margin: 0 auto;\r\n}\r\n\r\n.dust-pool-card-image-container{\r\n  width: 50%;\r\n  position: relative;\r\n  overflow: hidden;\r\n  min-height: 265px;\r\n}\r\n\r\n.dust-pool-card-img {\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  left: 0;\r\n  top: 0;\r\n  object-fit: cover;\r\n}\r\n.text-box {\r\n  /* width: 50%; */\r\n  padding: 15px;\r\n}\r\n.dust-pool-title {\r\n  font-family: poppins-semibold;\r\n  font-weight: 600;\r\n  font-size: 22px;\r\n  color: rgb(0, 0, 0);\r\n  margin-bottom: 10px;\r\n  line-height: 21px;\r\n}\r\n.dust-pool-card-label {\r\n  text-transform: uppercase;\r\n  margin-bottom: 0;\r\n  font-size: 14px;\r\n}\r\n.dust-pool-btn {\r\n  border: 2px solid rgb(255, 105, 43);\r\n  font-family: 'poppins-semibold';\r\n  color: rgb(255, 105, 43);\r\n  background-color: transparent;\r\n  font-size: 14px;\r\n  border-radius: 5px;\r\n  padding: 10px 20px;\r\n  font-weight: 500;\r\n  text-transform: uppercase;\r\n}\r\n.dust-pool-btn:hover {\r\n  background-color: rgb(255, 105, 43);\r\n  color: #fff;\r\n  cursor: pointer;\r\n}\r\n.dust-pool-btn:focus {\r\n  outline: none;\r\n}\r\n\r\n.dust-pool-btn.disabled{\r\n  opacity:0.5;\r\n}\r\n\r\n.dust-pool-btn:hover.disabled{\r\n  background-color: transparent;\r\n  color: rgb(255, 105, 43);\r\n  cursor:not-allowed;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n  .dust-pool-card {\r\n    flex-direction: column;\r\n  }\r\n  .dust-pool-card img{\r\n    height: auto;\r\n    max-width: 100%;\r\n  }\r\n}\r\n";
+var css_248z$8 = ".dust-pool-card {\n  width: 100%;\n  max-width: 540px;\n  display: flex;\n  -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n  border-radius: 15px;\n  overflow: hidden;\n  margin: 0 auto;\n}\n\n.dust-pool-card-image-container{\n  width: 50%;\n  position: relative;\n  overflow: hidden;\n  min-height: 265px;\n}\n\n.dust-pool-card-img {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  object-fit: cover;\n}\n.text-box {\n  /* width: 50%; */\n  padding: 15px;\n}\n.dust-pool-title {\n  font-family: poppins-semibold;\n  font-weight: 600;\n  font-size: 22px;\n  color: rgb(0, 0, 0);\n  margin-bottom: 10px;\n  line-height: 21px;\n}\n.dust-pool-card-label {\n  text-transform: uppercase;\n  margin-bottom: 0;\n  font-size: 14px;\n}\n.dust-pool-btn {\n  border: 2px solid rgb(255, 105, 43);\n  font-family: 'poppins-semibold';\n  color: rgb(255, 105, 43);\n  background-color: transparent;\n  font-size: 14px;\n  border-radius: 5px;\n  padding: 10px 20px;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n.dust-pool-btn:hover {\n  background-color: rgb(255, 105, 43);\n  color: #fff;\n  cursor: pointer;\n}\n.dust-pool-btn:focus {\n  outline: none;\n}\n\n.dust-pool-btn.disabled{\n  opacity:0.5;\n}\n\n.dust-pool-btn:hover.disabled{\n  background-color: transparent;\n  color: rgb(255, 105, 43);\n  cursor:not-allowed;\n}\n\n@media only screen and (max-width: 600px) {\n  .dust-pool-card-image-container{\n    width:100%;\n  }\n\n  .dust-pool-card {\n    flex-direction: column;\n  }\n  .dust-pool-card img{\n    height: auto;\n    max-width: 100%;\n  }\n}\n";
 styleInject(css_248z$8);
 
 var css_248z$7 = ".counter-body{\r\n    font-size: 1em;\r\n    line-height: 1em;\r\n    vertical-align: center;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.counter-body .counter-item{\r\n    display: inline-block;\r\n    width: 12px;\r\n    height: 1.6em;\r\n    margin: 0 2px 0 0;\r\n    background-color: #ff6b2b3d;\r\n    border-radius: 3px;\r\n}\r\n\r\n.counter-item.active{\r\n    background-color: #FF692B;\r\n}";
@@ -594,8 +594,7 @@ const CounterBar = props => {
     setItems(a);
   }, []);
   React.useEffect(() => {
-    console.log('COUNTER', props.value, props.maxValue);
-
+    //console.log('COUNTER',props.value,props.maxValue);
     if (props.value !== null && props.value !== undefined && props.value !== currentValue) {
       setCurrentValue(props.value);
     }
@@ -675,7 +674,7 @@ const DustPoolCard = _ref => {
   }, "Details"))));
 };
 
-var css_248z$6 = "body{\r\n    background-color: rgb(250, 249, 245);\r\n}\r\n\r\n.dust-pool-root{\r\n    max-width: 1140px;\r\n    margin: 0 auto;\r\n    margin-top: 30px;\r\n}\r\n.dust-pool-textbox{\r\n text-align: center;\r\n max-width: 600px;\r\n margin: 0 auto;\r\n}\r\n.pool-subtitle{\r\n    font-size: 30px;\r\n    font-weight: 600;\r\n}\r\n.tab-choose{\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-bottom: 30px;\r\n    text-transform: uppercase;\r\n}\r\n.tab-choose div{\r\n    font-size: 14px;\r\n    font-weight: 500;\r\n    padding: 12px 15px\r\n}\r\n.tab-choose div:hover{\r\n    cursor: pointer;\r\n}\r\n.tab-choose .active-tab{\r\n    background-color: #000;\r\n    color: #fff;\r\n}\r\n.tab-choose div:first-child{\r\n    border: 2px solid #000;\r\n    border-top-left-radius: 10px;\r\n    border-bottom-left-radius: 10px;\r\n}\r\n.tab-choose div:nth-child(2){\r\n    border-top: 2px solid #000;\r\n    border-bottom: 2px solid #000;\r\n}\r\n.tab-choose div:nth-child(3){\r\n    border: 2px solid #000;\r\n    border-top-right-radius: 10px;\r\n    border-bottom-right-radius: 10px;\r\n}\r\n\r\n\r\n/*classes from bootstrap*/\r\n*{\r\n    box-sizing: border-box;\r\n}\r\n.container {\r\n    width: 100%;\r\n    padding-right: 15px;\r\n    padding-left: 15px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n}\r\n.mt-5, .my-5 {\r\n    margin-top: 3rem!important;\r\n}\r\n.row {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    margin-right: -15px;\r\n    margin-left: -15px;\r\n}\r\n.col-12 {\r\n    flex: 0 0 100%;\r\n    max-width: 100%;\r\n}\r\n.col-12, .col-lg-6, .col-lg-3, .col-md-6{\r\n    position: relative;\r\n    width: 100%;\r\n    min-height: 1px;\r\n    padding-right: 15px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.col-6 {\r\n    flex: 0 0 50%;\r\n    max-width: 50%;\r\n}\r\n.mb-1{\r\n    margin-bottom: 0.25rem!important;\r\n}\r\n.mb-2{\r\n    margin-bottom: 0.5rem!important;\r\n}\r\n.mb-3{\r\n    margin-bottom: 0.75rem!important;\r\n}\r\n.mt-2{\r\n    margin-top: 0.5rem!important;\r\n}\r\n.pb-4{\r\n    padding-bottom: 1.5rem!important;\r\n}\r\n\r\n.w-100 {\r\n    width: 100%!important;\r\n}\r\n.text-right{\r\n    text-align: right!important;\r\n}\r\n.dust-pool-card p {\r\n    margin-block-start: 0;\r\n}\r\n\r\n@media (min-width: 576px){\r\n.container {\r\n    max-width: 540px;\r\n}\r\n}\r\n@media (max-width: 600px){\r\n    .dust-pool-card .dust-pool-btn{\r\n        position: unset!important;\r\n    }\r\n    }\r\n@media (min-width: 768px){\r\n    .container {\r\n        max-width: 720px;\r\n    }}\r\n    .col-md-6{\r\n        flex: 0 0 50%;\r\n        max-width: 50%; \r\n    }\r\n@media (min-width: 992px){\r\n    .container {\r\n        max-width: 960px;\r\n    }\r\n    .col-lg-6 {\r\n        flex: 0 0 50%;\r\n        max-width: 50%;\r\n    }\r\n    .col-lg-3 {\r\n        flex: 0 0 25%;\r\n        max-width: 25%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1200px){\r\n    .container {\r\n        max-width: 1140px;\r\n    }\r\n}\r\n@media only screen and (max-width: 945px) {\r\n    .dust-pool-root {\r\n      max-width: 100%;\r\n    }\r\n  }";
+var css_248z$6 = "body{\n    background-color: rgb(250, 249, 245);\n}\n\n.dust-pool-root{\n    max-width: 1140px;\n    margin: 0 auto;\n    margin-top: 30px;\n    font-family: poppins;\n}\n.dust-pool-textbox{\n text-align: center;\n max-width: 600px;\n margin: 0 auto;\n}\n.pool-subtitle{\n    font-size: 30px;\n    font-weight: 600;\n}\n.tab-choose{\n    display: flex;\n    justify-content: center;\n    margin-bottom: 30px;\n    text-transform: uppercase;\n}\n.tab-choose div{\n    font-size: 14px;\n    font-weight: 500;\n    padding: 12px 15px\n}\n.tab-choose div:hover{\n    cursor: pointer;\n}\n.tab-choose .active-tab{\n    background-color: #000;\n    color: #fff;\n}\n.tab-choose div:first-child{\n    border: 2px solid #000;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.tab-choose div:nth-child(2){\n    border-top: 2px solid #000;\n    border-bottom: 2px solid #000;\n}\n.tab-choose div:nth-child(3){\n    border: 2px solid #000;\n    border-top-right-radius: 10px;\n    border-bottom-right-radius: 10px;\n}\n\n\n/*classes from bootstrap*/\n*{\n    box-sizing: border-box;\n}\n.container {\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n    margin-right: auto;\n    margin-left: auto;\n}\n.mt-5, .my-5 {\n    margin-top: 3rem!important;\n}\n.row {\n    display: flex;\n    flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n}\n.col-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.col-12, .col-lg-6, .col-lg-3, .col-md-6{\n    position: relative;\n    width: 100%;\n    min-height: 1px;\n    padding-right: 15px;\n    padding-left: 15px;\n}\n\n.col-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.mb-1{\n    margin-bottom: 0.25rem!important;\n}\n.mb-2{\n    margin-bottom: 0.5rem!important;\n}\n.mb-3{\n    margin-bottom: 0.75rem!important;\n}\n.mt-2{\n    margin-top: 0.5rem!important;\n}\n.pb-4{\n    padding-bottom: 1.5rem!important;\n}\n\n.w-100 {\n    width: 100%!important;\n}\n.text-right{\n    text-align: right!important;\n}\n.dust-pool-card p {\n    margin-block-start: 0;\n}\n\n@media (min-width: 576px){\n.container {\n    max-width: 540px;\n}\n}\n@media (max-width: 600px){\n    .dust-pool-card .dust-pool-btn{\n        position: unset!important;\n    }\n    }\n@media (min-width: 768px){\n    .container {\n        max-width: 720px;\n    }}\n    .col-md-6{\n        flex: 0 0 50%;\n        max-width: 50%; \n    }\n@media (min-width: 992px){\n    .container {\n        max-width: 960px;\n    }\n    .col-lg-6 {\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n    .col-lg-3 {\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n}\n\n@media (min-width: 1200px){\n    .container {\n        max-width: 1140px;\n    }\n}\n@media only screen and (max-width: 945px) {\n    .dust-pool-root {\n      max-width: 100%;\n    }\n  }";
 styleInject(css_248z$6);
 
 var img$5 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='25.53' height='48.317' viewBox='0 0 25.53 48.317'%3e %3cg id='kozepso_white' data-name='kozepso white' transform='translate(-132.737 -28.1)'%3e %3crect id='Rectangle_356' data-name='Rectangle 356' width='2.722' height='48.317' transform='translate(132.744 28.1)' fill='%23ff692b'/%3e %3crect id='Rectangle_357' data-name='Rectangle 357' width='2.711' height='25.53' transform='translate(132.738 53.615) rotate(-90)' fill='%23ff692b'/%3e %3c/g%3e%3c/svg%3e";
@@ -685,7 +684,7 @@ var img$4 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width=
 var css_248z$5 = ".upcoming-dust-pool-card {\r\n    height: 86px;\r\n    display: flex;\r\n    margin-bottom: 10px;\r\n    -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \r\n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\r\n    border-radius: 10px;\r\n    overflow: hidden;\r\n    margin-bottom: 50px;\r\n}\r\n.upcoming-dust-pool-card img{\r\n    max-height: 100%;\r\n}\r\n.upcoming-dust-pool-card-title{\r\n     line-height: 16px;\r\n     height: 32px;\r\n     margin-bottom: 10px;\r\n    }\r\n.upcoming-dust-pool-card-text{\r\n    padding: 10px;\r\n}";
 styleInject(css_248z$5);
 
-var css_248z$4 = "\r\n.pool-ps-root{\r\n    max-width: 848px;\r\n    width: 100%;\r\n    margin: auto auto 60px;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    gap: 10px;\r\n}\r\n.pool-ps-card-and-descipton{\r\n    box-sizing: border-box;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n}\r\n.pool-ps-card-and-descipton-inner{\r\n    flex-basis: 50%;\r\n    -webkit-box-flex: 0;\r\n    flex-grow: 0;\r\n    max-width: 50%;\r\n}\r\n.pool-ps-card-and-descipton-inner p{\r\n    margin-top: 0;\r\n}\r\n.ps-left{\r\n    background-color: rgb(255, 255, 255);\r\n    padding: 50px;\r\n    border: 1px solid #000;\r\n    border-radius: 15px;\r\n}\r\n.ps-left img{\r\n    border-radius: 15px;\r\n}\r\n.ps-right{\r\n    position: relative;\r\n}\r\n.ps-text-bottom{\r\n    position: absolute;\r\n    bottom: 0;\r\n}\r\n.snp-root{\r\n    margin: 15px auto 30px;\r\n    max-width: 848px;\r\n    width: 100%;\r\n    max-height: 86px;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n    justify-content: space-between;\r\n    background-color: rgb(255, 255, 255);\r\n    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px 0px;\r\n    border-radius: 10px;\r\n    overflow: hidden;\r\n}\r\n.previous-box{\r\n    display: flex;\r\n    width: 48%;\r\n    gap: 16px;\r\n    -webkit-box-pack: start;\r\n    justify-content: flex-start;\r\n    cursor: pointer;\r\n}\r\n.snp-divider{\r\n    width: 4%;\r\n    min-height: 100%;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    align-items: center;\r\n}\r\n.next-box{\r\n    display: flex;\r\n    width: 48%;\r\n    gap: 16px;\r\n    -webkit-box-pack: end;\r\n    justify-content: flex-end;\r\n    cursor: pointer;\r\n}\r\n.snp-text{\r\n    padding-top: 8px;\r\n    padding-bottom: 8px;\r\n    text-transform: uppercase;\r\n}\r\n.snp-text span{\r\n    margin: 0px;\r\n    font-family: poppins;\r\n    font-size: 14px;\r\n    color: rgb(112, 112, 112);\r\n    cursor: pointer;\r\n}\r\n.snp-text-p-n{\r\n    margin: 0px;\r\n    font-weight: 400;\r\n    font-family: poppins-semibold;\r\n    line-height: 20px;\r\n    font-size: 18px;\r\n    max-height: 45px;\r\n    width: 100%;\r\n    max-width: 180px;\r\n    display: -webkit-box;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-line-clamp: 2;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    text-transform: capitalize;\r\n}\r\n\r\n.previous-box.disabled, .next-box.disabled{\r\n    cursor: not-allowed;\r\n}\r\n.pool-ps-btn{\r\n    background-color: transparent;\r\n    border: none;\r\n    display: flex;\r\n    font-weight: 700;\r\n}\r\n.pool-ps-btn p{\r\n    margin-block-start: 0;\r\n    margin-block-end: 0;\r\n    margin-top: 0;\r\n    margin-bottom: 1rem;\r\n    font-size: 18px;\r\n}\r\n.pool-ps-btn span{\r\n    font-size: 42px;\r\n    line-height: 16px;\r\n    padding-right: 2px;\r\n}\r\n.pool-ps-btn:hover{\r\n    cursor: pointer;\r\n}\r\n.pool-ps-btn:focus{\r\n    outline: none;\r\n}\r\n.pool-ps-card-and-descipton-inner .dust-pool-title{\r\n    margin-bottom: 10px;\r\n    line-height: 40px;\r\n    font-size: 32px;\r\n}\r\n.dpc-box{\r\n    background-color: #fff;\r\n    padding: 15px 20px;\r\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1); \r\n    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);\r\n    width: fit-content;\r\n    border-radius: 5px;\r\n    margin-top: 12px;\r\n    margin-bottom: 12px;\r\n}\r\n\r\n.approval-mask{\r\n    box-sizing: border-box;\r\n\tposition: fixed;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tbackground: rgba(0,0,0,0.75);\r\n\tz-index: 1100;\r\n\tdisplay: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n\r\n\r\n.video-box{\r\n    background-color: #000;\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    z-index: 2000;\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n    pointer-events: none;\r\n    display: flex;\r\n    flex-direction: column;\r\n    -ms-flex-pack:center!important;\r\n    justify-content:center!important;\r\n  }\r\n\r\n  .video-box.visible{\r\n      opacity: 1;\r\n  }\r\n\r\n  a.dust-pool-btn{\r\n      text-decoration: none;\r\n  }\r\n\r\n  .es-link{\r\n    text-decoration: none;\r\n    color: rgb(255, 105, 43);\r\n    font-weight: 700;\r\n  }\r\n\r\n\r\n@media only screen and (max-width: 825px) {\r\n    .pool-ps-card-and-descipton-inner{\r\n        flex-basis: 60%;\r\n        max-width: 60%;\r\n    }\r\n    .pool-ps-card-and-descipton{\r\n        justify-content: center;\r\n    }\r\n    .ps-text-bottom{\r\n        margin-top: 20px;\r\n        position: relative;\r\n    }\r\n}\r\n@media only screen and (max-width: 600px) {\r\n    .pool-ps-card-and-descipton-inner{\r\n        flex-basis: 100%;\r\n        max-width: 100%;\r\n    }\r\n    .pool-ps-card-and-descipton{\r\n        justify-content: center;\r\n    }\r\n}\r\n@media only screen and (max-width: 400px) {\r\n    .previous-box img, .next-box img{\r\n        display: none;\r\n    }\r\n}";
+var css_248z$4 = "\n.pool-ps-root{\n    max-width: 848px;\n    width: 100%;\n    margin: auto auto 60px;\n    display: flex;\n    flex-flow: row wrap;\n    gap: 10px;\n}\n.pool-ps-card-and-descipton{\n    box-sizing: border-box;\n    display: flex;\n    flex-flow: row wrap;\n    width:100%;\n}\n.pool-ps-card-and-descipton-inner{\n    flex-basis: 50%;\n    -webkit-box-flex: 0;\n    flex-grow: 0;\n    max-width: 50%;\n}\n.pool-ps-card-and-descipton-inner p{\n    margin-top: 0;\n}\n.ps-left{\n    background-color: rgb(255, 255, 255);\n    padding: 50px;\n    border: 1px solid #000;\n    border-radius: 15px;\n}\n.ps-left img{\n    border-radius: 15px;\n}\n.ps-right{\n    position: relative;\n    padding-left: 15px;\n}\n.ps-text-bottom{\n    position: absolute;\n    bottom: 0;\n}\n.snp-root{\n    margin: 15px auto 30px;\n    max-width: 848px;\n    width: 100%;\n    max-height: 86px;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    background-color: rgb(255, 255, 255);\n    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px 0px;\n    border-radius: 10px;\n    overflow: hidden;\n}\n.previous-box{\n    display: flex;\n    width: 48%;\n    gap: 16px;\n    -webkit-box-pack: start;\n    justify-content: flex-start;\n    cursor: pointer;\n}\n.snp-divider{\n    width: 4%;\n    min-height: 100%;\n    display: flex;\n    -webkit-box-pack: center;\n    justify-content: center;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.next-box{\n    display: flex;\n    width: 48%;\n    gap: 16px;\n    -webkit-box-pack: end;\n    justify-content: flex-end;\n    cursor: pointer;\n}\n.snp-text{\n    padding-top: 8px;\n    padding-bottom: 8px;\n    text-transform: uppercase;\n}\n.snp-text span{\n    margin: 0px;\n    font-family: poppins;\n    font-size: 14px;\n    color: rgb(112, 112, 112);\n    cursor: pointer;\n}\n.snp-text-p-n{\n    margin: 0px;\n    font-weight: 400;\n    font-family: poppins-semibold;\n    line-height: 20px;\n    font-size: 18px;\n    max-height: 45px;\n    width: 100%;\n    max-width: 180px;\n    display: -webkit-box;\n    -webkit-box-orient: vertical;\n    -webkit-line-clamp: 2;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-transform: capitalize;\n}\n\n.previous-box.disabled, .next-box.disabled{\n    cursor: not-allowed;\n}\n.pool-ps-btn{\n    background-color: transparent;\n    border: none;\n    display: flex;\n    font-weight: 700;\n    padding:0;\n    color:black;\n}\n.pool-ps-btn p{\n    margin-block-start: 0;\n    margin-block-end: 0;\n    margin-top: 0;\n    margin-bottom: 1rem;\n    font-size: 18px;\n}\n.pool-ps-btn span{\n    font-size: 42px;\n    line-height: 16px;\n    padding-right: 2px;\n}\n.pool-ps-btn:hover{\n    cursor: pointer;\n}\n.pool-ps-btn:focus{\n    outline: none;\n}\n.pool-ps-card-and-descipton-inner .dust-pool-title{\n    margin-bottom: 10px;\n    line-height: 40px;\n    font-size: 32px;\n}\n.dpc-box{\n    background-color: #fff;\n    padding: 15px 20px;\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1); \n    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);\n    width: fit-content;\n    border-radius: 5px;\n    margin-top: 12px;\n    margin-bottom: 12px;\n}\n\n.approval-mask{\n    box-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(0,0,0,0.75);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n\n\n.video-box{\n    background-color: #000;\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    z-index: 2000;\n    opacity: 0;\n    transition: opacity 0.3s ease-in-out;\n    pointer-events: none;\n    display: flex;\n    flex-direction: column;\n    -ms-flex-pack:center!important;\n    justify-content:center!important;\n  }\n\n  .video-box.visible{\n      opacity: 1;\n  }\n\n  a.dust-pool-btn{\n      text-decoration: none;\n  }\n\n  .es-link{\n    text-decoration: none;\n    color: rgb(255, 105, 43);\n    font-weight: 700;\n  }\n\n\n@media only screen and (max-width: 825px) {\n    .pool-ps-card-and-descipton-inner{\n        flex-basis: 60%;\n        max-width: 60%;\n    }\n    .pool-ps-card-and-descipton{\n        justify-content: center;\n    }\n    .ps-text-bottom{\n        margin-top: 20px;\n        position: relative;\n    }\n    .ps-right{\n        padding-left: 0;\n    }\n\n    .pool-ps-card-and-descipton-inner.ps-right .text-box{\n        padding-left: 0; \n    } \n}\n@media only screen and (max-width: 600px) {\n    .pool-ps-card-and-descipton-inner{\n        flex-basis: 100%;\n        max-width: 100%;\n    }\n    .pool-ps-card-and-descipton{\n        justify-content: center;\n    }\n\n    \n}\n@media only screen and (max-width: 400px) {\n    .previous-box img, .next-box img{\n        display: none;\n    }\n}";
 styleInject(css_248z$4);
 
 var css_248z$3 = ":root{\r\n  --primary-color: #FF692B;\r\n}\r\n\r\n.counter-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n  flex-wrap: wrap;\r\n  gap: 15px 15px;\r\n  margin-bottom: 30px;\r\n  margin-top: 30px;\r\n}\r\n@media (max-width: 454px) {\r\n  .counter-container {\r\n    padding: 0 80px;\r\n  }\r\n}\r\n@media (max-width: 400px) {\r\n  .counter-container {\r\n    padding: 0 30px;\r\n  }\r\n}\r\n@media (max-width: 302px) {\r\n  .counter-container {\r\n    padding: 0;\r\n  }\r\n}\r\n.counter-rotary-holder {\r\n  width: 95%;\r\n  height: 95%;\r\n  position: absolute;\r\n  transform: rotate(45deg);\r\n  z-index: 5;\r\n  -webkit-transition: all 0.3s ease-in-out;\r\n  -moz-transition: all 0.3s ease-in-out;\r\n  -o-transition: all 0.3s ease-in-out;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.counter-content-holder {\r\n  background-color: white;\r\n  width: 75px;\r\n  height: 75px;\r\n  border-radius: 60%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n.counter-rotary-item {\r\n  width: 15px;\r\n  height: 15px;\r\n  border: 2px solid var(--primary-color);\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  background-color: white;\r\n}\r\n.counter-circle {\r\n  width: 88px;\r\n  height: 88px;\r\n  border: 2px solid var(--primary-color);\r\n  border-radius: 50%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  z-index: 1;\r\n  background-color: #ecebe8;\r\n  position: relative;\r\n}\r\n\r\n\r\n.counter-text {\r\n  font-family: \"poppins\";\r\n  font-size: 12px;\r\n  line-height: 18px;\r\n  color: #030300;\r\n  z-index: 1;\r\n}\r\n\r\n.counter-text-value {\r\n  font-family: \"poppins\";\r\n  font-size: 27px;\r\n  color: #020000;\r\n  letter-spacing: -2px;\r\n  line-height: 32px;\r\n}\r\n\r\n.disabled .counter-rotary-item, .disabled .counter-circle{\r\n  border-color:black;\r\n}\r\n\r\n#txRotator {\r\n  animation-name: playRotating;\r\n  animation-duration: 3s;\r\n  animation-timing-function: linear;\r\n  animation-iteration-count: infinite;\r\n}\r\n@keyframes playRotating {\r\n  from {\r\n    transform: rotate(0deg);\r\n  }\r\n  to {\r\n    transform: rotate(360deg);\r\n  }\r\n}";
@@ -724,7 +723,7 @@ const blockedCountries = {
 
 var img$3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAABICAYAAADcdSQuAAAABHNCSVQICAgIfAhkiAAAACJJREFUKFNjZGBgsAPi/4xQBgOIAQZUYIyajByYo6GBOzQAZxUMIQH+P1cAAAAASUVORK5CYII=";
 
-var css_248z$2 = ".terms-root{\r\n\tbox-sizing: border-box;\r\n\tposition: fixed;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tbackground: rgba(255,255,255,0.3);\r\n\tz-index: 1100;\r\n\tdisplay: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.terms-box {\r\n\t/* width:40%; */\r\n\theight: 100%;\r\n\tmin-width: 400px;\r\n\tmin-height: 500px;\r\n\tbackground:rgb(250, 249, 245);;\r\n\tpadding: 15px;\r\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \r\n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\r\n}\r\n\r\n.scrollable-content{\r\n\twidth:100%;\r\n\theight: 100%;\r\n\toverflow-x: hidden;\r\n\toverflow-y: auto;\r\n}\r\n\r\n.terms-box  .scrollable-content h2{\r\n\ttext-align: center;\r\n\tpadding-bottom: 40px;\r\n\tposition: sticky;\r\n\ttop:0;\r\n\tbackground:#faf9f5;\r\n\tbackground: -moz-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\r\n\tbackground: -webkit-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\r\n\tbackground: linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\r\n}\r\n\r\n.tc-button-container{\r\n\ttext-align: center;\r\n}\r\n.tc-button-container button{\r\n\tmargin: 10px 5px;\r\n}";
+var css_248z$2 = ".terms-root{\n\tbox-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(255,255,255,0.3);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n.terms-root.black{\n\tbackground: rgba(0,0,0,0.8);\n}\n\n.terms-box {\n\tfont-family: poppins;\n\twidth:50%;\n\theight: 100%;\n\tmin-width: 400px;\n\tmin-height: 500px;\n\tbackground:rgb(250, 249, 245);\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n}\n\n.scrollable-content{\n\twidth:100%;\n\theight: 100%;\n\tpadding: 0 20px;\n\toverflow-x: hidden;\n\toverflow-y: auto;\n}\n\n.terms-box  .scrollable-content h2{\n\ttext-align: center;\n\tpadding-bottom: 40px;\n\tposition: sticky;\n\ttop:0;\n\tbackground:#faf9f5;\n\tbackground: -moz-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n\tbackground: -webkit-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n\tbackground: linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n}\n\n.tc-button-container{\n\ttext-align: center;\n}\n.tc-button-container button{\n\tmargin: 10px 5px;\n}\n\n.scrollable-content a {\n\tcolor: rgb(255, 105, 43);\n\tfont-weight: 600;\n\ttext-decoration: none;\n}\n\n.scrollable-content a:hover {\n\tcolor: rgb(255, 105, 43);\n\ttext-decoration: underline;\n}\n\n.scrollable-content h2{\n\tfont-family: Poppins-semibold;\n}";
 styleInject(css_248z$2);
 
 const terms = `<p><strong>NFT EXCHANGE TERMS AND CONDITIONS (THESE “TERMS”)</strong></p>
@@ -732,7 +731,7 @@ const terms = `<p><strong>NFT EXCHANGE TERMS AND CONDITIONS (THESE “TERMS”)<
 <ol type="1">
 <li><p><strong><u>GENERAL</u></strong></p>
 <ol type="1">
-<li><p>These Terms govern the NFT Exchange between the NFT Vendor and you, for your intended exchange of Tokens, during the NFT Exchange Period made available on or via the <strong>[<a href="https://dust-pools.ether.cards"]>https://dust-pools.ether.cards</a></strong> (the “<strong>Website</strong>”).</p></li>
+<li><p>These Terms govern the NFT Exchange between the NFT Vendor and you, for your intended exchange of Tokens, during the NFT Exchange Period made available on or via the <strong><a target="_blank" href="https://galaxis.xyz/#/nft-vaults">https://galaxis.xyz/#/nft-vaults</a></strong> (the “<strong>Website</strong>”).</p></li>
 <li><p>In these Terms, “<strong>we</strong>”, “<strong>us</strong>” or “<strong>NFT Vendor</strong>” refers to a company incorporated in the British Virgin Islands named Equinoctial Inc (BVI Company Number: 2077416) and “<strong>our</strong>” shall be construed accordingly. “<strong>You</strong>” refers to any person participating in an NFT Exchange, and “your” shall be construed accordingly.</p></li>
 </ol></li>
 </ol>
@@ -740,7 +739,7 @@ const terms = `<p><strong>NFT EXCHANGE TERMS AND CONDITIONS (THESE “TERMS”)<
 <p>Each of you and the NFT Vendor shall hereinafter be referred to as a “<strong>Party</strong>”, and collectively, you and the NFT Vendor shall hereinafter be referred to as the “<strong>Parties</strong>”.</p>
 </blockquote>
 <ol start="3" type="1">
-<li><p>By accessing and/or using the Website or participating in NFT Exchange, you accept these Terms including the privacy of the NFT Vendor (available at <a href="https://ether.cards/privacy-policy">https://ether.cards/privacy-policy</a>) as adopted and updated from time to time, and agree to be bound by them. If you do not accept these Terms, please exit the Website immediately and cease all interaction with the Website and any Atomic NFT Swap Contract you may be interacting with.</p></li>
+<li><p>By accessing and/or using the Website or participating in NFT Exchange, you accept these Terms including the privacy of the NFT Vendor (available at <a target="_blank" href="https://ether.cards/privacy-policy">https://ether.cards/privacy-policy</a>) as adopted and updated from time to time, and agree to be bound by them. If you do not accept these Terms, please exit the Website immediately and cease all interaction with the Website and any Atomic NFT Swap Contract you may be interacting with.</p></li>
 <li><p>These Terms will also apply to any updates or upgrades provided by us that replace and/or supplement the Website and/or the Atomic NFT Swap Contract, unless such updates or upgrades are accompanied by separate terms in which case those separate terms shall apply.</p></li>
 <li><p>We may amend these Terms from time to time. Amendments shall take effect from the date the amended terms are published at the Website. If you use or access the Website or interact with any Atomic NFT Swap Contract after such amendments, you are deemed to have agreed to the amended terms and to be bound by them. It is your responsibility to check for the latest version of the terms prior to use of the Website and any interaction with the Atomic NFT Swap Contract.</p></li>
 <li><p>We have no obligation to provide, or continue to provide NFT Exchange or any service related to NFT Exchange, now or in the future. We reserve the right, at any time, temporarily or permanently, in whole or in part, without prior notification and without incurring any liability to you, to: modify, suspend or discontinue the NFT Exchange and all related services; restrict or modify access to the Website and/or the Atomic NFT Swap Contract; and modify and/or waive any charges in connection with the NFT Exchange. You are deemed to agree to such modifications if you continue the use the Website or participate in the NFT Exchange.</p></li>
@@ -767,7 +766,7 @@ const terms = `<p><strong>NFT EXCHANGE TERMS AND CONDITIONS (THESE “TERMS”)<
 <ol type="a">
 <li><p>where you are an individual, you are a citizen of, domiciled in, resident of, or physically present / located in an Excluded Jurisdiction; or</p></li>
 <li><p>where you are a body corporate, you are a body corporate: (i) which is incorporated in, or operates out of, an Excluded Jurisdiction, or (ii) which is wholly or partially owned by or under the control of (aa) one or more individuals who is/are citizen(s) of, domiciled in, residents of, or physically present / located in, an Excluded Jurisdiction; (bb) one or more entities which is incorporated in, or operates out of, an Excluded Jurisdiction; and/or (cc) a Designated Person / Entity; or</p></li>
-<li><p>you are an individual or body corporate : (i) included in the consolidated list published by the United Nations Security Council of individuals or entities subject to measures imposed by the United Nations Security Council accessible at <a href="https://www.un.org/securitycouncil/content/un-sc-consolidated-list">https://www.un.org/securitycouncil/content/un-sc-consolidated-list</a>; or (ii) included in the United Nations Lists (UN Lists) or within the ambit any regulations adopted by any jurisdiction relating to or implementing United Nations Security Council Resolutions (“<strong>Designated Person / Entity</strong>”); or</p></li>
+<li><p>you are an individual or body corporate : (i) included in the consolidated list published by the United Nations Security Council of individuals or entities subject to measures imposed by the United Nations Security Council accessible at <a target="_blank" href="https://www.un.org/securitycouncil/content/un-sc-consolidated-list">https://www.un.org/securitycouncil/content/un-sc-consolidated-list</a>; or (ii) included in the United Nations Lists (UN Lists) or within the ambit any regulations adopted by any jurisdiction relating to or implementing United Nations Security Council Resolutions (“<strong>Designated Person / Entity</strong>”); or</p></li>
 <li><p>you are an individual or body corporate which is otherwise prohibited or ineligible in any way, whether in full or in part, under any laws applicable to such individual or body corporate from participating in any part of the transactions contemplated in these Terms, or</p></li>
 <li><p>the NFT Exchange is prohibited, restricted, curtailed, hindered, impaired, unauthorized or otherwise adversely affected in any way or in any form or manner whether in full or in part under any applicable law, regulation or rule in your country of residence or domicile or in any jurisdiction applicable to you; or</p></li>
 <li><p>if you are unable to make a true and affirmative representation in respect of the matters set out in Paragraph 9.1(q), (r) and (s),</p></li>
@@ -1265,7 +1264,7 @@ const terms = `<p><strong>NFT EXCHANGE TERMS AND CONDITIONS (THESE “TERMS”)<
 <p>“<strong>Affiliate</strong>”, with respect to any person, means any other person directly or indirectly controlling, controlled by or under common control with such person.</p>
 <p>“<strong>Approvals</strong>” has the meaning ascribed to it in Paragraph 9.1(o).</p>
 <p>“<strong>Atomic NFT Swap Contract</strong>” has the meaning ascribed to it in Paragraph 4.2(a).</p>
-<p>“<strong>Channels</strong>” means the Website, the social media channels associated with the Project, namely the Discord group at <a href="https://discord.com/invite/mBwauRSJNW">https://discord.com/invite/mBwauRSJNW</a> (“<strong>Discord Channel</strong>”), the Project’s blog account at <a href="https://blog.ether.cards">https://blog.ether.cards</a>, the Twitter account at <a href="https://twitter.com/ether_cards">https://twitter.com/ether_cards</a>, the Reddit board at <a href="https://www.reddit.com/r/Ether_Cards/">https://www.reddit.com/r/Ether_Cards/</a> or any other online channel of the Project the account of which is held by the NFT Vendor or its Affiliates.</p>
+<p>“<strong>Channels</strong>” means the Website, the social media channels associated with the Project, namely the Discord group at <a target="_blank" href="https://discord.com/invite/mBwauRSJNW">https://discord.com/invite/mBwauRSJNW</a> (“<strong>Discord Channel</strong>”), the Project’s blog account at <a target="_blank" href="https://blog.ether.cards">https://blog.ether.cards</a>, the Twitter account at <a target="_blank" href="https://twitter.com/ether_cards">https://twitter.com/ether_cards</a>, the Reddit board at <a target="_blank" href="https://www.reddit.com/r/Ether_Cards/">https://www.reddit.com/r/Ether_Cards/</a> or any other online channel of the Project the account of which is held by the NFT Vendor or its Affiliates.</p>
 <p>“<strong>close associate</strong>” in relation to a senior foreign political figure means a person who is widely and publicly known to maintain an unusually close relationship with such senior foreign political figure, and includes a person who is in a position to conduct substantial domestic and international financial transactions on behalf of such senior foreign political figure.</p>
 <p>“<strong>CryptoPunk NFT</strong>” means a NFT developed by Larva Labs which are native to the following smart contract address on the Ethereum blockchain : 0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB.</p>
 <p>“<strong>CryptoPunk NFT Exchange</strong>” has the meaning ascribed to in Paragraph 3.1.</p>
@@ -1277,7 +1276,7 @@ const terms = `<p><strong>NFT EXCHANGE TERMS AND CONDITIONS (THESE “TERMS”)<
 <p>“<strong>Designated NFTs</strong>” means the (a) CryptoPunk NFTs selected by the NFT Vendor to be subject of the Cryptopunk NFT Pool and (b) the Other NFTs.</p>
 <p>“<strong>Designated Person / Entity</strong>” has the meaning ascribed to it in Paragraph 2.3(c).</p>
 <p>“<strong>Digital Certificate</strong>” has the meaning ascribed to it in Paragraph 3.2(c).</p>
-<p>“<strong>Discord Channel</strong>” means the Discord channel associated with the Project at <a href="https://discord.com/invite/mBwauRSJNW">https://discord.com/invite/mBwauRSJNW</a> (last accessed on 28 September 2021).</p>
+<p>“<strong>Discord Channel</strong>” means the Discord channel associated with the Project at <a target="_blank" href="https://discord.com/invite/mBwauRSJNW">https://discord.com/invite/mBwauRSJNW</a> (last accessed on 28 September 2021).</p>
 <p>“<strong>Disqualified Persons</strong>” has the meaning ascribed to it in Paragraph 2.3.</p>
 <p>“<strong>double spend</strong>” means to undertake, or attempt to undertake, two (2) or more different transactions on a blockchain network and spend the same account balance on each of the transactions.</p>
 <p>“<strong>ETH</strong>” means Ether, the cryptographic token native to the Ethereum network.</p>
@@ -1349,7 +1348,7 @@ const TermsBox = _ref => {
     handleAccept
   } = _ref;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, termsVisible ? /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "terms-root"
+    className: "terms-root black"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "terms-box"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
@@ -1402,7 +1401,7 @@ const RestrictedAreaBox = _ref => {
 
 var img$2 = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAkACQAAD/4QCgRXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAAEyAAIAAAAUAAAAWodpAAQAAAABAAAAbgAAAAAAAACQAAAAAQAAAJAAAAABMjAyMjowNTowMiAyMjozOTozNQAAA6ABAAMAAAAB//8AAKACAAMAAAABBMsAAKADAAMAAAABBMwAAAAAAAD/4Qs3aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA1LjUuMCI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9IkRpc3BsYXkiIHhtcDpNb2RpZnlEYXRlPSIyMDIyLTA1LTAyVDIyOjM5OjM1KzAyOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIyLTA1LTAyVDIyOjM5OjM1KzAyOjAwIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0icHJvZHVjZWQiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFmZmluaXR5IFBob3RvIDEuMTAuNCIgc3RFdnQ6d2hlbj0iMjAyMi0wNS0wMlQyMjozOTozNSswMjowMCIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPD94cGFja2V0IGVuZD0idyI/Pv/tACxQaG90b3Nob3AgMy4wADhCSU0EJQAAAAAAENQdjNmPALIE6YAJmOz4Qn7/4hAASUNDX1BST0ZJTEUAAQEAAA/wbGNtcwIQAABtbnRyUkdCIFhZWiAH5gADABEAAgAPACNhY3NwQVBQTAAAAABBUFBMAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABJkZXNjAAABXAAAAHRkc2NtAAAB0AAABIJjcHJ0AAAGVAAAACN3dHB0AAAGeAAAABRyWFlaAAAGjAAAABRnWFlaAAAGoAAAABRiWFlaAAAGtAAAABRyVFJDAAAGyAAACAxhYXJnAAAO1AAAACB2Y2d0AAAO9AAAADBuZGluAAAPJAAAAD5jaGFkAAAPZAAAACxtbW9kAAAPkAAAACh2Y2dwAAAPuAAAADhiVFJDAAAGyAAACAxnVFJDAAAGyAAACAxhYWJnAAAO1AAAACBhYWdnAAAO1AAAACBkZXNjAAAAAAAAAAhEaXNwbGF5AAAAAAAAAAAIAEQAaQBzAHAAbABhAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1sdWMAAAAAAAAAJgAAAAxockhSAAAAFAAAAdhrb0tSAAAADAAAAexuYk5PAAAAEgAAAfhpZAAAAAAAEgAAAgpodUhVAAAAFAAAAhxjc0NaAAAAFgAAAjBkYURLAAAAHAAAAkZubE5MAAAAFgAAAmJmaUZJAAAAEAAAAnhpdElUAAAAFAAAAohlc0VTAAAAEgAAApxyb1JPAAAAEgAAApxmckNBAAAAFgAAAq5hcgAAAAAAFAAAAsR1a1VBAAAAHAAAAthoZUlMAAAAFgAAAvR6aFRXAAAACgAAAwp2aVZOAAAADgAAAxRza1NLAAAAFgAAAyJ6aENOAAAACgAAAwpydVJVAAAAJAAAAzhlbkdCAAAAFAAAA1xmckZSAAAAFgAAA3BtcwAAAAAAEgAAA4ZoaUlOAAAAEgAAA5h0aFRIAAAADAAAA6pjYUVTAAAAGAAAA7ZlbkFVAAAAFAAAA1xlc1hMAAAAEgAAApxkZURFAAAAEAAAA85lblVTAAAAEgAAA95wdEJSAAAAGAAAA/BwbFBMAAAAEgAABAhlbEdSAAAAIgAABBpzdlNFAAAAEAAABDx0clRSAAAAFAAABExwdFBUAAAAFgAABGBqYUpQAAAADAAABHYATABDAEQAIAB1ACAAYgBvAGoAac7st+wAIABMAEMARABGAGEAcgBnAGUALQBMAEMARABMAEMARAAgAFcAYQByAG4AYQBTAHoA7QBuAGUAcwAgAEwAQwBEAEIAYQByAGUAdgBuAP0AIABMAEMARABMAEMARAAtAGYAYQByAHYAZQBzAGsA5gByAG0ASwBsAGUAdQByAGUAbgAtAEwAQwBEAFYA5AByAGkALQBMAEMARABMAEMARAAgAGMAbwBsAG8AcgBpAEwAQwBEACAAYwBvAGwAbwByAEEAQwBMACAAYwBvAHUAbABlAHUAciAPAEwAQwBEACAGRQZEBkgGRgYpBBoEPgQ7BEwEPgRABD4EMgQ4BDkAIABMAEMARCAPAEwAQwBEACAF5gXRBeIF1QXgBdlfaYJyAEwAQwBEAEwAQwBEACAATQDgAHUARgBhAHIAZQBiAG4A/QAgAEwAQwBEBCYEMgQ1BEIEPQQ+BDkAIAQWBBoALQQ0BDgEQQQ/BDsENQQ5AEMAbwBsAG8AdQByACAATABDAEQATABDAEQAIABjAG8AdQBsAGUAdQByAFcAYQByAG4AYQAgAEwAQwBECTAJAgkXCUAJKAAgAEwAQwBEAEwAQwBEACAOKg41AEwAQwBEACAAZQBuACAAYwBvAGwAbwByAEYAYQByAGIALQBMAEMARABDAG8AbABvAHIAIABMAEMARABMAEMARAAgAEMAbwBsAG8AcgBpAGQAbwBLAG8AbABvAHIAIABMAEMARAOIA7MDxwPBA8kDvAO3ACADvwO4A8wDvQO3ACAATABDAEQARgDkAHIAZwAtAEwAQwBEAFIAZQBuAGsAbABpACAATABDAEQATABDAEQAIABhACAAQwBvAHIAZQBzMKsw6TD8AEwAQwBEAAB0ZXh0AAAAAENvcHlyaWdodCBBcHBsZSBJbmMuLCAyMDIyAABYWVogAAAAAAAA8xYAAQAAAAEWylhZWiAAAAAAAACDtQAAPb7///+7WFlaIAAAAAAAAEuQAACzJwAACtBYWVogAAAAAAAAJ5EAAA8bAADIoWN1cnYAAAAAAAAEAAAAAAUACgAPABQAGQAeACMAKAAtADIANgA7AEAARQBKAE8AVABZAF4AYwBoAG0AcgB3AHwAgQCGAIsAkACVAJoAnwCjAKgArQCyALcAvADBAMYAywDQANUA2wDgAOUA6wDwAPYA+wEBAQcBDQETARkBHwElASsBMgE4AT4BRQFMAVIBWQFgAWcBbgF1AXwBgwGLAZIBmgGhAakBsQG5AcEByQHRAdkB4QHpAfIB+gIDAgwCFAIdAiYCLwI4AkECSwJUAl0CZwJxAnoChAKOApgCogKsArYCwQLLAtUC4ALrAvUDAAMLAxYDIQMtAzgDQwNPA1oDZgNyA34DigOWA6IDrgO6A8cD0wPgA+wD+QQGBBMEIAQtBDsESARVBGMEcQR+BIwEmgSoBLYExATTBOEE8AT+BQ0FHAUrBToFSQVYBWcFdwWGBZYFpgW1BcUF1QXlBfYGBgYWBicGNwZIBlkGagZ7BowGnQavBsAG0QbjBvUHBwcZBysHPQdPB2EHdAeGB5kHrAe/B9IH5Qf4CAsIHwgyCEYIWghuCIIIlgiqCL4I0gjnCPsJEAklCToJTwlkCXkJjwmkCboJzwnlCfsKEQonCj0KVApqCoEKmAquCsUK3ArzCwsLIgs5C1ELaQuAC5gLsAvIC+EL+QwSDCoMQwxcDHUMjgynDMAM2QzzDQ0NJg1ADVoNdA2ODakNww3eDfgO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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAzr4QDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJBAnBgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7fDeD7fdbHT1tS+rFrZzFZjHjMdAf/9k=";
 
-const ShowNextPreviosProject = _ref => {
+const ShowNextPreviosProject$1 = _ref => {
   let {
     prev,
     next,
@@ -1839,7 +1838,7 @@ const ProjectSubpage = _ref2 => {
     style: {
       margin: 0
     }
-  }, /*#__PURE__*/React__default["default"].createElement("b", null, dustBalance ? Number(ethers.ethers.utils.formatEther(dustBalance)).toLocaleString() + ' D' : 'Connect your wallet to see your dust balance'))), /*#__PURE__*/React__default["default"].createElement("p", {
+  }, /*#__PURE__*/React__default["default"].createElement("b", null, dustBalance ? Number(ethers.ethers.utils.formatEther(dustBalance)).toLocaleString() + ' D' : 'N/A'))), /*#__PURE__*/React__default["default"].createElement("p", {
     className: "dust-pool-card-label"
   }, "Price"), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dpc-box"
@@ -1865,9 +1864,9 @@ const ProjectSubpage = _ref2 => {
     }
   }, /*#__PURE__*/React__default["default"].createElement("b", null, "Description")), /*#__PURE__*/React__default["default"].createElement("div", {
     dangerouslySetInnerHTML: {
-      __html: pool.description
+      __html: pool.description.replace('*****', Number(ethers.ethers.utils.formatEther(pool.vaultData.vaultPrice)).toLocaleString())
     }
-  })), /*#__PURE__*/React__default["default"].createElement(ShowNextPreviosProject, {
+  })), /*#__PURE__*/React__default["default"].createElement(ShowNextPreviosProject$1, {
     prev: prevPool,
     next: nextPool,
     idx: currentIndex,
@@ -1919,7 +1918,7 @@ const ProjectSubpage = _ref2 => {
   }, "Transition was successful. Chainlink's VRF now picks a random NFT from the vault. Please be patient as this process may take several minutes.")), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "counter-circle",
     style: {
-      margin: "25px 0"
+      margin: "45px auto"
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "counter-rotary-holder",
@@ -1986,12 +1985,7 @@ const ProjectSubpage = _ref2 => {
       setUserHash(false);
       setTxHash(false);
     }
-  }, "Buy more"), /*#__PURE__*/React__default["default"].createElement("a", {
-    className: "dust-pool-btn",
-    target: "_blank",
-    rel: "noreferrer",
-    href: chainId === 1 ? 'https://explorer.ether.cards/#/wallet' : 'https://explorer.burneth.com/#/wallet'
-  }, "Go to wallet")))))), /*#__PURE__*/React__default["default"].createElement(TermsBox, {
+  }, "Buy more")))))), /*#__PURE__*/React__default["default"].createElement(TermsBox, {
     termsVisible: showTerms,
     handleClose: () => setShowTerms(false),
     handleAccept: onTermsAccepted
@@ -2004,7 +1998,7 @@ const ProjectSubpage = _ref2 => {
 };
 
 var Dust$2 = "0xe2E109f1b4eaA8915655fE8fDEfC112a34ACc5F0";
-var Dust4Punks$2 = "0xAD5304562D6e816938f44a457a0aA055da565ac1";
+var Dust4Punks$2 = "0xc8725085541967993253C6EA460DD96dafFABee5";
 var Zoom2$2 = "0x7cdF091AF6a9ED75E3192500d3e5BB0f63e22Dea";
 var AddressesMain = {
 	Dust: Dust$2,
@@ -3921,7 +3915,12 @@ const sx = {
   titleText: {
     fontFamily: 'poppins-semibold',
     fontSize: '18px',
-    lineHeight: '20px'
+    lineHeight: '20px',
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    "-webkit-line-clamp": '2',
+    "-webkit-box-orient": "vertical"
   },
   description: {
     fontFamily: 'poppins',
@@ -3930,15 +3929,20 @@ const sx = {
   },
   imageHolder: {
     width: '84px'
-  }
+  },
+  itemHolder: {
+    maxWidth: '60%'
+  },
+  image: {}
 };
-const autoPlayDelay = 4000;
+const autoPlayDelay = 40000000; //4000
 
 const UpcomingPoolsCarousel = _ref => {
   let {
     imgUrl,
     poolsData,
-    handleSelect
+    handleSelect,
+    handleSelectedIndex
   } = _ref;
   const [activeItemIndex, setActiveItemIndex] = React.useState(0);
   const [noOfCards, setNoOfCards] = React.useState(4);
@@ -4007,7 +4011,10 @@ const UpcomingPoolsCarousel = _ref => {
   }, /*#__PURE__*/React__default["default"].createElement(material.Box, {
     sx: sx.contentLeft,
     className: "previousBox",
-    onClick: () => handleItemSelect(idx)
+    onClick: () => {
+      handleItemSelect(idx);
+      handleSelectedIndex(idx);
+    }
   }, /*#__PURE__*/React__default["default"].createElement(material.Box, {
     sx: sx.imageHolder
   }, /*#__PURE__*/React__default["default"].createElement("img", {
@@ -4027,7 +4034,7 @@ const UpcomingPoolsCarousel = _ref => {
     className: "prevtitleText"
   }, pool.title), /*#__PURE__*/React__default["default"].createElement(material.Typography, {
     sx: sx.description
-  }, "Price: ", pool.price ? pool.price.toLocaleString() + ' D' : 'TBA')))))), poolsData.length > 4 ? /*#__PURE__*/React__default["default"].createElement(material.Box, {
+  }, "Price: ", pool.price && parseInt(pool.price) > 0 ? pool.price.toLocaleString() + ' D' : 'TBA')))))), poolsData.length > 4 ? /*#__PURE__*/React__default["default"].createElement(material.Box, {
     style: {
       position: 'relative',
       display: 'flex',
@@ -4047,17 +4054,74 @@ const UpcomingPoolsCarousel = _ref => {
     src: activeItemIndex / noOfCards === i ? img : img$1,
     style: {
       cursor: 'pointer',
-      marginTop: "20px"
+      marginTop: "20px",
+      boxShadow: '-1px 5px 9px 0px rgb(0 0 0 / 11%)'
     }
   }))))) : /*#__PURE__*/React__default["default"].createElement(material.Box, null)));
 };
 
-const UpcomingProjectSubpage = _ref => {
+const ShowNextPreviosProject = _ref => {
   let {
-    pool,
-    chainId,
-    handleBack
+    prev,
+    next,
+    idx,
+    mediaUrl,
+    handler
   } = _ref;
+  console.log(prev, next, idx, 'heeellllo');
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "snp-root"
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: `previous-box snp-box ${prev === null ? 'disabled' : ''}`,
+    onClick: () => {
+      if (prev) {
+        handler(idx - 1);
+      }
+    }
+  }, prev && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement("img", {
+    src: mediaUrl + prev.image_src,
+    style: {
+      maxHeight: "86px"
+    }
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "snp-text"
+  }, /*#__PURE__*/React__default["default"].createElement("span", null, "previous"), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "snp-text-p-n"
+  }, prev.title)))), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "snp-divider"
+  }, /*#__PURE__*/React__default["default"].createElement("img", {
+    src: img$3
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: `next-box snp-box ${next === null ? 'disabled' : ''}`,
+    onClick: () => {
+      if (next) {
+        handler(idx + 1);
+      }
+    }
+  }, next && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "snp-text text-right"
+  }, /*#__PURE__*/React__default["default"].createElement("span", null, "next"), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "snp-text-p-n"
+  }, next.title)), /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement("img", {
+    src: mediaUrl + next.image_src,
+    style: {
+      maxHeight: "86px"
+    }
+  })))));
+};
+
+const UpcomingProjectSubpage = _ref2 => {
+  let {
+    pools,
+    chainId,
+    handleBack,
+    currentIndex,
+    handleChangePool
+  } = _ref2;
+  const [pool, setPool] = React.useState(null);
+  const [prevPool, setPrevPool] = React.useState(null);
+  const [nextPool, setNextPool] = React.useState(null);
+  React.useState(true);
   const MEDIA_BASE_URL = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
   const hist = reactRouterDom.useHistory();
 
@@ -4072,7 +4136,23 @@ const UpcomingProjectSubpage = _ref => {
     }
   };
 
-  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
+  React.useEffect(() => {
+    setPool(pools[currentIndex]);
+    let p = null;
+    let n = null;
+
+    if (currentIndex > 0) {
+      p = pools[currentIndex - 1];
+    }
+
+    if (currentIndex < pools.length - 1) {
+      n = pools[currentIndex + 1];
+    }
+
+    setPrevPool(p);
+    setNextPool(n);
+  }, [currentIndex]);
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, pool && /*#__PURE__*/React__default["default"].createElement("div", {
     className: "pool-ps-root"
   }, /*#__PURE__*/React__default["default"].createElement("button", {
     className: "pool-ps-btn",
@@ -4095,7 +4175,14 @@ const UpcomingProjectSubpage = _ref => {
     className: "dust-pool-card-label"
   }, "VAULT"), /*#__PURE__*/React__default["default"].createElement("p", {
     className: "dust-pool-title "
-  }, pool.title), /*#__PURE__*/React__default["default"].createElement("p", {
+  }, pool.title), pool.nr_of_nfts > 0 && /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement("p", null, /*#__PURE__*/React__default["default"].createElement("span", {
+    style: {
+      fontWeight: '600'
+    }
+  }, pool.nr_of_nfts), " of NFTS"), /*#__PURE__*/React__default["default"].createElement(CounterBar, {
+    maxValue: pool.nr_of_nfts,
+    value: pool.nr_of_nfts
+  })), /*#__PURE__*/React__default["default"].createElement("p", {
     className: "dust-pool-card-label"
   }, "Price"), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dpc-box"
@@ -4103,7 +4190,7 @@ const UpcomingProjectSubpage = _ref => {
     style: {
       margin: 0
     }
-  }, /*#__PURE__*/React__default["default"].createElement("b", null, pool.price ? pool.price.toLocaleString() + ' D' : 'TBA')))))), /*#__PURE__*/React__default["default"].createElement("div", {
+  }, /*#__PURE__*/React__default["default"].createElement("b", null, pool.price && parseInt(pool.price) > 0 ? pool.price.toLocaleString() + ' D' : 'TBA')))))), /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
       display: 'block'
     }
@@ -4118,102 +4205,17 @@ const UpcomingProjectSubpage = _ref => {
     dangerouslySetInnerHTML: {
       __html: pool.description
     }
-  }))));
+  })), /*#__PURE__*/React__default["default"].createElement(ShowNextPreviosProject, {
+    prev: prevPool,
+    next: nextPool,
+    idx: currentIndex,
+    mediaUrl: MEDIA_BASE_URL,
+    handler: handleChangePool
+  })));
 };
 
 var css_248z = ".mt-4 {\r\n\tmargin-top: 2rem;\r\n}\r\n\r\n\r\n.form-group {\r\n    margin-bottom: 1rem;\r\n}\r\n\r\n.form-control {\r\n    display: block;\r\n    width: 100%;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;\r\n}\r\n";
 styleInject(css_248z);
-
-const VaultInterface = _ref => {
-  let {
-    address,
-    hc,
-    d4p,
-    ethersProvider
-  } = _ref;
-  const [name, setName] = React.useState('');
-  const [price, setPrice] = React.useState('');
-  const [remaining, setRemaining] = React.useState('');
-  const [vaultAddress, setVaultAddress] = React.useState('');
-  const [tokenAddress, setTokenAddress] = React.useState('');
-  const [destinasi, setDestinasi] = React.useState('0x0000000000000000000000000000000000000000');
-  React.useEffect(() => {
-    if (address === null) {
-      hc();
-    }
-  }, [address]);
-
-  const addVault = async () => {
-    if (name && price && remaining && vaultAddress && tokenAddress && destinasi) {
-      console.log('address', address);
-      let priceInWei = ethers.ethers.utils.parseEther(price);
-      let remainingInWei = ethers.ethers.utils.parseEther(price);
-      let contract = d4p.connect(ethersProvider.getSigner());
-      console.log(contract);
-      let res = await contract.add_721_vault(name, priceInWei, remainingInWei, vaultAddress, tokenAddress, destinasi).catch(e => console.log);
-      console.log('res', res);
-    }
-  };
-
-  return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "container mt-4"
-  }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React__default["default"].createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: name,
-    onChange: e => setName(e.target.value),
-    placeholder: "Vault name (string)"
-  })), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React__default["default"].createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: price,
-    onChange: e => setPrice(e.target.value),
-    placeholder: "Price in dust (uint256)"
-  })), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React__default["default"].createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: remaining,
-    onChange: e => setRemaining(e.target.value),
-    placeholder: "Remaining (int)"
-  })), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React__default["default"].createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: vaultAddress,
-    onChange: e => setVaultAddress(e.target.value),
-    placeholder: "Vault (address)"
-  })), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React__default["default"].createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: tokenAddress,
-    onChange: e => setTokenAddress(e.target.value),
-    placeholder: "Token (address)"
-  })), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/React__default["default"].createElement("input", {
-    type: "text",
-    className: "form-control",
-    value: destinasi,
-    onChange: e => setDestinasi(e.target.value),
-    placeholder: "Destinasi (address)"
-  })), /*#__PURE__*/React__default["default"].createElement("button", {
-    type: "submit",
-    className: "dust-pool-btn",
-    style: {
-      marginTop: '20px'
-    },
-    onClick: addVault
-  }, "Add vault"));
-};
 
 /* 
 const POOLSS = [
@@ -4344,56 +4346,61 @@ var DustPools = function DustPools(_ref) {
 
   var _useState3 = React.useState(null),
       _useState4 = _slicedToArray(_useState3, 2),
-      dustContract = _useState4[0],
-      setDustContract = _useState4[1];
+      selectedUpcomingPoolIdx = _useState4[0],
+      setselectedUpcomingPoolIdx = _useState4[1];
 
   var _useState5 = React.useState(null),
       _useState6 = _slicedToArray(_useState5, 2),
-      dust4PunksContract = _useState6[0],
-      setDust4PunksContract = _useState6[1];
+      dustContract = _useState6[0],
+      setDustContract = _useState6[1];
 
   var _useState7 = React.useState(null),
       _useState8 = _slicedToArray(_useState7, 2),
-      zoom2 = _useState8[0],
-      setZoom2 = _useState8[1];
+      dust4PunksContract = _useState8[0],
+      setDust4PunksContract = _useState8[1];
 
-  var _useState9 = React.useState('ALL'),
+  var _useState9 = React.useState(null),
       _useState10 = _slicedToArray(_useState9, 2),
-      selectedFilter = _useState10[0],
-      setSelectedFilter = _useState10[1];
+      zoom2 = _useState10[0],
+      setZoom2 = _useState10[1];
 
-  var _useState11 = React.useState(false),
-      _useState12 = _slicedToArray(_useState11, 2);
-      _useState12[0];
-      var setInitDone = _useState12[1];
+  var _useState11 = React.useState('ALL'),
+      _useState12 = _slicedToArray(_useState11, 2),
+      selectedFilter = _useState12[0],
+      setSelectedFilter = _useState12[1];
 
-  var _useState13 = React.useState([]),
-      _useState14 = _slicedToArray(_useState13, 2),
-      poolsFromBackend = _useState14[0],
-      setPoolsFromBackend = _useState14[1];
+  var _useState13 = React.useState(false),
+      _useState14 = _slicedToArray(_useState13, 2);
+      _useState14[0];
+      var setInitDone = _useState14[1];
 
   var _useState15 = React.useState([]),
       _useState16 = _slicedToArray(_useState15, 2),
-      allPools = _useState16[0],
-      setAllPools = _useState16[1];
+      poolsFromBackend = _useState16[0],
+      setPoolsFromBackend = _useState16[1];
 
   var _useState17 = React.useState([]),
       _useState18 = _slicedToArray(_useState17, 2),
-      pools = _useState18[0],
-      setPools = _useState18[1];
+      allPools = _useState18[0],
+      setAllPools = _useState18[1];
 
   var _useState19 = React.useState([]),
       _useState20 = _slicedToArray(_useState19, 2),
-      upcomingPools = _useState20[0],
-      setUpcomingPools = _useState20[1];
+      pools = _useState20[0],
+      setPools = _useState20[1];
 
-  var _useState21 = React.useState(null),
+  var _useState21 = React.useState([]),
       _useState22 = _slicedToArray(_useState21, 2),
-      upcomingPool = _useState22[0],
-      setUpcomingPool = _useState22[1];
+      upcomingPools = _useState22[0],
+      setUpcomingPools = _useState22[1];
+
+  var _useState23 = React.useState(null),
+      _useState24 = _slicedToArray(_useState23, 2),
+      upcomingPool = _useState24[0],
+      setUpcomingPool = _useState24[1];
 
   var loc = reactRouterDom.useLocation();
-  var url = chainId === 1 ? 'https://galaxis-web-backend.herokuapp.com' : 'https://galaxis-web-backend-staging.herokuapp.com';
+  var url = chainId === 1 ? 'https://cms.galaxis.xyz' : 'https://galaxis-web-backend-staging.herokuapp.com';
   var upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
   React.useEffect(function () {
     var getPoolData = /*#__PURE__*/function () {
@@ -4403,12 +4410,13 @@ var DustPools = function DustPools(_ref) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                console.log('00000000000000000');
+                _context.next = 3;
                 return axios__default["default"].get(url + '/vaults').catch(function (e) {
                   return console.log;
                 });
 
-              case 2:
+              case 3:
                 res = _context.sent;
                 console.log('vaults', res);
 
@@ -4416,12 +4424,12 @@ var DustPools = function DustPools(_ref) {
                   setPoolsFromBackend(res.data);
                 }
 
-                _context.next = 7;
+                _context.next = 8;
                 return axios__default["default"].get(url + '/upcoming-vaults').catch(function (e) {
                   return console.log;
                 });
 
-              case 7:
+              case 8:
                 upcoming = _context.sent;
 
                 if (upcoming.status === 200) {
@@ -4447,7 +4455,7 @@ var DustPools = function DustPools(_ref) {
                   }
                 }
 
-              case 9:
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -4460,8 +4468,10 @@ var DustPools = function DustPools(_ref) {
       };
     }();
 
-    getPoolData();
-  }, []);
+    if (chainId !== null) {
+      getPoolData();
+    }
+  }, [chainId]);
   React.useEffect(function () {
     var initContract = /*#__PURE__*/function () {
       var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
@@ -4561,7 +4571,7 @@ var DustPools = function DustPools(_ref) {
               calls = [];
 
               for (i = 0; i < numberOfPools; i++) {
-                //Punk vault address
+                // vault address
                 vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
                 calls.push(vaultAddress); //Pool Name
 
@@ -4600,7 +4610,8 @@ var DustPools = function DustPools(_ref) {
               va = ZoomLibraryInstance.decodeCall(calls[_i + 0]).toString();
               vn = ZoomLibraryInstance.decodeCall(calls[_i + 1]).toString();
               vp = ZoomLibraryInstance.decodeCall(calls[_i + 2]).toString();
-              vt = ZoomLibraryInstance.decodeCall(calls[_i + 3]).toString();
+              vt = ZoomLibraryInstance.decodeCall(calls[_i + 3]).toString(); // console.log('va,vn,vp,vt',va,vn,vp,vt);
+
               vd = {
                 vaultAddress: va,
                 vaultName: vn,
@@ -4686,7 +4697,7 @@ var DustPools = function DustPools(_ref) {
               for (i = 0; i < allPools.length; i++) {
                 if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
                   /*     console.log(allPools[i].vaultData.tokenContract,i)
-                          const totalSupply = ZoomLibraryInstance.addCall(
+                         const totalSupply = ZoomLibraryInstance.addCall(
                             allPools[i].vaultData.tokenContract,
                             ["totalSupply",[]],
                             "totalSupply() returns (uint256)"
@@ -4721,10 +4732,10 @@ var DustPools = function DustPools(_ref) {
 
               for (_i2 = 0; _i2 < calls.length; _i2++) {
                 //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-                ab = ZoomLibraryInstance.decodeCall(calls[_i2]).toString();
-                console.log('idx, balance', _i2, ab);
-                poolIdx = hasContract[hasContractIdx];
-                console.log('pool index, allpools', poolIdx, ap);
+                ab = ZoomLibraryInstance.decodeCall(calls[_i2]).toString(); // console.log('idx, balance', i, ab);
+
+                poolIdx = hasContract[hasContractIdx]; //console.log('pool index, allpools', poolIdx,ap);
+
                 ap[poolIdx].vaultData = _objectSpread2(_objectSpread2({}, ap[poolIdx].vaultData), {}, {
                   /* totalSupply:ts, */
                   available: Number(ab)
@@ -4738,7 +4749,7 @@ var DustPools = function DustPools(_ref) {
               }
               /* 
                   let op = [...ap];
-                    op.sort((a,b)=>{
+                   op.sort((a,b)=>{
                       if(a.order>b.order){
                           return 1
                       }else{
@@ -4790,6 +4801,12 @@ var DustPools = function DustPools(_ref) {
     //console.log('poolId,idx',idx);
     if (idx !== null) {
       setSelectedPoolIdx(idx);
+    }
+  };
+
+  var showUpcomingDetails = function showUpcomingDetails(idx) {
+    if (idx !== null) {
+      setselectedUpcomingPoolIdx(idx);
     }
   };
 
@@ -4848,19 +4865,15 @@ var DustPools = function DustPools(_ref) {
     onClick: function onClick() {
       return window.open('https://blog.ether.cards/dust-utility-token-model-distribution/');
     }
-  }, "More")), /*#__PURE__*/React__default["default"].createElement(VaultInterface, {
-    address: address,
-    hc: handleConnect,
-    d4p: dust4PunksContract,
-    ethersProvider: ethersProvider
-  }), /*#__PURE__*/React__default["default"].createElement(TopSectionDividers, null), /*#__PURE__*/React__default["default"].createElement("div", {
+  }, "More")), /*#__PURE__*/React__default["default"].createElement(TopSectionDividers, null), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dust-pool-textbox pb-4"
   }, /*#__PURE__*/React__default["default"].createElement("p", {
     className: "pool-subtitle"
-  }, "Upcoming NFT Vaults"), /*#__PURE__*/React__default["default"].createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")), upcomingPools.length > 0 && /*#__PURE__*/React__default["default"].createElement(UpcomingPoolsCarousel, {
+  }, "Upcoming NFT Vaults"), /*#__PURE__*/React__default["default"].createElement("p", null, "Checkout all the upcoming Galaxis Vaults - where $DUST Utility Tokens may be exchanged for high quality NFTs!")), upcomingPools.length > 0 && /*#__PURE__*/React__default["default"].createElement(UpcomingPoolsCarousel, {
     imgUrl: upcomingImgUrl,
     poolsData: upcomingPools,
-    handleSelect: setUpcomingPool
+    handleSelect: setUpcomingPool,
+    handleSelectedIndex: showUpcomingDetails
   }))) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, selectedPoolIdx !== null ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dust-pool-root"
   }, /*#__PURE__*/React__default["default"].createElement(ProjectSubpage, {
@@ -4879,11 +4892,13 @@ var DustPools = function DustPools(_ref) {
   }))) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dust-pool-root"
   }, /*#__PURE__*/React__default["default"].createElement(UpcomingProjectSubpage, {
-    pool: upcomingPool,
+    pools: upcomingPools,
+    currentIndex: selectedUpcomingPoolIdx,
     chainId: chainId,
     handleBack: function handleBack() {
       return setUpcomingPool(null);
-    }
+    },
+    handleChangePool: showUpcomingDetails
   })))));
 };
 

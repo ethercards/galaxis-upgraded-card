@@ -30,6 +30,13 @@ const sx = {
     fontFamily: 'poppins-semibold',
     fontSize: '18px',
     lineHeight: '20px',
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    "-webkit-line-clamp": '2',
+    "-webkit-box-orient": "vertical"
+  
+
   },
   description: {
     fontFamily: 'poppins',
@@ -39,9 +46,15 @@ const sx = {
   imageHolder: {
     width: '84px',
   },
+  itemHolder: {
+    maxWidth: '60%',
+  },
+  image: {
+
+  }
 };
-const autoPlayDelay = 4000;
-const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
+const autoPlayDelay = 40000000; //4000
+const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect, handleSelectedIndex }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [noOfCards, setNoOfCards] = useState(4);
   useEffect(() => {
@@ -98,7 +111,7 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
         >
           {poolsData.map((pool,idx) => (
             <Box key={idx} sx={sx.content} style={{boxShadow: "0px 2px 7px -2px rgba(0,0,0,0.2)", margin:"20px auto", borderRadius:"12px", overflow:"hidden"}}>
-              <Box sx={sx.contentLeft} className="previousBox" onClick={()=>handleItemSelect(idx)} >
+              <Box sx={sx.contentLeft} className="previousBox" onClick={()=>{handleItemSelect(idx); handleSelectedIndex(idx) }}>
                 <Box sx={sx.imageHolder}>
                   <img
                     src={imgUrl + pool.image_src}
@@ -119,7 +132,7 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
                   >
                     {pool.title}
                   </Typography>
-                  <Typography sx={sx.description}>Price: {pool.price?pool.price.toLocaleString()+' D':'TBA'}</Typography>
+                  <Typography sx={sx.description}>Price: {(pool.price && parseInt(pool.price)>0)?pool.price.toLocaleString()+' D':'TBA'}</Typography>
                 </Box>
               </Box>
             </Box>
@@ -150,7 +163,8 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect }) => {
                         ? carouselPginationOrange
                         : carouselPagination
                     }
-                    style={{ cursor: 'pointer', marginTop:"20px" }}
+                    style={{ cursor: 'pointer', marginTop:"20px", boxShadow: '-1px 5px 9px 0px rgb(0 0 0 / 11%)'
+                  }}
                   />
                 </Box>
               ))}

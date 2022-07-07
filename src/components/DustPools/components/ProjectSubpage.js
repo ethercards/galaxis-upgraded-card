@@ -433,7 +433,7 @@ const connectOrExhange = ()=>{
               <p className="dust-pool-card-label">Your balance</p>
               <div className='dpc-box'>
               <p style={{margin:0}}>
-                <b>{dustBalance?Number(ethers.utils.formatEther(dustBalance)).toLocaleString()+' D':'Connect your wallet to see your dust balance'}</b>
+                <b>{dustBalance?Number(ethers.utils.formatEther(dustBalance)).toLocaleString()+' D':'N/A'}</b>
               </p>
               </div>
               
@@ -454,7 +454,7 @@ const connectOrExhange = ()=>{
         </div>
         <div style={{display:'block'}}>
           <p className="dust-pool-card-label mt-2" style={{fontFamily:"poppins-semibold", textTransform:"capitalize", fontSize:"18px"}}><b>Description</b></p>
-          <div dangerouslySetInnerHTML={{__html: pool.description}}/>
+          <div dangerouslySetInnerHTML={{__html: pool.description.replace('*****',Number(ethers.utils.formatEther(pool.vaultData.vaultPrice)).toLocaleString())}}/>
         </div>
         
 
@@ -487,7 +487,7 @@ const connectOrExhange = ()=>{
               </>
               }
 
-              <div className="counter-circle" style={{margin:"25px 0"}}>
+              <div className="counter-circle" style={{margin:"45px auto"}}>
                 <div className="counter-rotary-holder" id='txRotator'>
                   <div className="counter-rotary-item" />
                 </div>
@@ -529,7 +529,7 @@ const connectOrExhange = ()=>{
                 <p className="dust-pool-card-label" style={{textTransform:"none"}}>Your brand new NFT can be viewed right now in your wallet, or go back to dust pools to buy some more!</p>
                 <div className='ps-text-bottom' style={{display:"flex", flexDirection:"column", rowGap:"10px", maxWidth:"170px", marginLeft:"auto", marginRight:"auto"}}>
                 <button className="dust-pool-btn" onClick={()=>{setCardRevealed(false);setUserHash(false);setTxHash(false)}}>Buy more</button>
-                <a className="dust-pool-btn" target="_blank" rel="noreferrer" href={chainId===1?'https://explorer.ether.cards/#/wallet':'https://explorer.burneth.com/#/wallet'}>Go to wallet</a>
+                {/* <a className="dust-pool-btn" target="_blank" rel="noreferrer" href={chainId===1?'https://explorer.ether.cards/#/wallet':'https://explorer.burneth.com/#/wallet'}>Go to wallet</a> */}
                 </div>
               </div>
             </div> 

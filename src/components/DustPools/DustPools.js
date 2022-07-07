@@ -130,6 +130,7 @@ const TopSectionDividers = () => (
 
 const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
   const [selectedPoolIdx, setSelectedPoolIdx] = useState(null);
+  const [selectedUpcomingPoolIdx, setselectedUpcomingPoolIdx] = useState(null)
   const [dustContract, setDustContract] = useState(null);
   const [dust4PunksContract, setDust4PunksContract] = useState(null);
   const [zoom2, setZoom2] = useState(null);
@@ -145,13 +146,16 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
   const loc = useLocation();
 
-  const url = chainId===1?'https://galaxis-web-backend.herokuapp.com':'https://galaxis-web-backend-staging.herokuapp.com';
+
+
+  const url = chainId===1?'https://cms.galaxis.xyz':'https://galaxis-web-backend-staging.herokuapp.com';
   const upcomingImgUrl = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
 
 
   useEffect(()=>{
     const getPoolData = async ()=>{
 
+      console.log('00000000000000000')
       const res = await axios.get(url+'/vaults').catch(e=>console.log);
       console.log('vaults',res);
       if(res.status === 200){
@@ -178,6 +182,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             if(parsedParams.upcoming){
              // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
               setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+              
             }
 
           }
@@ -190,18 +195,15 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
 
 
-
-    getPoolData();
-  },[]);
+    if(chainId!==null){
+      getPoolData();
+    }
+  },[chainId]);
 
 
 
 
   useEffect(() => {
-
-   
-
-
     const initContract = async () => {
       let c = await getContract('Dust', ethersProvider);
       if (c) {
@@ -259,7 +261,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
     let calls = [];
 
     for (let i = 0; i < numberOfPools; i++) {
-      //Punk vault address
+      // vault address
       const vaultAddress = ZoomLibraryInstance.addCall(
         dust4PunksContract,
         ['vaultAddress', [i]],
@@ -310,6 +312,9 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let vn = ZoomLibraryInstance.decodeCall(calls[i + 1]).toString();
       let vp = ZoomLibraryInstance.decodeCall(calls[i + 2]).toString();
       let vt = ZoomLibraryInstance.decodeCall(calls[i + 3]).toString();
+
+     // console.log('va,vn,vp,vt',va,vn,vp,vt);
+
 
       const vd = {
         vaultAddress: va,
@@ -409,9 +414,9 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         for (let i = 0; i < calls.length; i++) {
           //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
           let ab = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-          console.log('idx, balance', i, ab);
+         // console.log('idx, balance', i, ab);
           let poolIdx = hasContract[hasContractIdx];
-          console.log('pool index, allpools', poolIdx,ap);
+          //console.log('pool index, allpools', poolIdx,ap);
           ap[poolIdx].vaultData = {
             ...ap[poolIdx].vaultData,
             /* totalSupply:ts, */ available: Number(ab),
@@ -463,7 +468,11 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
     }
   };
 
-
+  const showUpcomingDetails = (idx) => {
+    if (idx !== null) {
+      setselectedUpcomingPoolIdx(idx);
+    }
+  }
 
 
 
@@ -533,17 +542,17 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
               </button>
             </div>
 
-            <VaultInterface address={address} hc={handleConnect} d4p={dust4PunksContract} ethersProvider={ethersProvider} />
-
+         {/*    <VaultInterface address={address} hc={handleConnect} d4p={dust4PunksContract} ethersProvider={ethersProvider} />
+ */}
 
             <TopSectionDividers />
             <div className="dust-pool-textbox pb-4">
               <p className="pool-subtitle">Upcoming NFT Vaults</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>Checkout all the upcoming Galaxis Vaults - where $DUST Utility Tokens may be exchanged for high quality NFTs!</p>
             </div>
                 
             {upcomingPools.length>0 && 
-              <UpcomingPoolsCarousel imgUrl={upcomingImgUrl} poolsData={upcomingPools} handleSelect={setUpcomingPool}/>
+              <UpcomingPoolsCarousel imgUrl={upcomingImgUrl} poolsData={upcomingPools} handleSelect={setUpcomingPool} handleSelectedIndex={showUpcomingDetails}/>
             }
             
             {/* <div className="row">
@@ -584,9 +593,11 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             <>
               <div className="dust-pool-root">
                 <UpcomingProjectSubpage
-                  pool = {upcomingPool}
+                  pools = {upcomingPools}
+                  currentIndex = {selectedUpcomingPoolIdx}
                   chainId={chainId}
                   handleBack={() => setUpcomingPool(null)}
+                  handleChangePool={showUpcomingDetails}
                 />
               </div>
             </>}
