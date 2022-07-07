@@ -18,12 +18,101 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 var ItemsCarousel__default = /*#__PURE__*/_interopDefaultLegacy(ItemsCarousel);
 
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+
+  return target;
+}
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
 
 function _iterableToArrayLimit(arr, i) {
@@ -73,37 +162,27 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 var img$7 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3e %3cg id='Group_1817' data-name='Group 1817' transform='translate(-912 -5536)'%3e %3cg id='Group_1814' data-name='Group 1814' transform='translate(912 5535.843)' opacity='0.4'%3e %3crect id='Rectangle_370' data-name='Rectangle 370' width='70' height='70' rx='7' transform='translate(0 0.157)'/%3e %3cg id='physical_redeem' data-name='physical redeem' transform='translate(18.543 14.423)'%3e %3cpath id='Path_211' data-name='Path 211' d='M120.119%2c77c2.377%2c1.414%2c4.765%2c2.828%2c7.142%2c4.243q4.706%2c2.8%2c9.436%2c5.574a1.175%2c1.175%2c0%2c0%2c1%2c.642%2c1.129q-.018%2c9.572%2c0%2c19.133a1.135%2c1.135%2c0%2c0%2c1-.618%2c1.093q-8.093%2c4.759-16.186%2c9.567a1.162%2c1.162%2c0%2c0%2c1-1.331%2c0q-8.075-4.8-16.186-9.567a1.1%2c1.1%2c0%2c0%2c1-.618-1.058q.018-9.626%2c0-19.252a1.033%2c1.033%2c0%2c0%2c1%2c.547-.986q8.325-4.9%2c16.637-9.816a.119.119%2c0%2c0%2c0%2c.048-.059Zm4.813%2c18.408c-.166.1-.285.143-.392.214-1.188.7-2.365%2c1.4-3.553%2c2.092a.631.631%2c0%2c0%2c0-.368.63c.012%2c3.839.012%2c7.689.012%2c11.527v.357c-.012.594-.3.927-.761.927s-.725-.333-.749-.9v-.357c0-3.838%2c0-7.689.012-11.527a.656.656%2c0%2c0%2c0-.38-.654q-6.542-3.85-13.084-7.725c-.642-.38-.82-.761-.57-1.2s.7-.475%2c1.319-.107q6.56%2c3.868%2c13.12%2c7.76a.571.571%2c0%2c0%2c0%2c.677%2c0c1.2-.725%2c2.412-1.426%2c3.613-2.139.107-.059.2-.143.345-.226-.119-.071-.19-.131-.273-.178q-7.309-4.332-14.629-8.651a.446.446%2c0%2c0%2c0-.535%2c0c-1.474.879-2.959%2c1.759-4.445%2c2.626a.615.615%2c0%2c0%2c0-.357.63q.018%2c9.02%2c0%2c18.052a.642.642%2c0%2c0%2c0%2c.357.63q7.2%2c4.243%2c14.391%2c8.5c.119.071.238.143.416.238.012-.2.024-.321.024-.452%2c0-.63-.012-1.26%2c0-1.878.012-.547.3-.844.749-.844s.737.309.749.844c.012.654%2c0%2c1.307.012%2c1.961%2c0%2c.107.024.214.036.368a1.7%2c1.7%2c0%2c0%2c0%2c.226-.119q7.326-4.332%2c14.677-8.663a.48.48%2c0%2c0%2c0%2c.25-.487V89.359c0-.1-.024-.19-.036-.333-1.224.725-2.4%2c1.426-3.589%2c2.115a.536.536%2c0%2c0%2c0-.309.535c.012%2c1.961%2c0%2c3.922.012%2c5.883a.916.916%2c0%2c0%2c1-.487.891c-1.747%2c1.022-3.494%2c2.068-5.241%2c3.09a.769.769%2c0%2c0%2c1-1.236-.665%2c2.889%2c2.889%2c0%2c0%2c1%2c0-.321v-4.6C124.932%2c95.753%2c124.932%2c95.61%2c124.932%2c95.408Zm10.113-7.784a2.963%2c2.963%2c0%2c0%2c0-.285-.19q-7.291-4.314-14.593-8.628a.5.5%2c0%2c0%2c0-.582%2c0c-1.129.677-2.27%2c1.343-3.411%2c2.02-.071.048-.143.1-.238.155.309.178.57.333.832.5l4.884%2c2.888a.772.772%2c0%2c0%2c1%2c.38%2c1.105c-.226.392-.665.463-1.153.2-.083-.048-.166-.1-.238-.143-1.961-1.165-3.922-2.317-5.883-3.482a.553.553%2c0%2c0%2c0-.677.012c-1.022.63-2.056%2c1.224-3.09%2c1.842-.155.1-.3.178-.487.3.107.071.154.107.214.143q7.362%2c4.349%2c14.736%2c8.711a.41.41%2c0%2c0%2c0%2c.5-.012l3.066-1.818c.19-.107.38-.226.606-.368-.178-.107-.3-.19-.428-.261-1.878-1.117-3.767-2.222-5.645-3.339-.606-.357-.784-.749-.535-1.188s.713-.475%2c1.331-.119c2.175%2c1.283%2c4.338%2c2.555%2c6.5%2c3.85a.464.464%2c0%2c0%2c0%2c.57%2c0c1.105-.666%2c2.222-1.319%2c3.339-1.985A1.693%2c1.693%2c0%2c0%2c0%2c135.045%2c87.624Zm-4.67%2c4.552c-1.307.772-2.531%2c1.485-3.755%2c2.234a.545.545%2c0%2c0%2c0-.166.392c-.012%2c1.462-.012%2c2.935%2c0%2c4.4%2c0%2c.1.024.19.036.333.951-.559%2c1.83-1.165%2c2.769-1.616a1.716%2c1.716%2c0%2c0%2c0%2c1.129-1.961C130.291%2c94.731%2c130.375%2c93.495%2c130.375%2c92.176Z' transform='translate(-102.4 -77)'/%3e %3cpath id='Path_212' data-name='Path 212' d='M128.161%2c290.158c0-.475-.012-.963%2c0-1.438a.756.756%2c0%2c1%2c1%2c1.509-.059q.036%2c1.515%2c0%2c3.03a.743.743%2c0%2c0%2c1-.784.737.755.755%2c0%2c0%2c1-.713-.808C128.149%2c291.144%2c128.161%2c290.645%2c128.161%2c290.158Z' transform='translate(-125.095 -262.837)'/%3e %3cpath id='Path_213' data-name='Path 213' d='M153.661%2c302.937c0-.475-.012-.963%2c0-1.438a.75.75%2c0%2c1%2c1%2c1.5-.048q.036%2c1.5%2c0%2c2.995a.758.758%2c0%2c0%2c1-.784.772.767.767%2c0%2c0%2c1-.713-.844Z' transform='translate(-147.564 -274.106)'/%3e %3c/g%3e %3c/g%3e %3cg id='flip_02' data-name='flip 02' transform='translate(845.179 5473.328)'%3e %3cpath id='Path_225' data-name='Path 225' d='M92.524%2c117.689a7.86%2c7.86%2c0%2c0%2c1-1.044-.333%2c3.738%2c3.738%2c0%2c0%2c1-2.408-3.594c-.024-3.7-.012-5.557-.012-9.254v-.551H85.124a4.029%2c4.029%2c0%2c0%2c1-2.443-.769%2c3.692%2c3.692%2c0%2c0%2c1-1.613-3.02c-.024-1.78-.024-3.548%2c0-5.327a3.909%2c3.909%2c0%2c0%2c1%2c3.89-3.766c1.34-.023%2c2.692%2c0%2c4.1%2c0V81.822A3.937%2c3.937%2c0%2c0%2c1%2c93.307%2c77.7H108.8a3.937%2c3.937%2c0%2c0%2c1%2c4.246%2c4.122V96.23h.949a37.19%2c37.19%2c0%2c0%2c1%2c3.76.092%2c3.767%2c3.767%2c0%2c0%2c1%2c3.273%2c3.639c.036%2c1.8.036%2c3.605%2c0%2c5.419a3.908%2c3.908%2c0%2c0%2c1-3.866%2c3.743c-1.2.023-2.4.011-3.593.011h-.522V113.6a3.885%2c3.885%2c0%2c0%2c1-3.344%2c4.041.375.375%2c0%2c0%2c0-.119.057Q101.04%2c117.683%2c92.524%2c117.689ZM91.73%2c98.825V113.6a1.355%2c1.355%2c0%2c0%2c0%2c1.554%2c1.5H108.82c1.044%2c0%2c1.554-.494%2c1.565-1.493V109.56c0-.138-.012-.276-.024-.436h-3.843a1.317%2c1.317%2c0%2c0%2c1-1.459-1.378c0-1.665-.012-3.318%2c0-4.983a1.3%2c1.3%2c0%2c0%2c1%2c1.423-1.366c1.139-.011%2c2.277%2c0%2c3.416%2c0h.486V81.684a1.323%2c1.323%2c0%2c0%2c0-1.471-1.412H93.283a1.355%2c1.355%2c0%2c0%2c0-1.554%2c1.5v9.265H94.4V89.87a1.261%2c1.261%2c0%2c0%2c1%2c.688-1.217%2c1.346%2c1.346%2c0%2c0%2c1%2c1.459.092q3.932%2c2.532%2c7.863%2c5.075a1.254%2c1.254%2c0%2c0%2c1%2c0%2c2.216c-2.621%2c1.711-5.266%2c3.4-7.9%2c5.1a1.317%2c1.317%2c0%2c0%2c1-1.388.092%2c1.268%2c1.268%2c0%2c0%2c1-.723-1.194V98.825Zm4.756-.861s3.392-2.113%2c4.815-3.031c-1.447-.93-4.815-3.111-4.815-3.111l-.024%2c1.791-1.079.034H85.219c-.771%2c0-1.34.356-1.435%2c1.01a11.039%2c11.039%2c0%2c0%2c0-.012%2c1.653c.854-.034%2c1.672-.08%2c2.491-.092%2c3.06-.011%2c9.191%2c0%2c9.191%2c0l1.008-.011Zm11.231%2c8.519c.047.034.059.057.071.057%2c3.107%2c0%2c6.215.011%2c9.322%2c0a1.181%2c1.181%2c0%2c0%2c0%2c1.2-.976%2c11.648%2c11.648%2c0%2c0%2c0%2c.012-1.7c-.759.034-1.494.092-2.23.092-2.633.011-5.266%2c0-7.9%2c0h-.474Zm5.337-5.1c1.388%2c0%2c2.74.023%2c4.092-.011a1.276%2c1.276%2c0%2c0%2c0%2c1.21-1.263%2c1.241%2c1.241%2c0%2c0%2c0-1.139-1.274c-1.388-.046-2.763-.011-4.175-.011C113.054%2c99.675%2c113.054%2c100.5%2c113.054%2c101.385ZM89.038%2c98.814h-3.9a1.306%2c1.306%2c0%2c0%2c0-1.4%2c1.3%2c1.323%2c1.323%2c0%2c0%2c0%2c1.423%2c1.274c1.2.011%2c2.4%2c0%2c3.594%2c0a2.4%2c2.4%2c0%2c0%2c0%2c.285-.034Z' fill='%23fcfcfc'/%3e %3c/g%3e %3c/g%3e%3c/svg%3e";
 
-var CardBack = function CardBack(_ref) {
-  var backImage = _ref.backImage,
-      _onClick = _ref.onClick;
+const CardBack = _ref => {
+  let {
+    backImage,
+    onClick
+  } = _ref;
+  const [showFlipIcon, setshowFlipIcon] = React.useState(false);
+  React.useState(false);
+  React.useState(null);
+  const [mobileView, setmobileView] = React.useState(false);
 
-  var _useState = React.useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      showFlipIcon = _useState2[0],
-      setshowFlipIcon = _useState2[1];
-
-  var _useState3 = React.useState(false),
-      _useState4 = _slicedToArray(_useState3, 2);
-      _useState4[0];
-      _useState4[1];
-
-  var _useState5 = React.useState(null),
-      _useState6 = _slicedToArray(_useState5, 2);
-      _useState6[0];
-      _useState6[1];
-
-  var _useState7 = React.useState(false),
-      _useState8 = _slicedToArray(_useState7, 2),
-      mobileView = _useState8[0],
-      setmobileView = _useState8[1];
-
-  React.useEffect(function () {
+  React.useEffect(() => {
     if (window.innerWidth < 900) {
       setmobileView(true);
     }
@@ -111,12 +190,12 @@ var CardBack = function CardBack(_ref) {
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "card-back-root",
     style: {
-      backgroundImage: "url(".concat(backImage, ")")
+      backgroundImage: `url(${backImage})`
     },
-    onMouseOver: function onMouseOver() {
+    onMouseOver: () => {
       setshowFlipIcon(true);
     },
-    onMouseLeave: function onMouseLeave() {
+    onMouseLeave: () => {
       setshowFlipIcon(false);
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
@@ -128,8 +207,8 @@ var CardBack = function CardBack(_ref) {
     style: {
       display: showFlipIcon || mobileView ? 'block' : 'none'
     },
-    onClick: function onClick(e) {
-      _onClick(e);
+    onClick: e => {
+      onClick(e);
     }
   }))));
 };
@@ -200,7 +279,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$9 = ".card-image-container{\n  position: relative;\n  /* min-height: 500px; */\n  margin: auto;\n  height: 100%;\n  width: 100%;\n}\n.pyramid_anim_container {\n  z-index: 2;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n.resizer-container{\n  padding: 10px;\n}\n\n.scope span {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transform-origin: center;\n  transform-style: preserve-3d;\n}\n.scope span:first-child {\n  transform: rotateY(calc(0deg)) translateZ(1px) rotateX(0deg);\n}\n.scope span:nth-child(2) {\n  transform: rotateY(calc(0deg)) translateZ(0px) rotateX(0deg);\n}\n\n.scope {\n  position: relative;\n  transform-style: preserve-3d;\n  animation: slid 5s linear infinite;\n  border-radius: 12px;\n  transition: 1.5s all;\n  padding: 10px;\n  /* box-shadow: 0px 55px 88px 0px rgba(0,0,0,0.42); */\n}\n.scope span {\n  overflow: hidden;\n  border-radius: 12px;\n}\n.front.active::after{\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 100%;\n  display: block;\n  background: linear-gradient(112deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\n  background-position-x: 0;\n  background-repeat: no-repeat;\n  transition: all .35s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n  animation: shiningEffect1 2s ease-in-out normal ;\n}\n.back.active::after{\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  right: 100%;\n  display: block;\n  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\n  background-position-x: 0;\n  background-repeat: no-repeat;\n  transition: all .35s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n  animation: shiningEffect2 2s ease-in-out normal ;\n}\n\n.badge-img{\n  position: absolute;\n  width: 75px;\n  height: 75px;\n  bottom: 15px;\n  margin-left: auto;\n  margin-right: auto;\n  left: 0;\n  right: 0;\n  cursor: pointer;\n}\n.flip-icon {\n  /* position: absolute; */\n  width: 40px;\n  height: 40px;\n  /* margin-top: auto;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: auto;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;*/\n  cursor: pointer; \n}\n.fullscreen-icon{\n  /* position: absolute; */\n  width: 40px;\n  height: 40px;\n  margin-right: 10px;\n  /* margin-top: auto;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: auto;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; */\n  cursor: pointer;\n}\n.back_card{\n  animation: hideBack 2s ease-in-out normal;\n  transition: all 1s;\n  visibility: hidden;\n  border-radius: 12px;\n}\n.back_card.active{\n  visibility: visible;\n}\n.card-back-root {\n  height: 100%;\n  transform: rotateY(180deg);\n  border-radius: 12px;\n  background-position: center center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  -webkit-box-pack: end;\n  justify-content: flex-end;\n  position: relative;\n}\n.card-icons-holder{\n  position: absolute;\n  inset: 0px;\n  margin: auto;\n  width: 100%;\n  max-height: 40px;\n  display: flex;\n  -webkit-box-pack: center;\n  justify-content: center;\n}\n.trait-container {\n  position: absolute;\n  display: flex;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  gap: 5px;\n  top: 10px;\n  right: 10px;\n}\n.trait-holder{\n  width: 40px;\n  height: 40px;\n  border-radius: 8px;\n  background-color: black;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n}\n.trait-holder:hover {\n  background-color: #fc6405;\n}\n.trait-holder img{\n  width: 30px;\n  height: 25px;\n}\n.trait-card-root{\n  width: 100%;\n  height: 100%;\n  border-radius: 12px;\n  transform: rotateY(180deg);\n  -webkit-background-position: center;\n  background-position: center;\n  -webkit-background-size: cover;\n  background-size: cover;\n  background-repeat: no-repeat;\n}\n.close-button {\n  width: 20.5px;\n  height: 20.5px;\n  cursor: pointer;\n  position: absolute;\n  top: 30px;\n  left: 30px;\n  z-index: 5;\n  transform: rotateX(0deg);\n}\n.trait-card-content {\n  width: 100%;\n  height: 100%;\n  border-radius: 12px;\n  background-color: #fc6405b3;\n}\n.trait-card-content-holder{\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 30px;\n \n}\n\n.trait-card-trait-icon-holder {\n  width: 55px;\n  height: 55px;\n  margin-bottom: 20px;\n  margin-top: 10px;\n}\n.trait-card-trait-icon-holder img{\n  width: 100%;\n  height: 100%;\n}\n.trait-card-title-holder{\n    display: flex;\n    justify-content: center;\n}\n.trait-card-title {\n  margin: 0px;\n  font-weight: 400;\n  color: rgb(250, 250, 242);\n  font-size: 36px;\n  font-family: Poppins-semibold;\n  line-height: 42px;\n  text-align: center;\n  width: fit-content;\n  max-width: 250px;\n  min-width: 250px;\n}\n.trait-card-description-holder{\n  margin-top: 25px;\n  display: flex;\n  -webkit-box-pack: center;\n  justify-content: center;\n  overflow-y: auto;\n}\n .trait-card-description-holder::-webkit-scrollbar {\n  width: 4px;\n}\n.trait-card-description-holder::-webkit-scrollbar-track {\n  background: #ffffff49;\n} \n.trait-card-description-holder::-webkit-scrollbar-thumb  {\n  background: #ffffff;\n} \n.trait-card-description{\n  margin: 0px;\n  font-weight: 400;\n  color: rgb(250, 250, 242);\n  font-family: poppins;\n  font-size: 16px;\n  line-height: 28px;\n  text-align: center;\n  max-width: 90%;\n  min-width: 200px;\n}\n\n@keyframes shiningEffect1 {\n  0%{\n\n    left: -100%;\n  }\n 100%{\n\n  left: 100%;\n }\n}\n@keyframes shiningEffect2 {\n  0%{\n\n    right: -100%;\n  }\n 100%{\n  right: 100%;\n }\n}\n\n@keyframes hideBack {\n from{\n  visibility: visible;\n  }\n to{\n    visibility: hidden;\n  }\n}\n.flipped-img {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  border-radius: 10px;\n  object-fit: cover;\n  transition: 2s;\n}\n.buttonHolder{\n  position: fixed;\n  height: 16px;\n  width: 16px;\n  top: 4%;\n  left: 4%;\n  font-weight: 600;\n  font-size: 1rem;\n  line-height: 1rem;\n  color: #fff;\n  transition: color .3s ease-in-out;\n  cursor: pointer;\n}\n\n@media screen and (max-width: 450px) {\n  /* .card-image-container {\n      min-height: 300px;\n  } */\n  .scope {\n    position: relative;\n    height: 440px;\n    transform-style: preserve-3d;\n    animation: slid 5s linear infinite;\n    transition: 2s all;\n  }\n  .arrow{\n    display: none;\n  }\n}\n@media screen and (max-width: 350px) {\n  .badge-img{\n    margin-left: auto;\n    margin-right: auto;\n    left: 0;\n    right: 0;\n  }\n  .scope {\n    position: relative;\n    /* width: 250px !important;\n    height: 340px; */\n    transform-style: preserve-3d;\n    animation: slid 5s linear infinite;\n    transition-property: position;\n    transition: 2s;\n  }\n}\n\n.c-medium .trait-holder{\n  width: 35px;\n  height: 35px;\n}\n.c-medium .trait-card-trait-icon-holder{\n  margin-bottom: 10px;\n}\n.c-medium .trait-card-title{\n  font-size: 32px;\n}\n.c-medium .trait-card-description{\n  line-height: 23px;\n}\n.c-small .trait-holder{\n  width: 30px;\n  height: 30px;\n}";
+var css_248z$9 = ".card-image-container{\r\n  position: relative;\r\n  /* min-height: 500px; */\r\n  margin: auto;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n.pyramid_anim_container {\r\n  z-index: 2;\r\n  box-sizing: border-box;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100%;\r\n}\r\n.resizer-container{\r\n  padding: 10px;\r\n}\r\n\r\n.scope span {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  transform-origin: center;\r\n  transform-style: preserve-3d;\r\n}\r\n.scope span:first-child {\r\n  transform: rotateY(calc(0deg)) translateZ(1px) rotateX(0deg);\r\n}\r\n.scope span:nth-child(2) {\r\n  transform: rotateY(calc(0deg)) translateZ(0px) rotateX(0deg);\r\n}\r\n\r\n.scope {\r\n  position: relative;\r\n  transform-style: preserve-3d;\r\n  animation: slid 5s linear infinite;\r\n  border-radius: 12px;\r\n  transition: 1.5s all;\r\n  padding: 10px;\r\n  /* box-shadow: 0px 55px 88px 0px rgba(0,0,0,0.42); */\r\n}\r\n.scope span {\r\n  overflow: hidden;\r\n  border-radius: 12px;\r\n}\r\n.front.active::after{\r\n  content: \"\";\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  top: 0;\r\n  left: 100%;\r\n  display: block;\r\n  background: linear-gradient(112deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\r\n  background-position-x: 0;\r\n  background-repeat: no-repeat;\r\n  transition: all .35s ease-in-out;\r\n  pointer-events: none;\r\n  z-index: 2;\r\n  animation: shiningEffect1 2s ease-in-out normal ;\r\n}\r\n.back.active::after{\r\n  content: \"\";\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  top: 0;\r\n  right: 100%;\r\n  display: block;\r\n  background: linear-gradient(250deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.3) 50%,hsla(0,0%,100%,0) 65%);\r\n  background-position-x: 0;\r\n  background-repeat: no-repeat;\r\n  transition: all .35s ease-in-out;\r\n  pointer-events: none;\r\n  z-index: 2;\r\n  animation: shiningEffect2 2s ease-in-out normal ;\r\n}\r\n\r\n.badge-img{\r\n  position: absolute;\r\n  width: 75px;\r\n  height: 75px;\r\n  bottom: 15px;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  left: 0;\r\n  right: 0;\r\n  cursor: pointer;\r\n}\r\n.flip-icon {\r\n  /* position: absolute; */\r\n  width: 40px;\r\n  height: 40px;\r\n  /* margin-top: auto;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  margin-bottom: auto;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;*/\r\n  cursor: pointer; \r\n}\r\n.fullscreen-icon{\r\n  /* position: absolute; */\r\n  width: 40px;\r\n  height: 40px;\r\n  margin-right: 10px;\r\n  /* margin-top: auto;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  margin-bottom: auto;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0; */\r\n  cursor: pointer;\r\n}\r\n.back_card{\r\n  animation: hideBack 2s ease-in-out normal;\r\n  transition: all 1s;\r\n  visibility: hidden;\r\n  border-radius: 12px;\r\n}\r\n.back_card.active{\r\n  visibility: visible;\r\n}\r\n.card-back-root {\r\n  height: 100%;\r\n  transform: rotateY(180deg);\r\n  border-radius: 12px;\r\n  background-position: center center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  -webkit-box-pack: end;\r\n  justify-content: flex-end;\r\n  position: relative;\r\n}\r\n.card-icons-holder{\r\n  position: absolute;\r\n  inset: 0px;\r\n  margin: auto;\r\n  width: 100%;\r\n  max-height: 40px;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  justify-content: center;\r\n}\r\n.trait-container {\r\n  position: absolute;\r\n  display: flex;\r\n  -webkit-flex-direction: column;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n  gap: 5px;\r\n  top: 10px;\r\n  right: 10px;\r\n}\r\n.trait-holder{\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 8px;\r\n  background-color: black;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  cursor: pointer;\r\n}\r\n.trait-holder:hover {\r\n  background-color: #fc6405;\r\n}\r\n.trait-holder img{\r\n  width: 30px;\r\n  height: 25px;\r\n}\r\n.trait-card-root{\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 12px;\r\n  transform: rotateY(180deg);\r\n  -webkit-background-position: center;\r\n  background-position: center;\r\n  -webkit-background-size: cover;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n}\r\n.close-button {\r\n  width: 20.5px;\r\n  height: 20.5px;\r\n  cursor: pointer;\r\n  position: absolute;\r\n  top: 30px;\r\n  left: 30px;\r\n  z-index: 5;\r\n  transform: rotateX(0deg);\r\n}\r\n.trait-card-content {\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 12px;\r\n  background-color: #fc6405b3;\r\n}\r\n.trait-card-content-holder{\r\n  height: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 30px;\r\n \r\n}\r\n\r\n.trait-card-trait-icon-holder {\r\n  width: 55px;\r\n  height: 55px;\r\n  margin-bottom: 20px;\r\n  margin-top: 10px;\r\n}\r\n.trait-card-trait-icon-holder img{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.trait-card-title-holder{\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n.trait-card-title {\r\n  margin: 0px;\r\n  font-weight: 400;\r\n  color: rgb(250, 250, 242);\r\n  font-size: 36px;\r\n  font-family: Poppins-semibold;\r\n  line-height: 42px;\r\n  text-align: center;\r\n  width: fit-content;\r\n  /* max-width: 250px; */\r\n  min-width: 250px;\r\n}\r\n.trait-card-description-holder{\r\n  margin-top: 25px;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  justify-content: center;\r\n  overflow-y: auto;\r\n}\r\n .trait-card-description-holder::-webkit-scrollbar {\r\n  width: 4px;\r\n}\r\n.trait-card-description-holder::-webkit-scrollbar-track {\r\n  background: #ffffff49;\r\n} \r\n.trait-card-description-holder::-webkit-scrollbar-thumb  {\r\n  background: #ffffff;\r\n} \r\n.trait-card-description{\r\n  margin: 0px;\r\n  font-weight: 400;\r\n  color: rgb(250, 250, 242);\r\n  font-family: poppins;\r\n  font-size: 16px;\r\n  line-height: 28px;\r\n  text-align: center;\r\n  max-width: 90%;\r\n  min-width: 200px;\r\n}\r\n\r\n@keyframes shiningEffect1 {\r\n  0%{\r\n\r\n    left: -100%;\r\n  }\r\n 100%{\r\n\r\n  left: 100%;\r\n }\r\n}\r\n@keyframes shiningEffect2 {\r\n  0%{\r\n\r\n    right: -100%;\r\n  }\r\n 100%{\r\n  right: 100%;\r\n }\r\n}\r\n\r\n@keyframes hideBack {\r\n from{\r\n  visibility: visible;\r\n  }\r\n to{\r\n    visibility: hidden;\r\n  }\r\n}\r\n.flipped-img {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  border-radius: 10px;\r\n  object-fit: cover;\r\n  transition: 2s;\r\n}\r\n.buttonHolder{\r\n  position: fixed;\r\n  height: 16px;\r\n  width: 16px;\r\n  top: 4%;\r\n  left: 4%;\r\n  font-weight: 600;\r\n  font-size: 1rem;\r\n  line-height: 1rem;\r\n  color: #fff;\r\n  transition: color .3s ease-in-out;\r\n  cursor: pointer;\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  /* .card-image-container {\r\n      min-height: 300px;\r\n  } */\r\n  .scope {\r\n    position: relative;\r\n    height: 440px;\r\n    transform-style: preserve-3d;\r\n    animation: slid 5s linear infinite;\r\n    transition: 2s all;\r\n  }\r\n  .arrow{\r\n    display: none;\r\n  }\r\n}\r\n@media screen and (max-width: 350px) {\r\n  .badge-img{\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    left: 0;\r\n    right: 0;\r\n  }\r\n  .scope {\r\n    position: relative;\r\n    /* width: 250px !important;\r\n    height: 340px; */\r\n    transform-style: preserve-3d;\r\n    animation: slid 5s linear infinite;\r\n    transition-property: position;\r\n    transition: 2s;\r\n  }\r\n}\r\n\r\n.c-medium .trait-holder{\r\n  width: 35px;\r\n  height: 35px;\r\n}\r\n.c-medium .trait-card-trait-icon-holder{\r\n  margin-bottom: 10px;\r\n}\r\n.c-medium .trait-card-title{\r\n  font-size: 32px;\r\n}\r\n.c-medium .trait-card-description{\r\n  line-height: 23px;\r\n}\r\n.c-small .trait-holder{\r\n  width: 30px;\r\n  height: 30px;\r\n}";
 styleInject(css_248z$9);
 
 const useContainerDimensions = myRef => {
@@ -493,10 +572,10 @@ var GalaxisCard = function GalaxisCard(_ref) {
   })))))));
 };
 
-var css_248z$8 = ".dust-pool-card {\n  width: 100%;\n  max-width: 540px;\n  display: flex;\n  -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n  border-radius: 15px;\n  overflow: hidden;\n  margin: 0 auto;\n}\n\n.dust-pool-card-image-container{\n  width: 50%;\n  position: relative;\n  overflow: hidden;\n  min-height: 265px;\n}\n\n.dust-pool-card-img {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  object-fit: cover;\n}\n.text-box {\n  /* width: 50%; */\n  padding: 15px;\n}\n.dust-pool-title {\n  font-family: poppins-semibold;\n  font-weight: 600;\n  font-size: 22px;\n  color: rgb(0, 0, 0);\n  margin-bottom: 10px;\n  line-height: 21px;\n}\n.dust-pool-card-label {\n  text-transform: uppercase;\n  margin-bottom: 0;\n  font-size: 14px;\n}\n.dust-pool-btn {\n  border: 2px solid rgb(255, 105, 43);\n  font-family: 'poppins-semibold';\n  color: rgb(255, 105, 43);\n  background-color: transparent;\n  font-size: 14px;\n  border-radius: 5px;\n  padding: 10px 20px;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n.dust-pool-btn:hover {\n  background-color: rgb(255, 105, 43);\n  color: #fff;\n  cursor: pointer;\n}\n.dust-pool-btn:focus {\n  outline: none;\n}\n\n.dust-pool-btn.disabled{\n  opacity:0.5;\n}\n\n.dust-pool-btn:hover.disabled{\n  background-color: transparent;\n  color: rgb(255, 105, 43);\n  cursor:not-allowed;\n}\n\n@media only screen and (max-width: 600px) {\n  .dust-pool-card {\n    flex-direction: column;\n  }\n  .dust-pool-card img{\n    height: auto;\n    max-width: 100%;\n  }\n}\n";
+var css_248z$8 = ".dust-pool-card {\r\n  width: 100%;\r\n  max-width: 540px;\r\n  display: flex;\r\n  -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \r\n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\r\n  border-radius: 15px;\r\n  overflow: hidden;\r\n  margin: 0 auto;\r\n}\r\n\r\n.dust-pool-card-image-container{\r\n  width: 50%;\r\n  position: relative;\r\n  overflow: hidden;\r\n  min-height: 265px;\r\n}\r\n\r\n.dust-pool-card-img {\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  left: 0;\r\n  top: 0;\r\n  object-fit: cover;\r\n}\r\n.text-box {\r\n  /* width: 50%; */\r\n  padding: 15px;\r\n}\r\n.dust-pool-title {\r\n  font-family: poppins-semibold;\r\n  font-weight: 600;\r\n  font-size: 22px;\r\n  color: rgb(0, 0, 0);\r\n  margin-bottom: 10px;\r\n  line-height: 21px;\r\n}\r\n.dust-pool-card-label {\r\n  text-transform: uppercase;\r\n  margin-bottom: 0;\r\n  font-size: 14px;\r\n}\r\n.dust-pool-btn {\r\n  border: 2px solid rgb(255, 105, 43);\r\n  font-family: 'poppins-semibold';\r\n  color: rgb(255, 105, 43);\r\n  background-color: transparent;\r\n  font-size: 14px;\r\n  border-radius: 5px;\r\n  padding: 10px 20px;\r\n  font-weight: 500;\r\n  text-transform: uppercase;\r\n}\r\n.dust-pool-btn:hover {\r\n  background-color: rgb(255, 105, 43);\r\n  color: #fff;\r\n  cursor: pointer;\r\n}\r\n.dust-pool-btn:focus {\r\n  outline: none;\r\n}\r\n\r\n.dust-pool-btn.disabled{\r\n  opacity:0.5;\r\n}\r\n\r\n.dust-pool-btn:hover.disabled{\r\n  background-color: transparent;\r\n  color: rgb(255, 105, 43);\r\n  cursor:not-allowed;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n  .dust-pool-card {\r\n    flex-direction: column;\r\n  }\r\n  .dust-pool-card img{\r\n    height: auto;\r\n    max-width: 100%;\r\n  }\r\n}\r\n";
 styleInject(css_248z$8);
 
-var css_248z$7 = ".counter-body{\n    font-size: 1em;\n    line-height: 1em;\n    vertical-align: center;\n    margin-bottom: 10px;\n}\n\n.counter-body .counter-item{\n    display: inline-block;\n    width: 12px;\n    height: 1.6em;\n    margin: 0 2px 0 0;\n    background-color: #ff6b2b3d;\n    border-radius: 3px;\n}\n\n.counter-item.active{\n    background-color: #FF692B;\n}";
+var css_248z$7 = ".counter-body{\r\n    font-size: 1em;\r\n    line-height: 1em;\r\n    vertical-align: center;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.counter-body .counter-item{\r\n    display: inline-block;\r\n    width: 12px;\r\n    height: 1.6em;\r\n    margin: 0 2px 0 0;\r\n    background-color: #ff6b2b3d;\r\n    border-radius: 3px;\r\n}\r\n\r\n.counter-item.active{\r\n    background-color: #FF692B;\r\n}";
 styleInject(css_248z$7);
 
 const CounterBar = props => {
@@ -596,20 +675,20 @@ const DustPoolCard = _ref => {
   }, "Details"))));
 };
 
-var css_248z$6 = "body{\n    background-color: rgb(250, 249, 245);\n}\n\n.dust-pool-root{\n    max-width: 1140px;\n    margin: 0 auto;\n    margin-top: 30px;\n}\n.dust-pool-textbox{\n text-align: center;\n max-width: 600px;\n margin: 0 auto;\n}\n.pool-subtitle{\n    font-size: 30px;\n    font-weight: 600;\n}\n.tab-choose{\n    display: flex;\n    justify-content: center;\n    margin-bottom: 30px;\n    text-transform: uppercase;\n}\n.tab-choose div{\n    font-size: 14px;\n    font-weight: 500;\n    padding: 12px 15px\n}\n.tab-choose div:hover{\n    cursor: pointer;\n}\n.tab-choose .active-tab{\n    background-color: #000;\n    color: #fff;\n}\n.tab-choose div:first-child{\n    border: 2px solid #000;\n    border-top-left-radius: 10px;\n    border-bottom-left-radius: 10px;\n}\n.tab-choose div:nth-child(2){\n    border-top: 2px solid #000;\n    border-bottom: 2px solid #000;\n}\n.tab-choose div:nth-child(3){\n    border: 2px solid #000;\n    border-top-right-radius: 10px;\n    border-bottom-right-radius: 10px;\n}\n\n\n/*classes from bootstrap*/\n*{\n    box-sizing: border-box;\n}\n.container {\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n    margin-right: auto;\n    margin-left: auto;\n}\n.mt-5, .my-5 {\n    margin-top: 3rem!important;\n}\n.row {\n    display: flex;\n    flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n}\n.col-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.col-12, .col-lg-6, .col-lg-3, .col-md-6{\n    position: relative;\n    width: 100%;\n    min-height: 1px;\n    padding-right: 15px;\n    padding-left: 15px;\n}\n\n.col-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.mb-1{\n    margin-bottom: 0.25rem!important;\n}\n.mb-2{\n    margin-bottom: 0.5rem!important;\n}\n.mb-3{\n    margin-bottom: 0.75rem!important;\n}\n.mt-2{\n    margin-top: 0.5rem!important;\n}\n.pb-4{\n    padding-bottom: 1.5rem!important;\n}\n\n.w-100 {\n    width: 100%!important;\n}\n.text-right{\n    text-align: right!important;\n}\n.dust-pool-card p {\n    margin-block-start: 0;\n}\n\n@media (min-width: 576px){\n.container {\n    max-width: 540px;\n}\n}\n@media (max-width: 600px){\n    .dust-pool-card .dust-pool-btn{\n        position: unset!important;\n    }\n    }\n@media (min-width: 768px){\n    .container {\n        max-width: 720px;\n    }}\n    .col-md-6{\n        flex: 0 0 50%;\n        max-width: 50%; \n    }\n@media (min-width: 992px){\n    .container {\n        max-width: 960px;\n    }\n    .col-lg-6 {\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n    .col-lg-3 {\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n}\n\n@media (min-width: 1200px){\n    .container {\n        max-width: 1140px;\n    }\n}\n@media only screen and (max-width: 945px) {\n    .dust-pool-root {\n      max-width: 100%;\n    }\n  }";
+var css_248z$6 = "body{\r\n    background-color: rgb(250, 249, 245);\r\n}\r\n\r\n.dust-pool-root{\r\n    max-width: 1140px;\r\n    margin: 0 auto;\r\n    margin-top: 30px;\r\n}\r\n.dust-pool-textbox{\r\n text-align: center;\r\n max-width: 600px;\r\n margin: 0 auto;\r\n}\r\n.pool-subtitle{\r\n    font-size: 30px;\r\n    font-weight: 600;\r\n}\r\n.tab-choose{\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-bottom: 30px;\r\n    text-transform: uppercase;\r\n}\r\n.tab-choose div{\r\n    font-size: 14px;\r\n    font-weight: 500;\r\n    padding: 12px 15px\r\n}\r\n.tab-choose div:hover{\r\n    cursor: pointer;\r\n}\r\n.tab-choose .active-tab{\r\n    background-color: #000;\r\n    color: #fff;\r\n}\r\n.tab-choose div:first-child{\r\n    border: 2px solid #000;\r\n    border-top-left-radius: 10px;\r\n    border-bottom-left-radius: 10px;\r\n}\r\n.tab-choose div:nth-child(2){\r\n    border-top: 2px solid #000;\r\n    border-bottom: 2px solid #000;\r\n}\r\n.tab-choose div:nth-child(3){\r\n    border: 2px solid #000;\r\n    border-top-right-radius: 10px;\r\n    border-bottom-right-radius: 10px;\r\n}\r\n\r\n\r\n/*classes from bootstrap*/\r\n*{\r\n    box-sizing: border-box;\r\n}\r\n.container {\r\n    width: 100%;\r\n    padding-right: 15px;\r\n    padding-left: 15px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n}\r\n.mt-5, .my-5 {\r\n    margin-top: 3rem!important;\r\n}\r\n.row {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    margin-right: -15px;\r\n    margin-left: -15px;\r\n}\r\n.col-12 {\r\n    flex: 0 0 100%;\r\n    max-width: 100%;\r\n}\r\n.col-12, .col-lg-6, .col-lg-3, .col-md-6{\r\n    position: relative;\r\n    width: 100%;\r\n    min-height: 1px;\r\n    padding-right: 15px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.col-6 {\r\n    flex: 0 0 50%;\r\n    max-width: 50%;\r\n}\r\n.mb-1{\r\n    margin-bottom: 0.25rem!important;\r\n}\r\n.mb-2{\r\n    margin-bottom: 0.5rem!important;\r\n}\r\n.mb-3{\r\n    margin-bottom: 0.75rem!important;\r\n}\r\n.mt-2{\r\n    margin-top: 0.5rem!important;\r\n}\r\n.pb-4{\r\n    padding-bottom: 1.5rem!important;\r\n}\r\n\r\n.w-100 {\r\n    width: 100%!important;\r\n}\r\n.text-right{\r\n    text-align: right!important;\r\n}\r\n.dust-pool-card p {\r\n    margin-block-start: 0;\r\n}\r\n\r\n@media (min-width: 576px){\r\n.container {\r\n    max-width: 540px;\r\n}\r\n}\r\n@media (max-width: 600px){\r\n    .dust-pool-card .dust-pool-btn{\r\n        position: unset!important;\r\n    }\r\n    }\r\n@media (min-width: 768px){\r\n    .container {\r\n        max-width: 720px;\r\n    }}\r\n    .col-md-6{\r\n        flex: 0 0 50%;\r\n        max-width: 50%; \r\n    }\r\n@media (min-width: 992px){\r\n    .container {\r\n        max-width: 960px;\r\n    }\r\n    .col-lg-6 {\r\n        flex: 0 0 50%;\r\n        max-width: 50%;\r\n    }\r\n    .col-lg-3 {\r\n        flex: 0 0 25%;\r\n        max-width: 25%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1200px){\r\n    .container {\r\n        max-width: 1140px;\r\n    }\r\n}\r\n@media only screen and (max-width: 945px) {\r\n    .dust-pool-root {\r\n      max-width: 100%;\r\n    }\r\n  }";
 styleInject(css_248z$6);
 
 var img$5 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='25.53' height='48.317' viewBox='0 0 25.53 48.317'%3e %3cg id='kozepso_white' data-name='kozepso white' transform='translate(-132.737 -28.1)'%3e %3crect id='Rectangle_356' data-name='Rectangle 356' width='2.722' height='48.317' transform='translate(132.744 28.1)' fill='%23ff692b'/%3e %3crect id='Rectangle_357' data-name='Rectangle 357' width='2.711' height='25.53' transform='translate(132.738 53.615) rotate(-90)' fill='%23ff692b'/%3e %3c/g%3e%3c/svg%3e";
 
 var img$4 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='25.53' height='48.316' viewBox='0 0 25.53 48.316'%3e %3cg id='kozepso_white' data-name='kozepso white' transform='translate(0 0)'%3e %3crect id='Rectangle_356' data-name='Rectangle 356' width='2.722' height='48.316' transform='translate(22.801 0)' fill='%23ff692b'/%3e %3crect id='Rectangle_357' data-name='Rectangle 357' width='2.711' height='25.53' transform='translate(0 25.515) rotate(-90)' fill='%23ff692b'/%3e %3c/g%3e%3c/svg%3e";
 
-var css_248z$5 = ".upcoming-dust-pool-card {\n    height: 86px;\n    display: flex;\n    margin-bottom: 10px;\n    -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n    border-radius: 10px;\n    overflow: hidden;\n    margin-bottom: 50px;\n}\n.upcoming-dust-pool-card img{\n    max-height: 100%;\n}\n.upcoming-dust-pool-card-title{\n     line-height: 16px;\n     height: 32px;\n     margin-bottom: 10px;\n    }\n.upcoming-dust-pool-card-text{\n    padding: 10px;\n}";
+var css_248z$5 = ".upcoming-dust-pool-card {\r\n    height: 86px;\r\n    display: flex;\r\n    margin-bottom: 10px;\r\n    -webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \r\n  box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\r\n    border-radius: 10px;\r\n    overflow: hidden;\r\n    margin-bottom: 50px;\r\n}\r\n.upcoming-dust-pool-card img{\r\n    max-height: 100%;\r\n}\r\n.upcoming-dust-pool-card-title{\r\n     line-height: 16px;\r\n     height: 32px;\r\n     margin-bottom: 10px;\r\n    }\r\n.upcoming-dust-pool-card-text{\r\n    padding: 10px;\r\n}";
 styleInject(css_248z$5);
 
-var css_248z$4 = "\n.pool-ps-root{\n    max-width: 848px;\n    width: 100%;\n    margin: auto auto 60px;\n    display: flex;\n    flex-flow: row wrap;\n    gap: 10px;\n}\n.pool-ps-card-and-descipton{\n    box-sizing: border-box;\n    display: flex;\n    flex-flow: row wrap;\n}\n.pool-ps-card-and-descipton-inner{\n    flex-basis: 50%;\n    -webkit-box-flex: 0;\n    flex-grow: 0;\n    max-width: 50%;\n}\n.pool-ps-card-and-descipton-inner p{\n    margin-top: 0;\n}\n.ps-left{\n    background-color: rgb(255, 255, 255);\n    padding: 50px;\n    border: 1px solid #000;\n    border-radius: 15px;\n}\n.ps-left img{\n    border-radius: 15px;\n}\n.ps-right{\n    position: relative;\n}\n.ps-text-bottom{\n    position: absolute;\n    bottom: 0;\n}\n.snp-root{\n    margin: 15px auto 30px;\n    max-width: 848px;\n    width: 100%;\n    max-height: 86px;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    background-color: rgb(255, 255, 255);\n    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px 0px;\n    border-radius: 10px;\n    overflow: hidden;\n}\n.previous-box{\n    display: flex;\n    width: 48%;\n    gap: 16px;\n    -webkit-box-pack: start;\n    justify-content: flex-start;\n    cursor: pointer;\n}\n.snp-divider{\n    width: 4%;\n    min-height: 100%;\n    display: flex;\n    -webkit-box-pack: center;\n    justify-content: center;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.next-box{\n    display: flex;\n    width: 48%;\n    gap: 16px;\n    -webkit-box-pack: end;\n    justify-content: flex-end;\n    cursor: pointer;\n}\n.snp-text{\n    padding-top: 8px;\n    padding-bottom: 8px;\n    text-transform: uppercase;\n}\n.snp-text span{\n    margin: 0px;\n    font-family: poppins;\n    font-size: 14px;\n    color: rgb(112, 112, 112);\n    cursor: pointer;\n}\n.snp-text-p-n{\n    margin: 0px;\n    font-weight: 400;\n    font-family: poppins-semibold;\n    line-height: 20px;\n    font-size: 18px;\n    max-height: 45px;\n    width: 100%;\n    max-width: 180px;\n    display: -webkit-box;\n    -webkit-box-orient: vertical;\n    -webkit-line-clamp: 2;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-transform: capitalize;\n}\n\n.previous-box.disabled, .next-box.disabled{\n    cursor: not-allowed;\n}\n.pool-ps-btn{\n    background-color: transparent;\n    border: none;\n    display: flex;\n    font-weight: 700;\n}\n.pool-ps-btn p{\n    margin-block-start: 0;\n    margin-block-end: 0;\n    margin-top: 0;\n    margin-bottom: 1rem;\n    font-size: 18px;\n}\n.pool-ps-btn span{\n    font-size: 42px;\n    line-height: 16px;\n    padding-right: 2px;\n}\n.pool-ps-btn:hover{\n    cursor: pointer;\n}\n.pool-ps-btn:focus{\n    outline: none;\n}\n.pool-ps-card-and-descipton-inner .dust-pool-title{\n    margin-bottom: 10px;\n    line-height: 40px;\n    font-size: 32px;\n}\n.dpc-box{\n    background-color: #fff;\n    padding: 15px 20px;\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1); \n    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);\n    width: fit-content;\n    border-radius: 5px;\n    margin-top: 12px;\n    margin-bottom: 12px;\n}\n\n.approval-mask{\n    box-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(0,0,0,0.75);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n\n\n.video-box{\n    background-color: #000;\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    z-index: 2000;\n    opacity: 0;\n    transition: opacity 0.3s ease-in-out;\n    pointer-events: none;\n    display: flex;\n    flex-direction: column;\n    -ms-flex-pack:center!important;\n    justify-content:center!important;\n  }\n\n  .video-box.visible{\n      opacity: 1;\n  }\n\n  a.dust-pool-btn{\n      text-decoration: none;\n  }\n\n  .es-link{\n    text-decoration: none;\n    color: rgb(255, 105, 43);\n    font-weight: 700;\n  }\n\n\n@media only screen and (max-width: 825px) {\n    .pool-ps-card-and-descipton-inner{\n        flex-basis: 60%;\n        max-width: 60%;\n    }\n    .pool-ps-card-and-descipton{\n        justify-content: center;\n    }\n    .ps-text-bottom{\n        margin-top: 20px;\n        position: relative;\n    }\n}\n@media only screen and (max-width: 600px) {\n    .pool-ps-card-and-descipton-inner{\n        flex-basis: 100%;\n        max-width: 100%;\n    }\n    .pool-ps-card-and-descipton{\n        justify-content: center;\n    }\n}\n@media only screen and (max-width: 400px) {\n    .previous-box img, .next-box img{\n        display: none;\n    }\n}";
+var css_248z$4 = "\r\n.pool-ps-root{\r\n    max-width: 848px;\r\n    width: 100%;\r\n    margin: auto auto 60px;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    gap: 10px;\r\n}\r\n.pool-ps-card-and-descipton{\r\n    box-sizing: border-box;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n}\r\n.pool-ps-card-and-descipton-inner{\r\n    flex-basis: 50%;\r\n    -webkit-box-flex: 0;\r\n    flex-grow: 0;\r\n    max-width: 50%;\r\n}\r\n.pool-ps-card-and-descipton-inner p{\r\n    margin-top: 0;\r\n}\r\n.ps-left{\r\n    background-color: rgb(255, 255, 255);\r\n    padding: 50px;\r\n    border: 1px solid #000;\r\n    border-radius: 15px;\r\n}\r\n.ps-left img{\r\n    border-radius: 15px;\r\n}\r\n.ps-right{\r\n    position: relative;\r\n}\r\n.ps-text-bottom{\r\n    position: absolute;\r\n    bottom: 0;\r\n}\r\n.snp-root{\r\n    margin: 15px auto 30px;\r\n    max-width: 848px;\r\n    width: 100%;\r\n    max-height: 86px;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n    justify-content: space-between;\r\n    background-color: rgb(255, 255, 255);\r\n    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px 0px;\r\n    border-radius: 10px;\r\n    overflow: hidden;\r\n}\r\n.previous-box{\r\n    display: flex;\r\n    width: 48%;\r\n    gap: 16px;\r\n    -webkit-box-pack: start;\r\n    justify-content: flex-start;\r\n    cursor: pointer;\r\n}\r\n.snp-divider{\r\n    width: 4%;\r\n    min-height: 100%;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    align-items: center;\r\n}\r\n.next-box{\r\n    display: flex;\r\n    width: 48%;\r\n    gap: 16px;\r\n    -webkit-box-pack: end;\r\n    justify-content: flex-end;\r\n    cursor: pointer;\r\n}\r\n.snp-text{\r\n    padding-top: 8px;\r\n    padding-bottom: 8px;\r\n    text-transform: uppercase;\r\n}\r\n.snp-text span{\r\n    margin: 0px;\r\n    font-family: poppins;\r\n    font-size: 14px;\r\n    color: rgb(112, 112, 112);\r\n    cursor: pointer;\r\n}\r\n.snp-text-p-n{\r\n    margin: 0px;\r\n    font-weight: 400;\r\n    font-family: poppins-semibold;\r\n    line-height: 20px;\r\n    font-size: 18px;\r\n    max-height: 45px;\r\n    width: 100%;\r\n    max-width: 180px;\r\n    display: -webkit-box;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-line-clamp: 2;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    text-transform: capitalize;\r\n}\r\n\r\n.previous-box.disabled, .next-box.disabled{\r\n    cursor: not-allowed;\r\n}\r\n.pool-ps-btn{\r\n    background-color: transparent;\r\n    border: none;\r\n    display: flex;\r\n    font-weight: 700;\r\n}\r\n.pool-ps-btn p{\r\n    margin-block-start: 0;\r\n    margin-block-end: 0;\r\n    margin-top: 0;\r\n    margin-bottom: 1rem;\r\n    font-size: 18px;\r\n}\r\n.pool-ps-btn span{\r\n    font-size: 42px;\r\n    line-height: 16px;\r\n    padding-right: 2px;\r\n}\r\n.pool-ps-btn:hover{\r\n    cursor: pointer;\r\n}\r\n.pool-ps-btn:focus{\r\n    outline: none;\r\n}\r\n.pool-ps-card-and-descipton-inner .dust-pool-title{\r\n    margin-bottom: 10px;\r\n    line-height: 40px;\r\n    font-size: 32px;\r\n}\r\n.dpc-box{\r\n    background-color: #fff;\r\n    padding: 15px 20px;\r\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1); \r\n    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);\r\n    width: fit-content;\r\n    border-radius: 5px;\r\n    margin-top: 12px;\r\n    margin-bottom: 12px;\r\n}\r\n\r\n.approval-mask{\r\n    box-sizing: border-box;\r\n\tposition: fixed;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tbackground: rgba(0,0,0,0.75);\r\n\tz-index: 1100;\r\n\tdisplay: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n\r\n\r\n.video-box{\r\n    background-color: #000;\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    z-index: 2000;\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n    pointer-events: none;\r\n    display: flex;\r\n    flex-direction: column;\r\n    -ms-flex-pack:center!important;\r\n    justify-content:center!important;\r\n  }\r\n\r\n  .video-box.visible{\r\n      opacity: 1;\r\n  }\r\n\r\n  a.dust-pool-btn{\r\n      text-decoration: none;\r\n  }\r\n\r\n  .es-link{\r\n    text-decoration: none;\r\n    color: rgb(255, 105, 43);\r\n    font-weight: 700;\r\n  }\r\n\r\n\r\n@media only screen and (max-width: 825px) {\r\n    .pool-ps-card-and-descipton-inner{\r\n        flex-basis: 60%;\r\n        max-width: 60%;\r\n    }\r\n    .pool-ps-card-and-descipton{\r\n        justify-content: center;\r\n    }\r\n    .ps-text-bottom{\r\n        margin-top: 20px;\r\n        position: relative;\r\n    }\r\n}\r\n@media only screen and (max-width: 600px) {\r\n    .pool-ps-card-and-descipton-inner{\r\n        flex-basis: 100%;\r\n        max-width: 100%;\r\n    }\r\n    .pool-ps-card-and-descipton{\r\n        justify-content: center;\r\n    }\r\n}\r\n@media only screen and (max-width: 400px) {\r\n    .previous-box img, .next-box img{\r\n        display: none;\r\n    }\r\n}";
 styleInject(css_248z$4);
 
-var css_248z$3 = ":root{\n  --primary-color: #FF692B;\n}\n\n.counter-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  flex-wrap: wrap;\n  gap: 15px 15px;\n  margin-bottom: 30px;\n  margin-top: 30px;\n}\n@media (max-width: 454px) {\n  .counter-container {\n    padding: 0 80px;\n  }\n}\n@media (max-width: 400px) {\n  .counter-container {\n    padding: 0 30px;\n  }\n}\n@media (max-width: 302px) {\n  .counter-container {\n    padding: 0;\n  }\n}\n.counter-rotary-holder {\n  width: 95%;\n  height: 95%;\n  position: absolute;\n  transform: rotate(45deg);\n  z-index: 5;\n  -webkit-transition: all 0.3s ease-in-out;\n  -moz-transition: all 0.3s ease-in-out;\n  -o-transition: all 0.3s ease-in-out;\n  transition: all 0.3s ease-in-out;\n}\n\n.counter-content-holder {\n  background-color: white;\n  width: 75px;\n  height: 75px;\n  border-radius: 60%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.counter-rotary-item {\n  width: 15px;\n  height: 15px;\n  border: 2px solid var(--primary-color);\n  border-radius: 50%;\n  position: absolute;\n  background-color: white;\n}\n.counter-circle {\n  width: 88px;\n  height: 88px;\n  border: 2px solid var(--primary-color);\n  border-radius: 50%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  background-color: #ecebe8;\n  position: relative;\n}\n\n\n.counter-text {\n  font-family: \"poppins\";\n  font-size: 12px;\n  line-height: 18px;\n  color: #030300;\n  z-index: 1;\n}\n\n.counter-text-value {\n  font-family: \"poppins\";\n  font-size: 27px;\n  color: #020000;\n  letter-spacing: -2px;\n  line-height: 32px;\n}\n\n.disabled .counter-rotary-item, .disabled .counter-circle{\n  border-color:black;\n}\n\n#txRotator {\n  animation-name: playRotating;\n  animation-duration: 3s;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n}\n@keyframes playRotating {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}";
+var css_248z$3 = ":root{\r\n  --primary-color: #FF692B;\r\n}\r\n\r\n.counter-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n  flex-wrap: wrap;\r\n  gap: 15px 15px;\r\n  margin-bottom: 30px;\r\n  margin-top: 30px;\r\n}\r\n@media (max-width: 454px) {\r\n  .counter-container {\r\n    padding: 0 80px;\r\n  }\r\n}\r\n@media (max-width: 400px) {\r\n  .counter-container {\r\n    padding: 0 30px;\r\n  }\r\n}\r\n@media (max-width: 302px) {\r\n  .counter-container {\r\n    padding: 0;\r\n  }\r\n}\r\n.counter-rotary-holder {\r\n  width: 95%;\r\n  height: 95%;\r\n  position: absolute;\r\n  transform: rotate(45deg);\r\n  z-index: 5;\r\n  -webkit-transition: all 0.3s ease-in-out;\r\n  -moz-transition: all 0.3s ease-in-out;\r\n  -o-transition: all 0.3s ease-in-out;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.counter-content-holder {\r\n  background-color: white;\r\n  width: 75px;\r\n  height: 75px;\r\n  border-radius: 60%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n.counter-rotary-item {\r\n  width: 15px;\r\n  height: 15px;\r\n  border: 2px solid var(--primary-color);\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  background-color: white;\r\n}\r\n.counter-circle {\r\n  width: 88px;\r\n  height: 88px;\r\n  border: 2px solid var(--primary-color);\r\n  border-radius: 50%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  z-index: 1;\r\n  background-color: #ecebe8;\r\n  position: relative;\r\n}\r\n\r\n\r\n.counter-text {\r\n  font-family: \"poppins\";\r\n  font-size: 12px;\r\n  line-height: 18px;\r\n  color: #030300;\r\n  z-index: 1;\r\n}\r\n\r\n.counter-text-value {\r\n  font-family: \"poppins\";\r\n  font-size: 27px;\r\n  color: #020000;\r\n  letter-spacing: -2px;\r\n  line-height: 32px;\r\n}\r\n\r\n.disabled .counter-rotary-item, .disabled .counter-circle{\r\n  border-color:black;\r\n}\r\n\r\n#txRotator {\r\n  animation-name: playRotating;\r\n  animation-duration: 3s;\r\n  animation-timing-function: linear;\r\n  animation-iteration-count: infinite;\r\n}\r\n@keyframes playRotating {\r\n  from {\r\n    transform: rotate(0deg);\r\n  }\r\n  to {\r\n    transform: rotate(360deg);\r\n  }\r\n}";
 styleInject(css_248z$3);
 
 const blockedCountries = {
@@ -645,7 +724,7 @@ const blockedCountries = {
 
 var img$3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAABICAYAAADcdSQuAAAABHNCSVQICAgIfAhkiAAAACJJREFUKFNjZGBgsAPi/4xQBgOIAQZUYIyajByYo6GBOzQAZxUMIQH+P1cAAAAASUVORK5CYII=";
 
-var css_248z$2 = ".terms-root{\n\tbox-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(255,255,255,0.3);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.terms-box {\n\t/* width:40%; */\n\theight: 100%;\n\tmin-width: 400px;\n\tmin-height: 500px;\n\tbackground:rgb(250, 249, 245);;\n\tpadding: 15px;\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n}\n\n.scrollable-content{\n\twidth:100%;\n\theight: 100%;\n\toverflow-x: hidden;\n\toverflow-y: auto;\n}\n\n.terms-box  .scrollable-content h2{\n\ttext-align: center;\n\tpadding-bottom: 40px;\n\tposition: sticky;\n\ttop:0;\n\tbackground:#faf9f5;\n\tbackground: -moz-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n\tbackground: -webkit-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n\tbackground: linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\n}\n\n.tc-button-container{\n\ttext-align: center;\n}\n.tc-button-container button{\n\tmargin: 10px 5px;\n}";
+var css_248z$2 = ".terms-root{\r\n\tbox-sizing: border-box;\r\n\tposition: fixed;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tbackground: rgba(255,255,255,0.3);\r\n\tz-index: 1100;\r\n\tdisplay: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.terms-box {\r\n\t/* width:40%; */\r\n\theight: 100%;\r\n\tmin-width: 400px;\r\n\tmin-height: 500px;\r\n\tbackground:rgb(250, 249, 245);;\r\n\tpadding: 15px;\r\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \r\n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\r\n}\r\n\r\n.scrollable-content{\r\n\twidth:100%;\r\n\theight: 100%;\r\n\toverflow-x: hidden;\r\n\toverflow-y: auto;\r\n}\r\n\r\n.terms-box  .scrollable-content h2{\r\n\ttext-align: center;\r\n\tpadding-bottom: 40px;\r\n\tposition: sticky;\r\n\ttop:0;\r\n\tbackground:#faf9f5;\r\n\tbackground: -moz-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\r\n\tbackground: -webkit-linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\r\n\tbackground: linear-gradient(180deg, rgba(250, 249, 245,1) 0%, rgba(250, 249, 245,1) 75%, rgba(250, 249, 245,0) 100%);\r\n}\r\n\r\n.tc-button-container{\r\n\ttext-align: center;\r\n}\r\n.tc-button-container button{\r\n\tmargin: 10px 5px;\r\n}";
 styleInject(css_248z$2);
 
 const terms = `<p><strong>NFT EXCHANGE TERMS AND CONDITIONS (THESE “TERMS”)</strong></p>
@@ -1293,7 +1372,7 @@ const TermsBox = _ref => {
   }, "Accept"))))) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null));
 };
 
-var css_248z$1 = ".terms-root{\n\tbox-sizing: border-box;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground: rgba(255,255,255,0.3);\n\tz-index: 1100;\n\tdisplay: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.restricted-box {\n\twidth:40%;\n\theight: auto;\n\tmin-width: 400px;\n\tmax-height: 600px;\n\tbackground:white;\n\tborder-radius: 15px;\n\tpadding: 15px;\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\n}\n\n.scrollable-content{\n\twidth:100%;\n\theight: 100%;\n\toverflow-x: hidden;\n\toverflow-y: auto;\n}\n\n.scrollable-content h2{\n\ttext-align: center;\n\tpadding-bottom: 15px;\n\tposition: sticky;\n\ttop:0;\n\tbackground:white;\n\tbackground: -moz-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\n\tbackground: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\n\tbackground: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\n\tfilter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}\n\n.restricted-button-container{\n\tmargin-top:25px;\n\ttext-align: center;\n}\n.tc-button-container button{\n\tmargin: 10px 5px;\n}\n\n.restricted-container {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n}\n\n.restricted-container .country{\n\twidth:25%;\n\ttext-align: center;\n\tline-height: 1.8rem;\n}\n\n@media only screen and (max-width: 600px) {\n\t.restricted-container .country{\n\t\twidth:50%;\n\t}\n  }";
+var css_248z$1 = ".terms-root{\r\n\tbox-sizing: border-box;\r\n\tposition: fixed;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tbackground: rgba(255,255,255,0.3);\r\n\tz-index: 1100;\r\n\tdisplay: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.restricted-box {\r\n\twidth:40%;\r\n\theight: auto;\r\n\tmin-width: 400px;\r\n\tmax-height: 600px;\r\n\tbackground:white;\r\n\tborder-radius: 15px;\r\n\tpadding: 15px;\r\n\t-webkit-box-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11); \r\n  \tbox-shadow: -1px 5px 9px 0px rgba(0,0,0,0.11);\r\n}\r\n\r\n.scrollable-content{\r\n\twidth:100%;\r\n\theight: 100%;\r\n\toverflow-x: hidden;\r\n\toverflow-y: auto;\r\n}\r\n\r\n.scrollable-content h2{\r\n\ttext-align: center;\r\n\tpadding-bottom: 15px;\r\n\tposition: sticky;\r\n\ttop:0;\r\n\tbackground:white;\r\n\tbackground: -moz-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\r\n\tbackground: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\r\n\tbackground: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);\r\n\tfilter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\r\n}\r\n\r\n.restricted-button-container{\r\n\tmargin-top:25px;\r\n\ttext-align: center;\r\n}\r\n.tc-button-container button{\r\n\tmargin: 10px 5px;\r\n}\r\n\r\n.restricted-container {\r\n\tdisplay: flex;\r\n\tflex-direction: row;\r\n\tflex-wrap: wrap;\r\n}\r\n\r\n.restricted-container .country{\r\n\twidth:25%;\r\n\ttext-align: center;\r\n\tline-height: 1.8rem;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n\t.restricted-container .country{\r\n\t\twidth:50%;\r\n\t}\r\n  }";
 styleInject(css_248z$1);
 
 const RestrictedAreaBox = _ref => {
@@ -1528,8 +1607,9 @@ const ProjectSubpage = _ref2 => {
     if (userHash) {
       let intervalId = setInterval(async () => {
         /*    console.log('stored hash',userHash);
-            let lastUserHash = await d4p.userhashes(address,0).catch(e=>{console.log(e)})
+             let lastUserHash = await d4p.userhashes(address,0).catch(e=>{console.log(e)})
            console.log('Last hash:',lastUserHash);
+        
         */
         let id = await d4p.redeemedTokenId(userHash).catch(e => {
           console.log(e);
@@ -4041,7 +4121,7 @@ const UpcomingProjectSubpage = _ref => {
   }))));
 };
 
-var css_248z = ".mt-4 {\n\tmargin-top: 2rem;\n}\n\n\n.form-group {\n    margin-bottom: 1rem;\n}\n\n.form-control {\n    display: block;\n    width: 100%;\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;\n}\n";
+var css_248z = ".mt-4 {\r\n\tmargin-top: 2rem;\r\n}\r\n\r\n\r\n.form-group {\r\n    margin-bottom: 1rem;\r\n}\r\n\r\n.form-control {\r\n    display: block;\r\n    width: 100%;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;\r\n}\r\n";
 styleInject(css_248z);
 
 const VaultInterface = _ref => {
@@ -4169,7 +4249,7 @@ const POOLSS = [
 ]
  */
 
-const UPDATE_INTERVAL = 60000;
+var UPDATE_INTERVAL = 60000;
 /* let POOLS = [
   {
     id: 0,
@@ -4231,115 +4311,220 @@ const UPDATE_INTERVAL = 60000;
   },
 ]; */
 
-const TopSectionDividers = () => /*#__PURE__*/React__default["default"].createElement("div", {
-  style: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '25px 0'
-  }
-}, /*#__PURE__*/React__default["default"].createElement("img", {
-  src: img$5,
-  style: {
-    maxHeight: '50px'
-  }
-}), /*#__PURE__*/React__default["default"].createElement("img", {
-  src: img$4,
-  style: {
-    maxHeight: '50px'
-  }
-}));
+var TopSectionDividers = function TopSectionDividers() {
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      margin: '25px 0'
+    }
+  }, /*#__PURE__*/React__default["default"].createElement("img", {
+    src: img$5,
+    style: {
+      maxHeight: '50px'
+    }
+  }), /*#__PURE__*/React__default["default"].createElement("img", {
+    src: img$4,
+    style: {
+      maxHeight: '50px'
+    }
+  }));
+};
 
-const DustPools = _ref => {
-  let {
-    address,
-    ethersProvider,
-    chainId,
-    handleConnect
-  } = _ref;
-  const [selectedPoolIdx, setSelectedPoolIdx] = React.useState(null);
-  const [dustContract, setDustContract] = React.useState(null);
-  const [dust4PunksContract, setDust4PunksContract] = React.useState(null);
-  const [zoom2, setZoom2] = React.useState(null);
-  const [selectedFilter, setSelectedFilter] = React.useState('ALL');
-  const [initDone, setInitDone] = React.useState(false);
-  const [poolsFromBackend, setPoolsFromBackend] = React.useState([]);
-  const [allPools, setAllPools] = React.useState([]);
-  const [pools, setPools] = React.useState([]);
-  const [upcomingPools, setUpcomingPools] = React.useState([]);
-  const [upcomingPool, setUpcomingPool] = React.useState(null);
-  const loc = reactRouterDom.useLocation();
-  const url = chainId === 1 ? 'https://galaxis-web-backend.herokuapp.com' : 'https://galaxis-web-backend-staging.herokuapp.com';
-  const upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
-  React.useEffect(() => {
-    const getPoolData = async () => {
-      const res = await axios__default["default"].get(url + '/vaults').catch(e => console.log);
-      console.log('vaults', res);
+var DustPools = function DustPools(_ref) {
+  var address = _ref.address,
+      ethersProvider = _ref.ethersProvider,
+      chainId = _ref.chainId,
+      handleConnect = _ref.handleConnect;
 
-      if (res.status === 200) {
-        setPoolsFromBackend(res.data);
-      }
+  var _useState = React.useState(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      selectedPoolIdx = _useState2[0],
+      setSelectedPoolIdx = _useState2[1];
 
-      const upcoming = await axios__default["default"].get(url + '/upcoming-vaults').catch(e => console.log);
+  var _useState3 = React.useState(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      dustContract = _useState4[0],
+      setDustContract = _useState4[1];
 
-      if (upcoming.status === 200) {
-        setUpcomingPools(upcoming.data);
-        console.log('UPCOM', upcoming.data);
+  var _useState5 = React.useState(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      dust4PunksContract = _useState6[0],
+      setDust4PunksContract = _useState6[1];
 
-        if (loc.search && loc.search.indexOf('upcoming=') > 0) {
-          let params = loc.search.slice(1).split('&'); //console.log(params);
+  var _useState7 = React.useState(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      zoom2 = _useState8[0],
+      setZoom2 = _useState8[1];
 
-          if (params.length > 0) {
-            let parsedParams = {};
+  var _useState9 = React.useState('ALL'),
+      _useState10 = _slicedToArray(_useState9, 2),
+      selectedFilter = _useState10[0],
+      setSelectedFilter = _useState10[1];
 
-            for (let i = 0; i < params.length; i++) {
-              let item = params[i].split('=');
-              parsedParams[item[0]] = item[1];
-            }
+  var _useState11 = React.useState(false),
+      _useState12 = _slicedToArray(_useState11, 2);
+      _useState12[0];
+      var setInitDone = _useState12[1];
 
-            if (parsedParams.upcoming) {
-              // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
-              setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+  var _useState13 = React.useState([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      poolsFromBackend = _useState14[0],
+      setPoolsFromBackend = _useState14[1];
+
+  var _useState15 = React.useState([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      allPools = _useState16[0],
+      setAllPools = _useState16[1];
+
+  var _useState17 = React.useState([]),
+      _useState18 = _slicedToArray(_useState17, 2),
+      pools = _useState18[0],
+      setPools = _useState18[1];
+
+  var _useState19 = React.useState([]),
+      _useState20 = _slicedToArray(_useState19, 2),
+      upcomingPools = _useState20[0],
+      setUpcomingPools = _useState20[1];
+
+  var _useState21 = React.useState(null),
+      _useState22 = _slicedToArray(_useState21, 2),
+      upcomingPool = _useState22[0],
+      setUpcomingPool = _useState22[1];
+
+  var loc = reactRouterDom.useLocation();
+  var url = chainId === 1 ? 'https://galaxis-web-backend.herokuapp.com' : 'https://galaxis-web-backend-staging.herokuapp.com';
+  var upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+  React.useEffect(function () {
+    var getPoolData = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var res, upcoming, params, parsedParams, i, item;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios__default["default"].get(url + '/vaults').catch(function (e) {
+                  return console.log;
+                });
+
+              case 2:
+                res = _context.sent;
+                console.log('vaults', res);
+
+                if (res.status === 200) {
+                  setPoolsFromBackend(res.data);
+                }
+
+                _context.next = 7;
+                return axios__default["default"].get(url + '/upcoming-vaults').catch(function (e) {
+                  return console.log;
+                });
+
+              case 7:
+                upcoming = _context.sent;
+
+                if (upcoming.status === 200) {
+                  setUpcomingPools(upcoming.data);
+                  console.log('UPCOM', upcoming.data);
+
+                  if (loc.search && loc.search.indexOf('upcoming=') > 0) {
+                    params = loc.search.slice(1).split('&'); //console.log(params);
+
+                    if (params.length > 0) {
+                      parsedParams = {};
+
+                      for (i = 0; i < params.length; i++) {
+                        item = params[i].split('=');
+                        parsedParams[item[0]] = item[1];
+                      }
+
+                      if (parsedParams.upcoming) {
+                        // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
+                        setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+                      }
+                    }
+                  }
+                }
+
+              case 9:
+              case "end":
+                return _context.stop();
             }
           }
-        }
-      }
-    };
+        }, _callee);
+      }));
+
+      return function getPoolData() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
 
     getPoolData();
   }, []);
-  React.useEffect(() => {
-    const initContract = async () => {
-      let c = await getContract('Dust', ethersProvider);
+  React.useEffect(function () {
+    var initContract = /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+        var c, Zoom2Contract, D4P;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return getContract('Dust', ethersProvider);
 
-      if (c) {
-        setDustContract(c); //console.log('DUST:', c);
-      } else {
-        console.log('contract not found');
-      }
+              case 2:
+                c = _context2.sent;
 
-      let Zoom2Contract = await getContract('Zoom2', ethersProvider);
+                if (c) {
+                  setDustContract(c); //console.log('DUST:', c);
+                } else {
+                  console.log('contract not found');
+                }
 
-      if (Zoom2Contract) {
-        setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
-      } else {
-        console.log('Could not initialise Zoom2 Contract');
-      }
+                _context2.next = 6;
+                return getContract('Zoom2', ethersProvider);
 
-      let D4P = await getContract('Dust4Punks', ethersProvider);
+              case 6:
+                Zoom2Contract = _context2.sent;
 
-      if (D4P) {
-        setDust4PunksContract(D4P);
-        console.log('D4P:', D4P);
-      } else {
-        console.log('Could not initialise D4P Contract');
-      }
-    };
+                if (Zoom2Contract) {
+                  setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
+                } else {
+                  console.log('Could not initialise Zoom2 Contract');
+                }
+
+                _context2.next = 10;
+                return getContract('Dust4Punks', ethersProvider);
+
+              case 10:
+                D4P = _context2.sent;
+
+                if (D4P) {
+                  setDust4PunksContract(D4P);
+                  console.log('D4P:', D4P);
+                } else {
+                  console.log('Could not initialise D4P Contract');
+                }
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function initContract() {
+        return _ref3.apply(this, arguments);
+      };
+    }();
 
     if (ethersProvider) {
       initContract();
     }
   }, [ethersProvider]);
-  React.useEffect(() => {
+  React.useEffect(function () {
     if (dust4PunksContract && dustContract && poolsFromBackend.length > 0 && zoom2
     /*  && !initDone */
     ) {
@@ -4347,186 +4532,261 @@ const DustPools = _ref => {
     }
   }, [dust4PunksContract, poolsFromBackend]); //,dustContract,zoom2
 
-  const getPools = async () => {
-    // console.log('GETTING POOL DATA....');
-    let res = await dust4PunksContract.next_redeemable().catch(e => console.log);
-    let numberOfPools = 0;
+  var getPools = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+      var res, numberOfPools, ZoomLibraryInstance, calls, i, vaultAddress, vaultName, vaultPrice, vaultToken, ZoomQueryBinary, combinedResult, tempPool, poolIdx, _i, va, vn, vp, vt, vd, vToken, poolByVaultId;
 
-    if (res) {
-      numberOfPools = Number(res);
-    }
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return dust4PunksContract.next_redeemable().catch(function (e) {
+                return console.log;
+              });
 
-    console.log('#OF POOLS', numberOfPools); // if(address){
+            case 2:
+              res = _context3.sent;
+              numberOfPools = 0;
 
-    const ZoomLibraryInstance = new zoomNext.Zoom({
-      use_reference_calls: true
-    });
-    let calls = [];
+              if (res) {
+                numberOfPools = Number(res);
+              }
 
-    for (let i = 0; i < numberOfPools; i++) {
-      //Punk vault address
-      const vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
-      calls.push(vaultAddress); //Pool Name
+              console.log('#OF POOLS', numberOfPools); // if(address){
 
-      const vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
-      calls.push(vaultName); //Vault price
+              ZoomLibraryInstance = new zoomNext.Zoom({
+                use_reference_calls: true
+              });
+              calls = [];
 
-      const vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
-      calls.push(vaultPrice); //Vault token addredd
+              for (i = 0; i < numberOfPools; i++) {
+                //Punk vault address
+                vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
+                calls.push(vaultAddress); //Pool Name
 
-      const vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
-      calls.push(vaultToken);
-    }
+                vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
+                calls.push(vaultName); //Vault price
 
-    const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
-    //console.time('zoomCall');
+                vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
+                calls.push(vaultPrice); //Vault token addredd
 
-    const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
-    //console.log("======== ZOOM CALL END ==============" );
+                vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
+                calls.push(vaultToken);
+              }
 
-    ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
+              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
+              //console.time('zoomCall');
 
-    let tempPool = [];
-    let poolIdx = 0;
+              _context3.next = 12;
+              return zoom2.combine(ZoomQueryBinary);
 
-    for (let i = 0; i < numberOfPools * 4; i += 4) {
-      let va = ZoomLibraryInstance.decodeCall(calls[i + 0]).toString();
-      let vn = ZoomLibraryInstance.decodeCall(calls[i + 1]).toString();
-      let vp = ZoomLibraryInstance.decodeCall(calls[i + 2]).toString();
-      let vt = ZoomLibraryInstance.decodeCall(calls[i + 3]).toString();
-      const vd = {
-        vaultAddress: va,
-        vaultName: vn,
-        vaultPrice: vp,
-        vaultToken: vt,
-        available: null
-      };
-      let vToken = await getDummy721(vt, ethersProvider);
+            case 12:
+              combinedResult = _context3.sent;
+              //console.timeEnd('zoomCall');
+              //console.log("======== ZOOM CALL END ==============" );
+              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
 
-      if (vToken) {
-        vd.tokenContract = vToken;
-      }
+              tempPool = [];
+              poolIdx = 0;
+              _i = 0;
 
-      if (poolIdx < poolsFromBackend.length) {
-        let poolByVaultId = poolsFromBackend.find(i => {
-          return i.vault_id === poolIdx;
-        }); // tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
+            case 17:
+              if (!(_i < numberOfPools * 4)) {
+                _context3.next = 31;
+                break;
+              }
 
-        tempPool.push({ ...poolByVaultId,
-          vaultData: vd
-        });
-        poolIdx++;
-      } else {
-        console.log('overflow :/', poolIdx, poolsFromBackend.length);
-      }
-    } //console.log('AP', tempPool);
+              va = ZoomLibraryInstance.decodeCall(calls[_i + 0]).toString();
+              vn = ZoomLibraryInstance.decodeCall(calls[_i + 1]).toString();
+              vp = ZoomLibraryInstance.decodeCall(calls[_i + 2]).toString();
+              vt = ZoomLibraryInstance.decodeCall(calls[_i + 3]).toString();
+              vd = {
+                vaultAddress: va,
+                vaultName: vn,
+                vaultPrice: vp,
+                vaultToken: vt,
+                available: null
+              };
+              _context3.next = 25;
+              return getDummy721(vt, ethersProvider);
 
+            case 25:
+              vToken = _context3.sent;
 
-    setAllPools(tempPool);
-    setPools(tempPool);
-    setSelectedFilter('ALL');
-  };
+              if (vToken) {
+                vd.tokenContract = vToken;
+              }
 
-  React.useEffect(() => {
+              if (poolIdx < poolsFromBackend.length) {
+                poolByVaultId = poolsFromBackend.find(function (i) {
+                  return i.vault_id === poolIdx;
+                }); // tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
+
+                tempPool.push(_objectSpread2(_objectSpread2({}, poolByVaultId), {}, {
+                  vaultData: vd
+                }));
+                poolIdx++;
+              } else {
+                console.log('overflow :/', poolIdx, poolsFromBackend.length);
+              }
+
+            case 28:
+              _i += 4;
+              _context3.next = 17;
+              break;
+
+            case 31:
+              //console.log('AP', tempPool);
+              setAllPools(tempPool);
+              setPools(tempPool);
+              setSelectedFilter('ALL');
+
+            case 34:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function getPools() {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+  React.useEffect(function () {
     // console.log('allPools changed...', allPools.length);
     if (allPools.length > 0) {
       updateVaultBalances();
     }
   }, [allPools]);
-  useInterval(() => {
+  useInterval(function () {
     updateVaultBalances();
   }, UPDATE_INTERVAL);
 
-  const updateVaultBalances = async () => {
-    if (allPools[0].vaultData && allPools[0].vaultData.tokenContract) {
-      //console.log('vaultdata',vaultData);
-      const ZoomLibraryInstance = new zoomNext.Zoom();
-      let calls = [];
-      let hasContract = []; //console.log('UPD',pools,allPools);
+  var updateVaultBalances = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+      var ZoomLibraryInstance, calls, hasContract, i, vaultBalance, ZoomQueryBinary, combinedResult, ap, hasContractIdx, _i2, ab, poolIdx;
 
-      for (let i = 0; i < allPools.length; i++) {
-        if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
-          /*     console.log(allPools[i].vaultData.tokenContract,i)
-                 const totalSupply = ZoomLibraryInstance.addCall(
-                    allPools[i].vaultData.tokenContract,
-                    ["totalSupply",[]],
-                    "totalSupply() returns (uint256)"
-                );
-                calls.push(totalSupply); */
-          const vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
-          calls.push(vaultBalance);
-          hasContract.push(allPools[i].vault_id);
-        }
-      } // console.log('STUFF', calls, hasContract);
+      return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              if (!(allPools[0].vaultData && allPools[0].vaultData.tokenContract)) {
+                _context4.next = 16;
+                break;
+              }
 
+              //console.log('vaultdata',vaultData);
+              ZoomLibraryInstance = new zoomNext.Zoom();
+              calls = [];
+              hasContract = []; //console.log('UPD',pools,allPools);
 
-      if (calls.length > 0) {
-        const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
-        //console.log("======== ZOOM CALL START ============" );
-        //console.time('zoomCall');
-
-        const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
-        //console.log("======== ZOOM CALL END ==============" );
-
-        ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
-        let ap = allPools;
-        let hasContractIdx = 0;
-
-        for (let i = 0; i < calls.length; i++) {
-          //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-          let ab = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-          console.log('idx, balance', i, ab);
-          let poolIdx = hasContract[hasContractIdx];
-          console.log('pool index, allpools', poolIdx, ap);
-          ap[poolIdx].vaultData = { ...ap[poolIdx].vaultData,
-
-            /* totalSupply:ts, */
-            available: Number(ab)
-          };
-
-          if (Number.parseInt(ab) === 0) {
-            ap[poolIdx].order += 100;
-          }
-
-          hasContractIdx++;
-        }
-        /* 
-            let op = [...ap];
-             op.sort((a,b)=>{
-                if(a.order>b.order){
-                    return 1
-                }else{
-                    return -1;
+              for (i = 0; i < allPools.length; i++) {
+                if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
+                  /*     console.log(allPools[i].vaultData.tokenContract,i)
+                          const totalSupply = ZoomLibraryInstance.addCall(
+                            allPools[i].vaultData.tokenContract,
+                            ["totalSupply",[]],
+                            "totalSupply() returns (uint256)"
+                        );
+                        calls.push(totalSupply); */
+                  vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
+                  calls.push(vaultBalance);
+                  hasContract.push(allPools[i].vault_id);
                 }
-            });
-        */
+              } // console.log('STUFF', calls, hasContract);
 
 
-        setPools(getFiltered());
-        setInitDone(true); //console.log('AP upd', ap);
-      }
-    }
-  };
+              if (!(calls.length > 0)) {
+                _context4.next = 16;
+                break;
+              }
 
-  const getFiltered = () => {
-    let result = [];
+              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
+              //console.log("======== ZOOM CALL START ============" );
+              //console.time('zoomCall');
+
+              _context4.next = 9;
+              return zoom2.combine(ZoomQueryBinary);
+
+            case 9:
+              combinedResult = _context4.sent;
+              //console.timeEnd('zoomCall');
+              //console.log("======== ZOOM CALL END ==============" );
+              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
+              ap = allPools;
+              hasContractIdx = 0;
+
+              for (_i2 = 0; _i2 < calls.length; _i2++) {
+                //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
+                ab = ZoomLibraryInstance.decodeCall(calls[_i2]).toString();
+                console.log('idx, balance', _i2, ab);
+                poolIdx = hasContract[hasContractIdx];
+                console.log('pool index, allpools', poolIdx, ap);
+                ap[poolIdx].vaultData = _objectSpread2(_objectSpread2({}, ap[poolIdx].vaultData), {}, {
+                  /* totalSupply:ts, */
+                  available: Number(ab)
+                });
+
+                if (Number.parseInt(ab) === 0) {
+                  ap[poolIdx].order += 100;
+                }
+
+                hasContractIdx++;
+              }
+              /* 
+                  let op = [...ap];
+                    op.sort((a,b)=>{
+                      if(a.order>b.order){
+                          return 1
+                      }else{
+                          return -1;
+                      }
+                  });
+              */
+
+
+              setPools(getFiltered());
+              setInitDone(true); //console.log('AP upd', ap);
+
+            case 16:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function updateVaultBalances() {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
+  var getFiltered = function getFiltered() {
+    var result = [];
 
     if (selectedFilter === 'SOLD_OUT') {
-      result = allPools.filter(pool => pool.vaultData.available === 0);
+      result = allPools.filter(function (pool) {
+        return pool.vaultData.available === 0;
+      });
     } else if (selectedFilter === 'ACTIVE') {
-      result = allPools.filter(pool => pool.vaultData.available > 0);
+      result = allPools.filter(function (pool) {
+        return pool.vaultData.available > 0;
+      });
     } else {
-      result = [...allPools];
+      result = _toConsumableArray(allPools);
     }
 
     return result;
   };
 
-  React.useEffect(() => {
+  React.useEffect(function () {
     setPools(getFiltered());
   }, [selectedFilter]);
 
-  const showDetails = idx => {
+  var showDetails = function showDetails(idx) {
     //console.log('poolId,idx',idx);
     if (idx !== null) {
       setSelectedPoolIdx(idx);
@@ -4545,14 +4805,20 @@ const DustPools = _ref => {
   }, "NFT Vaults"), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "tab-choose"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: `${selectedFilter === 'ALL' ? 'active-tab' : ''}`,
-    onClick: () => setSelectedFilter('ALL')
+    className: "".concat(selectedFilter === 'ALL' ? 'active-tab' : ''),
+    onClick: function onClick() {
+      return setSelectedFilter('ALL');
+    }
   }, "All"), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: `${selectedFilter === 'ACTIVE' ? 'active-tab' : ''}`,
-    onClick: () => setSelectedFilter('ACTIVE')
+    className: "".concat(selectedFilter === 'ACTIVE' ? 'active-tab' : ''),
+    onClick: function onClick() {
+      return setSelectedFilter('ACTIVE');
+    }
   }, "Active"), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: `${selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''}`,
-    onClick: () => setSelectedFilter('SOLD_OUT')
+    className: "".concat(selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''),
+    onClick: function onClick() {
+      return setSelectedFilter('SOLD_OUT');
+    }
   }, "Sold out")), /*#__PURE__*/React__default["default"].createElement("p", null, "You can exchange your Dust for some awesome items including Cryptopunks and other valuable NFTs.")), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "container  mt-5"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
@@ -4560,7 +4826,7 @@ const DustPools = _ref => {
     style: {
       rowGap: '25px'
     }
-  }, pools.map((card, idx) => {
+  }, pools.map(function (card, idx) {
     return /*#__PURE__*/React__default["default"].createElement("div", {
       key: idx,
       className: "col-12 col-lg-6"
@@ -4579,7 +4845,9 @@ const DustPools = _ref => {
     style: {
       marginTop: '20px'
     },
-    onClick: () => window.open('https://blog.ether.cards/dust-utility-token-model-distribution/')
+    onClick: function onClick() {
+      return window.open('https://blog.ether.cards/dust-utility-token-model-distribution/');
+    }
   }, "More")), /*#__PURE__*/React__default["default"].createElement(VaultInterface, {
     address: address,
     hc: handleConnect,
@@ -4604,14 +4872,18 @@ const DustPools = _ref => {
     ethersProvider: ethersProvider,
     chainId: chainId,
     handleConnect: handleConnect,
-    handleBack: () => setSelectedPoolIdx(null),
+    handleBack: function handleBack() {
+      return setSelectedPoolIdx(null);
+    },
     handleChangePool: showDetails
   }))) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dust-pool-root"
   }, /*#__PURE__*/React__default["default"].createElement(UpcomingProjectSubpage, {
     pool: upcomingPool,
     chainId: chainId,
-    handleBack: () => setUpcomingPool(null)
+    handleBack: function handleBack() {
+      return setUpcomingPool(null);
+    }
   })))));
 };
 
