@@ -35,7 +35,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
     if (window.innerWidth < 410) {
       setDefaultScopeWidth(window.innerWidth - horizontalPadding);
     }
-    if (metadata.traits) {
+    if (metadata.traits && metadata.traits.length > 0) {
       setSelectedTrait(metadata.traits[0]);
     }
   }, []);
@@ -176,7 +176,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                     />
                   )}
                 </div>
-                {metadata.traits && traitTypes && (
+                {metadata.traits && metadata.traits.length > 0 && traitTypes && (
                   <div
                     className={`trait-container ${traitsVisible ? 'hide' : ''}`}
                   >
@@ -207,7 +207,7 @@ const GalaxisCard = ({ metadata, traitTypes, horizontalPadding = 20, imageContai
                   </div>
                 )}
               </span>
-              {metadata.traits && traitTypes && (
+              {metadata.traits && metadata.traits.length > 0 &&  traitTypes && (
                 <span
                   className={`back ${traitsVisible ? 'active' : ''} `}
                   id="trait-span"
