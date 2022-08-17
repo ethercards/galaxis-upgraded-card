@@ -4,10 +4,12 @@ body{
 
 .dust-pool-root{
     max-width: 1140px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 30px;
     font-family: poppins;
 }
+
 .dust-pool-textbox{
  text-align: center;
  max-width: 600px;
