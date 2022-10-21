@@ -78,8 +78,6 @@ const GalaxisCard = ({
         height: width < height / imageRatio ? width * imageRatio : '100%',
       });
     }
-
-    // setResizerComponentSize({width:width<height/1.365?100+'%':height/1.365, height: width<height/1.365? width*1.365 : "100%"})
   }, [imageRatio, width, height]);
 
   useEffect(() => {
@@ -101,10 +99,22 @@ const GalaxisCard = ({
     }
   }, [width]);
   useEffect(() => {
-    var regex = new RegExp('^.*.(mp4)$');
-    if (metadata.sides && regex.test(metadata.sides[0].image)) {
-      setfrontIsVideo(true);
+    if (metadata.sides && metadata.sides.length >= 1 && metadata.sides[0].originalHeight && metadata.sides[0].originalWidth) {
+      let originalHeight = metadata.sides[0].originalHeight;
+      let originalWidth = metadata.sides[0].originalWidth
+      console.log(width, height);
+      console.log(originalHeight, originalWidth)
+      // setTheImageRatio({ width: metadata.sides[0].originalWidth, height: metadata.sides[0].originalHeight })
+      if (imageRatio != 0) {
+        console.log(imageRatio)
+        setResizerComponentSize({
+          width: originalWidth < originalHeight / imageRatio ? 'auto' : originalHeight / imageRatio,
+          height: originalWidth < originalHeight / imageRatio ? originalWidth * imageRatio : 'auto',
+        });
+      }
+      setLoading(false)
     }
+
   }, []);
   return (
     <>
@@ -127,7 +137,7 @@ const GalaxisCard = ({
         <div
           className={`card-image-container ${containerSize}`}
           ref={containerRef}
-          // style={{ opacity: loading ? '0' : '1' }}
+          style={{ opacity: loading ? '0' : '1' }}
           onClick={(e) => stopPropagation(e)}
         >
           {/* <img src={trait_card} alt="" style={sx.image} /> */}
@@ -135,7 +145,7 @@ const GalaxisCard = ({
             <div
               className='resizer-container'
               style={{
-                // opacity: resizerComponentSize.width === 0 ? 0 : 1,
+                opacity: resizerComponentSize.width === 0 ? 0 : 1,
                 width: resizerComponentSize.width,
                 height: resizerComponentSize.height,
               }}
@@ -156,8 +166,8 @@ const GalaxisCard = ({
                   className={`front ${!traitsVisible ? 'active' : ''} `}
                   id='front-span'
                 >
-                  {(metadata.sides && metadata.sides.length > 1) &&
-                    !frontIsVideo || !metadata.sides ? (
+                  {(metadata.sides && metadata.sides.length >= 1 && !metadata.sides[0].video)
+                    || !metadata.sides ? (
                     <img
                       className='flipped-img'
                       src={
@@ -172,15 +182,6 @@ const GalaxisCard = ({
                           imageRef.current.naturalWidth,
                           imageRef.current.naturalHeight
                         );
-                        // document.getElementById(
-                        //   'scope'
-                        // ).style.width = `${defaultScopeWidth}px`;
-                        // document.getElementById(
-                        //   'scope'
-                        // ).style.height = `${calculateSize(
-                        //   imageRef.current.naturalWidth,
-                        //   imageRef.current.naturalHeight
-                        // )}px`;
                         setLoading(false);
                       }}
                     />
@@ -192,8 +193,9 @@ const GalaxisCard = ({
                       muted
                       loop
                       controls={false}
+                      onLoadedData={() => setTheImageRatio(metadata.sides[0].originalWidth, metadata.sides[0].originalHeight,)}
                     >
-                      <source src={metadata.sides[0].image} type="video/mp4" />
+                      <source src={metadata.sides[0].video} type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
                   )}
@@ -274,11 +276,7 @@ const GalaxisCard = ({
                   >
                     <CardBack
                       onClick={hideTraits}
-                      backImage={metadata.sides[1].image}
-                      ref={imageRef}
-                      setLoading={setLoading}
-                      frontIsVideo={frontIsVideo}
-                      setTheImageRatio={setTheImageRatio}
+                      backImage={metadata.sides[1].image || metadata.sides[1].video}
                     />
                   </span>
                 )}
