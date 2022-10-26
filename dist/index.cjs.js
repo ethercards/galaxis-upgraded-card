@@ -1532,7 +1532,7 @@ const ProjectSubpage = _ref2 => {
   React.useEffect(() => {
     const waitForTx = async () => {
       setTxInProgress(true);
-      let tr = await ethersProvider.waitForTransaction(txHash, 1, 30000).catch(e => {
+      let tr = await ethersProvider.waitForTransaction(txHash, 1).catch(e => {
         console.log(e);
       });
 
@@ -4630,12 +4630,12 @@ var DustPools = function DustPools(_ref) {
               break;
 
             case 31:
-              //console.log('AP', tempPool);
+              console.log('AP', tempPool);
               setAllPools(tempPool);
               setPools(tempPool);
               setSelectedFilter('ALL');
 
-            case 34:
+            case 35:
             case "end":
               return _context3.stop();
           }

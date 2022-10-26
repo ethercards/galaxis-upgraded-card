@@ -149,7 +149,7 @@ useEffect(()=>{
 useEffect(()=>{
   const waitForTx = async ()=>{
       setTxInProgress(true);
-      let tr = await ethersProvider.waitForTransaction(txHash,1,30000).catch(e=>{console.log(e);});
+      let tr = await ethersProvider.waitForTransaction(txHash,1).catch(e=>{console.log(e);});
       if(tr){
           if(tr.status>0){
               toast.success('Transaction sent.');
@@ -158,7 +158,7 @@ useEffect(()=>{
           }
       }
       
-      localStorage.removeItem('tx_hash'+pool.vault_id);;
+      localStorage.removeItem('tx_hash'+pool.vault_id);
       setTxInProgress(false);
 
       let b = await dust.balanceOf(address).catch(e=>{console.log(e)});
