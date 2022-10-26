@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 // import FullscreenModal from '../../Components/FullscreenModal'
 import flip_icon from '../assets/images/flip-icon.svg'
 
-const CardBack = ({ backImage, onClick }) => {
+const CardBack = ({ backImage, onClick , type}) => {
     const [showFlipIcon, setshowFlipIcon] = useState(false);
     const [open, setOpen] = useState(false);
     const [fullscreenSrc, setFullscreenSrc] = useState(null);
@@ -18,8 +18,7 @@ const CardBack = ({ backImage, onClick }) => {
         if (window.innerWidth < 900) {
             setmobileView(true);
         }
-        var regex = new RegExp('^.*.(mp4)$');
-        if (regex.test(backImage)) {
+        if (type && type === 'video') {
             setbackIsVideo(true);
         }
     }, [])
