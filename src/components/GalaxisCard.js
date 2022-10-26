@@ -99,12 +99,11 @@ const GalaxisCard = ({
     }
   }, [width]);
   useEffect(() => {
-    if (metadata.sides && metadata.sides.length >= 1 && metadata.sides[0].originalHeight && metadata.sides[0].originalWidth) {
-      let originalHeight = metadata.sides[0].originalHeight;
-      let originalWidth = metadata.sides[0].originalWidth
+    if (metadata.sides && metadata.sides.length >= 1 && metadata.sides[0].original_height && metadata.sides[0].original_width) {
+      let originalHeight = metadata.sides[0].original_height;
+      let originalWidth = metadata.sides[0].original_width
       console.log(width, height);
       console.log(originalHeight, originalWidth)
-      // setTheImageRatio({ width: metadata.sides[0].originalWidth, height: metadata.sides[0].originalHeight })
       if (imageRatio != 0) {
         console.log(imageRatio)
         setResizerComponentSize({
@@ -166,12 +165,12 @@ const GalaxisCard = ({
                   className={`front ${!traitsVisible ? 'active' : ''} `}
                   id='front-span'
                 >
-                  {(metadata.sides && metadata.sides.length >= 1 && !metadata.sides[0].video)
+                  {(metadata.sides && metadata.sides.length >= 1 && (!metadata.sides[0].type ||  metadata.sides[0].type !== 'video'))
                     || !metadata.sides ? (
                     <img
                       className='flipped-img'
                       src={
-                        metadata.sides && metadata.sides.length > 1
+                        metadata.sides && metadata.sides.length >= 1
                           ? metadata.sides[0].image
                           : metadata.image
                       }
@@ -193,9 +192,9 @@ const GalaxisCard = ({
                       muted
                       loop
                       controls={false}
-                      onLoadedData={() => setTheImageRatio(metadata.sides[0].originalWidth, metadata.sides[0].originalHeight,)}
+                      onLoadedData={() => setTheImageRatio(metadata.sides[0].original_width, metadata.sides[0].original_height,)}
                     >
-                      <source src={metadata.sides[0].video} type="video/mp4" />
+                      <source src={metadata.sides[0].image} type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
                   )}
@@ -276,7 +275,8 @@ const GalaxisCard = ({
                   >
                     <CardBack
                       onClick={hideTraits}
-                      backImage={metadata.sides[1].image || metadata.sides[1].video}
+                      backImage={metadata.sides[1].image}
+                      type={metadata.sides[1].type === 'video' && metadata.sides[1].type}
                     />
                   </span>
                 )}
