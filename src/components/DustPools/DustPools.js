@@ -123,8 +123,8 @@ const TopSectionDividers = () => (
       margin: '25px 0',
     }}
   >
-    <img src={leftTrick} style={{ maxHeight: '50px' }} />
-    <img src={rightTrick} style={{ maxHeight: '50px' }} />
+    <img src={leftTrick} className='section-divider-img' />
+    <img src={rightTrick} className='section-divider-img' />
   </div>
 );
 
