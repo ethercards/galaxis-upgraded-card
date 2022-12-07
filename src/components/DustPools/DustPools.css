@@ -114,6 +114,16 @@ body{
 .dust-pool-card p {
     margin-block-start: 0;
 }
+.section-divider-img{
+    max-height: 35px;
+    z-index: 2;
+}
+@media only screen and (max-width: 500px) {
+    .section-divider-img{
+      max-height: 25px;
+      z-index: 2;
+    }
+  }
 
 @media (min-width: 576px){
 .container {
