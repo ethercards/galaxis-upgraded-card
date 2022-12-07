@@ -165,7 +165,7 @@ const GalaxisCard = ({
                   className={`front ${!traitsVisible ? 'active' : ''} `}
                   id='front-span'
                 >
-                  {(metadata.sides && metadata.sides.length >= 1 && (!metadata.sides[0].type ||  metadata.sides[0].type !== 'video'))
+                  {(metadata.sides && metadata.sides.length >= 1 && (!metadata.sides[0].type || metadata.sides[0].type !== 'video'))
                     || !metadata.sides ? (
                     <img
                       className='flipped-img'
@@ -241,7 +241,7 @@ const GalaxisCard = ({
                               >
                                 {' '}
                                 <img
-                                  src={GALAXIS_BASE_URL + traitElem.icon_white}
+                                  src={elem.image_url ? elem.image_url : GALAXIS_BASE_URL + traitElem.icon_white}
                                   alt='undefined'
                                 />{' '}
                               </div>
@@ -264,7 +264,8 @@ const GalaxisCard = ({
                           ? metadata.sides[0].image
                           : metadata.image
                       }
-                      traitImg={GALAXIS_BASE_URL + traitType.icon_white}
+                      traitImg={selectedTrait.image_url ? selectedTrait.image_url : GALAXIS_BASE_URL + traitType.icon_white}
+                      claimUrl={selectedTrait.claim_url}
                     />
                   </span>
                 )}
