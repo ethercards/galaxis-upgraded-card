@@ -98,6 +98,7 @@ const GalaxisCard = ({
       // console.log(containerSize)
     }
   }, [width]);
+  
   useEffect(() => {
     if (metadata.sides && metadata.sides.length >= 1 && metadata.sides[0].original_height && metadata.sides[0].original_width) {
       let originalHeight = metadata.sides[0].original_height;
