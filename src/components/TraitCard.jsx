@@ -36,17 +36,17 @@ const TraitCard = ({ trait, onClick, image, traitImg, claimUrl }) => {
                         </div>
                         <div className='trait-card-description-holder' >
                             <p className='trait-card-description'>{trait.description}</p>
-                            {claimUrl && <div className='trait-card-button-holder'>
-                                <Button
-                                    variant="banner"
-                                    sx={sx.button}
-                                    onClick={() => handleClaim()}
-                                >
-                                    Claim
-                                </Button>
-                            </div>
-                            }
                         </div>
+                        {claimUrl && <div className='trait-card-button-holder'>
+                            <Button
+                                variant="banner"
+                                sx={sx.button}
+                                onClick={() => handleClaim()}
+                            >
+                                Claim
+                            </Button>
+                        </div>
+                        }
                     </div>
                 </div>
             </div>
