@@ -7,14 +7,14 @@ const sx = {
         minHeight: 'unset',
     }
 }
-const TraitCard = ({ trait, onClick, image, traitImg, claimUrl }) => {
+const TraitCard = ({ trait, onClick, image, traitImg }) => {
     console.log(traitImg)
 
-    const handleClaim = () => {
-        if (claimUrl) {
-            window.open(`${claimUrl}`, '_blank')
-        }
-    }
+    // const handleClaim = () => {
+    //     if (claimUrl) {
+    //         window.open(`${claimUrl}`, '_blank')
+    //     }
+    // }
     return (
         <>
             <img
@@ -37,7 +37,7 @@ const TraitCard = ({ trait, onClick, image, traitImg, claimUrl }) => {
                         <div className='trait-card-description-holder' >
                             <p className='trait-card-description'>{trait.description}</p>
                         </div>
-                        {claimUrl && <div className='trait-card-button-holder'>
+                        {/* {claimUrl && <div className='trait-card-button-holder'>
                             <Button
                                 variant="banner"
                                 sx={sx.button}
@@ -46,7 +46,7 @@ const TraitCard = ({ trait, onClick, image, traitImg, claimUrl }) => {
                                 Claim
                             </Button>
                         </div>
-                        }
+                        } */}
                     </div>
                 </div>
             </div>

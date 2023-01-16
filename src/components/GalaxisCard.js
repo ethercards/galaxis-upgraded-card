@@ -242,7 +242,7 @@ const GalaxisCard = ({
                               >
                                 {' '}
                                 <img
-                                  src={elem.image_url ? elem.image_url : GALAXIS_BASE_URL + traitElem.icon_white}
+                                  src={elem.icon_url ? elem.icon_url : GALAXIS_BASE_URL + traitElem.icon_white}
                                   alt='undefined'
                                 />{' '}
                               </div>
@@ -265,8 +265,8 @@ const GalaxisCard = ({
                           ? metadata.sides[0].image
                           : metadata.image
                       }
-                      traitImg={selectedTrait.image_url ? selectedTrait.image_url : GALAXIS_BASE_URL + traitType.icon_white}
-                      claimUrl={selectedTrait.claim_url}
+                      traitImg={selectedTrait.icon_url ? selectedTrait.icon_url : GALAXIS_BASE_URL + traitType.icon_white}
+                      // claimUrl={selectedTrait.claim_url}
                     />
                   </span>
                 )}
