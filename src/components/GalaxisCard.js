@@ -171,7 +171,7 @@ const GalaxisCard = ({
                     <img
                       className='flipped-img'
                       src={
-                        metadata.sides && metadata.sides.length >= 1
+                        metadata.sides && metadata.sides.length >= 1 && metadata.sides[0].image
                           ? metadata.sides[0].image
                           : metadata.image
                       }
