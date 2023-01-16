@@ -575,7 +575,7 @@ var GalaxisCard = function GalaxisCard(_ref) {
     id: "front-span"
   }, metadata.sides && metadata.sides.length >= 1 && (!metadata.sides[0].type || metadata.sides[0].type !== 'video') || !metadata.sides ? /*#__PURE__*/React__default["default"].createElement("img", {
     className: "flipped-img",
-    src: metadata.sides && metadata.sides.length >= 1 ? metadata.sides[0].image : metadata.image,
+    src: metadata.sides && metadata.sides.length >= 1 && metadata.sides[0].image ? metadata.sides[0].image : metadata.image,
     alt: "not found",
     ref: imageRef,
     onLoad: function onLoad() {
