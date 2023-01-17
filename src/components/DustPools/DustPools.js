@@ -482,7 +482,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
         <div className="dust-pool-root">
           <div className="dust-pool-textbox">
             <p className="pool-subtitle" style={{ marginBlockEnd: '1em' }}>
-              NFT Vaults
+              Digital Collectible Vaults
             </p>
             <div className="tab-choose">
               <div
@@ -508,7 +508,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
             </div>
             <p>
               You can exchange your Dust for some awesome items including
-              Cryptopunks and other valuable NFTs.
+              Cryptopunks and other valuable Digital Collectibles.
             </p>
           </div>
           <div className="container  mt-5">
@@ -526,8 +526,8 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
               <p className="pool-subtitle">Dust utility token</p>
               <p>
                 $DUST tokens are used throughout the Galaxis ecosystem to
-                reserve and pay for upcoming mints, return value to NFT holders,
-                and exchange for NFTs via the Galaxis Vaults.{' '}
+                reserve and pay for upcoming mints, return value to Ether Card holders,
+                and exchange for Digital Collectibles via the Galaxis Vaults.{' '}
               </p>
               <button
                 className="dust-pool-btn"
@@ -547,8 +547,8 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
 
             <TopSectionDividers />
             <div className="dust-pool-textbox pb-4">
-              <p className="pool-subtitle">Upcoming NFT Vaults</p>
-              <p>Checkout all the upcoming Galaxis Vaults - where $DUST Utility Tokens may be exchanged for high quality NFTs!</p>
+              <p className="pool-subtitle">Upcoming Digital Collectible Vaults</p>
+              <p>Checkout all the upcoming Galaxis Vaults - where $DUST Utility Tokens may be exchanged for high quality Digital Collectibles!</p>
             </div>
                 
             {upcomingPools.length>0 && 

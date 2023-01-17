@@ -8,101 +8,12 @@ import { Zoom } from 'zoom-next';
 import ItemsCarousel from 'react-items-carousel';
 import { useHistory, useLocation } from 'react-router-dom';
 
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
-  }
-
-  return target;
-}
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
 
 function _iterableToArrayLimit(arr, i) {
@@ -152,47 +63,25 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 var img$7 = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3e %3cg id='Group_1817' data-name='Group 1817' transform='translate(-912 -5536)'%3e %3cg id='Group_1814' data-name='Group 1814' transform='translate(912 5535.843)' opacity='0.4'%3e %3crect id='Rectangle_370' data-name='Rectangle 370' width='70' height='70' rx='7' transform='translate(0 0.157)'/%3e %3cg id='physical_redeem' data-name='physical redeem' transform='translate(18.543 14.423)'%3e %3cpath id='Path_211' data-name='Path 211' d='M120.119%2c77c2.377%2c1.414%2c4.765%2c2.828%2c7.142%2c4.243q4.706%2c2.8%2c9.436%2c5.574a1.175%2c1.175%2c0%2c0%2c1%2c.642%2c1.129q-.018%2c9.572%2c0%2c19.133a1.135%2c1.135%2c0%2c0%2c1-.618%2c1.093q-8.093%2c4.759-16.186%2c9.567a1.162%2c1.162%2c0%2c0%2c1-1.331%2c0q-8.075-4.8-16.186-9.567a1.1%2c1.1%2c0%2c0%2c1-.618-1.058q.018-9.626%2c0-19.252a1.033%2c1.033%2c0%2c0%2c1%2c.547-.986q8.325-4.9%2c16.637-9.816a.119.119%2c0%2c0%2c0%2c.048-.059Zm4.813%2c18.408c-.166.1-.285.143-.392.214-1.188.7-2.365%2c1.4-3.553%2c2.092a.631.631%2c0%2c0%2c0-.368.63c.012%2c3.839.012%2c7.689.012%2c11.527v.357c-.012.594-.3.927-.761.927s-.725-.333-.749-.9v-.357c0-3.838%2c0-7.689.012-11.527a.656.656%2c0%2c0%2c0-.38-.654q-6.542-3.85-13.084-7.725c-.642-.38-.82-.761-.57-1.2s.7-.475%2c1.319-.107q6.56%2c3.868%2c13.12%2c7.76a.571.571%2c0%2c0%2c0%2c.677%2c0c1.2-.725%2c2.412-1.426%2c3.613-2.139.107-.059.2-.143.345-.226-.119-.071-.19-.131-.273-.178q-7.309-4.332-14.629-8.651a.446.446%2c0%2c0%2c0-.535%2c0c-1.474.879-2.959%2c1.759-4.445%2c2.626a.615.615%2c0%2c0%2c0-.357.63q.018%2c9.02%2c0%2c18.052a.642.642%2c0%2c0%2c0%2c.357.63q7.2%2c4.243%2c14.391%2c8.5c.119.071.238.143.416.238.012-.2.024-.321.024-.452%2c0-.63-.012-1.26%2c0-1.878.012-.547.3-.844.749-.844s.737.309.749.844c.012.654%2c0%2c1.307.012%2c1.961%2c0%2c.107.024.214.036.368a1.7%2c1.7%2c0%2c0%2c0%2c.226-.119q7.326-4.332%2c14.677-8.663a.48.48%2c0%2c0%2c0%2c.25-.487V89.359c0-.1-.024-.19-.036-.333-1.224.725-2.4%2c1.426-3.589%2c2.115a.536.536%2c0%2c0%2c0-.309.535c.012%2c1.961%2c0%2c3.922.012%2c5.883a.916.916%2c0%2c0%2c1-.487.891c-1.747%2c1.022-3.494%2c2.068-5.241%2c3.09a.769.769%2c0%2c0%2c1-1.236-.665%2c2.889%2c2.889%2c0%2c0%2c1%2c0-.321v-4.6C124.932%2c95.753%2c124.932%2c95.61%2c124.932%2c95.408Zm10.113-7.784a2.963%2c2.963%2c0%2c0%2c0-.285-.19q-7.291-4.314-14.593-8.628a.5.5%2c0%2c0%2c0-.582%2c0c-1.129.677-2.27%2c1.343-3.411%2c2.02-.071.048-.143.1-.238.155.309.178.57.333.832.5l4.884%2c2.888a.772.772%2c0%2c0%2c1%2c.38%2c1.105c-.226.392-.665.463-1.153.2-.083-.048-.166-.1-.238-.143-1.961-1.165-3.922-2.317-5.883-3.482a.553.553%2c0%2c0%2c0-.677.012c-1.022.63-2.056%2c1.224-3.09%2c1.842-.155.1-.3.178-.487.3.107.071.154.107.214.143q7.362%2c4.349%2c14.736%2c8.711a.41.41%2c0%2c0%2c0%2c.5-.012l3.066-1.818c.19-.107.38-.226.606-.368-.178-.107-.3-.19-.428-.261-1.878-1.117-3.767-2.222-5.645-3.339-.606-.357-.784-.749-.535-1.188s.713-.475%2c1.331-.119c2.175%2c1.283%2c4.338%2c2.555%2c6.5%2c3.85a.464.464%2c0%2c0%2c0%2c.57%2c0c1.105-.666%2c2.222-1.319%2c3.339-1.985A1.693%2c1.693%2c0%2c0%2c0%2c135.045%2c87.624Zm-4.67%2c4.552c-1.307.772-2.531%2c1.485-3.755%2c2.234a.545.545%2c0%2c0%2c0-.166.392c-.012%2c1.462-.012%2c2.935%2c0%2c4.4%2c0%2c.1.024.19.036.333.951-.559%2c1.83-1.165%2c2.769-1.616a1.716%2c1.716%2c0%2c0%2c0%2c1.129-1.961C130.291%2c94.731%2c130.375%2c93.495%2c130.375%2c92.176Z' transform='translate(-102.4 -77)'/%3e %3cpath id='Path_212' data-name='Path 212' d='M128.161%2c290.158c0-.475-.012-.963%2c0-1.438a.756.756%2c0%2c1%2c1%2c1.509-.059q.036%2c1.515%2c0%2c3.03a.743.743%2c0%2c0%2c1-.784.737.755.755%2c0%2c0%2c1-.713-.808C128.149%2c291.144%2c128.161%2c290.645%2c128.161%2c290.158Z' transform='translate(-125.095 -262.837)'/%3e %3cpath id='Path_213' data-name='Path 213' d='M153.661%2c302.937c0-.475-.012-.963%2c0-1.438a.75.75%2c0%2c1%2c1%2c1.5-.048q.036%2c1.5%2c0%2c2.995a.758.758%2c0%2c0%2c1-.784.772.767.767%2c0%2c0%2c1-.713-.844Z' transform='translate(-147.564 -274.106)'/%3e %3c/g%3e %3c/g%3e %3cg id='flip_02' data-name='flip 02' transform='translate(845.179 5473.328)'%3e %3cpath id='Path_225' data-name='Path 225' d='M92.524%2c117.689a7.86%2c7.86%2c0%2c0%2c1-1.044-.333%2c3.738%2c3.738%2c0%2c0%2c1-2.408-3.594c-.024-3.7-.012-5.557-.012-9.254v-.551H85.124a4.029%2c4.029%2c0%2c0%2c1-2.443-.769%2c3.692%2c3.692%2c0%2c0%2c1-1.613-3.02c-.024-1.78-.024-3.548%2c0-5.327a3.909%2c3.909%2c0%2c0%2c1%2c3.89-3.766c1.34-.023%2c2.692%2c0%2c4.1%2c0V81.822A3.937%2c3.937%2c0%2c0%2c1%2c93.307%2c77.7H108.8a3.937%2c3.937%2c0%2c0%2c1%2c4.246%2c4.122V96.23h.949a37.19%2c37.19%2c0%2c0%2c1%2c3.76.092%2c3.767%2c3.767%2c0%2c0%2c1%2c3.273%2c3.639c.036%2c1.8.036%2c3.605%2c0%2c5.419a3.908%2c3.908%2c0%2c0%2c1-3.866%2c3.743c-1.2.023-2.4.011-3.593.011h-.522V113.6a3.885%2c3.885%2c0%2c0%2c1-3.344%2c4.041.375.375%2c0%2c0%2c0-.119.057Q101.04%2c117.683%2c92.524%2c117.689ZM91.73%2c98.825V113.6a1.355%2c1.355%2c0%2c0%2c0%2c1.554%2c1.5H108.82c1.044%2c0%2c1.554-.494%2c1.565-1.493V109.56c0-.138-.012-.276-.024-.436h-3.843a1.317%2c1.317%2c0%2c0%2c1-1.459-1.378c0-1.665-.012-3.318%2c0-4.983a1.3%2c1.3%2c0%2c0%2c1%2c1.423-1.366c1.139-.011%2c2.277%2c0%2c3.416%2c0h.486V81.684a1.323%2c1.323%2c0%2c0%2c0-1.471-1.412H93.283a1.355%2c1.355%2c0%2c0%2c0-1.554%2c1.5v9.265H94.4V89.87a1.261%2c1.261%2c0%2c0%2c1%2c.688-1.217%2c1.346%2c1.346%2c0%2c0%2c1%2c1.459.092q3.932%2c2.532%2c7.863%2c5.075a1.254%2c1.254%2c0%2c0%2c1%2c0%2c2.216c-2.621%2c1.711-5.266%2c3.4-7.9%2c5.1a1.317%2c1.317%2c0%2c0%2c1-1.388.092%2c1.268%2c1.268%2c0%2c0%2c1-.723-1.194V98.825Zm4.756-.861s3.392-2.113%2c4.815-3.031c-1.447-.93-4.815-3.111-4.815-3.111l-.024%2c1.791-1.079.034H85.219c-.771%2c0-1.34.356-1.435%2c1.01a11.039%2c11.039%2c0%2c0%2c0-.012%2c1.653c.854-.034%2c1.672-.08%2c2.491-.092%2c3.06-.011%2c9.191%2c0%2c9.191%2c0l1.008-.011Zm11.231%2c8.519c.047.034.059.057.071.057%2c3.107%2c0%2c6.215.011%2c9.322%2c0a1.181%2c1.181%2c0%2c0%2c0%2c1.2-.976%2c11.648%2c11.648%2c0%2c0%2c0%2c.012-1.7c-.759.034-1.494.092-2.23.092-2.633.011-5.266%2c0-7.9%2c0h-.474Zm5.337-5.1c1.388%2c0%2c2.74.023%2c4.092-.011a1.276%2c1.276%2c0%2c0%2c0%2c1.21-1.263%2c1.241%2c1.241%2c0%2c0%2c0-1.139-1.274c-1.388-.046-2.763-.011-4.175-.011C113.054%2c99.675%2c113.054%2c100.5%2c113.054%2c101.385ZM89.038%2c98.814h-3.9a1.306%2c1.306%2c0%2c0%2c0-1.4%2c1.3%2c1.323%2c1.323%2c0%2c0%2c0%2c1.423%2c1.274c1.2.011%2c2.4%2c0%2c3.594%2c0a2.4%2c2.4%2c0%2c0%2c0%2c.285-.034Z' fill='%23fcfcfc'/%3e %3c/g%3e %3c/g%3e%3c/svg%3e";
 
-var CardBack = function CardBack(_ref) {
-  var backImage = _ref.backImage,
-      _onClick = _ref.onClick,
-      type = _ref.type;
+const CardBack = _ref => {
+  let {
+    backImage,
+    onClick,
+    type
+  } = _ref;
+  const [showFlipIcon, setshowFlipIcon] = useState(false);
+  useState(false);
+  useState(null);
+  const [mobileView, setmobileView] = useState(false);
+  const [backIsVideo, setbackIsVideo] = useState(false);
 
-  var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      showFlipIcon = _useState2[0],
-      setshowFlipIcon = _useState2[1];
-
-  var _useState3 = useState(false),
-      _useState4 = _slicedToArray(_useState3, 2);
-      _useState4[0];
-      _useState4[1];
-
-  var _useState5 = useState(null),
-      _useState6 = _slicedToArray(_useState5, 2);
-      _useState6[0];
-      _useState6[1];
-
-  var _useState7 = useState(false),
-      _useState8 = _slicedToArray(_useState7, 2),
-      mobileView = _useState8[0],
-      setmobileView = _useState8[1];
-
-  var _useState9 = useState(false),
-      _useState10 = _slicedToArray(_useState9, 2),
-      backIsVideo = _useState10[0],
-      setbackIsVideo = _useState10[1];
-
-  useEffect(function () {
+  useEffect(() => {
     if (window.innerWidth < 900) {
       setmobileView(true);
     }
@@ -204,12 +93,12 @@ var CardBack = function CardBack(_ref) {
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "card-back-root",
     style: {
-      backgroundImage: !backIsVideo ? "url(".concat(backImage, ")") : 'unset'
+      backgroundImage: !backIsVideo ? `url(${backImage})` : 'unset'
     },
-    onMouseOver: function onMouseOver() {
+    onMouseOver: () => {
       setshowFlipIcon(true);
     },
-    onMouseLeave: function onMouseLeave() {
+    onMouseLeave: () => {
       setshowFlipIcon(false);
     }
   }, !backIsVideo ? /*#__PURE__*/React.createElement("img", {
@@ -235,8 +124,8 @@ var CardBack = function CardBack(_ref) {
     style: {
       display: showFlipIcon || mobileView ? 'block' : 'none'
     },
-    onClick: function onClick(e) {
-      _onClick(e);
+    onClick: e => {
+      onClick(e);
     }
   }))));
 };
@@ -1988,7 +1877,7 @@ const ProjectSubpage = _ref2 => {
     style: {
       textTransform: "none"
     }
-  }, "Transition was successful. Chainlink's VRF now picks a random NFT from the vault. Please be patient as this process may take several minutes.")), /*#__PURE__*/React.createElement("div", {
+  }, "Transition was successful. Chainlink's VRF now picks a random Digital Collectible from the vault. Please be patient as this process may take several minutes.")), /*#__PURE__*/React.createElement("div", {
     className: "counter-circle",
     style: {
       margin: "45px auto"
@@ -2041,7 +1930,7 @@ const ProjectSubpage = _ref2 => {
     style: {
       textTransform: "none"
     }
-  }, "Your brand new NFT can be viewed right now in your wallet, or go back to dust pools to buy some more!"), /*#__PURE__*/React.createElement("div", {
+  }, "Your brand new Digital Collectible can be viewed right now in your wallet, or go back to dust pools to buy some more!"), /*#__PURE__*/React.createElement("div", {
     className: "ps-text-bottom",
     style: {
       display: "flex",
@@ -4252,7 +4141,7 @@ const UpcomingProjectSubpage = _ref2 => {
     style: {
       fontWeight: '600'
     }
-  }, pool.nr_of_nfts), " of NFTS"), /*#__PURE__*/React.createElement(CounterBar, {
+  }, pool.nr_of_nfts), " of Digital Collectibles"), /*#__PURE__*/React.createElement(CounterBar, {
     maxValue: pool.nr_of_nfts,
     value: pool.nr_of_nfts
   })), /*#__PURE__*/React.createElement("p", {
@@ -4324,7 +4213,7 @@ const POOLSS = [
 ]
  */
 
-var UPDATE_INTERVAL = 60000;
+const UPDATE_INTERVAL = 60000;
 /* let POOLS = [
   {
     id: 0,
@@ -4386,224 +4275,115 @@ var UPDATE_INTERVAL = 60000;
   },
 ]; */
 
-var TopSectionDividers = function TopSectionDividers() {
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      margin: '25px 0'
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: img$5,
-    className: "section-divider-img"
-  }), /*#__PURE__*/React.createElement("img", {
-    src: img$4,
-    className: "section-divider-img"
-  }));
-};
+const TopSectionDividers = () => /*#__PURE__*/React.createElement("div", {
+  style: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '25px 0'
+  }
+}, /*#__PURE__*/React.createElement("img", {
+  src: img$5,
+  className: "section-divider-img"
+}), /*#__PURE__*/React.createElement("img", {
+  src: img$4,
+  className: "section-divider-img"
+}));
 
-var DustPools = function DustPools(_ref) {
-  var address = _ref.address,
-      ethersProvider = _ref.ethersProvider,
-      chainId = _ref.chainId,
-      handleConnect = _ref.handleConnect;
+const DustPools = _ref => {
+  let {
+    address,
+    ethersProvider,
+    chainId,
+    handleConnect
+  } = _ref;
+  const [selectedPoolIdx, setSelectedPoolIdx] = useState(null);
+  const [selectedUpcomingPoolIdx, setselectedUpcomingPoolIdx] = useState(null);
+  const [dustContract, setDustContract] = useState(null);
+  const [dust4PunksContract, setDust4PunksContract] = useState(null);
+  const [zoom2, setZoom2] = useState(null);
+  const [selectedFilter, setSelectedFilter] = useState('ALL');
+  const [initDone, setInitDone] = useState(false);
+  const [poolsFromBackend, setPoolsFromBackend] = useState([]);
+  const [allPools, setAllPools] = useState([]);
+  const [pools, setPools] = useState([]);
+  const [upcomingPools, setUpcomingPools] = useState([]);
+  const [upcomingPool, setUpcomingPool] = useState(null);
+  const loc = useLocation();
+  const url = chainId === 1 ? 'https://cms.galaxis.xyz' : 'https://galaxis-web-backend-staging.herokuapp.com';
+  const upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+  useEffect(() => {
+    const getPoolData = async () => {
+      console.log('00000000000000000');
+      const res = await axios.get(url + '/vaults').catch(e => console.log);
+      console.log('vaults', res);
 
-  var _useState = useState(null),
-      _useState2 = _slicedToArray(_useState, 2),
-      selectedPoolIdx = _useState2[0],
-      setSelectedPoolIdx = _useState2[1];
+      if (res.status === 200) {
+        setPoolsFromBackend(res.data);
+      }
 
-  var _useState3 = useState(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selectedUpcomingPoolIdx = _useState4[0],
-      setselectedUpcomingPoolIdx = _useState4[1];
+      const upcoming = await axios.get(url + '/upcoming-vaults').catch(e => console.log);
 
-  var _useState5 = useState(null),
-      _useState6 = _slicedToArray(_useState5, 2),
-      dustContract = _useState6[0],
-      setDustContract = _useState6[1];
+      if (upcoming.status === 200) {
+        setUpcomingPools(upcoming.data);
+        console.log('UPCOM', upcoming.data);
 
-  var _useState7 = useState(null),
-      _useState8 = _slicedToArray(_useState7, 2),
-      dust4PunksContract = _useState8[0],
-      setDust4PunksContract = _useState8[1];
+        if (loc.search && loc.search.indexOf('upcoming=') > 0) {
+          let params = loc.search.slice(1).split('&'); //console.log(params);
 
-  var _useState9 = useState(null),
-      _useState10 = _slicedToArray(_useState9, 2),
-      zoom2 = _useState10[0],
-      setZoom2 = _useState10[1];
+          if (params.length > 0) {
+            let parsedParams = {};
 
-  var _useState11 = useState('ALL'),
-      _useState12 = _slicedToArray(_useState11, 2),
-      selectedFilter = _useState12[0],
-      setSelectedFilter = _useState12[1];
+            for (let i = 0; i < params.length; i++) {
+              let item = params[i].split('=');
+              parsedParams[item[0]] = item[1];
+            }
 
-  var _useState13 = useState(false),
-      _useState14 = _slicedToArray(_useState13, 2);
-      _useState14[0];
-      var setInitDone = _useState14[1];
-
-  var _useState15 = useState([]),
-      _useState16 = _slicedToArray(_useState15, 2),
-      poolsFromBackend = _useState16[0],
-      setPoolsFromBackend = _useState16[1];
-
-  var _useState17 = useState([]),
-      _useState18 = _slicedToArray(_useState17, 2),
-      allPools = _useState18[0],
-      setAllPools = _useState18[1];
-
-  var _useState19 = useState([]),
-      _useState20 = _slicedToArray(_useState19, 2),
-      pools = _useState20[0],
-      setPools = _useState20[1];
-
-  var _useState21 = useState([]),
-      _useState22 = _slicedToArray(_useState21, 2),
-      upcomingPools = _useState22[0],
-      setUpcomingPools = _useState22[1];
-
-  var _useState23 = useState(null),
-      _useState24 = _slicedToArray(_useState23, 2),
-      upcomingPool = _useState24[0],
-      setUpcomingPool = _useState24[1];
-
-  var loc = useLocation();
-  var url = chainId === 1 ? 'https://cms.galaxis.xyz' : 'https://galaxis-web-backend-staging.herokuapp.com';
-  var upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
-  useEffect(function () {
-    var getPoolData = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var res, upcoming, params, parsedParams, i, item;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                console.log('00000000000000000');
-                _context.next = 3;
-                return axios.get(url + '/vaults').catch(function (e) {
-                  return console.log;
-                });
-
-              case 3:
-                res = _context.sent;
-                console.log('vaults', res);
-
-                if (res.status === 200) {
-                  setPoolsFromBackend(res.data);
-                }
-
-                _context.next = 8;
-                return axios.get(url + '/upcoming-vaults').catch(function (e) {
-                  return console.log;
-                });
-
-              case 8:
-                upcoming = _context.sent;
-
-                if (upcoming.status === 200) {
-                  setUpcomingPools(upcoming.data);
-                  console.log('UPCOM', upcoming.data);
-
-                  if (loc.search && loc.search.indexOf('upcoming=') > 0) {
-                    params = loc.search.slice(1).split('&'); //console.log(params);
-
-                    if (params.length > 0) {
-                      parsedParams = {};
-
-                      for (i = 0; i < params.length; i++) {
-                        item = params[i].split('=');
-                        parsedParams[item[0]] = item[1];
-                      }
-
-                      if (parsedParams.upcoming) {
-                        // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
-                        setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
-                      }
-                    }
-                  }
-                }
-
-              case 10:
-              case "end":
-                return _context.stop();
+            if (parsedParams.upcoming) {
+              // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
+              setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
             }
           }
-        }, _callee);
-      }));
-
-      return function getPoolData() {
-        return _ref2.apply(this, arguments);
-      };
-    }();
+        }
+      }
+    };
 
     if (chainId !== null) {
       getPoolData();
     }
   }, [chainId]);
-  useEffect(function () {
-    var initContract = /*#__PURE__*/function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-        var c, Zoom2Contract, D4P;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return getContract('Dust', ethersProvider);
+  useEffect(() => {
+    const initContract = async () => {
+      let c = await getContract('Dust', ethersProvider);
 
-              case 2:
-                c = _context2.sent;
+      if (c) {
+        setDustContract(c); //console.log('DUST:', c);
+      } else {
+        console.log('contract not found');
+      }
 
-                if (c) {
-                  setDustContract(c); //console.log('DUST:', c);
-                } else {
-                  console.log('contract not found');
-                }
+      let Zoom2Contract = await getContract('Zoom2', ethersProvider);
 
-                _context2.next = 6;
-                return getContract('Zoom2', ethersProvider);
+      if (Zoom2Contract) {
+        setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
+      } else {
+        console.log('Could not initialise Zoom2 Contract');
+      }
 
-              case 6:
-                Zoom2Contract = _context2.sent;
+      let D4P = await getContract('Dust4Punks', ethersProvider);
 
-                if (Zoom2Contract) {
-                  setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
-                } else {
-                  console.log('Could not initialise Zoom2 Contract');
-                }
-
-                _context2.next = 10;
-                return getContract('Dust4Punks', ethersProvider);
-
-              case 10:
-                D4P = _context2.sent;
-
-                if (D4P) {
-                  setDust4PunksContract(D4P);
-                  console.log('D4P:', D4P);
-                } else {
-                  console.log('Could not initialise D4P Contract');
-                }
-
-              case 12:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      return function initContract() {
-        return _ref3.apply(this, arguments);
-      };
-    }();
+      if (D4P) {
+        setDust4PunksContract(D4P);
+        console.log('D4P:', D4P);
+      } else {
+        console.log('Could not initialise D4P Contract');
+      }
+    };
 
     if (ethersProvider) {
       initContract();
     }
   }, [ethersProvider]);
-  useEffect(function () {
+  useEffect(() => {
     if (dust4PunksContract && dustContract && poolsFromBackend.length > 0 && zoom2
     /*  && !initDone */
     ) {
@@ -4611,269 +4391,194 @@ var DustPools = function DustPools(_ref) {
     }
   }, [dust4PunksContract, poolsFromBackend]); //,dustContract,zoom2
 
-  var getPools = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-      var res, numberOfPools, ZoomLibraryInstance, calls, i, vaultAddress, vaultName, vaultPrice, vaultToken, ZoomQueryBinary, combinedResult, tempPool, poolIdx, _i, va, vn, vp, vt, vd, vToken, poolByVaultId;
+  const getPools = async () => {
+    // console.log('GETTING POOL DATA....');
+    let res = await dust4PunksContract.next_redeemable().catch(e => console.log);
+    let numberOfPools = 0;
 
-      return regeneratorRuntime.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return dust4PunksContract.next_redeemable().catch(function (e) {
-                return console.log;
-              });
+    if (res) {
+      numberOfPools = Number(res);
+    }
 
-            case 2:
-              res = _context3.sent;
-              numberOfPools = 0;
+    console.log('#OF POOLS', numberOfPools); // if(address){
 
-              if (res) {
-                numberOfPools = Number(res);
-              }
+    const ZoomLibraryInstance = new Zoom({
+      use_reference_calls: true
+    });
+    let calls = [];
 
-              console.log('#OF POOLS', numberOfPools); // if(address){
+    for (let i = 0; i < numberOfPools; i++) {
+      // vault address
+      const vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
+      calls.push(vaultAddress); //Pool Name
 
-              ZoomLibraryInstance = new Zoom({
-                use_reference_calls: true
-              });
-              calls = [];
+      const vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
+      calls.push(vaultName); //Vault price
 
-              for (i = 0; i < numberOfPools; i++) {
-                // vault address
-                vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
-                calls.push(vaultAddress); //Pool Name
+      const vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
+      calls.push(vaultPrice); //Vault token addredd
 
-                vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
-                calls.push(vaultName); //Vault price
+      const vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
+      calls.push(vaultToken);
+    }
 
-                vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
-                calls.push(vaultPrice); //Vault token addredd
+    const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
+    //console.time('zoomCall');
 
-                vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
-                calls.push(vaultToken);
-              }
+    const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
+    //console.log("======== ZOOM CALL END ==============" );
 
-              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
-              //console.time('zoomCall');
+    ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
 
-              _context3.next = 12;
-              return zoom2.combine(ZoomQueryBinary);
+    let tempPool = [];
+    let poolIdx = 0;
 
-            case 12:
-              combinedResult = _context3.sent;
-              //console.timeEnd('zoomCall');
-              //console.log("======== ZOOM CALL END ==============" );
-              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
+    for (let i = 0; i < numberOfPools * 4; i += 4) {
+      let va = ZoomLibraryInstance.decodeCall(calls[i + 0]).toString();
+      let vn = ZoomLibraryInstance.decodeCall(calls[i + 1]).toString();
+      let vp = ZoomLibraryInstance.decodeCall(calls[i + 2]).toString();
+      let vt = ZoomLibraryInstance.decodeCall(calls[i + 3]).toString(); // console.log('va,vn,vp,vt',va,vn,vp,vt);
 
-              tempPool = [];
-              poolIdx = 0;
-              _i = 0;
+      const vd = {
+        vaultAddress: va,
+        vaultName: vn,
+        vaultPrice: vp,
+        vaultToken: vt,
+        available: null
+      };
+      let vToken = await getDummy721(vt, ethersProvider);
 
-            case 17:
-              if (!(_i < numberOfPools * 4)) {
-                _context3.next = 31;
-                break;
-              }
+      if (vToken) {
+        vd.tokenContract = vToken;
+      }
 
-              va = ZoomLibraryInstance.decodeCall(calls[_i + 0]).toString();
-              vn = ZoomLibraryInstance.decodeCall(calls[_i + 1]).toString();
-              vp = ZoomLibraryInstance.decodeCall(calls[_i + 2]).toString();
-              vt = ZoomLibraryInstance.decodeCall(calls[_i + 3]).toString(); // console.log('va,vn,vp,vt',va,vn,vp,vt);
+      if (poolIdx < poolsFromBackend.length) {
+        let poolByVaultId = poolsFromBackend.find(i => {
+          return i.vault_id === poolIdx;
+        }); // tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
 
-              vd = {
-                vaultAddress: va,
-                vaultName: vn,
-                vaultPrice: vp,
-                vaultToken: vt,
-                available: null
-              };
-              _context3.next = 25;
-              return getDummy721(vt, ethersProvider);
+        tempPool.push({ ...poolByVaultId,
+          vaultData: vd
+        });
+        poolIdx++;
+      } else {
+        console.log('overflow :/', poolIdx, poolsFromBackend.length);
+      }
+    } //console.log('AP', tempPool);
 
-            case 25:
-              vToken = _context3.sent;
 
-              if (vToken) {
-                vd.tokenContract = vToken;
-              }
+    setAllPools(tempPool);
+    setPools(tempPool);
+    setSelectedFilter('ALL');
+  };
 
-              if (poolIdx < poolsFromBackend.length) {
-                poolByVaultId = poolsFromBackend.find(function (i) {
-                  return i.vault_id === poolIdx;
-                }); // tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
-
-                tempPool.push(_objectSpread2(_objectSpread2({}, poolByVaultId), {}, {
-                  vaultData: vd
-                }));
-                poolIdx++;
-              } else {
-                console.log('overflow :/', poolIdx, poolsFromBackend.length);
-              }
-
-            case 28:
-              _i += 4;
-              _context3.next = 17;
-              break;
-
-            case 31:
-              //console.log('AP', tempPool);
-              setAllPools(tempPool);
-              setPools(tempPool);
-              setSelectedFilter('ALL');
-
-            case 34:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function getPools() {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-
-  useEffect(function () {
+  useEffect(() => {
     // console.log('allPools changed...', allPools.length);
     if (allPools.length > 0) {
       updateVaultBalances();
     }
   }, [allPools]);
-  useInterval(function () {
+  useInterval(() => {
     updateVaultBalances();
   }, UPDATE_INTERVAL);
 
-  var updateVaultBalances = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-      var ZoomLibraryInstance, calls, hasContract, i, vaultBalance, ZoomQueryBinary, combinedResult, ap, hasContractIdx, _i2, ab, poolIdx;
+  const updateVaultBalances = async () => {
+    if (allPools[0].vaultData && allPools[0].vaultData.tokenContract) {
+      //console.log('vaultdata',vaultData);
+      const ZoomLibraryInstance = new Zoom();
+      let calls = [];
+      let hasContract = []; //console.log('UPD',pools,allPools);
 
-      return regeneratorRuntime.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              if (!(allPools[0].vaultData && allPools[0].vaultData.tokenContract)) {
-                _context4.next = 16;
-                break;
-              }
-
-              //console.log('vaultdata',vaultData);
-              ZoomLibraryInstance = new Zoom();
-              calls = [];
-              hasContract = []; //console.log('UPD',pools,allPools);
-
-              for (i = 0; i < allPools.length; i++) {
-                if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
-                  /*     console.log(allPools[i].vaultData.tokenContract,i)
-                          const totalSupply = ZoomLibraryInstance.addCall(
-                            allPools[i].vaultData.tokenContract,
-                            ["totalSupply",[]],
-                            "totalSupply() returns (uint256)"
-                        );
-                        calls.push(totalSupply); */
-                  vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
-                  calls.push(vaultBalance);
-                  hasContract.push(allPools[i].vault_id);
-                }
-              } // console.log('STUFF', calls, hasContract);
-
-
-              if (!(calls.length > 0)) {
-                _context4.next = 16;
-                break;
-              }
-
-              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
-              //console.log("======== ZOOM CALL START ============" );
-              //console.time('zoomCall');
-
-              _context4.next = 9;
-              return zoom2.combine(ZoomQueryBinary);
-
-            case 9:
-              combinedResult = _context4.sent;
-              //console.timeEnd('zoomCall');
-              //console.log("======== ZOOM CALL END ==============" );
-              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
-              ap = allPools;
-              hasContractIdx = 0;
-
-              for (_i2 = 0; _i2 < calls.length; _i2++) {
-                //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-                ab = ZoomLibraryInstance.decodeCall(calls[_i2]).toString(); // console.log('idx, balance', i, ab);
-
-                poolIdx = hasContract[hasContractIdx]; //console.log('pool index, allpools', poolIdx,ap);
-
-                ap[poolIdx].vaultData = _objectSpread2(_objectSpread2({}, ap[poolIdx].vaultData), {}, {
-                  /* totalSupply:ts, */
-                  available: Number(ab)
-                });
-
-                if (Number.parseInt(ab) === 0) {
-                  ap[poolIdx].order += 100;
-                }
-
-                hasContractIdx++;
-              }
-              /* 
-                  let op = [...ap];
-                    op.sort((a,b)=>{
-                      if(a.order>b.order){
-                          return 1
-                      }else{
-                          return -1;
-                      }
-                  });
-              */
-
-
-              setPools(getFiltered());
-              setInitDone(true); //console.log('AP upd', ap);
-
-            case 16:
-            case "end":
-              return _context4.stop();
-          }
+      for (let i = 0; i < allPools.length; i++) {
+        if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
+          /*     console.log(allPools[i].vaultData.tokenContract,i)
+                  const totalSupply = ZoomLibraryInstance.addCall(
+                    allPools[i].vaultData.tokenContract,
+                    ["totalSupply",[]],
+                    "totalSupply() returns (uint256)"
+                );
+                calls.push(totalSupply); */
+          const vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
+          calls.push(vaultBalance);
+          hasContract.push(allPools[i].vault_id);
         }
-      }, _callee4);
-    }));
+      } // console.log('STUFF', calls, hasContract);
 
-    return function updateVaultBalances() {
-      return _ref5.apply(this, arguments);
-    };
-  }();
 
-  var getFiltered = function getFiltered() {
-    var result = [];
+      if (calls.length > 0) {
+        const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
+        //console.log("======== ZOOM CALL START ============" );
+        //console.time('zoomCall');
+
+        const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
+        //console.log("======== ZOOM CALL END ==============" );
+
+        ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
+        let ap = allPools;
+        let hasContractIdx = 0;
+
+        for (let i = 0; i < calls.length; i++) {
+          //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
+          let ab = ZoomLibraryInstance.decodeCall(calls[i]).toString(); // console.log('idx, balance', i, ab);
+
+          let poolIdx = hasContract[hasContractIdx]; //console.log('pool index, allpools', poolIdx,ap);
+
+          ap[poolIdx].vaultData = { ...ap[poolIdx].vaultData,
+
+            /* totalSupply:ts, */
+            available: Number(ab)
+          };
+
+          if (Number.parseInt(ab) === 0) {
+            ap[poolIdx].order += 100;
+          }
+
+          hasContractIdx++;
+        }
+        /* 
+            let op = [...ap];
+              op.sort((a,b)=>{
+                if(a.order>b.order){
+                    return 1
+                }else{
+                    return -1;
+                }
+            });
+        */
+
+
+        setPools(getFiltered());
+        setInitDone(true); //console.log('AP upd', ap);
+      }
+    }
+  };
+
+  const getFiltered = () => {
+    let result = [];
 
     if (selectedFilter === 'SOLD_OUT') {
-      result = allPools.filter(function (pool) {
-        return pool.vaultData.available === 0;
-      });
+      result = allPools.filter(pool => pool.vaultData.available === 0);
     } else if (selectedFilter === 'ACTIVE') {
-      result = allPools.filter(function (pool) {
-        return pool.vaultData.available > 0;
-      });
+      result = allPools.filter(pool => pool.vaultData.available > 0);
     } else {
-      result = _toConsumableArray(allPools);
+      result = [...allPools];
     }
 
     return result;
   };
 
-  useEffect(function () {
+  useEffect(() => {
     setPools(getFiltered());
   }, [selectedFilter]);
 
-  var showDetails = function showDetails(idx) {
+  const showDetails = idx => {
     //console.log('poolId,idx',idx);
     if (idx !== null) {
       setSelectedPoolIdx(idx);
     }
   };
 
-  var showUpcomingDetails = function showUpcomingDetails(idx) {
+  const showUpcomingDetails = idx => {
     if (idx !== null) {
       setselectedUpcomingPoolIdx(idx);
     }
@@ -4888,31 +4593,25 @@ var DustPools = function DustPools(_ref) {
     style: {
       marginBlockEnd: '1em'
     }
-  }, "NFT Vaults"), /*#__PURE__*/React.createElement("div", {
+  }, "Digital Collectible Vaults"), /*#__PURE__*/React.createElement("div", {
     className: "tab-choose"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "".concat(selectedFilter === 'ALL' ? 'active-tab' : ''),
-    onClick: function onClick() {
-      return setSelectedFilter('ALL');
-    }
+    className: `${selectedFilter === 'ALL' ? 'active-tab' : ''}`,
+    onClick: () => setSelectedFilter('ALL')
   }, "All"), /*#__PURE__*/React.createElement("div", {
-    className: "".concat(selectedFilter === 'ACTIVE' ? 'active-tab' : ''),
-    onClick: function onClick() {
-      return setSelectedFilter('ACTIVE');
-    }
+    className: `${selectedFilter === 'ACTIVE' ? 'active-tab' : ''}`,
+    onClick: () => setSelectedFilter('ACTIVE')
   }, "Active"), /*#__PURE__*/React.createElement("div", {
-    className: "".concat(selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''),
-    onClick: function onClick() {
-      return setSelectedFilter('SOLD_OUT');
-    }
-  }, "Sold out")), /*#__PURE__*/React.createElement("p", null, "You can exchange your Dust for some awesome items including Cryptopunks and other valuable NFTs.")), /*#__PURE__*/React.createElement("div", {
+    className: `${selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''}`,
+    onClick: () => setSelectedFilter('SOLD_OUT')
+  }, "Sold out")), /*#__PURE__*/React.createElement("p", null, "You can exchange your Dust for some awesome items including Cryptopunks and other valuable Digital Collectibles.")), /*#__PURE__*/React.createElement("div", {
     className: "container  mt-5"
   }, /*#__PURE__*/React.createElement("div", {
     className: "row",
     style: {
       rowGap: '25px'
     }
-  }, pools.map(function (card, idx) {
+  }, pools.map((card, idx) => {
     return /*#__PURE__*/React.createElement("div", {
       key: idx,
       className: "col-12 col-lg-6"
@@ -4926,19 +4625,17 @@ var DustPools = function DustPools(_ref) {
     className: "dust-pool-textbox"
   }, /*#__PURE__*/React.createElement("p", {
     className: "pool-subtitle"
-  }, "Dust utility token"), /*#__PURE__*/React.createElement("p", null, "$DUST tokens are used throughout the Galaxis ecosystem to reserve and pay for upcoming mints, return value to NFT holders, and exchange for NFTs via the Galaxis Vaults.", ' '), /*#__PURE__*/React.createElement("button", {
+  }, "Dust utility token"), /*#__PURE__*/React.createElement("p", null, "$DUST tokens are used throughout the Galaxis ecosystem to reserve and pay for upcoming mints, return value to Ether Card holders, and exchange for Digital Collectibles via the Galaxis Vaults.", ' '), /*#__PURE__*/React.createElement("button", {
     className: "dust-pool-btn",
     style: {
       marginTop: '20px'
     },
-    onClick: function onClick() {
-      return window.open('https://blog.ether.cards/dust-utility-token-model-distribution/');
-    }
+    onClick: () => window.open('https://blog.ether.cards/dust-utility-token-model-distribution/')
   }, "More")), /*#__PURE__*/React.createElement(TopSectionDividers, null), /*#__PURE__*/React.createElement("div", {
     className: "dust-pool-textbox pb-4"
   }, /*#__PURE__*/React.createElement("p", {
     className: "pool-subtitle"
-  }, "Upcoming NFT Vaults"), /*#__PURE__*/React.createElement("p", null, "Checkout all the upcoming Galaxis Vaults - where $DUST Utility Tokens may be exchanged for high quality NFTs!")), upcomingPools.length > 0 && /*#__PURE__*/React.createElement(UpcomingPoolsCarousel, {
+  }, "Upcoming Digital Collectible Vaults"), /*#__PURE__*/React.createElement("p", null, "Checkout all the upcoming Galaxis Vaults - where $DUST Utility Tokens may be exchanged for high quality Digital Collectibles!")), upcomingPools.length > 0 && /*#__PURE__*/React.createElement(UpcomingPoolsCarousel, {
     imgUrl: upcomingImgUrl,
     poolsData: upcomingPools,
     handleSelect: setUpcomingPool,
@@ -4954,9 +4651,7 @@ var DustPools = function DustPools(_ref) {
     ethersProvider: ethersProvider,
     chainId: chainId,
     handleConnect: handleConnect,
-    handleBack: function handleBack() {
-      return setSelectedPoolIdx(null);
-    },
+    handleBack: () => setSelectedPoolIdx(null),
     handleChangePool: showDetails
   }))) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "dust-pool-root"
@@ -4964,9 +4659,7 @@ var DustPools = function DustPools(_ref) {
     pools: upcomingPools,
     currentIndex: selectedUpcomingPoolIdx,
     chainId: chainId,
-    handleBack: function handleBack() {
-      return setUpcomingPool(null);
-    },
+    handleBack: () => setUpcomingPool(null),
     handleChangePool: showUpcomingDetails
   })))));
 };

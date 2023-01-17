@@ -14,7 +14,7 @@ const CardRevealPage = ({handleBack})=>{
         <div className="pool-ps-card-and-descipton-inner ps-right">
           <div className="text-box w-100">
             <p className="dust-pool-title" style={{lineHeight:"35px", marginBottom:"20px"}}>Congratulations!<br/>You Got It!</p>
-            <p className="dust-pool-card-label" style={{textTransform:"none"}}>Your brand new NFT can be viewed right now in your wallet, or go back to dust pools to buy some more!</p>
+            <p className="dust-pool-card-label" style={{textTransform:"none"}}>Your brand new Digital Collectible can be viewed right now in your wallet, or go back to dust pools to buy some more!</p>
             <div className='ps-text-bottom' style={{display:"flex", flexDirection:"column", rowGap:"10px", maxWidth:"170px", marginLeft:"auto", marginRight:"auto"}}>
             <button className="dust-pool-btn" onClick={()=>console.log("Sad")}>Buy more</button>
             <button className="dust-pool-btn" onClick={()=>console.log("Sad")}>Go to wallet</button>
