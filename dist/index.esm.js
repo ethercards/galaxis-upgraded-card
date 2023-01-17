@@ -8,12 +8,101 @@ import { Zoom } from 'zoom-next';
 import ItemsCarousel from 'react-items-carousel';
 import { useHistory, useLocation } from 'react-router-dom';
 
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+
+  return target;
+}
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
 
 function _iterableToArrayLimit(arr, i) {
@@ -61,6 +150,10 @@ function _arrayLikeToArray(arr, len) {
   for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
 
   return arr2;
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 function _nonIterableRest() {
@@ -132,11 +225,13 @@ const CardBack = _ref => {
 
 var img$6 = "data:image/png;base64,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";
 
-var TraitCard = function TraitCard(_ref) {
-  var trait = _ref.trait,
-      _onClick = _ref.onClick,
-      image = _ref.image,
-      traitImg = _ref.traitImg;
+const TraitCard = _ref => {
+  let {
+    trait,
+    onClick,
+    image,
+    traitImg
+  } = _ref;
   console.log(traitImg); // const handleClaim = () => {
   //     if (claimUrl) {
   //         window.open(`${claimUrl}`, '_blank')
@@ -147,13 +242,11 @@ var TraitCard = function TraitCard(_ref) {
     className: "close-button",
     src: img$6,
     alt: "",
-    onClick: function onClick(e) {
-      return _onClick(e);
-    }
+    onClick: e => onClick(e)
   }), /*#__PURE__*/React.createElement("div", {
     className: "trait-card-root",
     style: {
-      backgroundImage: "url(".concat(image, ")")
+      backgroundImage: `url(${image})`
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "trait-card-content"
@@ -4213,7 +4306,7 @@ const POOLSS = [
 ]
  */
 
-const UPDATE_INTERVAL = 60000;
+var UPDATE_INTERVAL = 60000;
 /* let POOLS = [
   {
     id: 0,
@@ -4275,115 +4368,224 @@ const UPDATE_INTERVAL = 60000;
   },
 ]; */
 
-const TopSectionDividers = () => /*#__PURE__*/React.createElement("div", {
-  style: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '25px 0'
-  }
-}, /*#__PURE__*/React.createElement("img", {
-  src: img$5,
-  className: "section-divider-img"
-}), /*#__PURE__*/React.createElement("img", {
-  src: img$4,
-  className: "section-divider-img"
-}));
+var TopSectionDividers = function TopSectionDividers() {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      margin: '25px 0'
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: img$5,
+    className: "section-divider-img"
+  }), /*#__PURE__*/React.createElement("img", {
+    src: img$4,
+    className: "section-divider-img"
+  }));
+};
 
-const DustPools = _ref => {
-  let {
-    address,
-    ethersProvider,
-    chainId,
-    handleConnect
-  } = _ref;
-  const [selectedPoolIdx, setSelectedPoolIdx] = useState(null);
-  const [selectedUpcomingPoolIdx, setselectedUpcomingPoolIdx] = useState(null);
-  const [dustContract, setDustContract] = useState(null);
-  const [dust4PunksContract, setDust4PunksContract] = useState(null);
-  const [zoom2, setZoom2] = useState(null);
-  const [selectedFilter, setSelectedFilter] = useState('ALL');
-  const [initDone, setInitDone] = useState(false);
-  const [poolsFromBackend, setPoolsFromBackend] = useState([]);
-  const [allPools, setAllPools] = useState([]);
-  const [pools, setPools] = useState([]);
-  const [upcomingPools, setUpcomingPools] = useState([]);
-  const [upcomingPool, setUpcomingPool] = useState(null);
-  const loc = useLocation();
-  const url = chainId === 1 ? 'https://cms.galaxis.xyz' : 'https://galaxis-web-backend-staging.herokuapp.com';
-  const upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
-  useEffect(() => {
-    const getPoolData = async () => {
-      console.log('00000000000000000');
-      const res = await axios.get(url + '/vaults').catch(e => console.log);
-      console.log('vaults', res);
+var DustPools = function DustPools(_ref) {
+  var address = _ref.address,
+      ethersProvider = _ref.ethersProvider,
+      chainId = _ref.chainId,
+      handleConnect = _ref.handleConnect;
 
-      if (res.status === 200) {
-        setPoolsFromBackend(res.data);
-      }
+  var _useState = useState(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      selectedPoolIdx = _useState2[0],
+      setSelectedPoolIdx = _useState2[1];
 
-      const upcoming = await axios.get(url + '/upcoming-vaults').catch(e => console.log);
+  var _useState3 = useState(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      selectedUpcomingPoolIdx = _useState4[0],
+      setselectedUpcomingPoolIdx = _useState4[1];
 
-      if (upcoming.status === 200) {
-        setUpcomingPools(upcoming.data);
-        console.log('UPCOM', upcoming.data);
+  var _useState5 = useState(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      dustContract = _useState6[0],
+      setDustContract = _useState6[1];
 
-        if (loc.search && loc.search.indexOf('upcoming=') > 0) {
-          let params = loc.search.slice(1).split('&'); //console.log(params);
+  var _useState7 = useState(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      dust4PunksContract = _useState8[0],
+      setDust4PunksContract = _useState8[1];
 
-          if (params.length > 0) {
-            let parsedParams = {};
+  var _useState9 = useState(null),
+      _useState10 = _slicedToArray(_useState9, 2),
+      zoom2 = _useState10[0],
+      setZoom2 = _useState10[1];
 
-            for (let i = 0; i < params.length; i++) {
-              let item = params[i].split('=');
-              parsedParams[item[0]] = item[1];
-            }
+  var _useState11 = useState('ALL'),
+      _useState12 = _slicedToArray(_useState11, 2),
+      selectedFilter = _useState12[0],
+      setSelectedFilter = _useState12[1];
 
-            if (parsedParams.upcoming) {
-              // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
-              setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+  var _useState13 = useState(false),
+      _useState14 = _slicedToArray(_useState13, 2);
+      _useState14[0];
+      var setInitDone = _useState14[1];
+
+  var _useState15 = useState([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      poolsFromBackend = _useState16[0],
+      setPoolsFromBackend = _useState16[1];
+
+  var _useState17 = useState([]),
+      _useState18 = _slicedToArray(_useState17, 2),
+      allPools = _useState18[0],
+      setAllPools = _useState18[1];
+
+  var _useState19 = useState([]),
+      _useState20 = _slicedToArray(_useState19, 2),
+      pools = _useState20[0],
+      setPools = _useState20[1];
+
+  var _useState21 = useState([]),
+      _useState22 = _slicedToArray(_useState21, 2),
+      upcomingPools = _useState22[0],
+      setUpcomingPools = _useState22[1];
+
+  var _useState23 = useState(null),
+      _useState24 = _slicedToArray(_useState23, 2),
+      upcomingPool = _useState24[0],
+      setUpcomingPool = _useState24[1];
+
+  var loc = useLocation();
+  var url = chainId === 1 ? 'https://cms.galaxis.xyz' : 'https://galaxis-web-backend-staging.herokuapp.com';
+  var upcomingImgUrl = chainId === 1 ? 'https://galaxis-web.s3.amazonaws.com/media' : 'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+  useEffect(function () {
+    var getPoolData = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var res, upcoming, params, parsedParams, i, item;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log('00000000000000000');
+                _context.next = 3;
+                return axios.get(url + '/vaults').catch(function (e) {
+                  return console.log;
+                });
+
+              case 3:
+                res = _context.sent;
+                console.log('vaults', res);
+
+                if (res.status === 200) {
+                  setPoolsFromBackend(res.data);
+                }
+
+                _context.next = 8;
+                return axios.get(url + '/upcoming-vaults').catch(function (e) {
+                  return console.log;
+                });
+
+              case 8:
+                upcoming = _context.sent;
+
+                if (upcoming.status === 200) {
+                  setUpcomingPools(upcoming.data);
+                  console.log('UPCOM', upcoming.data);
+
+                  if (loc.search && loc.search.indexOf('upcoming=') > 0) {
+                    params = loc.search.slice(1).split('&'); //console.log(params);
+
+                    if (params.length > 0) {
+                      parsedParams = {};
+
+                      for (i = 0; i < params.length; i++) {
+                        item = params[i].split('=');
+                        parsedParams[item[0]] = item[1];
+                      }
+
+                      if (parsedParams.upcoming) {
+                        // console.log('UPCOMING POOL',upcoming.data[Number(parsedParams.upcoming)]);
+                        setUpcomingPool(upcoming.data[Number(parsedParams.upcoming)]);
+                      }
+                    }
+                  }
+                }
+
+              case 10:
+              case "end":
+                return _context.stop();
             }
           }
-        }
-      }
-    };
+        }, _callee);
+      }));
+
+      return function getPoolData() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
 
     if (chainId !== null) {
       getPoolData();
     }
   }, [chainId]);
-  useEffect(() => {
-    const initContract = async () => {
-      let c = await getContract('Dust', ethersProvider);
+  useEffect(function () {
+    var initContract = /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+        var c, Zoom2Contract, D4P;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return getContract('Dust', ethersProvider);
 
-      if (c) {
-        setDustContract(c); //console.log('DUST:', c);
-      } else {
-        console.log('contract not found');
-      }
+              case 2:
+                c = _context2.sent;
 
-      let Zoom2Contract = await getContract('Zoom2', ethersProvider);
+                if (c) {
+                  setDustContract(c); //console.log('DUST:', c);
+                } else {
+                  console.log('contract not found');
+                }
 
-      if (Zoom2Contract) {
-        setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
-      } else {
-        console.log('Could not initialise Zoom2 Contract');
-      }
+                _context2.next = 6;
+                return getContract('Zoom2', ethersProvider);
 
-      let D4P = await getContract('Dust4Punks', ethersProvider);
+              case 6:
+                Zoom2Contract = _context2.sent;
 
-      if (D4P) {
-        setDust4PunksContract(D4P);
-        console.log('D4P:', D4P);
-      } else {
-        console.log('Could not initialise D4P Contract');
-      }
-    };
+                if (Zoom2Contract) {
+                  setZoom2(Zoom2Contract); //console.log('ZOOM:', Zoom2Contract);
+                } else {
+                  console.log('Could not initialise Zoom2 Contract');
+                }
+
+                _context2.next = 10;
+                return getContract('Dust4Punks', ethersProvider);
+
+              case 10:
+                D4P = _context2.sent;
+
+                if (D4P) {
+                  setDust4PunksContract(D4P);
+                  console.log('D4P:', D4P);
+                } else {
+                  console.log('Could not initialise D4P Contract');
+                }
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function initContract() {
+        return _ref3.apply(this, arguments);
+      };
+    }();
 
     if (ethersProvider) {
       initContract();
     }
   }, [ethersProvider]);
-  useEffect(() => {
+  useEffect(function () {
     if (dust4PunksContract && dustContract && poolsFromBackend.length > 0 && zoom2
     /*  && !initDone */
     ) {
@@ -4391,194 +4593,269 @@ const DustPools = _ref => {
     }
   }, [dust4PunksContract, poolsFromBackend]); //,dustContract,zoom2
 
-  const getPools = async () => {
-    // console.log('GETTING POOL DATA....');
-    let res = await dust4PunksContract.next_redeemable().catch(e => console.log);
-    let numberOfPools = 0;
+  var getPools = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+      var res, numberOfPools, ZoomLibraryInstance, calls, i, vaultAddress, vaultName, vaultPrice, vaultToken, ZoomQueryBinary, combinedResult, tempPool, poolIdx, _i, va, vn, vp, vt, vd, vToken, poolByVaultId;
 
-    if (res) {
-      numberOfPools = Number(res);
-    }
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return dust4PunksContract.next_redeemable().catch(function (e) {
+                return console.log;
+              });
 
-    console.log('#OF POOLS', numberOfPools); // if(address){
+            case 2:
+              res = _context3.sent;
+              numberOfPools = 0;
 
-    const ZoomLibraryInstance = new Zoom({
-      use_reference_calls: true
-    });
-    let calls = [];
+              if (res) {
+                numberOfPools = Number(res);
+              }
 
-    for (let i = 0; i < numberOfPools; i++) {
-      // vault address
-      const vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
-      calls.push(vaultAddress); //Pool Name
+              console.log('#OF POOLS', numberOfPools); // if(address){
 
-      const vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
-      calls.push(vaultName); //Vault price
+              ZoomLibraryInstance = new Zoom({
+                use_reference_calls: true
+              });
+              calls = [];
 
-      const vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
-      calls.push(vaultPrice); //Vault token addredd
+              for (i = 0; i < numberOfPools; i++) {
+                // vault address
+                vaultAddress = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultAddress', [i]], 'vaultAddress(uint256) returns (address)');
+                calls.push(vaultAddress); //Pool Name
 
-      const vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
-      calls.push(vaultToken);
-    }
+                vaultName = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultName', [i]], 'vaultName(uint256) returns (string)');
+                calls.push(vaultName); //Vault price
 
-    const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
-    //console.time('zoomCall');
+                vaultPrice = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultPrice', [i]], 'vaultPrice(uint256) returns (uint256)');
+                calls.push(vaultPrice); //Vault token addredd
 
-    const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
-    //console.log("======== ZOOM CALL END ==============" );
+                vaultToken = ZoomLibraryInstance.addCall(dust4PunksContract, ['vaultToken', [i]], 'vaultToken(uint256) returns (address)');
+                calls.push(vaultToken);
+              }
 
-    ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
+              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); //console.log("======== ZOOM CALL START ============" );
+              //console.time('zoomCall');
 
-    let tempPool = [];
-    let poolIdx = 0;
+              _context3.next = 12;
+              return zoom2.combine(ZoomQueryBinary);
 
-    for (let i = 0; i < numberOfPools * 4; i += 4) {
-      let va = ZoomLibraryInstance.decodeCall(calls[i + 0]).toString();
-      let vn = ZoomLibraryInstance.decodeCall(calls[i + 1]).toString();
-      let vp = ZoomLibraryInstance.decodeCall(calls[i + 2]).toString();
-      let vt = ZoomLibraryInstance.decodeCall(calls[i + 3]).toString(); // console.log('va,vn,vp,vt',va,vn,vp,vt);
+            case 12:
+              combinedResult = _context3.sent;
+              //console.timeEnd('zoomCall');
+              //console.log("======== ZOOM CALL END ==============" );
+              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary); //4 calls per vault
 
-      const vd = {
-        vaultAddress: va,
-        vaultName: vn,
-        vaultPrice: vp,
-        vaultToken: vt,
-        available: null
-      };
-      let vToken = await getDummy721(vt, ethersProvider);
+              tempPool = [];
+              poolIdx = 0;
+              _i = 0;
 
-      if (vToken) {
-        vd.tokenContract = vToken;
-      }
+            case 17:
+              if (!(_i < numberOfPools * 4)) {
+                _context3.next = 31;
+                break;
+              }
 
-      if (poolIdx < poolsFromBackend.length) {
-        let poolByVaultId = poolsFromBackend.find(i => {
-          return i.vault_id === poolIdx;
-        }); // tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
+              va = ZoomLibraryInstance.decodeCall(calls[_i + 0]).toString();
+              vn = ZoomLibraryInstance.decodeCall(calls[_i + 1]).toString();
+              vp = ZoomLibraryInstance.decodeCall(calls[_i + 2]).toString();
+              vt = ZoomLibraryInstance.decodeCall(calls[_i + 3]).toString(); // console.log('va,vn,vp,vt',va,vn,vp,vt);
 
-        tempPool.push({ ...poolByVaultId,
-          vaultData: vd
-        });
-        poolIdx++;
-      } else {
-        console.log('overflow :/', poolIdx, poolsFromBackend.length);
-      }
-    } //console.log('AP', tempPool);
+              vd = {
+                vaultAddress: va,
+                vaultName: vn,
+                vaultPrice: vp,
+                vaultToken: vt,
+                available: null
+              };
+              _context3.next = 25;
+              return getDummy721(vt, ethersProvider);
 
+            case 25:
+              vToken = _context3.sent;
 
-    setAllPools(tempPool);
-    setPools(tempPool);
-    setSelectedFilter('ALL');
-  };
+              if (vToken) {
+                vd.tokenContract = vToken;
+              }
 
-  useEffect(() => {
+              if (poolIdx < poolsFromBackend.length) {
+                poolByVaultId = poolsFromBackend.find(function (i) {
+                  return i.vault_id === poolIdx;
+                }); // tempPool.push({ ...poolsFromBackend[poolIdx], vaultData: vd });
+
+                tempPool.push(_objectSpread2(_objectSpread2({}, poolByVaultId), {}, {
+                  vaultData: vd
+                }));
+                poolIdx++;
+              } else {
+                console.log('overflow :/', poolIdx, poolsFromBackend.length);
+              }
+
+            case 28:
+              _i += 4;
+              _context3.next = 17;
+              break;
+
+            case 31:
+              //console.log('AP', tempPool);
+              setAllPools(tempPool);
+              setPools(tempPool);
+              setSelectedFilter('ALL');
+
+            case 34:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function getPools() {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+  useEffect(function () {
     // console.log('allPools changed...', allPools.length);
     if (allPools.length > 0) {
       updateVaultBalances();
     }
   }, [allPools]);
-  useInterval(() => {
+  useInterval(function () {
     updateVaultBalances();
   }, UPDATE_INTERVAL);
 
-  const updateVaultBalances = async () => {
-    if (allPools[0].vaultData && allPools[0].vaultData.tokenContract) {
-      //console.log('vaultdata',vaultData);
-      const ZoomLibraryInstance = new Zoom();
-      let calls = [];
-      let hasContract = []; //console.log('UPD',pools,allPools);
+  var updateVaultBalances = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+      var ZoomLibraryInstance, calls, hasContract, i, vaultBalance, ZoomQueryBinary, combinedResult, ap, hasContractIdx, _i2, ab, poolIdx;
 
-      for (let i = 0; i < allPools.length; i++) {
-        if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
-          /*     console.log(allPools[i].vaultData.tokenContract,i)
-                  const totalSupply = ZoomLibraryInstance.addCall(
-                    allPools[i].vaultData.tokenContract,
-                    ["totalSupply",[]],
-                    "totalSupply() returns (uint256)"
-                );
-                calls.push(totalSupply); */
-          const vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
-          calls.push(vaultBalance);
-          hasContract.push(allPools[i].vault_id);
-        }
-      } // console.log('STUFF', calls, hasContract);
+      return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              if (!(allPools[0].vaultData && allPools[0].vaultData.tokenContract)) {
+                _context4.next = 16;
+                break;
+              }
 
+              //console.log('vaultdata',vaultData);
+              ZoomLibraryInstance = new Zoom();
+              calls = [];
+              hasContract = []; //console.log('UPD',pools,allPools);
 
-      if (calls.length > 0) {
-        const ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
-        //console.log("======== ZOOM CALL START ============" );
-        //console.time('zoomCall');
-
-        const combinedResult = await zoom2.combine(ZoomQueryBinary); //console.timeEnd('zoomCall');
-        //console.log("======== ZOOM CALL END ==============" );
-
-        ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
-        let ap = allPools;
-        let hasContractIdx = 0;
-
-        for (let i = 0; i < calls.length; i++) {
-          //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
-          let ab = ZoomLibraryInstance.decodeCall(calls[i]).toString(); // console.log('idx, balance', i, ab);
-
-          let poolIdx = hasContract[hasContractIdx]; //console.log('pool index, allpools', poolIdx,ap);
-
-          ap[poolIdx].vaultData = { ...ap[poolIdx].vaultData,
-
-            /* totalSupply:ts, */
-            available: Number(ab)
-          };
-
-          if (Number.parseInt(ab) === 0) {
-            ap[poolIdx].order += 100;
-          }
-
-          hasContractIdx++;
-        }
-        /* 
-            let op = [...ap];
-              op.sort((a,b)=>{
-                if(a.order>b.order){
-                    return 1
-                }else{
-                    return -1;
+              for (i = 0; i < allPools.length; i++) {
+                if (allPools[i].vaultData.tokenContract.address !== '0x0000000000000000000000000000000000000000') {
+                  /*     console.log(allPools[i].vaultData.tokenContract,i)
+                          const totalSupply = ZoomLibraryInstance.addCall(
+                            allPools[i].vaultData.tokenContract,
+                            ["totalSupply",[]],
+                            "totalSupply() returns (uint256)"
+                        );
+                        calls.push(totalSupply); */
+                  vaultBalance = ZoomLibraryInstance.addCall(allPools[i].vaultData.tokenContract, ['balanceOf', [allPools[i].vaultData.vaultAddress]], 'balanceOf(address) returns (uint256)');
+                  calls.push(vaultBalance);
+                  hasContract.push(allPools[i].vault_id);
                 }
-            });
-        */
+              } // console.log('STUFF', calls, hasContract);
 
 
-        setPools(getFiltered());
-        setInitDone(true); //console.log('AP upd', ap);
-      }
-    }
-  };
+              if (!(calls.length > 0)) {
+                _context4.next = 16;
+                break;
+              }
 
-  const getFiltered = () => {
-    let result = [];
+              ZoomQueryBinary = ZoomLibraryInstance.getZoomCall(); // console.log('zqb',ZoomQueryBinary);
+              //console.log("======== ZOOM CALL START ============" );
+              //console.time('zoomCall');
+
+              _context4.next = 9;
+              return zoom2.combine(ZoomQueryBinary);
+
+            case 9:
+              combinedResult = _context4.sent;
+              //console.timeEnd('zoomCall');
+              //console.log("======== ZOOM CALL END ==============" );
+              ZoomLibraryInstance.resultsToCache(combinedResult, ZoomQueryBinary);
+              ap = allPools;
+              hasContractIdx = 0;
+
+              for (_i2 = 0; _i2 < calls.length; _i2++) {
+                //  let ts = ZoomLibraryInstance.decodeCall(calls[i]).toString();
+                ab = ZoomLibraryInstance.decodeCall(calls[_i2]).toString(); // console.log('idx, balance', i, ab);
+
+                poolIdx = hasContract[hasContractIdx]; //console.log('pool index, allpools', poolIdx,ap);
+
+                ap[poolIdx].vaultData = _objectSpread2(_objectSpread2({}, ap[poolIdx].vaultData), {}, {
+                  /* totalSupply:ts, */
+                  available: Number(ab)
+                });
+
+                if (Number.parseInt(ab) === 0) {
+                  ap[poolIdx].order += 100;
+                }
+
+                hasContractIdx++;
+              }
+              /* 
+                  let op = [...ap];
+                    op.sort((a,b)=>{
+                      if(a.order>b.order){
+                          return 1
+                      }else{
+                          return -1;
+                      }
+                  });
+              */
+
+
+              setPools(getFiltered());
+              setInitDone(true); //console.log('AP upd', ap);
+
+            case 16:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function updateVaultBalances() {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
+  var getFiltered = function getFiltered() {
+    var result = [];
 
     if (selectedFilter === 'SOLD_OUT') {
-      result = allPools.filter(pool => pool.vaultData.available === 0);
+      result = allPools.filter(function (pool) {
+        return pool.vaultData.available === 0;
+      });
     } else if (selectedFilter === 'ACTIVE') {
-      result = allPools.filter(pool => pool.vaultData.available > 0);
+      result = allPools.filter(function (pool) {
+        return pool.vaultData.available > 0;
+      });
     } else {
-      result = [...allPools];
+      result = _toConsumableArray(allPools);
     }
 
     return result;
   };
 
-  useEffect(() => {
+  useEffect(function () {
     setPools(getFiltered());
   }, [selectedFilter]);
 
-  const showDetails = idx => {
+  var showDetails = function showDetails(idx) {
     //console.log('poolId,idx',idx);
     if (idx !== null) {
       setSelectedPoolIdx(idx);
     }
   };
 
-  const showUpcomingDetails = idx => {
+  var showUpcomingDetails = function showUpcomingDetails(idx) {
     if (idx !== null) {
       setselectedUpcomingPoolIdx(idx);
     }
@@ -4596,14 +4873,20 @@ const DustPools = _ref => {
   }, "Digital Collectible Vaults"), /*#__PURE__*/React.createElement("div", {
     className: "tab-choose"
   }, /*#__PURE__*/React.createElement("div", {
-    className: `${selectedFilter === 'ALL' ? 'active-tab' : ''}`,
-    onClick: () => setSelectedFilter('ALL')
+    className: "".concat(selectedFilter === 'ALL' ? 'active-tab' : ''),
+    onClick: function onClick() {
+      return setSelectedFilter('ALL');
+    }
   }, "All"), /*#__PURE__*/React.createElement("div", {
-    className: `${selectedFilter === 'ACTIVE' ? 'active-tab' : ''}`,
-    onClick: () => setSelectedFilter('ACTIVE')
+    className: "".concat(selectedFilter === 'ACTIVE' ? 'active-tab' : ''),
+    onClick: function onClick() {
+      return setSelectedFilter('ACTIVE');
+    }
   }, "Active"), /*#__PURE__*/React.createElement("div", {
-    className: `${selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''}`,
-    onClick: () => setSelectedFilter('SOLD_OUT')
+    className: "".concat(selectedFilter === 'SOLD_OUT' ? 'active-tab' : ''),
+    onClick: function onClick() {
+      return setSelectedFilter('SOLD_OUT');
+    }
   }, "Sold out")), /*#__PURE__*/React.createElement("p", null, "You can exchange your Dust for some awesome items including Cryptopunks and other valuable Digital Collectibles.")), /*#__PURE__*/React.createElement("div", {
     className: "container  mt-5"
   }, /*#__PURE__*/React.createElement("div", {
@@ -4611,7 +4894,7 @@ const DustPools = _ref => {
     style: {
       rowGap: '25px'
     }
-  }, pools.map((card, idx) => {
+  }, pools.map(function (card, idx) {
     return /*#__PURE__*/React.createElement("div", {
       key: idx,
       className: "col-12 col-lg-6"
@@ -4630,7 +4913,9 @@ const DustPools = _ref => {
     style: {
       marginTop: '20px'
     },
-    onClick: () => window.open('https://blog.ether.cards/dust-utility-token-model-distribution/')
+    onClick: function onClick() {
+      return window.open('https://blog.ether.cards/dust-utility-token-model-distribution/');
+    }
   }, "More")), /*#__PURE__*/React.createElement(TopSectionDividers, null), /*#__PURE__*/React.createElement("div", {
     className: "dust-pool-textbox pb-4"
   }, /*#__PURE__*/React.createElement("p", {
@@ -4651,7 +4936,9 @@ const DustPools = _ref => {
     ethersProvider: ethersProvider,
     chainId: chainId,
     handleConnect: handleConnect,
-    handleBack: () => setSelectedPoolIdx(null),
+    handleBack: function handleBack() {
+      return setSelectedPoolIdx(null);
+    },
     handleChangePool: showDetails
   }))) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "dust-pool-root"
@@ -4659,7 +4946,9 @@ const DustPools = _ref => {
     pools: upcomingPools,
     currentIndex: selectedUpcomingPoolIdx,
     chainId: chainId,
-    handleBack: () => setUpcomingPool(null),
+    handleBack: function handleBack() {
+      return setUpcomingPool(null);
+    },
     handleChangePool: showUpcomingDetails
   })))));
 };
