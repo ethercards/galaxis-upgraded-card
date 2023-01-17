@@ -601,7 +601,18 @@ var GalaxisCard = function GalaxisCard(_ref) {
   })), metadata.traits && metadata.traits.length > 0 && traitTypes && /*#__PURE__*/React.createElement("div", {
     className: "trait-container ".concat(traitsVisible ? 'hide' : '')
   }, metadata.traits.map(function (elem, metadataIndex) {
-    return traitTypes.map(function (traitElem, index) {
+    return elem.icon_url ? /*#__PURE__*/React.createElement("div", {
+      className: "trait-holder",
+      key: metadataIndex,
+      onClick: function onClick(e) {
+        setSelectedTrait(metadata.traits[metadataIndex]); // setTraitType(traitTypes[index]);
+
+        showTraits(e);
+      }
+    }, ' ', /*#__PURE__*/React.createElement("img", {
+      src: elem.icon_url,
+      alt: "undefined"
+    }), ' ') : traitTypes.map(function (traitElem, index) {
       if (parseInt(elem.type) === traitElem.id) return /*#__PURE__*/React.createElement("div", {
         className: "trait-holder",
         key: index,
@@ -611,7 +622,7 @@ var GalaxisCard = function GalaxisCard(_ref) {
           showTraits(e);
         }
       }, ' ', /*#__PURE__*/React.createElement("img", {
-        src: elem.icon_url ? elem.icon_url : GALAXIS_BASE_URL + traitElem.icon_white,
+        src: GALAXIS_BASE_URL + traitElem.icon_white,
         alt: "undefined"
       }), ' ');
     });

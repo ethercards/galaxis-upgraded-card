@@ -98,7 +98,7 @@ const GalaxisCard = ({
       // console.log(containerSize)
     }
   }, [width]);
-  
+
   useEffect(() => {
     if (metadata.sides && metadata.sides.length >= 1 && metadata.sides[0].original_height && metadata.sides[0].original_width) {
       let originalHeight = metadata.sides[0].original_height;
@@ -225,30 +225,51 @@ const GalaxisCard = ({
                       className={`trait-container ${traitsVisible ? 'hide' : ''
                         }`}
                     >
-                      {metadata.traits.map((elem, metadataIndex) => {
-                        return traitTypes.map((traitElem, index) => {
-                          if (parseInt(elem.type) === traitElem.id)
-                            return (
-                              <div
-                                className='trait-holder'
-                                key={index}
-                                onClick={(e) => {
-                                  setSelectedTrait(
-                                    metadata.traits[metadataIndex]
-                                  );
-                                  setTraitType(traitTypes[index]);
-                                  showTraits(e);
-                                }}
-                              >
-                                {' '}
-                                <img
-                                  src={elem.icon_url ? elem.icon_url : GALAXIS_BASE_URL + traitElem.icon_white}
-                                  alt='undefined'
-                                />{' '}
-                              </div>
-                            );
-                        });
-                      })}
+                      {metadata.traits.map((elem, metadataIndex) => (
+                        elem.icon_url ?
+
+                          <div
+                            className='trait-holder'
+                            key={metadataIndex}
+                            onClick={(e) => {
+                              setSelectedTrait(
+                                metadata.traits[metadataIndex]
+                              );
+                              // setTraitType(traitTypes[index]);
+                              showTraits(e);
+                            }}
+                          >
+                            {' '}
+                            <img
+                              src={elem.icon_url}
+                              alt='undefined'
+                            />{' '}
+                          </div>
+
+                          :
+                          traitTypes.map((traitElem, index) => {
+                            if (parseInt(elem.type) === traitElem.id)
+                              return (
+                                <div
+                                  className='trait-holder'
+                                  key={index}
+                                  onClick={(e) => {
+                                    setSelectedTrait(
+                                      metadata.traits[metadataIndex]
+                                    );
+                                    setTraitType(traitTypes[index]);
+                                    showTraits(e);
+                                  }}
+                                >
+                                  {' '}
+                                  <img
+                                    src={GALAXIS_BASE_URL + traitElem.icon_white}
+                                    alt='undefined'
+                                  />{' '}
+                                </div>
+                              );
+                          })
+                      ))}
                     </div>
                   )}
                 </span>
@@ -266,7 +287,7 @@ const GalaxisCard = ({
                           : metadata.image
                       }
                       traitImg={selectedTrait.icon_url ? selectedTrait.icon_url : GALAXIS_BASE_URL + traitType.icon_white}
-                      // claimUrl={selectedTrait.claim_url}
+                    // claimUrl={selectedTrait.claim_url}
                     />
                   </span>
                 )}
