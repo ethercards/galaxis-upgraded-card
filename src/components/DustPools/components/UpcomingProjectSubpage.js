@@ -89,7 +89,7 @@ const UpcomingProjectSubpage = ({pools, chainId, handleBack, currentIndex, handl
               <p className="dust-pool-title ">{pool.title}</p>
               {pool.nr_of_nfts > 0 && <div>
                 <p>
-                  <span style={{fontWeight: '600'}}>{pool.nr_of_nfts}</span> of NFTS 
+                  <span style={{fontWeight: '600'}}>{pool.nr_of_nfts}</span> of Digital Collectibles 
                 </p>
                  <CounterBar maxValue={pool.nr_of_nfts} value={pool.nr_of_nfts}/> 
               </div>}
