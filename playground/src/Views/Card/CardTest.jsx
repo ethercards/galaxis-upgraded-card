@@ -15,8 +15,6 @@ const CardTest = ()=>{
 
 			console.log(window.location);
 
-
-
 			console.log('URL PARAM',urlParam);
 
 		getFilteredCards(urlParam,{})

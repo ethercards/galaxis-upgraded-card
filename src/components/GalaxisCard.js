@@ -168,6 +168,7 @@ const GalaxisCard = ({
                 >
                   {(metadata.sides && metadata.sides.length >= 1 && (!metadata.sides[0].type || metadata.sides[0].type !== 'video'))
                     || !metadata.sides ? (
+                    <>
                     <img
                       className='flipped-img'
                       src={
@@ -185,6 +186,13 @@ const GalaxisCard = ({
                         setLoading(false);
                       }}
                     />
+
+                    {(metadata.overlays && metadata.overlays.length>0 && metadata.overlays[0].layers && metadata.overlays[0].layers[0].length>0)&&
+                      <img src={metadata.overlays[0].layers[0]} className='flipped-img' alt='overlay'/>
+                    }
+
+                    </>
+
                   ) : (
                     <video
                       className='flipped-img'
