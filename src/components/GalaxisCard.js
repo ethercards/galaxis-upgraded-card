@@ -235,28 +235,29 @@ const GalaxisCard = ({
                     >
                       {metadata.traits.map((elem, metadataIndex) => (
                         elem.icon_url ?
-
-                          <div
-                            className='trait-holder'
-                            key={metadataIndex}
-                            onClick={(e) => {
-                              setSelectedTrait(
-                                metadata.traits[metadataIndex]
-                              );
-                              // setTraitType(traitTypes[index]);
-                              showTraits(e);
-                            }}
-                          >
-                            {' '}
-                            <img
-                              src={elem.icon_url}
-                              alt='undefined'
-                            />{' '}
-                          </div>
+                          <>
+                            {parseInt(elem.status)===1&&<div
+                              className='trait-holder'
+                              key={metadataIndex}
+                              onClick={(e) => {
+                                setSelectedTrait(
+                                  metadata.traits[metadataIndex]
+                                );
+                                // setTraitType(traitTypes[index]);
+                                showTraits(e);
+                              }}
+                            >
+                              {' '}
+                              <img
+                                src={elem.icon_url}
+                                alt='undefined'
+                              />{' '}
+                            </div>}
+                          </>
 
                           :
                           traitTypes.map((traitElem, index) => {
-                            if (parseInt(elem.type) === traitElem.id)
+                            if (parseInt(elem.type) === traitElem.id){
                               return (
                                 <div
                                   className='trait-holder'
@@ -276,6 +277,7 @@ const GalaxisCard = ({
                                   />{' '}
                                 </div>
                               );
+                            }
                           })
                       ))}
                     </div>
