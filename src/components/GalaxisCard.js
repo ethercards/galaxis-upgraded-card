@@ -27,7 +27,8 @@ const GalaxisCard = ({
   const [defaultScopeWidth, setDefaultScopeWidth] = useState(
     imageContainerWidth ? imageContainerWidth - horizontalPadding : 400
   );
-  const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
+  //const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
+  const GALAXIS_BASE_URL = 'https://galaxis-backend.herokuapp.com';
 
   const containerRef = useRef();
   const { width, height } = useContainerDimensions(containerRef);
