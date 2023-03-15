@@ -11,6 +11,7 @@ const GalaxisCard = ({
   traitTypes,
   horizontalPadding = 20,
   imageContainerWidth = null,
+  apiUrl
 }) => {
   const [traitsVisible, setTraitsVisible] = useState(false);
   const [selectedTrait, setSelectedTrait] = useState({});
@@ -28,7 +29,9 @@ const GalaxisCard = ({
     imageContainerWidth ? imageContainerWidth - horizontalPadding : 400
   );
   //const GALAXIS_BASE_URL = 'https://galaxis-web-backend-staging.herokuapp.com';
-  const GALAXIS_BASE_URL = 'https://galaxis-backend.herokuapp.com';
+  const GALAXIS_BASE_URL = apiUrl?apiUrl:'https://galaxis-backend.herokuapp.com';
+
+  //console.log('api url',GALAXIS_BASE_URL);
 
   const containerRef = useRef();
   const { width, height } = useContainerDimensions(containerRef);

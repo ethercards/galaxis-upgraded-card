@@ -58,6 +58,7 @@ const UpcomingPoolsCarousel = ({ imgUrl, poolsData, handleSelect, handleSelected
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [noOfCards, setNoOfCards] = useState(4);
   useEffect(() => {
+
     window.scrollTo(0, 0);
     if (window.innerWidth < 1140) {
       setNoOfCards(3);

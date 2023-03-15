@@ -1,6 +1,6 @@
 import {ethers} from 'ethers';
 import AddressesMain from './addresses/addresses-1.json';
-import AddressesRinkeby from './addresses/addresses-4.json';
+import AddressesGoerli from './addresses/addresses-5.json';
 import Dust from './abi/Dust.json';
 import Dust4Punks from './abi/Dust4Punks.json';
 import Zoom2 from './abi/Zoom2.json';
@@ -9,7 +9,7 @@ import Dummy from './abi/Dummy721.json';
 const contractAbis = {Dust,Dust4Punks,Zoom2};
 const addresses = {
 1:     {addr: AddressesMain, name:'Main'},
-4:     {addr: AddressesRinkeby, name:'Rinkeby'}
+5:     {addr: AddressesGoerli, name:'Goerli'}
 };
 
 export const getContract = async (contractName,provider) => {

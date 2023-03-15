@@ -45,7 +45,7 @@ const ShowNextPreviosProject = ({prev,next,idx,mediaUrl,handler}) =>{
     </div>
 }
 
-const ProjectSubpage = ({pools, currentIndex ,address, dust, d4p, ethersProvider, chainId, handleConnect, handleBack, handleChangePool}) => {
+const ProjectSubpage = ({pools, currentIndex ,address, dust, d4p, ethersProvider, chainId, handleConnect, handleBack, handleChangePool, mediaBaseUrl}) => {
 
   const [pool,setPool] = useState(null);
   const [prevPool,setPrevPool] = useState(null);
@@ -73,7 +73,7 @@ const ProjectSubpage = ({pools, currentIndex ,address, dust, d4p, ethersProvider
 
   const videoRef = useRef(null);
 
-  const MEDIA_BASE_URL = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+  const MEDIA_BASE_URL = mediaBaseUrl?mediaBaseUrl:chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
     
 
   useEffect(()=>{

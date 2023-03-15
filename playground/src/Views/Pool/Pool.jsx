@@ -2,7 +2,9 @@ import { Box } from '@mui/system';
 import { DustPools } from 'galaxis-components';
 import { useEffect } from 'react';
 import Header from '../../components/Header';
+import config from '../../config/config';
 import useWeb3Ctx from '../../Hooks/useWeb3Ctx';
+
 
 const PoolTest = ()=>{
 
@@ -26,7 +28,6 @@ const PoolTest = ()=>{
 
 	const { address, ethersProvider, handleConnect, handleDisconnect, chainId } = useWeb3Ctx();
 
-
 	useEffect(()=>{
 		console.log('ADDR',address);
 		console.log('EP',ethersProvider);
@@ -39,7 +40,11 @@ const PoolTest = ()=>{
 		<>
 			<Header address={address} disconnect={handleDisconnect}/>
 			<Box sx={sx.root} id="homeContainer">	
-				<DustPools address={address} ethersProvider={ethersProvider} handleConnect={handleConnect} chainId={chainId}/>
+				<DustPools address={address} 
+					ethersProvider={ethersProvider} 
+					handleConnect={handleConnect} 
+					chainId={chainId} 
+					config={{API_URL:config.API_URL,AWS_URL:config.AWS_URL}}/>
 			</Box>
 		</>
 	);

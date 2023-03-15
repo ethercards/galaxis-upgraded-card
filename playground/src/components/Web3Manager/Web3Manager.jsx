@@ -2,7 +2,8 @@ import Onboard from "bnc-onboard";
 import { ethers } from "ethers";
 
 import { useEffect, useState } from "react";
-import config from '../../config';
+import config from "../../config/config";
+
 import Web3Ctx from "./Web3Ctx";
 
 const { DEPLOYED_NTW_NAME, DEPLOYED_CHAIN_ID, RPC_URL, FORTMATIC_KEY } = config;
@@ -67,6 +68,7 @@ const Web3Manager = ({ children }) => {
               rpc: {
                 1: RPC_URL,
                 4: RPC_URL,
+                5: RPC_URL,
               },
             },
             { walletName: "opera" },

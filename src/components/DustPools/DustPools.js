@@ -128,7 +128,7 @@ const TopSectionDividers = () => (
   </div>
 );
 
-const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
+const DustPools = ({ address, ethersProvider, chainId, handleConnect, config }) => {
   const [selectedPoolIdx, setSelectedPoolIdx] = useState(null);
   const [selectedUpcomingPoolIdx, setselectedUpcomingPoolIdx] = useState(null)
   const [dustContract, setDustContract] = useState(null);
@@ -147,17 +147,17 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
   const loc = useLocation();
 
 
+  //console.log('congig',config);
 
-  const url = chainId===1?'https://cms.galaxis.xyz':'https://galaxis-web-backend-staging.herokuapp.com';
-  const upcomingImgUrl = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
-
+  const url = config.API_URL;
+  const upcomingImgUrl = config.AWS_URL;
 
   useEffect(()=>{
     const getPoolData = async ()=>{
 
-      console.log('00000000000000000')
+      //console.log('00000000000000000', url)
       const res = await axios.get(url+'/vaults').catch(e=>console.log);
-      console.log('vaults',res);
+      //console.log('vaults',res);
       if(res.status === 200){
         setPoolsFromBackend(res.data);
       }
@@ -167,7 +167,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       if(upcoming.status === 200){
         setUpcomingPools(upcoming.data);
 
-        console.log('UPCOM',upcoming.data)
+        //console.log('UPCOM',upcoming.data)
         
 
         if(loc.search && loc.search.indexOf('upcoming=')>0){
@@ -208,7 +208,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let c = await getContract('Dust', ethersProvider);
       if (c) {
         setDustContract(c);
-        //console.log('DUST:', c);
+        console.log('DUST:', c);
       } else {
         console.log('contract not found');
       }
@@ -224,7 +224,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       let D4P = await getContract('Dust4Punks', ethersProvider);
       if (D4P) {
         setDust4PunksContract(D4P);
-        console.log('D4P:', D4P);
+        //console.log('D4P:', D4P);
       } else {
         console.log('Could not initialise D4P Contract');
       }
@@ -254,7 +254,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
       numberOfPools = Number(res);
     }
 
-    console.log('#OF POOLS', numberOfPools);
+    //console.log('#OF POOLS', numberOfPools);
 
     // if(address){
     const ZoomLibraryInstance = new Zoom({ use_reference_calls: true });
@@ -516,7 +516,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
               {pools.map((card, idx) => {
                 return (
                   <div key={idx} className="col-12 col-lg-6">
-                    <DustPoolCard card={card} idx={idx} chainId={chainId} handleClick={showDetails} />
+                    <DustPoolCard card={card} idx={idx} chainId={chainId} handleClick={showDetails} imageBaseUrl={config.AWS_URL} />
                   </div>
                 );
               })}
@@ -586,6 +586,7 @@ const DustPools = ({ address, ethersProvider, chainId, handleConnect }) => {
                   handleConnect={handleConnect}
                   handleBack={() => setSelectedPoolIdx(null)}
                   handleChangePool={showDetails}
+                  mediaBaseUrl={config.AWS_URL}
                 />
               </div>
             </>

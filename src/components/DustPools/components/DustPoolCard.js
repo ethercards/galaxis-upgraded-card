@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import {ethers} from 'ethers';
 import './DustPoolCard.css'
 import CounterBar from './CounterBar.jsx';
-const DustPoolCard = ({card,idx,chainId,handleClick})=>{
+const DustPoolCard = ({card,idx,chainId,handleClick, imageBaseUrl})=>{
 
-    const MEDIA_BASE_URL = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+  //  const MEDIA_BASE_URL = chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
+    const MEDIA_BASE_URL = imageBaseUrl;//chainId===1?'https://galaxis-web.s3.amazonaws.com/media':'https://galaxis-backend-staging.s3.eu-central-1.amazonaws.com/media';
 
 
     const onClickHandler = ()=>{
