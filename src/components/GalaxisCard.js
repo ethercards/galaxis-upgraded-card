@@ -123,8 +123,7 @@ const GalaxisCard = ({
   return (
     <>
       {loading && (
-          <div
-          className={`card-image-container ${containerSize}`}>
+          
                 <SpinnerCircular
                   size={80}
                   color='rgb(252, 108, 3)'
@@ -138,7 +137,6 @@ const GalaxisCard = ({
                   }}
                   secondaryColor={'white'}
                 />
-                </div>
               )}
       
       {metadata && (
