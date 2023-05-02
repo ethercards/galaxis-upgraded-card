@@ -250,6 +250,7 @@
 .trait-card-title-holder{
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 .trait-card-title {
   margin: 0px;
@@ -261,7 +262,7 @@
   text-align: center;
   width: fit-content;
   /* max-width: 250px; */
-  min-width: 250px;
+  /* min-width: 250px; */
 }
 .trait-card-description-holder{
   margin-top: 25px;
@@ -288,7 +289,7 @@
   line-height: 28px;
   text-align: center;
   max-width: 90%;
-  min-width: 200px;
+  min-width: 120px;
   word-break: break-word
 }
 .trait-card-button-holder{
@@ -399,11 +400,21 @@
   height: 30px;
 }
 .c-small .trait-card-content-holder{
-  padding: 40px 30px 30px 30px;
+  padding: 40px 10px 30px 10px;
 }
 .c-small .trait-card-trait-icon-holder, .c-xsmall .trait-card-trait-icon-holder{
   display: none;
 }
 .c-small .trait-card-title{
   font-size: 27px
+}
+
+
+.c-xsmall .trait-card-content-holder{
+  padding: 30px 5px 20px 5px;
+}
+
+.c-xsmall .trait-card-content-holder .trait-card-title{
+  font-size: 20px;
+  padding-top: 15px;
 }

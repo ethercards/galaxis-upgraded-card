@@ -123,20 +123,24 @@ const GalaxisCard = ({
   return (
     <>
       {loading && (
-        <SpinnerCircular
-          size={100}
-          color='rgb(252, 108, 3)'
-          style={{
-            position: 'absolute',
-            margin: 'auto',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-          }}
-          secondaryColor={'white'}
-        />
-      )}
+          <div
+          className={`card-image-container ${containerSize}`}>
+                <SpinnerCircular
+                  size={80}
+                  color='rgb(252, 108, 3)'
+                  style={{
+                    position: 'absolute',
+                    margin: 'auto',
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                  }}
+                  secondaryColor={'white'}
+                />
+                </div>
+              )}
+      
       {metadata && (
         <div
           className={`card-image-container ${containerSize}`}
@@ -144,6 +148,10 @@ const GalaxisCard = ({
           style={{ opacity: loading ? '0' : '1' }}
           onClick={(e) => stopPropagation(e)}
         >
+
+        
+
+
           {/* <img src={trait_card} alt="" style={sx.image} /> */}
           <div className='pyramid_anim_container'>
             <div
