@@ -217,8 +217,8 @@
   height: 20.5px;
   cursor: pointer;
   position: absolute;
-  top: 30px;
-  left: 30px;
+  top: 12px;
+  left: 12px;
   z-index: 5;
   transform: rotateX(0deg);
 }
@@ -238,9 +238,9 @@
 }
 
 .trait-card-trait-icon-holder {
-  width: 55px;
-  height: 55px;
-  margin-bottom: 20px;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 .trait-card-trait-icon-holder img{
@@ -382,19 +382,49 @@
   }
 }
 
+
+.c-large.square .trait-card-trait-icon-holder{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.c-large.square .c-medium .trait-card-title{
+  font-size: 36px;
+}
+
+.c-large.square .trait-card-description{
+  line-height: 22px;
+}
+
+
 .c-medium .trait-holder{
   width: 35px;
   height: 35px;
 }
 .c-medium .trait-card-trait-icon-holder{
+  width: 90px;
+  height: 90px;
   margin-bottom: 10px;
 }
 .c-medium .trait-card-title{
   font-size: 32px;
 }
 .c-medium .trait-card-description{
-  line-height: 23px;
+  line-height: 22px;
 }
+
+.c-medium.square .trait-card-trait-icon-holder{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.c-medium.square .trait-card-title{
+  font-size: 28px;
+  line-height:30px
+}
+
+
 .c-small .trait-holder{
   width: 30px;
   height: 30px;
@@ -402,11 +432,36 @@
 .c-small .trait-card-content-holder{
   padding: 40px 10px 30px 10px;
 }
-.c-small .trait-card-trait-icon-holder, .c-xsmall .trait-card-trait-icon-holder{
-  display: none;
+.c-small .trait-card-trait-icon-holder{
+  width: 96px;
+  height: 96px;
+  margin-bottom:5px;
 }
 .c-small .trait-card-title{
   font-size: 27px
+}
+
+.c-small .trait-card-description{
+  line-height: 18px;
+}
+
+.c-small.square .trait-card-trait-icon-holder{
+  width: 52px;
+  height: 52px;
+  margin-top:0px;
+  margin-bottom:0px;
+}
+.c-small.square .trait-card-title{
+  font-size: 24px;
+  line-height: 25px;
+}
+
+.c-small.square .trait-card-content-holder{
+  padding: 15px 10px 15px 10px;
+}
+
+.c-small.square .trait-card-description-holder{
+  margin-top: 10px;
 }
 
 
@@ -414,7 +469,16 @@
   padding: 30px 5px 20px 5px;
 }
 
+/* .c-small .trait-card-trait-icon-holder, */
+ .c-xsmall .trait-card-trait-icon-holder{
+  display: none;
+}
 .c-xsmall .trait-card-content-holder .trait-card-title{
   font-size: 20px;
+  line-height: 22px;
   padding-top: 15px;
+}
+
+.c-xsmall .trait-card-description{
+  line-height: 18px;
 }

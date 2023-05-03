@@ -8,7 +8,7 @@ const sx = {
     }
 }
 const TraitCard = ({ trait, onClick, image, traitImg }) => {
-    console.log(traitImg)
+    //console.log(traitImg)
 
     // const handleClaim = () => {
     //     if (claimUrl) {

@@ -76,6 +76,7 @@ const GalaxisCard = ({
     setImageRatio(height / width);
   };
   useEffect(() => {
+
     if (imageRatio != 0) {
       setResizerComponentSize({
         width: width < height / imageRatio ? 100 + '%' : height / imageRatio,
@@ -85,6 +86,7 @@ const GalaxisCard = ({
   }, [imageRatio, width, height]);
 
   useEffect(() => {
+    console.log(imageRatio,width,height)
     if (width) {
       let cSize = '';
       if (width > 500) {
@@ -98,19 +100,24 @@ const GalaxisCard = ({
       } else {
         cSize = 'c-xsmall';
       }
+
+      if(imageRatio>0){
+        cSize+=imageRatio===1?' square':' protrait';
+      }
+
       setContainerSize(cSize);
       // console.log(containerSize)
     }
-  }, [width]);
+  }, [width,imageRatio]);
 
   useEffect(() => {
     if (metadata.sides && metadata.sides.length >= 1 && metadata.sides[0].original_height && metadata.sides[0].original_width) {
       let originalHeight = metadata.sides[0].original_height;
       let originalWidth = metadata.sides[0].original_width
-      console.log(width, height);
-      console.log(originalHeight, originalWidth)
+      //console.log(width, height);
+     // console.log(originalHeight, originalWidth)
       if (imageRatio != 0) {
-        console.log(imageRatio)
+        //console.log(imageRatio)
         setResizerComponentSize({
           width: originalWidth < originalHeight / imageRatio ? 'auto' : originalHeight / imageRatio,
           height: originalWidth < originalHeight / imageRatio ? originalWidth * imageRatio : 'auto',
