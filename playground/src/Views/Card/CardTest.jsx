@@ -33,7 +33,7 @@ const CardTest = ()=>{
 
 	return (
 		<>
-		<div style={{width:"70%", height:"70%", overflow:"hidden"}}>
+		<div style={{width:"100%", height:"100%", padding:'50px', overflow:"hidden"}}>
 		{loaded && (
 			
 			<GalaxisCard
