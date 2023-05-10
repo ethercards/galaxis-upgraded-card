@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material';
 const BP1 = '@media (max-width: 600px)';
 const COLORS = {
-  primaryColor: '#FF692B',
+  primaryColor: '#FE2C85',
   blue2: '#00A5F7',
   blue3: '#7FC4FD',
   blue4: '#BCE0FD',
@@ -141,9 +141,9 @@ const theme = createTheme({
           borderRadius: 0,
           fontSize: '14px',
           color: '#FFF',
-          backgroundColor: '#FF692B',
+          backgroundColor: '#FE2C85',
           '&:hover': {
-            backgroundColor: '#FF692B',
+            backgroundColor: '#FE2C85',
           },
         },
         collectionCard: {
@@ -151,11 +151,11 @@ const theme = createTheme({
           minHeight: '54px',
           fontFamily: 'poppins-semibold',
           fontSize: '14px',
-          color: '#FF692B',
-          border: '2px solid #FF692B',
+          color: '#FE2C85',
+          border: '2px solid #FE2C85',
           '&:hover': {
-            border: '2px solid #FF692B',
-            backgroundColor: '#FF692B',
+            border: '2px solid #FE2C85',
+            backgroundColor: '#FE2C85',
             color: '#FFF',
           },
         },
