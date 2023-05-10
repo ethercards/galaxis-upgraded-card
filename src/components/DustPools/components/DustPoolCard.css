@@ -42,9 +42,9 @@
   font-size: 14px;
 }
 .dust-pool-btn {
-  border: 2px solid rgb(255, 105, 43);
+  border: 2px solid #FE2C85;
   font-family: 'poppins-semibold';
-  color: rgb(255, 105, 43);
+  color: #FE2C85;
   background-color: transparent;
   font-size: 14px;
   border-radius: 5px;
@@ -53,7 +53,7 @@
   text-transform: uppercase;
 }
 .dust-pool-btn:hover {
-  background-color: rgb(255, 105, 43);
+  background-color: #FE2C85;
   color: #fff;
   cursor: pointer;
 }
@@ -67,7 +67,7 @@
 
 .dust-pool-btn:hover.disabled{
   background-color: transparent;
-  color: rgb(255, 105, 43);
+  color: #FE2C8580;
   cursor:not-allowed;
 }
 

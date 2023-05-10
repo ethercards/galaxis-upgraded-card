@@ -53,13 +53,13 @@
 }
 
 .scrollable-content a {
-	color: rgb(255, 105, 43);
+	color: #FE2C85;
 	font-weight: 600;
 	text-decoration: none;
 }
 
 .scrollable-content a:hover {
-	color: rgb(255, 105, 43);
+	color: #FE2C85;
 	text-decoration: underline;
 }
 
