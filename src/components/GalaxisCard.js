@@ -86,7 +86,7 @@ const GalaxisCard = ({
   }, [imageRatio, width, height]);
 
   useEffect(() => {
-    console.log(imageRatio,width,height)
+    //console.log(imageRatio,width,height)
     if (width) {
       let cSize = '';
       if (width > 500) {
