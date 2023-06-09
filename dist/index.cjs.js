@@ -4,7 +4,6 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
 var spinnersReact = require('spinners-react');
-require('@mui/material');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -71,21 +70,13 @@ var CardBack = function CardBack(_ref) {
     showFlipIcon = _useState2[0],
     setshowFlipIcon = _useState2[1];
   var _useState3 = React.useState(false),
-    _useState4 = _slicedToArray(_useState3, 2);
-    _useState4[0];
-    _useState4[1];
-  var _useState5 = React.useState(null),
-    _useState6 = _slicedToArray(_useState5, 2);
-    _useState6[0];
-    _useState6[1];
-  var _useState7 = React.useState(false),
-    _useState8 = _slicedToArray(_useState7, 2),
-    mobileView = _useState8[0],
-    setmobileView = _useState8[1];
-  var _useState9 = React.useState(false),
-    _useState10 = _slicedToArray(_useState9, 2),
-    backIsVideo = _useState10[0],
-    setbackIsVideo = _useState10[1];
+    _useState4 = _slicedToArray(_useState3, 2),
+    mobileView = _useState4[0],
+    setmobileView = _useState4[1];
+  var _useState5 = React.useState(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    backIsVideo = _useState6[0],
+    setbackIsVideo = _useState6[1];
   React.useEffect(function () {
     if (window.innerWidth < 900) {
       setmobileView(true);
@@ -284,6 +275,7 @@ var GalaxisCard = function GalaxisCard(_ref) {
     loading = _useState20[0],
     setLoading = _useState20[1];
   var imageRef = React.useRef();
+  var cardRef = React.useRef(null);
   var _useState21 = React.useState(imageContainerWidth ? imageContainerWidth - horizontalPadding : 400),
     _useState22 = _slicedToArray(_useState21, 2);
     _useState22[0];
@@ -326,13 +318,15 @@ var GalaxisCard = function GalaxisCard(_ref) {
   var showTraits = function showTraits(e) {
     e.stopPropagation();
     setTraitsVisible(true);
-    document.getElementById('scope').style.transform = 'perspective(1000px) rotateY(180deg)';
+    // document.getElementById('scope').style.transform =
+    //   'perspective(1000px) rotateY(180deg)';
+    cardRef.current.style.transform = 'perspective(1000px) rotateY(180deg)';
   };
   var hideTraits = function hideTraits(e) {
     e.stopPropagation();
     setTraitsVisible(false);
     setshowBackCard(false);
-    document.getElementById('scope').style.transform = 'perspective(1000px) rotateY(0deg)';
+    cardRef.current.style.transform = 'perspective(1000px) rotateY(0deg)';
   };
   var stopPropagation = function stopPropagation(e) {
     e.stopPropagation();
@@ -417,6 +411,7 @@ var GalaxisCard = function GalaxisCard(_ref) {
       height: resizerComponentSize.height
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
+    ref: cardRef,
     className: "scope ".concat(traitsVisible ? 'active' : '', "  "),
     style: {
       width: '100%',

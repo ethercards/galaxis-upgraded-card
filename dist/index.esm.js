@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { SpinnerCircular } from 'spinners-react';
-import '@mui/material';
 
 function _iterableToArrayLimit(arr, i) {
   var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
@@ -63,21 +62,13 @@ var CardBack = function CardBack(_ref) {
     showFlipIcon = _useState2[0],
     setshowFlipIcon = _useState2[1];
   var _useState3 = useState(false),
-    _useState4 = _slicedToArray(_useState3, 2);
-    _useState4[0];
-    _useState4[1];
-  var _useState5 = useState(null),
-    _useState6 = _slicedToArray(_useState5, 2);
-    _useState6[0];
-    _useState6[1];
-  var _useState7 = useState(false),
-    _useState8 = _slicedToArray(_useState7, 2),
-    mobileView = _useState8[0],
-    setmobileView = _useState8[1];
-  var _useState9 = useState(false),
-    _useState10 = _slicedToArray(_useState9, 2),
-    backIsVideo = _useState10[0],
-    setbackIsVideo = _useState10[1];
+    _useState4 = _slicedToArray(_useState3, 2),
+    mobileView = _useState4[0],
+    setmobileView = _useState4[1];
+  var _useState5 = useState(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    backIsVideo = _useState6[0],
+    setbackIsVideo = _useState6[1];
   useEffect(function () {
     if (window.innerWidth < 900) {
       setmobileView(true);
@@ -276,6 +267,7 @@ var GalaxisCard = function GalaxisCard(_ref) {
     loading = _useState20[0],
     setLoading = _useState20[1];
   var imageRef = useRef();
+  var cardRef = useRef(null);
   var _useState21 = useState(imageContainerWidth ? imageContainerWidth - horizontalPadding : 400),
     _useState22 = _slicedToArray(_useState21, 2);
     _useState22[0];
@@ -318,13 +310,15 @@ var GalaxisCard = function GalaxisCard(_ref) {
   var showTraits = function showTraits(e) {
     e.stopPropagation();
     setTraitsVisible(true);
-    document.getElementById('scope').style.transform = 'perspective(1000px) rotateY(180deg)';
+    // document.getElementById('scope').style.transform =
+    //   'perspective(1000px) rotateY(180deg)';
+    cardRef.current.style.transform = 'perspective(1000px) rotateY(180deg)';
   };
   var hideTraits = function hideTraits(e) {
     e.stopPropagation();
     setTraitsVisible(false);
     setshowBackCard(false);
-    document.getElementById('scope').style.transform = 'perspective(1000px) rotateY(0deg)';
+    cardRef.current.style.transform = 'perspective(1000px) rotateY(0deg)';
   };
   var stopPropagation = function stopPropagation(e) {
     e.stopPropagation();
@@ -409,6 +403,7 @@ var GalaxisCard = function GalaxisCard(_ref) {
       height: resizerComponentSize.height
     }
   }, /*#__PURE__*/React.createElement("div", {
+    ref: cardRef,
     className: "scope ".concat(traitsVisible ? 'active' : '', "  "),
     style: {
       width: '100%',
