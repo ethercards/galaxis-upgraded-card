@@ -60,8 +60,6 @@ const GalaxisCard = ({
   const showTraits = (e) => {
     e.stopPropagation();
     setTraitsVisible(true);
-    // document.getElementById('scope').style.transform =
-    //   'perspective(1000px) rotateY(180deg)';
     cardRef.current.style.transform = 'perspective(1000px) rotateY(180deg)';
   };
   const hideTraits = (e) => {
