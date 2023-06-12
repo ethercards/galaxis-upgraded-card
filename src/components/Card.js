@@ -39,7 +39,7 @@ const Card = ({
               className="upgraded-card-traits"
               onClick={() => setTraitsVisible(!areTraitsVisible)}
             >
-              {metadata.traits.length}
+              <p>{metadata.traits.length}</p>
             </div>
           )}
           {metadata.traits && renderTraits()}
