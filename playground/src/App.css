@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+.card-flex {
+  flex-basis: 25%; /* Adjust this value to control column width */
+  padding: 10px;
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .card-flex {
+    flex-basis: 100%;
+  }
+}

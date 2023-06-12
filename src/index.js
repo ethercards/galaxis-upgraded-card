@@ -1,1 +1,1 @@
-export { default as GalaxisCard } from './components/GalaxisCard';
+export { default as GalaxisCard } from './components/Card';
