@@ -1,41 +1,50 @@
+.card-title {
+  font-family: 'poppins-semibold';
+  font-size: 18px;
+}
 .upgraded-card {
-  margin: 10px;
-  border-radius: 8px;
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
   display: flex;
 }
-
 .upgraded-card-img {
   max-width: 100%;
 }
 .upgraded-card-traits {
+  font-family: 'poppins-semibold';
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #fff;
-  color: #000;
-  border-radius: 5px;
-  width: 35px;
+  top: 20px;
+  right: 20px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 6px;
+  width: 45px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35px;
-  font-size: 18px;
+  font-size: 22px;
   cursor: pointer;
   z-index: 2;
   font-weight: 600;
   caret-color: transparent;
+  transition: all 2s;
+}
+.upgraded-card-traits:hover {
+  background-color: #ff2c85;
 }
 .upgraded-card-traits-panel {
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.797);
+  background-color: #080826;
   width: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
   transition: all 1s;
   padding-top: 20px;
+  font-family: 'poppins-semibold';
+  font-size: 18px;
 }
 .upgraded-card-traits-panel ul {
   color: #fff;

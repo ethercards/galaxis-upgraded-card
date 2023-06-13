@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Card.css';
+import closeBtn from '../assets/images/close.svg';
 const Card = ({
   metadata,
   traitTypes,
@@ -24,26 +25,30 @@ const Card = ({
           })}
         </ul>
         <div className="upgraded-card-traits-close-btn" onClick={handleClose}>
-          <img src="https://explorer.ether.cards/static/media/close_button.8b0db979.svg" />
+          <img src={closeBtn} />
         </div>
       </div>
     );
   };
+
   return (
     <>
       {metadata && (
-        <div className="upgraded-card">
-          <img className="upgraded-card-img" src={metadata.image} />
-          {metadata.traits && !areTraitsVisible && (
-            <div
-              className="upgraded-card-traits"
-              onClick={() => setTraitsVisible(!areTraitsVisible)}
-            >
-              <p>{metadata.traits.length}</p>
-            </div>
-          )}
-          {metadata.traits && renderTraits()}
-        </div>
+        <>
+          <div className="upgraded-card">
+            <img className="upgraded-card-img" src={metadata.image} />
+            {metadata.traits && !areTraitsVisible && (
+              <div
+                className="upgraded-card-traits"
+                onClick={() => setTraitsVisible(!areTraitsVisible)}
+              >
+                <p>{metadata.traits.length}</p>
+              </div>
+            )}
+            {metadata.traits && renderTraits()}
+          </div>
+          <p className="card-title">{metadata.name}</p>
+        </>
       )}
     </>
   );
