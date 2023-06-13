@@ -25,6 +25,7 @@
   cursor: pointer;
   z-index: 2;
   font-weight: 600;
+  caret-color: transparent;
 }
 .upgraded-card-traits-panel {
   z-index: 1;
