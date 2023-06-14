@@ -29,7 +29,7 @@
   z-index: 2;
   font-weight: 600;
   caret-color: transparent;
-  transition: all 2s;
+  transition: all 0.2s;
 }
 .upgraded-card-traits:hover {
   background-color: #ff2c85;
@@ -51,7 +51,15 @@
   text-align: left;
   list-style: none;
   padding-left: 30px;
+  padding-bottom: 20px;
+  overflow-y: auto;
+  max-height: 80%;
 }
+
+.upgraded-card-traits-panel ul::-webkit-scrollbar {
+  width: 0;
+}
+
 .upgraded-card-traits-close-btn {
   position: absolute;
   top: 15px;
@@ -59,4 +67,9 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
+}
+.upgraded-card-traits-close-btn:hover img {
+  /* #ff2c85; */
+  filter: invert(37%) sepia(50%) saturate(5507%) hue-rotate(316deg)
+    brightness(99%) contrast(105%);
 }

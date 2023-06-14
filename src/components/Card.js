@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import './Card.css';
 import closeBtn from '../assets/images/close.svg';
-const Card = ({
-  metadata,
-  traitTypes,
-  horizontalPadding = 20,
-  imageContainerWidth = null,
-  apiUrl,
-}) => {
+const Card = ({ metadata, traitTypes, horizontalPadding = 20, apiUrl }) => {
   const [areTraitsVisible, setTraitsVisible] = useState(false);
   const handleClose = () => {
     setTraitsVisible(false);
@@ -21,7 +15,11 @@ const Card = ({
       >
         <ul>
           {metadata.traits.map((trait, index) => {
-            return <li key={`trait` + index}>{trait.name}</li>;
+            return (
+              <>
+                <li key={`trait` + index}>{index + 1 + '. ' + trait.name}</li>
+              </>
+            );
           })}
         </ul>
         <div className="upgraded-card-traits-close-btn" onClick={handleClose}>
