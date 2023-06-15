@@ -17,7 +17,10 @@ const Card = ({ metadata, traitTypes, horizontalPadding = 20, apiUrl }) => {
           {metadata.traits.map((trait, index) => {
             return (
               <>
-                <li key={`trait` + index}>{index + 1 + '. ' + trait.name}</li>
+                <li key={`trait` + index} style={{ display: 'flex' }}>
+                  <div style={{ width: '25px' }}>{index + 1 + '. '}</div>{' '}
+                  {trait.name}
+                </li>
               </>
             );
           })}
