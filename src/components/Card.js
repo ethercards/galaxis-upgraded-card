@@ -46,6 +46,7 @@ const Card = ({ metadata, traitTypes, horizontalPadding = 20, apiUrl }) => {
                   onMouseEnter={() => setIconsVisible(!areTraitIconsVisible)}
                   onClick={(e) => {
                     e.stopPropagation();
+                    console.log(e, 'Stop propagation');
                     setTraitsVisible(!areTraitsVisible);
                   }}
                 >

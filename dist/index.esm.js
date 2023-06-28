@@ -1,55 +1,5 @@
 import React, { useState } from 'react';
 
-function _iterableToArrayLimit(arr, i) {
-  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
-  if (null != _i) {
-    var _s,
-      _e,
-      _x,
-      _r,
-      _arr = [],
-      _n = !0,
-      _d = !1;
-    try {
-      if (_x = (_i = _i.call(arr)).next, 0 === i) {
-        if (Object(_i) !== _i) return;
-        _n = !1;
-      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
-    } catch (err) {
-      _d = !0, _e = err;
-    } finally {
-      try {
-        if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return;
-      } finally {
-        if (_d) throw _e;
-      }
-    }
-    return _arr;
-  }
-}
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-  return arr2;
-}
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -82,31 +32,27 @@ styleInject(css_248z);
 
 var img = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='13.622' height='13.622' viewBox='0 0 13.622 13.622'%3e %3cg id='Group_3436' data-name='Group 3436' transform='translate(-577.293 -681.227)'%3e %3cline id='Line_1' data-name='Line 1' x2='11.394' y2='11.394' transform='translate(578.407 682.31)' fill='none' stroke='%23fffcfc' stroke-width='2'/%3e %3cline id='Line_2' data-name='Line 2' y1='12.208' x2='12.208' transform='translate(578 681.935)' fill='none' stroke='%23fffcfc' stroke-width='2'/%3e %3c/g%3e%3c/svg%3e";
 
-var Card = function Card(_ref) {
-  var metadata = _ref.metadata;
-    _ref.traitTypes;
-    _ref.horizontalPadding;
-    _ref.apiUrl;
-  var _useState = useState(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    areTraitsVisible = _useState2[0],
-    setTraitsVisible = _useState2[1];
-  var _useState3 = useState(false),
-    _useState4 = _slicedToArray(_useState3, 2),
-    areTraitIconsVisible = _useState4[0],
-    setIconsVisible = _useState4[1];
-  var handleClose = function handleClose() {
+const Card = _ref => {
+  let {
+    metadata,
+    traitTypes,
+    horizontalPadding = 20,
+    apiUrl
+  } = _ref;
+  const [areTraitsVisible, setTraitsVisible] = useState(false);
+  const [areTraitIconsVisible, setIconsVisible] = useState(false);
+  const handleClose = () => {
     setTraitsVisible(false);
   };
-  var renderTraits = function renderTraits() {
+  const renderTraits = () => {
     return /*#__PURE__*/React.createElement("div", {
       className: "upgraded-card-traits-panel",
       style: {
         opacity: areTraitsVisible ? 1 : 0
       }
-    }, /*#__PURE__*/React.createElement("ul", null, metadata.traits.map(function (trait, index) {
+    }, /*#__PURE__*/React.createElement("ul", null, metadata.traits.map((trait, index) => {
       return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("li", {
-        key: "trait" + index,
+        key: `trait` + index,
         style: {
           display: 'flex'
         }
@@ -129,16 +75,15 @@ var Card = function Card(_ref) {
     src: metadata.image
   }), metadata.traits && !areTraitsVisible && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "upgraded-card-traits",
-    onMouseEnter: function onMouseEnter() {
-      return setIconsVisible(!areTraitIconsVisible);
-    },
-    onClick: function onClick(e) {
+    onMouseEnter: () => setIconsVisible(!areTraitIconsVisible),
+    onClick: e => {
       e.stopPropagation();
+      console.log(e, 'Stop propagation');
       setTraitsVisible(!areTraitsVisible);
     }
   }, /*#__PURE__*/React.createElement("p", null, metadata.traits.length)), /*#__PURE__*/React.createElement("div", {
     className: "upgraded-card-trait-icons-container"
-  }, metadata.traits.map(function (trait) {
+  }, metadata.traits.map(trait => {
     return /*#__PURE__*/React.createElement("div", {
       className: "upgraded-card-trait-icon "
     }, /*#__PURE__*/React.createElement("img", {
