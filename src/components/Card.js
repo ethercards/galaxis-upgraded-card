@@ -3,6 +3,7 @@ import './Card.css';
 import closeBtn from '../assets/images/close.svg';
 const Card = ({ metadata, traitTypes, horizontalPadding = 20, apiUrl }) => {
   const [areTraitsVisible, setTraitsVisible] = useState(false);
+  const [areTraitIconsVisible, setIconsVisible] = useState(false);
   const handleClose = () => {
     setTraitsVisible(false);
   };
@@ -39,12 +40,27 @@ const Card = ({ metadata, traitTypes, horizontalPadding = 20, apiUrl }) => {
           <div className="upgraded-card">
             <img className="upgraded-card-img" src={metadata.image} />
             {metadata.traits && !areTraitsVisible && (
-              <div
-                className="upgraded-card-traits"
-                onClick={() => setTraitsVisible(!areTraitsVisible)}
-              >
-                <p>{metadata.traits.length}</p>
-              </div>
+              <>
+                <div
+                  className="upgraded-card-traits"
+                  onMouseEnter={() => setIconsVisible(!areTraitIconsVisible)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setTraitsVisible(!areTraitsVisible);
+                  }}
+                >
+                  <p>{metadata.traits.length}</p>
+                </div>
+                <div className="upgraded-card-trait-icons-container">
+                  {metadata.traits.map((trait) => {
+                    return (
+                      <div className="upgraded-card-trait-icon ">
+                        <img src={trait.icon_url} />
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
             )}
             {metadata.traits && renderTraits()}
           </div>

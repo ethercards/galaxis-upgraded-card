@@ -75,3 +75,21 @@
   filter: invert(37%) sepia(50%) saturate(5507%) hue-rotate(316deg)
     brightness(99%) contrast(105%);
 }
+.upgraded-card-trait-icons-container {
+  position: absolute;
+  top: 65px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.upgraded-card-trait-icon {
+  width: 45px;
+  height: 45px;
+  margin-top: 15px;
+  background-color: #ff2c85;
+  border-radius: 5px;
+}
+.upgraded-card-trait-icon img {
+  max-width: 80%;
+  max-height: 80%;
+}
